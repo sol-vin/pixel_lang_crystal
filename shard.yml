@@ -1,0 +1,17 @@
+name: pixel_lang_crystal
+version: 0.1.0
+
+authors:
+  - Ian Rash <redcodefinal@gmail.com>
+
+dependencies:
+  stumpy_png:
+    github: l3kn/stumpy_png
+
+targets:
+  pixel_lang_crystal:
+    main: src/app.cr
+
+crystal: 0.22.0
+
+license: MIT
