@@ -26,9 +26,10 @@ abstract class Engine
   end
 
   def reset
+    @id = 0
     @cycles = 0_u32
     @output = ""
-    @to_merge = [] of PistonMerge
+    @to_merge = [] of Tuple(Int32, Piston)
     @pistons = [] of Piston
     @memory = Hash(C20, C20).new(C20.new)
     @input = @original_input.clone
@@ -36,7 +37,7 @@ abstract class Engine
 
     @instructions = Instructions.new image_file    
     @instructions.start_points.each do |sp|
-      @pistons << Piston.new(self, sp.x, sp.y, sp.p.direction)
+      @pistons << Piston.new(self, sp[:x], sp[:y], sp[:direction], sp[:priority])
     end
     @runs += 1
   end
@@ -57,11 +58,7 @@ abstract class Engine
     # after instructions are ran
     @to_merge.each do |merge|
       piston_index = pistons.find_index { |piston| piston.id == merge.piston.id }
-      # sort pistons based on turn direction
-      if merge.direction == :left
-        pistons.insert(piston_index, merge.new_piston)
-      elsif merge.direction == :right
-        pistons.insert(piston_index + 1, merge.new_piston)
+      pistons.insert(piston_index, merge.new_piston)
       end
     end
     @to_merge.clear
@@ -72,19 +69,8 @@ abstract class Engine
   end
 
     # forks a piston in a specific direction
-  def fork(piston, turn_direction)
-    new_piston = piston.clone
-
-    if turn_direction == :left
-      new_piston.turn_left
-    elsif turn_direction == :right
-      new_piston.turn_right
-    elsif turn_direction == :reverse
-      new_piston.reverse
-    end
-    new_piston.move 1
-
-    @to_merge << PistonMerge.new(piston, turn_direction, new_piston)
+  def merge(piston_id, new_piston)
+    @to_merge << {piston_id, new_piston}
   end
 
   def priority_changed(piston)
@@ -92,7 +78,7 @@ abstract class Engine
     @pistons.delete(piston)
     #find the first piston whose priority is lower
     p = @pistons.find {|p| p.priority <= piston.priority}
-    @to_merge << {old_piston: p, new_piston: piston, direction: :left}
+    @to_merge << {p.id, piston}
   end
 
   def kill

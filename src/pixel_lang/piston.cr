@@ -59,8 +59,8 @@ class Piston
   # Output options for register O
   OUTPUT_D_OPTIONS =  [:int, :char, :int_hex, :char_hex]
 
-  def initialize(@parent, @position_x, @position_y, @direction, @priority)
-    @id = parent.make_id
+  def initialize(@engine, @position_x, @position_y, @direction, @priority)
+    @id = engine.make_id
     reset
   end
 
@@ -318,5 +318,17 @@ class Piston
     end
 
     new_piston
+  end
+
+  def do_math(s1, s1op, op, s2, s2op) : C20
+    v1 = get(s1, s1op)
+    v2 = get(s2, s2op)
+
+    case op
+      {% for o in Constants::OPERATIONS %}
+        when {{o}}
+          v1 {{o.id}} v2
+      {% end %}
+    end
   end
 end

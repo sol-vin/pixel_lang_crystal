@@ -1,3 +1,3 @@
-require "./pixel_lang"
+require "./pixel_lang/c24"
+puts(C24.new(0) - C24.new(10))
 
-puts C20.new(30)

@@ -24,8 +24,8 @@ class LiveEngine < Engine
     int = nil
 
     if input.length.zero?
-      until int and int.to_s =~ /^[0-9]+$/
-        int = gets("#{int.nil? ? '' : ?!}#:").chomp
+      until int && int.to_s =~ /^[0-9]+$/
+        int = gets("#{int.nil? ? "" : "!"}#:").chomp
       end
     else
       super

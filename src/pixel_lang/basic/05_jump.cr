@@ -24,12 +24,7 @@ class Jump < Instruction
     piston.move spaces
   end
 
-  def initialize(value : UInt32)
-    super value
-    @value.add_mask(:spaces, VALUE_BITS, VALUE_BITSHIFT)
-  end
-
   def run(piston)
-    self.class.run(piston, values[:spaces]+1)
+    self.class.run(piston, values[:value]+1)
   end
 end

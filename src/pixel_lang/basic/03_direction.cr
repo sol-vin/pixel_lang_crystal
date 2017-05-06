@@ -2,9 +2,6 @@ require './../instruction'
 require './../piston'
 
 class Direction < Instruction
-  DIRECTION_BITS = 3
-  DIRECTION_BITSHIFT = 0
-
   DIRECTIONS = Piston::DIRECTIONS + [:turn_left, :turn_right, :reverse, :random]
 
   def self.control_code
@@ -46,12 +43,7 @@ class Direction < Instruction
     end
   end
 
-  def initialize(value : UInt32)
-    super value
-    @value.add_mask(:direction, DIRECTION_BITS, DIRECTION_BITSHIFT)
-  end
-
   def run(piston)
-    self.class.run(piston, DIRECTIONS[value[:direction]])
+    self.class.run(piston, DIRECTIONS[value[:direction] % DIRECTIONS.size])
   end
 end

@@ -22,7 +22,7 @@ class AutoEngine < Engine
   def grab_input_number
     # ''.to_i is equal to 0
     i = "0"
-    while input.length != 0 and ('0'..'9').include?(input[0])
+    while input.length != 0 && ('0'..'9').include?(input[0])
       i << @input.slice!(0)
     end
     C20.new(i.to_i)

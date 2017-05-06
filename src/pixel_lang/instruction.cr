@@ -1,7 +1,6 @@
-require "./bitmask_hash"
 require "./c24"
 
-class Instruction
+abstract class Instruction
   LOGICAL_FALSE = 0
   LOGICAL_TRUE = 1
 
@@ -11,14 +10,10 @@ class Instruction
   VALUE_BITS = 20
   VALUE_BITSHIFT = 0
 
-  VALUE_MAX = 0x100000
-
-  def self.control_code : Int32
-    -1
-  end
+  abstract def self.control_code : Int32
 
   def self.match(c24 : C24) : Bool
-    CONTROL_CODE == c24[:control_code]
+    control_code == c24[:control_code]
   end
 
   getter value : C24

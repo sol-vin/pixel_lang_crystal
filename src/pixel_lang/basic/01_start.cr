@@ -24,7 +24,7 @@ class Start < Instruction
   end
 
   def self.make_color(direction, priority)
-    direction_bits = Piston::DIRECTIONS.index(direction)) << DIRECTION_BITSHIFT
+    direction_bits = Piston::DIRECTIONS.index(direction) << DIRECTION_BITSHIFT
 
     if priority > PRIORITY_BITMASK
       fail "Priority #{priority.to_s 16} cannot be higher than #{PRIORITY_BITMASK} or #{PRIORITY_BITMASK.to_s 16}"

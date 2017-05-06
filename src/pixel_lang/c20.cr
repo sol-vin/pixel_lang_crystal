@@ -1,3 +1,6 @@
+require "./bitmask"
+require "./bitmask_hash"
+require "./constants"
 struct C20
   # min byte
   MIN = 0_u32
@@ -13,7 +16,7 @@ struct C20
   # set the value and roll it over or backwards based on the result.
   def value=(x : Int)
     if x < 0
-      x = (MAX - (x.abs % MAX) + 1) 
+      x = (MAX - (x.abs % MAX)) 
     end
     
     @value = x.to_u32 % MAX
@@ -37,8 +40,8 @@ struct C20
     "0x" + (to_u32 % 0x100).to_s(16).rjust(2, '0')
   end
 
-  def to_s(n) : String
-    value.to_s(n)
+  def to_s : String
+    value.to_s
   end
 
   def eql?(other : C20)
@@ -49,19 +52,18 @@ struct C20
     self.value == other
   end
 
-    
-  {% for op in Arithmetic::OPERATIONS %}
-    #C20 op C20
+  {% for op in Constants::OPERATIONS %}
+    #C24 op C24
     def {{op.id}}(other : C20) : C20
       new_value = self.value {{op.id}} other.value
-      new_value = (new_value ? Instruction::LOGICAL_TRUE : Instruction::LOGICAL_FALSE) if new_value.is_a? Bool
+      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C20.new(new_value)
     end
     
-    #C20 op Int
+    #C24 op Int
     def {{op.id}}(other : Int) : C20
       new_value = self.value {{op.id}} other
-      new_value = (new_value ? Instruction::LOGICAL_TRUE : Instruction::LOGICAL_FALSE) if new_value.is_a? Bool
+      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C20.new(new_value.to_i)
     end
   {% end %}

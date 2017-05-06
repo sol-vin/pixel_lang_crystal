@@ -27,13 +27,8 @@ class Pause < Instruction
   def self.run(piston, cycles)
     piston.pause cycles
   end
-
-  def initialize(value : UInt32)
-    super value
-    @value.add_mask(:cycles, COLOR_VALUE_BITS, COLOR_VALUE_BITSHIFT)
-  end
-
+  
   def run(piston)
-    self.class.run(piston, cycles)
+    self.class.run(piston, value[:value])
   end
 end
