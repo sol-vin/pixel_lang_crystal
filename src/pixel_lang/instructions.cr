@@ -18,6 +18,14 @@ class Instructions
     Instruction.find_instruction(c24).new(c24)
   end
 
+  def []=(x, y, v : Instruction)
+    @image[x, y] = StumpyCore::RGBA.from_rgb8(v.value.r, v.value.g, v.value.b)
+  end
+
+  def []=(x, y, c24 : C24)
+    @image[x, y] = StumpyCore::RGBA.from_rgb8(c24.r, c24.g, c24.b)
+  end
+
   def start_points : Array(StartPoint)
     a = [] of StartPoint
     (0...@image.width).each do |x|

@@ -17,8 +17,8 @@ struct C24
 
   def self.from_rgb8(rgb8)
     value = 0
-    value += rgb8[0] >> 16
-    value += rgb8[1] >> 8
+    value += (rgb8[0].to_u32 << 16)
+    value += (rgb8[1].to_u32 << 8)
     value += rgb8[2]
     C24.new(value)
   end
@@ -42,17 +42,17 @@ struct C24
 
   # get the top byte (red)
   def r : UInt8
-    (value & 0xff0000) >> 16
+    ((value & 0xff0000) >> 16).to_u8
   end
 
   # get the middle byte (green)
   def g : UInt8
-    (value & 0x00ff00) >> 8
+    ((value & 0x00ff00) >> 8).to_u8
   end
 
   # get the bottom byte (blue)
   def b : UInt8
-    (value & 0x0000ff)
+    (value & 0x0000ff).to_u8
   end
 
   # set the top byte (red)

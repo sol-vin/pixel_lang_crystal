@@ -45,10 +45,86 @@ describe C24 do
     c.value.should eq(0)
   end
 
-    it "should roll value under" do
+  it "should roll value under" do
     C24.new(-1).value.should eq(C24::MAX-1)
     c = C24.new(0)
     c -= 1
     c.value.should eq(C24::MAX-1)
+  end
+
+  it "should provide bitmask get" do
+    c = C24.new(0)
+    c[:value].should eq(0)
+
+    c = C24.new(100)
+    c[:value].should eq(100)
+  end
+
+  it "should provide bitmask set" do
+    c = C24.new(0)
+    c[:value].should eq(0)
+    c[:value] = 100_u32
+    c[:value].should eq(100)
+
+    c.add_mask(:upper_10, 10, 10)
+    c.add_mask(:lower_10, 10, 0)
+
+    c[:upper_10].should eq(0)
+    c[:lower_10].should eq(100)
+    
+    c[:upper_10] = 1_u32
+    c[:upper_10].should eq(1)
+
+    c[:upper_10] = 0_u32
+    c[:upper_10].should eq(0)
+
+    c[:upper_10] = 10_u32
+    c[:upper_10].should eq(10)
+
+    c[:upper_10] = 1_u32
+    c[:upper_10] = 43_u32
+    c[:upper_10].should eq(43)
+
+    c[:upper_10] = 128_u32
+    c[:upper_10].should eq(128)
+
+    c[:lower_10] = 1_u32
+    c[:lower_10].should eq(1)
+    
+    c[:lower_10] = 3_u32
+    c[:lower_10].should eq(3)
+
+    c[:lower_10] = 100_u32
+    c[:lower_10].should eq(100)
+
+    c[:lower_10] = 345_u32
+    c[:lower_10].should eq(345)
+
+    c[:lower_10] = 1000_u32
+    c[:lower_10].should eq(1000)
+
+    c[:upper_10] = 45_u32
+    c[:lower_10] = 99_u32
+    c[:lower_10].should eq(99)
+
+    c[:upper_10] = 145_u32
+    c[:lower_10] = 99_u32
+    c[:lower_10].should eq(99)
+
+    c[:upper_10] = 1003_u32
+    c[:lower_10] = 99_u32
+    c[:lower_10].should eq(99)
+
+    c[:lower_10] = 45_u32
+    c[:upper_10] = 99_u32
+    c[:upper_10].should eq(99)
+
+    c[:lower_10] = 145_u32
+    c[:upper_10] = 99_u32
+    c[:upper_10].should eq(99)
+
+    c[:lower_10] = 1003_u32
+    c[:upper_10] = 99_u32
+    c[:upper_10].should eq(99)
   end
 end

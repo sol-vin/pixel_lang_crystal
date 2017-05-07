@@ -8,4 +8,8 @@ struct Bitmask
   def mask
     (2**bits - 1) << shift
   end
+
+  def max
+    0x1 << bits
+  end
 end

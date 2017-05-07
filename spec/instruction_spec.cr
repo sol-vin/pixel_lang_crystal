@@ -17,4 +17,40 @@ describe Instructions do
     Instruction.find_instruction(C24.new(0xB00000)).should eq(OutputChar)
     Instruction.find_instruction(C24.new(0xF00000)).should eq(Blank)
   end
+
+  it "should correctly instanciate instructions from find_instruction" do
+    end_c24 = C24.new(0x000000)
+    end_int = Instruction.find_instruction(end_c24).new end_c24
+    end_int.value[:control_code].should eq(0)
+
+    start_c24 = C24.new(0x100000)
+    start_int = Instruction.find_instruction(start_c24).new start_c24
+    start_int.value[:control_code].should eq(1)
+    start_int.value[:direction].should eq(0)
+    start_int.value[:priority].should eq(0)
+
+    start_c24 = C24.new(0x100020)
+    start_int = Instruction.find_instruction(start_c24).new start_c24
+    start_int.value[:control_code].should eq(1)
+    start_int.value[:direction].should eq(0)
+    start_int.value[:priority].should eq(0x20)
+
+  end
+  
+  it "should correctly store/read instructions" do
+    i = Instructions.new(3, 1)
+    i[0,0].value.value.should eq(0xFFFFFF)
+    i[0,0].is_a?(Blank).should eq(true)
+    i[0,0].value[:control_code].should eq(0xF)
+    i[0,0] = Start.new(C24.new(0x100000))
+    i[0,0].value[:direction] = 1_u32
+    
+    i[1,0] = OutputChar.new(C24.new(0xB00042))
+
+    i[2,0] = End.new(C24.new(0x0))
+
+    i[0,0].is_a?(Start).should eq(true)
+    i[1,0].is_a?(OutputChar).should eq(true)
+    i[2,0].is_a?(End).should eq(true)
+  end
 end

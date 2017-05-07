@@ -37,8 +37,7 @@ class Start < Instruction
     piston.change_direction(direction)
   end
 
-  def initialize(value : C24)
-    super value
+  def initialize(@value : C24)
     @value.add_mask(:direction, DIRECTION_BITS, DIRECTION_BITSHIFT)
     @value.add_mask(:priority, PRIORITY_BITS, PRIORITY_BITSHIFT)
   end
