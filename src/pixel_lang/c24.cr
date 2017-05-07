@@ -3,15 +3,32 @@ require "./bitmask_hash"
 require "./constants"
 # Custom color class that will roll over 24-bit ints.
 struct C24
+  include BitmaskHash
   # min byte
   MIN = 0_u32
   # max byte
   MAX = 0x1000000_u32
 
+  CONTROL_CODE_BITS = 4
+  CONTROL_CODE_BITSHIFT = 20
+
+  VALUE_BITS = 20
+  VALUE_BITSHIFT = 0
+
+  def self.from_rgb8(rgb8)
+    value = 0
+    value += rgb8[0] >> 16
+    value += rgb8[1] >> 8
+    value += rgb8[2]
+    C24.new(value)
+  end
+
   getter value : UInt32 = 0_u32
 
-  def initialize(value : Int)
+  def initialize(value : Int = 0)
     self.value = value
+    add_mask(:control_code, CONTROL_CODE_BITS, CONTROL_CODE_BITSHIFT)
+    add_mask(:value, VALUE_BITS, VALUE_BITSHIFT)
   end
 
   # set the value and roll it over or backwards based on the result.
@@ -62,7 +79,7 @@ struct C24
 
   # outputs a hexadecimal value prefixed with 0x (0xffffff)
   def to_int_hex : String
-    "0x" + to_u32.to_s(16).rjust(5, '0')
+    "0x" + to_u32.to_s(16).rjust(6, '0')
   end
 
   def to_c : Char

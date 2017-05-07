@@ -1,5 +1,5 @@
-require_relative './../instruction'
-require_relative './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Blank < Instruction
   def self.control_code : Int32

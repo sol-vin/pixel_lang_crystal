@@ -1,32 +1,35 @@
 abstract class Engine
   OUTPUT_OPTIONS = [:int, :char, :int_hex, :char_hex]
 
-  getter pistons : Array(Piston)
-  getter instructions : Instructions
-  getter output : String
-  getter cycles : UInt32
+  getter pistons : Array(Piston) = [] of Piston
+  getter instructions : Instructions = Instructions.new(1,1)
+  getter output : String = ""
+  getter cycles : UInt32 = 0_u32
   #TODO: Log?
 
+  getter id : UInt32 = 0_u32
   getter name : String
-  getter runs : UInt32
-  getter memory : Hash(C20, C20)
-  getter input : String
-  getter last_output : C20
+  getter runs : UInt32 = 0_u32
+  getter memory : Hash(C20, C20) = {} of C20 => C20
+  getter input : String = ""
+  getter last_output : C20 = C20.new(0)
 
   abstract def write_output(item : C20, option : Symbol)
   abstract def grab_input_char : C20
   abstract def grab_input_number : C20
 
-  def initialize(image_file, @input = "")
-    @original_input = input.clone
+  def initialize(image_file : String, @original_input = "")
     @name = image_file.split('/').last.split('.').first
-    @runs = 0
-    @original_image_file = image_file
+    @original_instructions = Instructions.new(image_file)
+    reset # start the machine
+  end
+
+  def initialize(@name : String, @original_instructions : Instructions, @original_input = "")
     reset # start the machine
   end
 
   def reset
-    @id = 0
+    @id = 0_u32
     @cycles = 0_u32
     @output = ""
     @to_merge = [] of Tuple(Int32, Piston)
@@ -35,7 +38,7 @@ abstract class Engine
     @input = @original_input.clone
     @last_output = C20.new
 
-    @instructions = Instructions.new image_file    
+    @instructions = @original_instructions.dup  
     @instructions.start_points.each do |sp|
       @pistons << Piston.new(self, sp[:x], sp[:y], sp[:direction], sp[:priority])
     end
@@ -52,14 +55,40 @@ abstract class Engine
     # don't run if the machine has already ended.
     return if ended?
     # run an instruction on all pistons.
-    pistons.each(&.run_one_instruction)
+    @pistons.each do |p|
+      if p.paused?
+        p.pause_cycle
+      else
+        instruction = instructions.get_instruction(p.position_x, p.position_y)
+
+        unless instruction
+          fail "AT POSITION #{p.position_x}   #{p.position_y}"
+        end
+
+        instruction.run(p)
+
+        #move unless we called recently.
+        p.move 1 unless instruction.class == Call
+        #wrap the reader around if it moves off screen.
+        if p.position_x < 0
+          p.position_x = instructions.width - (p.position_x.abs % instructions.width)
+        else
+          p.position_x %= instructions.width
+        end
+
+        if p.position_y < 0
+          p.position_y = instructions.height - (p.position_y.abs % instructions.height)
+        else
+          p.position_y %= instructions.height
+        end
+      end
+    end
     # merge pistons
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran
     @to_merge.each do |merge|
       piston_index = pistons.find_index { |piston| piston.id == merge.piston.id }
       pistons.insert(piston_index, merge.new_piston)
-      end
     end
     @to_merge.clear
 

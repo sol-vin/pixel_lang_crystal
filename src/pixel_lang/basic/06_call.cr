@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Call < Instruction
   def self.control_code
@@ -47,7 +47,7 @@ class Call < Instruction
     piston.call(x, y)
   end
 
-  def initialize(value : UInt32)
+  def initialize(value : C24)
     super value
     @value.add_mask(:x_sign, X_SIGN_BITS, X_SIGN_BITSHIFT)
     @value.add_mask(:x, X_BITS, X_BITSHIFT)

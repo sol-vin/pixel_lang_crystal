@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class End < Instruction
   def self.control_code

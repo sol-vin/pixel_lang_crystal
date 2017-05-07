@@ -1,16 +1,16 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Fork < Instruction
   DECISIONS = {
-    up: -> p {p.change_direction(:up)},
-    down: -> p {p.change_direction(:down)},
-    left: -> p {p.change_direction(:left)},
-    right: -> p {p.change_direction(:right)},
-    turn_left: -> p {p.turn_left},
-    turn_right: -> p {p.turn_right},
-    reverse: -> p {p.reverse},
-    random: -> p {p.change_direction Piston::DIRECTIONS.sample}
+    :up => ->(p : Piston){p.change_direction(:up)},
+    :down => ->(p : Piston){p.change_direction(:down)},
+    :left => ->(p : Piston){p.change_direction(:left)},
+    :right => ->(p : Piston){p.change_direction(:right)},
+    :turn_left => ->(p : Piston){p.change_direction(:turn_left)},
+    :turn_right => ->(p : Piston){p.change_direction(:turn_right)},
+    :reverse => ->(p : Piston){p.change_direction(:reverse)},
+    :random => ->(p : Piston){p.change_direction Piston::DIRECTIONS.sample}
   }
 
   DIRECTION_1_BITS = 3
@@ -63,7 +63,7 @@ class Fork < Instruction
     end
   end
 
-  def initialize(value : UInt32)
+  def initialize(value : C24)
     super value
     @value.add_mask(:direction_1, DIRECTION_1_BITS, DIRECTION_1_BITSHIFT)
     @value.add_mask(:direction_2, DIRECTION_2_BITS, DIRECTION_2_BITSHIFT)

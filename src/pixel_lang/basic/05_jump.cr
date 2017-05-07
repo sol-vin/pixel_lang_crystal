@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Jump < Instruction
   def self.control_code

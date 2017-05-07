@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Insert < Instruction
   def self.control_code
@@ -17,7 +17,7 @@ class Insert < Instruction
   end
 
   def self.make_color(value : Int)
-    ((control_code << CONTROL_CODE_BITSHIFT) + value % (C20::MAX).to_s 16
+    ((control_code << CONTROL_CODE_BITSHIFT) + value % (C20::MAX)).to_s 16
   end
 
   def self.run(piston, number)

@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Start < Instruction
   DIRECTION_BITS = 2
@@ -37,7 +37,7 @@ class Start < Instruction
     piston.change_direction(direction)
   end
 
-  def initialize(value : UInt32)
+  def initialize(value : C24)
     super value
     @value.add_mask(:direction, DIRECTION_BITS, DIRECTION_BITSHIFT)
     @value.add_mask(:priority, PRIORITY_BITS, PRIORITY_BITSHIFT)

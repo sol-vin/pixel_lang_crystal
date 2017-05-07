@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Move < Instruction
   def self.control_code
@@ -9,15 +9,15 @@ class Move < Instruction
   SOURCE_BITS = 3
   SOURCE_BITSHIFT = 17
 
-  SOURCE_OPTIONS_BITS = 2
-  SOURCE_OPTIONS_BITSHIFT = 15
+  SOURCE_OPTION_BITS = 2
+  SOURCE_OPTION_BITSHIFT = 15
 
 
   DESTINATION_BITS = 3
   DESTINATION_BITSHIFT = 12
 
-  DESTINATION_OPTIONS_BITS = 2
-  DESTINATION_OPTIONS_BITSHIFT = 10
+  DESTINATION_OPTION_BITS = 2
+  DESTINATION_OPTION_BITSHIFT = 10
 
   SWAP_BITS = 1
   SWAP_BITSHIFT = 9
@@ -69,6 +69,16 @@ class Move < Instruction
     else
       piston.set(d, piston.get(s, sop), dop)
     end
+  end
+
+  def initialize(value : C24)
+    super value
+    @value.add_mask(:s, SOURCE_BITS, SOURCE_BITSHIFT)
+    @value.add_mask(:sop, SOURCE_OPTION_BITS, SOURCE_OPTION_BITSHIFT)
+    @value.add_mask(:d, DESTINATION_BITS, DESTINATION_BITSHIFT)
+    @value.add_mask(:dop, DESTINATION_OPTION_BITS, DESTINATION_OPTION_BITSHIFT)
+    @value.add_mask(:swap, SWAP_BITS, SWAP_BITSHIFT)
+    @value.add_mask(:reverse, REVERSE_BITS, REVERSE_BITSHIFT)        
   end
 
   def run(piston)

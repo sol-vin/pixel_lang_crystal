@@ -7,8 +7,8 @@ module BitmaskHash
     bitmask = @masks[key]
     (value & bitmask.mask) >> bitmask.shift
   end
-  
-  def add_mask(name : Symbol, bits : UInt8, shift : UInt8)
-    @masks[name] = Bitmask.new(bits, shift)
+
+  def add_mask(name : Symbol, bits : Int, shift : Int)
+    @masks[name] = Bitmask.new(bits.to_u8, shift.to_u8)
   end
 end

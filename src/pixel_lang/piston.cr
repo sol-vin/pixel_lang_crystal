@@ -1,14 +1,14 @@
 class Piston
   getter engine : Engine
 
-  getter position_x : UInt32
-  getter position_y : UInt32
+  property position_x : UInt32
+  property position_y : UInt32
 
   getter direction : Symbol
-  getter memory : Hash(C20, C20)
+  getter memory : Hash(C20, C20) = {} of C20 => C20
 
   getter? paused : Bool = false
-  getter paused_counter : UInt32 = 0
+  getter paused_counter : UInt32 = 0_u32
 
   getter? ended : Bool = false
   getter id : UInt32
@@ -67,7 +67,6 @@ class Piston
   def reset
     #TODO: Test reset
     @memory = {} of C20 => C20
-    memory.default = 0
 
     @ma = C20.new 0
     @mb = C20.new 1
@@ -76,21 +75,19 @@ class Piston
   end
 
   def get(register, options)
-    case register
-      {% for r in REGISTERS %}
-        when {{r}}
-          get_{{r.id}}(options)
-      {% end %}
-    end
+    {% for r in REGISTERS %}
+      if register == {{r}}
+        get_{{r.id}}(options)
+      end  
+    {% end %}
   end
 
   def set(register, value, options)
-    case register
-      {% for r in REGISTERS %}
-        when {{r}}
-          set_{{r.id}}(value, options)
-      {% end %}
-    end
+    {% for r in REGISTERS %}
+      if register == {{r}}
+        set_{{r.id}}(value, options)
+      end  
+    {% end %}
   end
 
   {% for r in MEMORY_ADDRESS_REG %}
@@ -101,18 +98,6 @@ class Piston
           @{{r.id}}
         when :random_max
           C20.new rand(@{{r.id}}.value)
-        else
-          raise "Option does not exist!"
-      end
-    end
-   # TODO: REMOVE ALL Int VERSIONS!
-    def set_{{r.id}}(v : Int, options)
-      option = REGULAR_REG_D_OPTIONS[options]
-      case option
-        when :none
-          @{{r.id}} = C20.new(v)
-        when :random_max
-          @{{r.id}} = C20.new(rand(v))
         else
           raise "Option does not exist!"
       end
@@ -144,18 +129,6 @@ class Piston
       end
     end
 
-    def set_{{r.id}}v(v : Int, options)
-      option = REGULAR_REG_D_OPTIONS[options]
-      case option
-        when :none
-          @memory[@{{r.id}}] = C20.new v
-        when :random_max
-          @memory[@{{r.id}}] = C20.new rand(v)
-        else
-          raise "Option does not exist!"
-      end
-    end
-
     def set_{{r.id}}v(v : C20, options)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
@@ -181,18 +154,6 @@ class Piston
     end
   end
 
-  def set_sv(v : Int, options)
-    option = REGULAR_REG_D_OPTIONS[options]
-    case option
-      when :none
-        engine.memory[@s] = C20.new v
-      when :random_max
-        engine.memory[@s] = C20.new rand(v)
-      else
-        fail
-    end
-  end
-
   def set_sv(v : C20, options)
     option = REGULAR_REG_D_OPTIONS[options]
     case option
@@ -211,12 +172,12 @@ class Piston
     if @i.empty?
       return case code
         when :int
-          parent.grab_input_number
+          engine.grab_input_number
         when :char
-          parent.grab_input_char
+          engine.grab_input_char
         when :no_pop_int
           x = 0
-          total = ''
+          total = ""
           while x < engine.input.length and ('0'..'9').include?(engine.input[x])
             total << engine.input[x]
           end
@@ -237,23 +198,6 @@ class Piston
         @i.last
       when :no_pop_char
         @i.last % 0x100
-      else
-        fail
-    end
-  end
-
-  def set_i(v : Int, options)
-    code = INPUT_D_OPTIONS[options]
-
-    case code
-      when :int
-        @i << C20.new v
-      when :char
-        @i << C20.new(v % 0x100)
-      when :null
-        # Throw the value away
-      when :random_max
-        @i << C20.new rand(v)
       else
         fail
     end
@@ -292,11 +236,6 @@ class Piston
     end
   end
 
-  def set_o(v : Int, options)
-    code = OUTPUT_D_OPTIONS[options]
-    engine.write_output(C20.new(v), code)
-  end
-
   def set_o(v : C20, options)
     code = OUTPUT_D_OPTIONS[options]
     engine.write_output(v, code)
@@ -324,11 +263,79 @@ class Piston
     v1 = get(s1, s1op)
     v2 = get(s2, s2op)
 
-    case op
-      {% for o in Constants::OPERATIONS %}
-        when {{o}}
-          v1 {{o.id}} v2
-      {% end %}
+    {% for o in Constants::OPERATIONS %}
+      if op == {{o}} 
+        v1 {{o.id}} v2
+      end  
+    {% end %}
+  end
+
+  def change_directions(d)
+    if DIRECTIONS.include? d
+      @direction = d
+    elsif d == :turn_right
+      index = DIRECTIONS.index(@direction) + 1
+      index = 0 if index >= DIRECTIONS.length
+      change_direction(DIRECTIONS[index])
+    elsif d == :turn_left  
+      index = DIRECTIONS.index(@direction) - 1
+      index = DIRECTIONS.length-1 if index < 0
+      change_direction(DIRECTIONS[index])
+    elsif d == :reverse
+      change_direction :turn_left
+      change_direction :turn_left  
+    elsif d == :random
+      change_direction DIRECTIONS.sample
+    else         
+      fail
     end
+  end
+
+  # moves the instruction cursor amount units in a direction
+  def move(amount)
+    case direction
+      when :up
+        @position_y -= amount
+      when :down
+        @position_y += amount
+      when :left
+        @position_x -= amount
+      when :right
+        @position_x += amount      
+      else
+        throw ArgumentError.new
+    end
+  end
+
+  # jumps to a relative position
+  def call(x, y)
+    @position_x += x
+    @position_y += y
+  end
+
+  # pauses the piston for a certain amount of cycles
+  def pause(cycles)
+    @paused = true
+    @paused_counter = cycles
+  end
+
+  # unpause the piston
+  def unpause
+    @paused = false
+    @paused_counter = 0
+  end
+
+  def pause_cycle
+    if paused?
+      @paused_counter -= 1
+      if @paused_counter <= 0
+        unpause
+      end
+    end
+  end  
+
+  # kill the piston
+  def kill
+    @ended = true
   end
 end

@@ -9,7 +9,7 @@ struct C20
 
   getter value : UInt32 = 0_u32
 
-  def initialize(value : Int)
+  def initialize(value : Int = 0)
     self.value = value
   end
 

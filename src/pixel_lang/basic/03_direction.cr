@@ -1,5 +1,5 @@
-require './../instruction'
-require './../piston'
+require "./../instruction"
+require "./../piston"
 
 class Direction < Instruction
   DIRECTIONS = Piston::DIRECTIONS + [:turn_left, :turn_right, :reverse, :random]
@@ -25,21 +25,10 @@ class Direction < Instruction
   end
 
   def self.run(piston, direction)
-    if Piston::DIRECTIONS.include? direction
+    if direction != :random
       piston.change_direction(direction)
-    elsif DIRECTIONS.include? direction
-      case direction
-        when :turn_left
-          piston.turn_left
-        when :turn_right
-          piston.turn_right
-        when :reverse
-          piston.reverse
-        when :random
-          piston.change_direction Piston::DIRECTIONS.sample
-      end
     else
-      fail
+      piston.change_direction Piston::DIRECTIONS.sample
     end
   end
 

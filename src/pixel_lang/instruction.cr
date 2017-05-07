@@ -1,16 +1,27 @@
 require "./c24"
 
-abstract class Instruction
-  LOGICAL_FALSE = 0
-  LOGICAL_TRUE = 1
+class Instruction
+  @@instructions = [] of self.class
 
-  CONTROL_CODE_BITS = 4
-  CONTROL_CODE_BITSHIFT = 20
+  def self.instructions
+    @@instructions
+  end
 
-  VALUE_BITS = 20
-  VALUE_BITSHIFT = 0
+  def self.find_instruction(c24)
+    i = instructions.find {|i| i.match c24 }
+    if i.nil?
+      fail "INSTRUCTION NOT FOUND #{c24.to_int_hex}"
+    end
+    i.as(Instruction.class)
+  end
+  
+  macro inherited
+    Instruction.instructions << {{@type}}
+  end
 
-  abstract def self.control_code : Int32
+  def self.control_code : Int32
+    -1
+  end
 
   def self.match(c24 : C24) : Bool
     control_code == c24[:control_code]
@@ -18,10 +29,7 @@ abstract class Instruction
 
   getter value : C24
 
-  def initialize(value : UInt32)
-    @value = C24.new value
-    @value.add_mask(:control_code, CONTROL_CODE_BITS, CONTROL_CODE_BITSHIFT)
-    @value.add_mask(:value, VALUE_BITS, VALUE_BITSHIFT)
+  def initialize(@value : C24)
   end
 
   def run(piston)

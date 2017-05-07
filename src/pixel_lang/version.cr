@@ -1,3 +1,3 @@
-module PixelLangCrystal/
+module PixelLang
   VERSION = "0.1.0"
 end
