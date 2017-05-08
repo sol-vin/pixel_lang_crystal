@@ -51,6 +51,17 @@ describe Instructions do
 
     i[0,0].is_a?(Start).should eq(true)
     i[1,0].is_a?(OutputChar).should eq(true)
+    i[1,0].value[:value].should eq(0x42)
     i[2,0].is_a?(End).should eq(true)
+
+    c = StumpyCore::Canvas.new(3, 1)
+    i.each do |x, y, i|
+      c[x, y] = StumpyCore::RGBA.from_rgb8(i.value.r, i.value.g, i.value.b)
+    end
+
+    i2 = Instructions.new(c)
+    i2[0,0].is_a?(Start).should eq(true)
+    i2[1,0].is_a?(OutputChar).should eq(true)
+    i2[2,0].is_a?(End).should eq(true)
   end
 end

@@ -56,8 +56,8 @@ class Call < Instruction
   end
 
   def run(piston)
-    x = ((value[:x_sign] == 0) ? value[:x] : -value[:x])
-    y = ((value[:y_sign] == 0) ? value[:y] : -value[:y])
+    x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
+    y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
     
     self.class.run(piston, x, y)
   end

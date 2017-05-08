@@ -14,6 +14,9 @@ class Instruction
     end
     i.as(Instruction.class)
   end
+
+  def self.run(piston)
+  end
   
   macro inherited
     Instruction.instructions << {{@type}}

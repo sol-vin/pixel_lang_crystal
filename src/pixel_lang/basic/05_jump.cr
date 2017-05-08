@@ -25,6 +25,6 @@ class Jump < Instruction
   end
 
   def run(piston)
-    self.class.run(piston, values[:value]+1)
+    self.class.run(piston, value[:value]+1)
   end
 end

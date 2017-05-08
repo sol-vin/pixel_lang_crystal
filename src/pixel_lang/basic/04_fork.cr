@@ -58,9 +58,21 @@ class Fork < Instruction
   def self.run(piston, direction_1, direction_2, direction_3 = nil, direction_4 = nil)
     unless direction_4.nil?
       p = piston.clone
-      DECSIONS[direction_4][p]
+      DECISIONS[direction_4].call(p)
       piston.engine.merge(piston, p)
     end
+
+    unless direction_3.nil?
+      p = piston.clone
+      DECISIONS[direction_3].call(p)
+      piston.engine.merge(piston, p)
+    end
+
+    p = piston.clone
+    DECISIONS[direction_2].call(p)
+    piston.engine.merge(piston, p)
+
+    DECISIONS[direction_1].call(piston)
   end
 
   def initialize(value : C24)
@@ -74,10 +86,10 @@ class Fork < Instruction
   end
 
   def run(piston)
-    d1 = DIRECTIONS.keys[value[:direction1]]
-    d2 = DIRECTIONS.keys[value[:direction2]]
-    d3 = (value[:direction3] == 1 ? DIRECTIONS.keys[value[:direction3]] : nil)
-    d4 = (value[:direction4] == 1 ? DIRECTIONS.keys[value[:direction4]] : nil)
+    d1 = DECISIONS.keys[value[:direction1]]
+    d2 = DECISIONS.keys[value[:direction2]]
+    d3 = (value[:direction3] == 1 ? DECISIONS.keys[value[:direction3]] : nil)
+    d4 = (value[:direction4] == 1 ? DECISIONS.keys[value[:direction4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
 end

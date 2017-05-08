@@ -25,6 +25,6 @@ class Insert < Instruction
   end
 
   def run(piston)
-    self.class.run(piston, value[:value])
+    self.class.run(piston, C20.new(value[:value]))
   end
 end

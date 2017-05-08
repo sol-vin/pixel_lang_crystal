@@ -10,13 +10,15 @@ abstract class Engine
   getter id : UInt32 = 0_u32
   getter name : String
   getter runs : UInt32 = 0_u32
-  getter memory : Hash(C20, C20) = {} of C20 => C20
+  getter memory : Hash(C20, C20) = Hash(C20,C20).new(C20.new(0))
   getter input : String = ""
   getter last_output : C20 = C20.new(0)
 
   abstract def write_output(item : C20, option : Symbol)
   abstract def grab_input_char : C20
   abstract def grab_input_number : C20
+
+  @to_merge = [] of Tuple(Int32, Piston)
 
   def initialize(image_file : String, @original_input = "")
     @name = image_file.split('/').last.split('.').first
@@ -34,13 +36,14 @@ abstract class Engine
     @output = ""
     @to_merge = [] of Tuple(Int32, Piston)
     @pistons = [] of Piston
-    @memory = Hash(C20, C20).new(C20.new)
+    @memory = Hash(C20, C20).new(C20.new(0))
     @input = @original_input.clone
-    @last_output = C20.new
+    @last_output = C20.new(0)
 
     @instructions = @original_instructions.dup  
     @instructions.start_points.each do |sp|
       @pistons << Piston.new(self, sp[:x], sp[:y], sp[:direction], sp[:priority])
+      puts "ADDED PISTON #{id} #{sp[:x]} #{sp[:y]}, #{sp[:direction]}"
     end
     @runs += 1
   end
@@ -59,7 +62,7 @@ abstract class Engine
       if p.paused?
         p.pause_cycle
       else
-        instruction = instructions.get_instruction(p.position_x, p.position_y)
+        instruction = instructions[p.position_x, p.position_y]
 
         unless instruction
           fail "AT POSITION #{p.position_x}   #{p.position_y}"
@@ -71,13 +74,13 @@ abstract class Engine
         p.move 1 unless instruction.class == Call
         #wrap the reader around if it moves off screen.
         if p.position_x < 0
-          p.position_x = instructions.width - (p.position_x.abs % instructions.width)
+          p.position_x = (instructions.width - (p.position_x.abs % instructions.width)).to_u32
         else
           p.position_x %= instructions.width
         end
 
         if p.position_y < 0
-          p.position_y = instructions.height - (p.position_y.abs % instructions.height)
+          p.position_y = (instructions.height - (p.position_y.abs % instructions.height)).to_u32
         else
           p.position_y %= instructions.height
         end
@@ -87,8 +90,8 @@ abstract class Engine
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran
     @to_merge.each do |merge|
-      piston_index = pistons.find_index { |piston| piston.id == merge.piston.id }
-      pistons.insert(piston_index, merge.new_piston)
+      piston_index = (pistons.index { |piston| piston.id == merge[0] }).as(Int32)
+      pistons.insert(piston_index, merge[1])
     end
     @to_merge.clear
 
@@ -98,8 +101,8 @@ abstract class Engine
   end
 
     # forks a piston in a specific direction
-  def merge(piston_id, new_piston)
-    @to_merge << {piston_id, new_piston}
+  def merge(piston, new_piston)
+    @to_merge << {piston.id.to_i32, new_piston}
   end
 
   def priority_changed(piston)

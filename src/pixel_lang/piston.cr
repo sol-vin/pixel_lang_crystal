@@ -5,7 +5,7 @@ class Piston
   property position_y : UInt32
 
   getter direction : Symbol
-  getter memory : Hash(C20, C20) = {} of C20 => C20
+  getter memory : Hash(C20, C20) = Hash(C20, C20).new(C20.new(0))
 
   getter? paused : Bool = false
   getter paused_counter : UInt32 = 0_u32
@@ -18,7 +18,7 @@ class Piston
   getter s : C20 = C20.new(0)
   getter i : Array(C20) = [] of C20
   
-  property priority : UInt32
+  getter priority : UInt32
 
    # clockwise list of instructions
   DIRECTIONS = [:up, :right, :down, :left]
@@ -66,7 +66,7 @@ class Piston
 
   def reset
     #TODO: Test reset
-    @memory = {} of C20 => C20
+    @memory = Hash(C20, C20).new(C20.new(0))
 
     @ma = C20.new 0
     @mb = C20.new 1
@@ -74,24 +74,26 @@ class Piston
     @i = [] of C20
   end
 
-  def get(register, options)
+  def get(register, options) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
         get_{{r.id}}(options)
-      end  
+      end
     {% end %}
+    fail "Register #{register} DOES NOT EXIST!"    
   end
 
   def set(register, value, options)
     {% for r in REGISTERS %}
       if register == {{r}}
         set_{{r.id}}(value, options)
-      end  
+      end
     {% end %}
+    fail "Register #{register} DOES NOT EXIST!"    
   end
 
   {% for r in MEMORY_ADDRESS_REG %}
-    def get_{{r.id}}(options)
+    def get_{{r.id}}(options) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -99,7 +101,7 @@ class Piston
         when :random_max
           C20.new rand(@{{r.id}}.value)
         else
-          raise "Option does not exist!"
+          fail "Option does not exist!"
       end
     end
 
@@ -111,13 +113,13 @@ class Piston
         when :random_max
           @{{r.id}} = C20.new(rand(v.value))
         else
-          raise "Option does not exist!"
+          fail "Option does not exist!"
       end
     end
   {% end %}
 
   {% for r in MEMORY_VALUE_REG %}
-    def get_{{r.id}}v(options)
+    def get_{{r.id}}v(options) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -125,7 +127,7 @@ class Piston
         when :random_max
           C20.new rand(memory[@{{r.id}}].value)
         else
-          raise "Option does not exist!"
+          fail "Option does not exist!"
       end
     end
 
@@ -137,12 +139,12 @@ class Piston
         when :random_max
           @memory[@{{r.id}}] = C20.new rand(v.value)
         else
-          raise "Option does not exist!"
+          fail "Option does not exist!"
       end
     end
   {% end %}
 
-  def get_sv(options)
+  def get_sv(options) : C20
     option = REGULAR_REG_S_OPTIONS[options]
     case option
       when :none
@@ -150,7 +152,7 @@ class Piston
       when :random_max
         C20.new rand(engine.memory[@s].value)
       else
-        fail
+        fail "Option does not exist!"
     end
   end
 
@@ -162,11 +164,11 @@ class Piston
       when :random_max
         engine.memory[@s] = C20.new rand(v.value)
       else
-        fail
+        fail "Option does not exist!"
     end
   end
 
-  def get_i(options)
+  def get_i(options) : C20
     code = INPUT_S_OPTIONS[options]
     #if we put a number on the stack
     if @i.empty?
@@ -178,14 +180,15 @@ class Piston
         when :no_pop_int
           x = 0
           total = ""
-          while x < engine.input.length and ('0'..'9').include?(engine.input[x])
-            total << engine.input[x]
+          while x < engine.input.size && ('0'..'9').includes?(engine.input[x])
+            total += engine.input[x]
+            x += 1
           end
-          total.to_i
+          C20.new total.to_i
         when :no_pop_char
-           engine.input[0]
+          C20.new engine.input[0].ord
         else
-          fail
+          fail "Option does not exist!"
       end
     end
 
@@ -199,7 +202,7 @@ class Piston
       when :no_pop_char
         @i.last % 0x100
       else
-        fail
+        fail "Option does not exist!"
     end
   end
 
@@ -216,11 +219,11 @@ class Piston
       when :random_max
         @i << C20.new rand(v.value)
       else
-        fail
+        fail "Option does not exist!"
     end
   end
 
-  def get_o(options)
+  def get_o(options) : C20
     code = OUTPUT_S_OPTIONS[options]
     case code
       when :int
@@ -232,7 +235,7 @@ class Piston
       when :random
         C20.new rand(C20::MAX)
       else
-        fail
+        fail "Option does not exist!"
     end
   end
 
@@ -243,7 +246,7 @@ class Piston
 
   #TODO: TEST CLONE!
   def clone
-    new_piston = Piston.new(engine, position_x, position_y, direction)
+    new_piston = Piston.new(engine, position_x, position_y, direction, @priority)
     @memory.each do |address, value|
       new_piston.memory[address] = value
     end
@@ -251,7 +254,6 @@ class Piston
     new_piston.set_ma(@ma, 0)
     new_piston.set_mb(@mb, 0)
     new_piston.set_s(@s, 0)
-    new_piston.priority = @priority
     @i.reverse.each do |c|
       new_piston.set_i(c, 0)
     end
@@ -265,21 +267,22 @@ class Piston
 
     {% for o in Constants::OPERATIONS %}
       if op == {{o}} 
-        v1 {{o.id}} v2
+        return v1 {{o.id}} v2
       end  
     {% end %}
+    fail  "BAD!"
   end
 
-  def change_directions(d)
-    if DIRECTIONS.include? d
+  def change_direction(d)
+    if DIRECTIONS.includes? d
       @direction = d
     elsif d == :turn_right
-      index = DIRECTIONS.index(@direction) + 1
-      index = 0 if index >= DIRECTIONS.length
+      index = DIRECTIONS.index(@direction).as(Int32) + 1
+      index = 0 if index >= DIRECTIONS.size
       change_direction(DIRECTIONS[index])
     elsif d == :turn_left  
-      index = DIRECTIONS.index(@direction) - 1
-      index = DIRECTIONS.length-1 if index < 0
+      index = DIRECTIONS.index(@direction).as(Int32) - 1
+      index = DIRECTIONS.size-1 if index < 0
       change_direction(DIRECTIONS[index])
     elsif d == :reverse
       change_direction :turn_left
@@ -287,7 +290,7 @@ class Piston
     elsif d == :random
       change_direction DIRECTIONS.sample
     else         
-      fail
+      fail "Direction does not exist!"
     end
   end
 
@@ -303,8 +306,9 @@ class Piston
       when :right
         @position_x += amount      
       else
-        throw ArgumentError.new
+        fail "Option does not exist!"
     end
+    puts "moved ! #{@position_x} , #{@position_y}"
   end
 
   # jumps to a relative position
@@ -322,7 +326,7 @@ class Piston
   # unpause the piston
   def unpause
     @paused = false
-    @paused_counter = 0
+    @paused_counter = 0_u32
   end
 
   def pause_cycle

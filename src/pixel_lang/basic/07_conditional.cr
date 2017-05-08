@@ -68,10 +68,10 @@ class Conditional < Instruction
   def self.run(piston, true_action : Symbol, false_action : Symbol,  s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)
     result = piston.do_math(s1, s1op, op, s2, s2op)
 
-    if result.value == LOGICAL_FALSE
-      DECISIONS[true_action][piston]
+    if result.value == Constants::FALSE
+      DECISIONS[true_action].call piston
     else
-      DECISIONS[false_action][piston]
+      DECISIONS[false_action].call piston
     end
   end
 
@@ -90,10 +90,10 @@ class Conditional < Instruction
   def run(piston : Piston)
     true_action = DECISIONS.keys[value[:true_action]]
     false_action = DECISIONS.keys[value[:false_action]]
-    s1 = Pistons::REGISTERS[value[:s1]]
+    s1 = Piston::REGISTERS[value[:s1]]
     op = Constants::OPERATIONS[value[:op]]
-    s2 = Pistons::REGISTERS[value[:s2]]
+    s2 = Piston::REGISTERS[value[:s2]]
     
-    self.class.run(true_action, false_action, s1, value[:s1op], op, s2, value[:s2op])
+    self.class.run(piston, true_action, false_action, s1, value[:s1op], op, s2, value[:s2op])
   end
 end

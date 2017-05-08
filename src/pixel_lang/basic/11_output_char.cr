@@ -21,10 +21,10 @@ class OutputChar < Instruction
   end
 
   def run(piston)
-    self.class.run(piston, cv)
+    self.class.run(piston, C20.new(value[:value] % 0x100))
   end
 
-  def self.run(piston, *args)
-    piston.parent.write_output (args[0]%0x100).chr
+  def self.run(piston, char)
+    piston.engine.write_output char, :char
   end
 end

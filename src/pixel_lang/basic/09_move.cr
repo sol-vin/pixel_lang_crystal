@@ -82,10 +82,10 @@ class Move < Instruction
   end
 
   def run(piston)
-    s = Piston::REGISTERS.index(value[:s])
-    d = Piston::REGISTERS.index(value[:d])
-    swap = !value[:swap].zero?
-    reverse = !value[:reverse].zero?
+    s = Piston::REGISTERS[value[:s]]
+    d = Piston::REGISTERS[value[:d]]
+    swap = !(value[:swap] == 0)
+    reverse = !(value[:reverse] == 0)
     
     self.class.run(piston, s, value[:sop], d, value[:dop], swap, reverse)
   end

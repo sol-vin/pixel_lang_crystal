@@ -5,6 +5,9 @@ require "stumpy_png"
 class Instructions
   alias StartPoint = NamedTuple(x: UInt32, y: UInt32, direction: Symbol, priority: UInt32)
 
+  def initialize(@image : StumpyCore::Canvas)
+  end
+
   def initialize(image_file)
     @image = StumpyPNG.read image_file
   end
@@ -60,5 +63,13 @@ class Instructions
       end
     end
     result
+  end
+
+  def width
+    @image.width
+  end
+
+  def height
+    @image.height
   end
 end
