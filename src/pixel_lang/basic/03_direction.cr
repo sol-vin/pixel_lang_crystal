@@ -24,7 +24,7 @@ class Direction < Instruction
     ((control_code <<C24::CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
   end
 
-  def self.make_instruction(direction)
+  def self.make(direction)
     Direction.new(C24.new(make_color(direction).to_i 16))
   end
 

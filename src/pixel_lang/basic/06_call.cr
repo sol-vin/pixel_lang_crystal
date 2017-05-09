@@ -43,7 +43,7 @@ class Call < Instruction
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
   end
 
-  def self.make_instruction(x, y)
+  def self.make(x, y)
     Call.new(C24.new(make_color(x, y).to_i 16))
   end
 

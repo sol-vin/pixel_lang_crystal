@@ -66,7 +66,7 @@ abstract class Engine
         unless instruction
           fail "AT POSITION #{p.position_x}   #{p.position_y}"
         end
-
+        
         instruction.run(p)
 
         #move unless we called recently.

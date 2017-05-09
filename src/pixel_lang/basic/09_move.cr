@@ -58,7 +58,7 @@ class Move < Instruction
     ((cc <<C24::CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
   end
 
-  def self.make_instruction(s, sop, d, dop, swap = false, reverse = false)
+  def self.make(s, sop, d, dop, swap = false, reverse = false)
     Move.new(C24.new(make_color(s, sop, d, dop, swap, reverse).to_i 16))
   end
 

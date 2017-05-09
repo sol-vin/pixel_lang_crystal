@@ -29,7 +29,7 @@ class Start < Instruction
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + direction_bits + priority).to_s 16
   end
 
-  def self.make_instruction(direction, priority)
+  def self.make(direction, priority)
     Start.new(C24.new(make_color(direction, priority).to_i 16))
   end
 

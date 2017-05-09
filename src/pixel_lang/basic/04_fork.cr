@@ -55,7 +55,7 @@ class Fork < Instruction
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + fork_type).to_s 16
   end
 
-  def self.make_instruction(direction_1, direction_2)
+  def self.make(direction_1, direction_2)
     Fork.new(C24.new(make_color(direction_1, direction_2).to_i 16))
   end
 

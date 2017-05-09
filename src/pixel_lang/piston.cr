@@ -74,19 +74,20 @@ class Piston
     @i = [] of C20
   end
 
-  def get(register, options) : C20
+  def get(register : Symbol, options) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
-        get_{{r.id}}(options)
+        return get_{{r.id}}(options)
       end
     {% end %}
     fail "Register #{register} DOES NOT EXIST!"    
   end
 
-  def set(register, value, options)
+  def set(register : Symbol, value, options)
     {% for r in REGISTERS %}
       if register == {{r}}
         set_{{r.id}}(value, options)
+        return
       end
     {% end %}
     fail "Register #{register} DOES NOT EXIST!"    
@@ -240,7 +241,6 @@ class Piston
   end
 
   def set_o(v : C20, options)
-    puts "O #{v.to_int_hex}"
     code = OUTPUT_D_OPTIONS[options]
     engine.write_output(v, code)
   end

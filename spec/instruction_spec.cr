@@ -42,7 +42,7 @@ describe Instructions do
     i[0,0].value.value.should eq(0xFFFFFF)
     i[0,0].is_a?(Blank).should eq(true)
     i[0,0].value[:control_code].should eq(0xF)
-    i[0,0] = Start.make_instruction(:right, 0)
+    i[0,0] = Start.make(:right, 0)
     
     i[1,0] = OutputChar.new(C24.new(0xB00042))
 

@@ -56,12 +56,11 @@ class Arithmetic < Instruction
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + s1b + s1opb + opb + s2b + s2opb + db + dopb).to_s 16
   end
 
-  def self.make_instruction(s1, s1op, op, s2, s2op, d, dop)
+  def self.make(s1, s1op, op, s2, s2op, d, dop)
     Arithmetic.new(C24.new(make_color(s1, s1op, op, s2, s2op, d, dop).to_i 16))
   end
 
   def self.run(piston, s1, s1op, op, s2, s2op, d, dop)
-    puts "GOT HERE"
     piston.set(d, piston.do_math(s1, s1op, op, s2, s2op), dop)
   end
 

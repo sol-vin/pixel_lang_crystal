@@ -21,7 +21,7 @@ describe AutoEngine do
 
   it "should run a simple program 2" do
     i = Instructions.new(1, 3)
-    i[0,2] = Start.make_instruction(:up, 0)
+    i[0,2] = Start.make(:up, 0)
     i[0,1] = OutputChar.new(C24.new(0xB00044))    
     i[0,0] = End.new(C24.new(0x0))
     e = AutoEngine.new("Test", i)
@@ -32,15 +32,14 @@ describe AutoEngine do
 
   it "should run a simple program 3" do
     i = Instructions.new(1, 5)
-    i[0, 0] = Start.make_instruction(:down, 0)
-    i[0, 1] = Insert.new C24.new 10
-    i[0, 2] = Insert.new C24.new 20    
-    i[0, 3] = Arithmetic.make_instruction(:i, 0, :+, :i, 0, :o, 0)
+    i[0, 0] = Start.make(:down, 0)
+    i[0, 1] = Insert.new(C24.new(0x80000A))
+    i[0, 2] = Insert.new(C24.new(0x800014))
+    i[0, 3] = Arithmetic.make(:i, 0, :+, :i, 0, :o, 0)
     i[0, 4] = End.new(C24.new(0x0))
     e = AutoEngine.new("Test", i)
     e.pistons.size.should eq(1)
     e.run
-
     e.output.should eq("30")
   end
 end

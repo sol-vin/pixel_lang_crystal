@@ -65,7 +65,7 @@ class Conditional < Instruction
     ((control_code <<C24::CONTROL_CODE_BITSHIFT) + type + s1 + s1op + op + s2 + s2op).to_s 16
   end
 
-  def self.make_instruction(type, s1, s1op, op, s2, s2op)
+  def self.make(type, s1, s1op, op, s2, s2op)
     Conditional.new(C24.new(make_color(type, s1, s1op, op, s2, s2op).to_i 16))
   end
 
