@@ -16,9 +16,8 @@ class End < Instruction
     }
 end
 
-  def self.make_color(priority)
-    priority %= C20::MAX
-    ((control_code << CONTROL_CODE_BITSHIFT) + priority).to_s 16
+  def self.make_color
+    ((control_code << C24::CONTROL_CODE_BITSHIFT)).to_s 16
   end
 
   def self.run(piston)

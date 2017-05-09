@@ -21,7 +21,11 @@ class Direction < Instruction
 
   def self.make_color(direction)
     direction_bits = DIRECTIONS.index(direction)
-    ((control_code << CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
+    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
+  end
+
+  def self.make_instruction(direction)
+    Direction.new(C24.new(make_color(direction).to_i 16))
   end
 
   def self.run(piston, direction)

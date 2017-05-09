@@ -2,7 +2,6 @@ require "./engine"
 
 class AutoEngine < Engine
   def write_output(item : C20, option : Symbol)
-    puts "write #{item} #{option}"
     case option
       when :int
         @output += item.value.to_s

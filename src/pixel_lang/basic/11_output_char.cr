@@ -17,7 +17,7 @@ class OutputChar < Instruction
   end
 
   def self.make_color(char)
-    ((control_code << CONTROL_CODE_BITSHIFT) + char.ord).to_s 16
+    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + char.ord).to_s 16
   end
 
   def run(piston)

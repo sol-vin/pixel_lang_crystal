@@ -23,12 +23,16 @@ struct C24
     C24.new(value)
   end
 
-  getter value : UInt32 = 0_u32
+  @value : UInt32 = 0_u32
 
   def initialize(value : Int = 0)
     self.value = value
     add_mask(:control_code, CONTROL_CODE_BITS, CONTROL_CODE_BITSHIFT)
     add_mask(:value, VALUE_BITS, VALUE_BITSHIFT)
+  end
+
+  def value : Int
+    @value
   end
 
   # set the value and roll it over or backwards based on the result.
@@ -37,7 +41,7 @@ struct C24
       x = (MAX - (x.abs % MAX)) 
     end
     
-    @value = x.to_u32 % MAX
+    @value = x.to_u32 % MAX 
   end
 
   # get the top byte (red)
@@ -121,9 +125,9 @@ struct C24
 end
 
 struct C24
-  WHITE = Color24.new(0xffffff_u32)
-  BLACK = Color24.new(0x000000_u32)
-  RED = Color24.new (0xff0000_u32)
-  GREEN = Color24.new (0x00ff00_u32)
-  BLUE = Color24.new(0x0000ff_u32)
+  WHITE = C24.new(0xffffff_u32)
+  BLACK = C24.new(0x000000_u32)
+  RED = C24.new (0xff0000_u32)
+  GREEN = C24.new (0x00ff00_u32)
+  BLUE = C24.new(0x0000ff_u32)
 end

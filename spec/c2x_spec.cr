@@ -108,8 +108,8 @@ describe C24 do
     c[:lower_10].should eq(99)
 
     c[:upper_10] = 145_u32
-    c[:lower_10] = 99_u32
-    c[:lower_10].should eq(99)
+    c[:lower_10] = 120_u32
+    c[:lower_10].should eq(120)
 
     c[:upper_10] = 1003_u32
     c[:lower_10] = 99_u32
@@ -120,11 +120,11 @@ describe C24 do
     c[:upper_10].should eq(99)
 
     c[:lower_10] = 145_u32
-    c[:upper_10] = 99_u32
-    c[:upper_10].should eq(99)
+    c[:upper_10] = 199_u32
+    c[:upper_10].should eq(199)
 
     c[:lower_10] = 1003_u32
-    c[:upper_10] = 99_u32
-    c[:upper_10].should eq(99)
+    c[:upper_10] = 93_u32
+    c[:upper_10].should eq(93)
   end
 end

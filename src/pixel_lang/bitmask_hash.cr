@@ -20,7 +20,7 @@ module BitmaskHash
 
     left = @value & left_mask
     right = right_mask == 0 ? 0 : @value & right_mask
-    @value = left + v + right
+    self.value = left + v + right
   end
 
   def add_mask(name : Symbol, bits : Int, shift : Int)
@@ -28,6 +28,6 @@ module BitmaskHash
   end
 
   def to_bin
-    "0b" + value.to_s(2)
+    value.to_s(2)
   end
 end

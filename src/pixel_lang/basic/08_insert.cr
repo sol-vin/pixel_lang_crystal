@@ -17,7 +17,7 @@ class Insert < Instruction
   end
 
   def self.make_color(value : Int)
-    ((control_code << CONTROL_CODE_BITSHIFT) + value % (C20::MAX)).to_s 16
+    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + value % (C20::MAX)).to_s 16
   end
 
   def self.run(piston, number)

@@ -17,7 +17,7 @@ class Jump < Instruction
   end
 
   def self.make_color(spaces)
-    ((control_code << CONTROL_CODE_BITSHIFT) + spaces).to_s 16
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + spaces).to_s 16
   end
 
   def self.run(piston, spaces)

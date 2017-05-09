@@ -24,13 +24,13 @@ class Start < Instruction
   end
 
   def self.make_color(direction, priority)
-    direction_bits = Piston::DIRECTIONS.index(direction) << DIRECTION_BITSHIFT
+    direction_bits = Piston::DIRECTIONS.index(direction).as(Int32) << DIRECTION_BITSHIFT
 
-    if priority > PRIORITY_BITMASK
-      fail "Priority #{priority.to_s 16} cannot be higher than #{PRIORITY_BITMASK} or #{PRIORITY_BITMASK.to_s 16}"
-    end
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + direction_bits + priority).to_s 16
+  end
 
-    ((control_code << CONTROL_CODE_BITSHIFT) + direction_bits + priority).to_s 16
+  def self.make_instruction(direction, priority)
+    Start.new(C24.new(make_color(direction, priority).to_i 16))
   end
 
   def self.run(piston, direction)

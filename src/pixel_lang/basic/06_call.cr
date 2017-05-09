@@ -38,9 +38,13 @@ class Call < Instruction
     x = x.abs
     y = y.abs
 
-    ((control_code << CONTROL_CODE_BITSHIFT) +
+    ((control_code <<C24::CONTROL_CODE_BITSHIFT) +
       (x_sign << X_SIGN_BITSHIFT) + (x << X_BITSHIFT) +
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
+  end
+
+  def self.make_instruction(x, y)
+    Call.new(C24.new(make_color(x, y).to_i 16))
   end
 
   def self.run(piston, x, y)

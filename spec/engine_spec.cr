@@ -6,20 +6,41 @@ describe AutoEngine do
     e = AutoEngine.new("test", Instructions.new(10, 10))
   end
 
-  it "should run a simple program" do
+  it "should run a simple program 1" do
     i = Instructions.new(3, 1)
-    i[0,0] = Start.new(C24.new(0x140000))
-    #TODO: INVESTIGATE WHY THIS IS BROKEN!!!!!
-    #       BitmaskHash#[]= report correct color 0x140000 in @value
-    #       however from here it reports 0x100000
-    #   -->   i[0,0].value[:direction] = 1_u32
+    s = Start.new(C24.new(0x100000))
+    s.value[:direction] = 1_u32    
+    i[0,0] = s
     i[1,0] = OutputChar.new(C24.new(0xB00042))    
     i[2,0] = End.new(C24.new(0x0))
     e = AutoEngine.new("Test", i)
     e.pistons.size.should eq(1)
-    e.run_one_instruction
-    e.run_one_instruction
-    e.run_one_instruction
+    e.run
     e.output.should eq("B")
+  end
+
+  it "should run a simple program 2" do
+    i = Instructions.new(1, 3)
+    i[0,2] = Start.make_instruction(:up, 0)
+    i[0,1] = OutputChar.new(C24.new(0xB00044))    
+    i[0,0] = End.new(C24.new(0x0))
+    e = AutoEngine.new("Test", i)
+    e.pistons.size.should eq(1)
+    e.run
+    e.output.should eq("D")
+  end
+
+  it "should run a simple program 3" do
+    i = Instructions.new(1, 5)
+    i[0, 0] = Start.make_instruction(:down, 0)
+    i[0, 1] = Insert.new C24.new 10
+    i[0, 2] = Insert.new C24.new 20    
+    i[0, 3] = Arithmetic.make_instruction(:i, 0, :+, :i, 0, :o, 0)
+    i[0, 4] = End.new(C24.new(0x0))
+    e = AutoEngine.new("Test", i)
+    e.pistons.size.should eq(1)
+    e.run
+
+    e.output.should eq("30")
   end
 end

@@ -52,7 +52,11 @@ class Fork < Instruction
   end
   #TODO: FIX THIS!
   def self.make_color(direction_1, direction_2)
-    ((control_code << CONTROL_CODE_BITSHIFT) + fork_type).to_s 16
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + fork_type).to_s 16
+  end
+
+  def self.make_instruction(direction_1, direction_2)
+    Fork.new(C24.new(make_color(direction_1, direction_2).to_i 16))
   end
 
   def self.run(piston, direction_1, direction_2, direction_3 = nil, direction_4 = nil)

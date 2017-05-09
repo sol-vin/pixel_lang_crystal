@@ -240,6 +240,7 @@ class Piston
   end
 
   def set_o(v : C20, options)
+    puts "O #{v.to_int_hex}"
     code = OUTPUT_D_OPTIONS[options]
     engine.write_output(v, code)
   end
@@ -308,7 +309,6 @@ class Piston
       else
         fail "Option does not exist!"
     end
-    puts "moved ! #{@position_x} , #{@position_y}"
   end
 
   # jumps to a relative position

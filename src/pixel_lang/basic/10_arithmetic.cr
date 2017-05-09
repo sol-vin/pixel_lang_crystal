@@ -45,19 +45,23 @@ class Arithmetic < Instruction
   end
 
   def self.make_color(s1, s1op, op, s2, s2op, d, dop)
-    s1b = Piston::REGISTERS.index(s1) << SOURCE_1_BITSHIFT
-    s1opb = s1op << SOURCE_1_OPTIONS_BITSHIFT
-    opb = Constants::OPERATIONS.index(op) << OPERATION_BITSHIFT
-    s2b = Piston::REGISTERS.index(s2) << SOURCE_2_BITSHIFT
+    s1b = Piston::REGISTERS.index(s1).as(Int32) << SOURCE_1_BITSHIFT
+    s1opb = s1op << SOURCE_1_OPTION_BITSHIFT
+    opb = Constants::OPERATIONS.index(op).as(Int32) << OPERATION_BITSHIFT
+    s2b = Piston::REGISTERS.index(s2).as(Int32) << SOURCE_2_BITSHIFT
     s2opb = s2op << SOURCE_2_OPTION_BITSHIFT
-    db = Piston::REGISTERS.index(d) << DESTINATION_BITSHIFT
+    db = Piston::REGISTERS.index(d).as(Int32) << DESTINATION_BITSHIFT
     dopb = dop << DESTINATION_OPTION_BITSHIFT
 
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + s1b + s1opb + opb + s2b + s2opb + db + dopb).to_s 16
+  end
 
-    ((control_code << CONTROL_CODE_BITSHIFT) + s1b + s1opb + opb + s2b + s2opb + db + dopb).to_s 16
+  def self.make_instruction(s1, s1op, op, s2, s2op, d, dop)
+    Arithmetic.new(C24.new(make_color(s1, s1op, op, s2, s2op, d, dop).to_i 16))
   end
 
   def self.run(piston, s1, s1op, op, s2, s2op, d, dop)
+    puts "GOT HERE"
     piston.set(d, piston.do_math(s1, s1op, op, s2, s2op), dop)
   end
 

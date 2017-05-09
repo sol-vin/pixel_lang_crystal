@@ -55,7 +55,11 @@ class Move < Instruction
     reverse = (reverse ? C20::TRUE : C20::FALSE) << REVERSE_BITSHIFT
 
 
-    ((cc << CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
+    ((cc <<C24::CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
+  end
+
+  def self.make_instruction(s, sop, d, dop, swap = false, reverse = false)
+    Move.new(C24.new(make_color(s, sop, d, dop, swap, reverse).to_i 16))
   end
 
   def self.run(piston : Piston, s : Symbol, sop : Int, d : Symbol, dop : Int, swap = false, reverse = false)

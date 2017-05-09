@@ -62,7 +62,11 @@ class Conditional < Instruction
     s2_bits = Piston::REGISTERS.index(s2) << SOURCE_2_BITSHIFT
     s2op_bits = s2op << SOURCE_2_OPTIONS_BITSHIFT
 
-    ((control_code << CONTROL_CODE_BITSHIFT) + type + s1 + s1op + op + s2 + s2op).to_s 16
+    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + type + s1 + s1op + op + s2 + s2op).to_s 16
+  end
+
+  def self.make_instruction(type, s1, s1op, op, s2, s2op)
+    Conditional.new(C24.new(make_color(type, s1, s1op, op, s2, s2op).to_i 16))
   end
 
   def self.run(piston, true_action : Symbol, false_action : Symbol,  s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)

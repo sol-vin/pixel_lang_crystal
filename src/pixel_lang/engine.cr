@@ -43,7 +43,6 @@ abstract class Engine
     @instructions = @original_instructions.dup  
     @instructions.start_points.each do |sp|
       @pistons << Piston.new(self, sp[:x], sp[:y], sp[:direction], sp[:priority])
-      puts "ADDED PISTON #{id} #{sp[:x]} #{sp[:y]}, #{sp[:direction]}"
     end
     @runs += 1
   end
