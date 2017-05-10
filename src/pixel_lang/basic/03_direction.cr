@@ -20,8 +20,8 @@ class Direction < Instruction
   end
 
   def self.make_color(direction)
-    direction_bits = DIRECTIONS.index(direction)
-    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
+    direction_bits = DIRECTIONS.index(direction).as(Int32)
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
   end
 
   def self.make(direction)
@@ -37,6 +37,16 @@ class Direction < Instruction
   end
 
   def run(piston)
-    self.class.run(piston, DIRECTIONS[value[:direction] % DIRECTIONS.size])
+    self.class.run(piston, DIRECTIONS[value[:value] % DIRECTIONS.size])
+  end
+
+  
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.separate_rows = true
+    table << ["direction", "#{DIRECTIONS[value[:value] % DIRECTIONS.size]}"]
+    table.render
   end
 end

@@ -43,19 +43,19 @@ class Move < Instruction
 
   def self.make_color(s, sop, d, dop, swap = false, reverse = false)
 
-    sop <<= SOURCE_OPTIONS_BITSHIFT
-    dop <<= DESTINATION_OPTIONS_BITSHIFT
+    sop <<= SOURCE_OPTION_BITSHIFT
+    dop <<= DESTINATION_OPTION_BITSHIFT
 
-    s = Piston::REGISTERS.index(s) << SOURCE_BITSHIFT
+    s = Piston::REGISTERS.index(s).as(Int32) << SOURCE_BITSHIFT
 
-    d = Piston::REGISTERS.index(d) << DESTINATION_BITSHIFT
-
-
-    swap = (swap ? C20::TRUE : C20::FALSE) << SWAP_BITSHIFT
-    reverse = (reverse ? C20::TRUE : C20::FALSE) << REVERSE_BITSHIFT
+    d = Piston::REGISTERS.index(d).as(Int32) << DESTINATION_BITSHIFT
 
 
-    ((cc <<C24::CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
+    swap = (swap ? Constants::TRUE : Constants::FALSE) << SWAP_BITSHIFT
+    reverse = (reverse ? Constants::TRUE : Constants::FALSE) << REVERSE_BITSHIFT
+
+
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
   end
 
   def self.make(s, sop, d, dop, swap = false, reverse = false)
@@ -92,5 +92,16 @@ class Move < Instruction
     reverse = !(value[:reverse] == 0)
     
     self.class.run(piston, s, value[:sop], d, value[:dop], swap, reverse)
+  end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table << ["s", Piston::REGISTERS[value[:s]].to_s]
+    table << ["sop", value[:sop]]
+    table << ["d", Piston::REGISTERS[value[:d]].to_s]
+    table << ["dop", value[:dop]] 
+    table.render
   end
 end  

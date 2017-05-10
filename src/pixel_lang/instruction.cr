@@ -10,7 +10,7 @@ class Instruction
   def self.find_instruction(c24)
     i = instructions.find {|i| i.match c24 }
     if i.nil?
-      fail "INSTRUCTION NOT FOUND #{c24.to_int_hex}"
+      raise "INSTRUCTION NOT FOUND #{c24.to_int_hex}"
     end
     i.as(Instruction.class)
   end
@@ -37,5 +37,13 @@ class Instruction
 
   def run(piston)
     self.class.run(piston)
+  end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table << ["", ""]
+    table.render
   end
 end

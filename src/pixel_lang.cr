@@ -1,3 +1,7 @@
+require "stumpy_png"
+require "terminal_table"
+require "colorful"
+
 require "./pixel_lang/constants"
 
 require "./pixel_lang/bitmask"

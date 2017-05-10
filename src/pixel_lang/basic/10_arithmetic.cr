@@ -85,4 +85,19 @@ class Arithmetic < Instruction
     dop = value[:dop]
     self.class.run(piston, s1, s1op, op, s2, s2op, d, dop)
   end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.separate_rows = true
+    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
+    table << ["s1op", value[:s1op]]
+    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
+    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
+    table << ["s2op", value[:s2op]] 
+    table << ["d", Piston::REGISTERS[value[:d]].to_s]
+    table << ["dop", value[:dop]] 
+    table.render
+  end
 end

@@ -80,7 +80,7 @@ class Piston
         return get_{{r.id}}(options)
       end
     {% end %}
-    fail "Register #{register} DOES NOT EXIST!"    
+    raise "Register #{register} DOES NOT EXIST!"    
   end
 
   def set(register : Symbol, value, options)
@@ -90,7 +90,7 @@ class Piston
         return
       end
     {% end %}
-    fail "Register #{register} DOES NOT EXIST!"    
+    raise "Register #{register} DOES NOT EXIST!"    
   end
 
   {% for r in MEMORY_ADDRESS_REG %}
@@ -102,7 +102,7 @@ class Piston
         when :random_max
           C20.new rand(@{{r.id}}.value)
         else
-          fail "Option does not exist!"
+          raise "Option does not exist!"
       end
     end
 
@@ -114,7 +114,7 @@ class Piston
         when :random_max
           @{{r.id}} = C20.new(rand(v.value))
         else
-          fail "Option does not exist!"
+          raise "Option does not exist!"
       end
     end
   {% end %}
@@ -128,7 +128,7 @@ class Piston
         when :random_max
           C20.new rand(memory[@{{r.id}}].value)
         else
-          fail "Option does not exist!"
+          raise "Option does not exist!"
       end
     end
 
@@ -140,7 +140,7 @@ class Piston
         when :random_max
           @memory[@{{r.id}}] = C20.new rand(v.value)
         else
-          fail "Option does not exist!"
+          raise "Option does not exist!"
       end
     end
   {% end %}
@@ -153,7 +153,7 @@ class Piston
       when :random_max
         C20.new rand(engine.memory[@s].value)
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -165,7 +165,7 @@ class Piston
       when :random_max
         engine.memory[@s] = C20.new rand(v.value)
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -189,7 +189,7 @@ class Piston
         when :no_pop_char
           C20.new engine.input[0].ord
         else
-          fail "Option does not exist!"
+          raise "Option does not exist!"
       end
     end
 
@@ -203,7 +203,7 @@ class Piston
       when :no_pop_char
         @i.last % 0x100
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -220,7 +220,7 @@ class Piston
       when :random_max
         @i << C20.new rand(v.value)
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -236,7 +236,7 @@ class Piston
       when :random
         C20.new rand(C20::MAX)
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -271,7 +271,7 @@ class Piston
         return v1 {{o.id}} v2
       end  
     {% end %}
-    fail  "BAD!"
+    raise  "BAD!"
   end
 
   def change_direction(d)
@@ -291,7 +291,7 @@ class Piston
     elsif d == :random
       change_direction DIRECTIONS.sample
     else         
-      fail "Direction does not exist!"
+      raise "Direction does not exist!"
     end
   end
 
@@ -307,7 +307,7 @@ class Piston
       when :right
         @position_x += amount      
       else
-        fail "Option does not exist!"
+        raise "Option does not exist!"
     end
   end
 
@@ -341,5 +341,60 @@ class Piston
   # kill the piston
   def kill
     @ended = true
+  end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["Piston", "Value"]
+    table.separate_rows = true
+    table << ["id", "#{id}"]
+    table << ["priority", "#{priority}"]    
+    table << ["paused?", "#{paused?}"]
+    table << ["pause_cycles", "#{paused_counter}"]    
+    table << ["direction", "#{direction}"]
+    table << ["position_x", "#{position_x}"]
+    table << ["position_y", "#{position_y}"]        
+    table.render
+  end
+
+  def show_registers
+    table = TerminalTable.new
+    table.headings = ["Register", "int", "hex"]
+    table.separate_rows = true
+    table << ["ma", "#{get_ma(0).value}", "#{get_ma(0).to_int_hex}"]
+    table << ["mav", "#{get_mav(0).value}", "#{get_mav(0).to_int_hex}"]
+    table << ["mb", "#{get_mb(0).value}", "#{get_mb(0).to_int_hex}"]
+    table << ["mbv", "#{get_mbv(0).value}", "#{get_mbv(0).to_int_hex}"]
+    table << ["s", "#{get_s(0).value}", "#{get_s(0).to_int_hex}"]
+    table << ["sv", "#{get_sv(0).value}", "#{get_sv(0).to_int_hex}"]
+
+    i_ints = ""
+    i_hexes = ""
+
+    @i.each do |item|
+      i_ints += item.value.to_s + "\n"
+      i_hexes += item.to_int_hex + "\n"
+    end
+    table << ["i", i_ints, i_hexes]
+
+    table << ["o", "#{get_o(0).value}", "#{get_o(0).to_int_hex}"]
+    table.render
+  end
+
+  def show_memory
+    table = TerminalTable.new
+    table.headings = ["Address", "int", "hex"]
+    table.separate_rows = true
+    
+    @memory.keys.sort{|x, y| x.value <=> y.value}.each do |address|
+      table << ["#{address.to_int_hex}", "#{@memory[address].to_s}", "#{@memory[address].to_int_hex}"]
+    end
+    
+    table.render
+  end
+
+  def current_instruction
+    engine.instructions[position_x, position_y]
   end
 end

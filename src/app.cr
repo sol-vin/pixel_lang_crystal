@@ -1,11 +1,20 @@
 require "./pixel_lang"
 
-i = Instructions.new(3, 1)
-i[0,0] = Start.new(C24.new(0x100000))
-i[0,0].value[:direction] = 1_u32
-i[1,0] = OutputChar.new(C24.new(0xB00042))
-i[2,0] = End.new(C24.new(0x0))
-e = AutoEngine.new("Test", i)
+e = AutoEngine.new("Test", "./programs/a_to_z.png")
 e.run
-puts e.output == "B"
+puts e.output
+#colors = ["white", "red", "yellow", "green", "cyan", "blue", "magenta"]
 
+#100.times do
+#  color = {"foreground" => colors[e.cycles % colors.size], "background" => "black"}
+#  puts
+#  puts "----------------------------".colorful(color)
+#  puts
+#  puts "Cycle: #{e.cycles}".colorful(color)
+#  puts "Output: #{e.output}".colorful(color)
+#  puts e.pistons[0].current_instruction.show_info.colorful(color)
+#  e.run_one_instruction  
+#  puts e.pistons[0].show_info.colorful(color)
+#  puts e.pistons[0].show_registers.colorful(color)
+#  puts e.pistons[0].show_memory.colorful(color)
+#end

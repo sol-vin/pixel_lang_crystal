@@ -30,7 +30,7 @@ describe AutoEngine do
     e.output.should eq("D")
   end
 
-  it "should run a simple program 3" do
+  it "should run a simple Arithmetic" do
     i = Instructions.new(1, 5)
     i[0, 0] = Start.make(:down, 0)
     i[0, 1] = Insert.new(C24.new(0x80000A))
@@ -38,8 +38,28 @@ describe AutoEngine do
     i[0, 3] = Arithmetic.make(:i, 0, :+, :i, 0, :o, 0)
     i[0, 4] = End.new(C24.new(0x0))
     e = AutoEngine.new("Test", i)
-    e.pistons.size.should eq(1)
     e.run
     e.output.should eq("30")
+
+    i[0, 3] = Arithmetic.make(:i, 0, :/, :i, 0, :o, 0)
+    e = AutoEngine.new("Test", i)
+    e.run
+    e.output.should eq("2")
+
+    i[0, 3] = Arithmetic.make(:i, 0, :*, :i, 0, :o, 0)
+    e = AutoEngine.new("Test", i)
+    e.run
+    e.output.should eq("200")
+
+    i[0, 3] = Arithmetic.make(:i, 0, :-, :i, 0, :o, 0)
+    e = AutoEngine.new("Test", i)
+    e.run
+    e.output.should eq("10")
+  end
+
+  it "should run a_to_z" do
+    e = AutoEngine.new("Test", "./programs/a_to_z.png")
+    e.run
+    e.output.should eq(('A'..'Z').to_a.join(""))
   end
 end

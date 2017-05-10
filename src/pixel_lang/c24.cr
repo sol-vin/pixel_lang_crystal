@@ -3,6 +3,7 @@ require "./bitmask_hash"
 require "./constants"
 # Custom color class that will roll over 24-bit ints.
 struct C24
+  include Comparable(C24)
   include BitmaskHash
   # min byte
   MIN = 0_u32

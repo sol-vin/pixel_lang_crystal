@@ -18,7 +18,7 @@ class Pause < Instruction
 
   def self.make_color(cycles)
     if cycles > COLOR_VALUE_BITMASK
-      fail "Cycles #{cycles.to_s 16} cannot be higher than #{COLOR_VALUE_BITMASK} or #{COLOR_VALUE_BITMASK.to_s 16}"
+      raise "Cycles #{cycles.to_s 16} cannot be higher than #{COLOR_VALUE_BITMASK} or #{COLOR_VALUE_BITMASK.to_s 16}"
     end
 
     ((control_code <<C24::CONTROL_CODE_BITSHIFT) + cycles).to_s 16

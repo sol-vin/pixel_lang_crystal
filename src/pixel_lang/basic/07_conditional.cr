@@ -8,13 +8,13 @@ class Conditional < Instruction
 
   DECISIONS = {
     :up => ->(p : Piston){p.change_direction(:up)},
+    :right => ->(p : Piston){p.change_direction(:right)},
     :down => ->(p : Piston){p.change_direction(:down)},
     :left => ->(p : Piston){p.change_direction(:left)},
-    :right => ->(p : Piston){p.change_direction(:right)},
     :turn_left => ->(p : Piston){p.change_direction(:turn_left)},
     :turn_right => ->(p : Piston){p.change_direction(:turn_right)},
     :reverse => ->(p : Piston){p.change_direction(:reverse)},
-    :random => ->(p : Piston){p.change_direction Piston::DIRECTIONS.sample}
+    :random => ->(p : Piston){p.change_direction(:random)}
   }
 
   TRUE_BITS = 3
@@ -54,28 +54,29 @@ class Conditional < Instruction
     }
   end
 
-  def self.make_color(type, s1, s1op, op, s2, s2op)
-    type_bits = TYPES.index(type) << TYPE_BITSHIFT
-    s1_bits = Piston::REGISTERS.index(s1) << SOURCE_1_BITSHIFT
-    s1op_bits = s1op << SOURCE_1_OPTIONS_BITSHIFT
-    op_bits = Constants::OPERATIONS.index(op) << OPERATION_BITSHIFT
-    s2_bits = Piston::REGISTERS.index(s2) << SOURCE_2_BITSHIFT
-    s2op_bits = s2op << SOURCE_2_OPTIONS_BITSHIFT
+  def self.make_color(t, f, s1, s1op, op, s2, s2op)
+    true_bits = DECISIONS.keys.index(t).as(Int32) << TRUE_BITSHIFT
+    false_bits = DECISIONS.keys.index(f).as(Int32) << FALSE_BITSHIFT    
+    s1_bits = Piston::REGISTERS.index(s1).as(Int32) << SOURCE_1_BITSHIFT
+    s1op_bits = s1op << SOURCE_1_OPTION_BITSHIFT
+    op_bits = Constants::OPERATIONS.index(op).as(Int32) << OPERATION_BITSHIFT
+    s2_bits = Piston::REGISTERS.index(s2).as(Int32) << SOURCE_2_BITSHIFT
+    s2op_bits = s2op << SOURCE_2_OPTION_BITSHIFT
 
-    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + type + s1 + s1op + op + s2 + s2op).to_s 16
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + true_bits + false_bits + s1_bits + s1op_bits + op_bits + s2_bits + s2op_bits).to_s 16
   end
 
-  def self.make(type, s1, s1op, op, s2, s2op)
-    Conditional.new(C24.new(make_color(type, s1, s1op, op, s2, s2op).to_i 16))
+  def self.make(t, f, s1, s1op, op, s2, s2op)
+    Conditional.new(C24.new(make_color(t, f, s1, s1op, op, s2, s2op).to_i 16))
   end
 
   def self.run(piston, true_action : Symbol, false_action : Symbol,  s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)
     result = piston.do_math(s1, s1op, op, s2, s2op)
 
     if result.value == Constants::FALSE
-      DECISIONS[true_action].call piston
-    else
       DECISIONS[false_action].call piston
+    else
+      DECISIONS[true_action].call piston
     end
   end
 
@@ -99,5 +100,21 @@ class Conditional < Instruction
     s2 = Piston::REGISTERS[value[:s2]]
     
     self.class.run(piston, true_action, false_action, s1, value[:s1op], op, s2, value[:s2op])
+  end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.separate_rows = true
+    table << ["true_action", DECISIONS.keys[value[:true_action]].to_s]
+    table << ["false_action", DECISIONS.keys[value[:false_action]].to_s]
+    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
+    table << ["s1op", value[:s1op]]
+    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
+    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
+    table << ["s2op", value[:s2op]] 
+    
+    table.render
   end
 end

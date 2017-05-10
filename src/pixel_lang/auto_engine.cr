@@ -12,7 +12,7 @@ class AutoEngine < Engine
       when :char_hex
          @output += item.to_char_hex
       else
-        fail "option #{option} not valid!!!"
+        raise "option #{option} not valid!!!"
     end
     @last_output = item
   end

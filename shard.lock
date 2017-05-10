@@ -1,5 +1,9 @@
 version: 1.0
 shards:
+  colorful:
+    github: icyleaf/colorful.cr
+    version: 0.1.0
+
   stumpy_core:
     git: https://github.com/l3kn/stumpy_core.git
     commit: 8f9390d3476e19e2a7c0fa6622b2c1092892bfb3
@@ -7,4 +11,8 @@ shards:
   stumpy_png:
     github: l3kn/stumpy_png
     version: 4.1.1
+
+  terminal_table:
+    github: benoist/terminal_table.cr
+    commit: a14e244219a6a7b804b3491bafcff73f4b74855e
 

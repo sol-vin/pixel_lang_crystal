@@ -96,4 +96,18 @@ class Fork < Instruction
     d4 = (value[:direction4] == 1 ? DECISIONS.keys[value[:direction4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
+
+  def show_info
+    # Table with headings
+    table = TerminalTable.new
+    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.separate_rows = true
+    table << ["direction_1", DECISIONS[value[:direction_1]].to_s]
+    table << ["direction_2", DECISIONS[value[:direction_2]].to_s]
+    table << ["direction_3_bool", value[:direction_3_bool]]
+    table << ["direction_3", DECISIONS[value[:direction_3]].to_s]
+    table << ["direction_4_bool", value[:direction_4_bool]]
+    table << ["direction_4", DECISIONS[value[:direction_24]].to_s]
+    table.render
+  end
 end

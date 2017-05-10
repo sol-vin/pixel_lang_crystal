@@ -15,7 +15,7 @@ class LiveEngine < Engine
       when :char_hex
         Kernel.print item.to_char_hex
       else
-        fail
+        raise
     end
     super
   end

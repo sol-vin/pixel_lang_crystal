@@ -20,7 +20,7 @@ abstract class Engine
 
   @to_merge = [] of Tuple(Int32, Piston)
 
-  def initialize(image_file : String, @original_input = "")
+  def initialize(@name : String, image_file : String, @original_input = "")
     @name = image_file.split('/').last.split('.').first
     @original_instructions = Instructions.new(image_file)
     reset # start the machine
@@ -64,7 +64,7 @@ abstract class Engine
         instruction = instructions[p.position_x, p.position_y]
 
         unless instruction
-          fail "AT POSITION #{p.position_x}   #{p.position_y}"
+          raise "AT POSITION #{p.position_x}   #{p.position_y}"
         end
         
         instruction.run(p)
