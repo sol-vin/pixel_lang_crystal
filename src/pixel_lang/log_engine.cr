@@ -1,37 +1,45 @@
-require "./engine"
-
 class LogEngine < AutoEngine
-  def run(io : IO)
-    colors = ["white", "red", "yellow", "green", "cyan", "blue", "magenta"]
-    results = String::Builder.new
-    until ended?
-      color = {"foreground" => colors[cycles % colors.size], "background" => "black"}
-      results << "\n".colorful(color)
-      results << "----------------------------".colorful(color)
-      results << "\n".colorful(color)
-      results << "\n".colorful(color)
-      results << "Cycle: #{cycles}".colorful(color)
-      results << "\n".colorful(color)
-      results << "Output: #{output}".colorful(color)
-      results << "\n".colorful(color)
-      results << pistons[0].current_instruction.show_info.colorful(color)
-      results << "\n".colorful(color)
-      run_one_instruction
-      if pistons[0]?
-        results << pistons[0].show_info.colorful(color)
-        results << "\n".colorful(color)
-        results << pistons[0].show_registers.colorful(color)
-        results << "\n".colorful(color)
-        results << pistons[0].show_memory.colorful(color)
-        results << "\n".colorful(color)
-      end  
-    end
-    io << results.to_s
-  end
+  property io : IO = STDOUT
+  COLORS = ["white", "red", "yellow", "green", "cyan", "blue", "magenta"]
 
-  def run
-    File.open("log", "w+") do |f|
-      run(f)
+  def run_one_instruction
+    return if ended?
+    color = {"foreground" => COLORS[cycles % COLORS.size], "background" => "black"}
+    io << "\n".colorful(color)
+    io << "<======================================>".colorful(color)
+    io << "\n".colorful(color)
+    io << "\n".colorful(color)
+    io << "Cycle: #{cycles}".colorful(color)
+    io << "\n".colorful(color)
+    io << "Output: #{output}".colorful(color)
+    io << "\n".colorful(color)
+    piston_results = {} of UInt32 => String::Builder
+    pistons.each do |piston|
+      piston_results[piston.id] = String::Builder.new
+      piston_results[piston.id] << piston.current_instruction.show_info
+      piston_results[piston.id] << "\n"
+      piston_results[piston.id] << piston.show_info
+      piston_results[piston.id] << "\n"      
+      piston_results[piston.id] << piston.show_registers
+      piston_results[piston.id] << "\n"      
+      piston_results[piston.id] << piston.show_memory
+      piston_results[piston.id] << "\n"      
     end
+
+    table = TerminalTable.new
+    table.separate_rows = true
+
+    headings = [] of String
+    results = [] of String
+    piston_results.each do |id, result|
+      headings << id.to_s
+      results << result.to_s
+    end
+
+    table.headings = headings
+    table << results
+    io << table.render.colorful(color)
+    io << "\n"
+    super
   end
 end

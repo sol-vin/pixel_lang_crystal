@@ -1,5 +1,6 @@
 require "./pixel_lang"
 
-e = LogEngine.new("Test", "./programs/a_to_z.png")
-e.run(STDOUT)
+e = LogEngine.new("Test", "./programs/fork_counter.png")
+e.run
 puts e.output
+

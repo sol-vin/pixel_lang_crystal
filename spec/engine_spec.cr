@@ -62,4 +62,16 @@ describe AutoEngine do
     e.run
     e.output.should eq(('A'..'Z').to_a.join(""))
   end
+
+  it "should run counter" do
+    e = AutoEngine.new("Test", "./programs/counter.png")
+    e.run
+    e.output.should eq("12345678910")
+  end
+
+  it "should run fork_counter" do
+    e = AutoEngine.new("Test", "./programs/fork_counter.png")
+    e.run
+    e.output.should eq("123456789")
+  end
 end

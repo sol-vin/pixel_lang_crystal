@@ -10,9 +10,8 @@ class Fork < Instruction
     :turn_left => ->(p : Piston){p.change_direction(:turn_left)},
     :turn_right => ->(p : Piston){p.change_direction(:turn_right)},
     :reverse => ->(p : Piston){p.change_direction(:reverse)},
-    :random => ->(p : Piston){p.change_direction Piston::DIRECTIONS.sample}
+    :random => ->(p : Piston){p.change_direction(:random)}
   }
-
   DIRECTION_1_BITS = 3
   DIRECTION_1_BITSHIFT = 0
 
@@ -51,29 +50,48 @@ class Fork < Instruction
     }
   end
   #TODO: FIX THIS!
-  def self.make_color(direction_1, direction_2)
-    ((control_code << C24::CONTROL_CODE_BITSHIFT) + fork_type).to_s 16
+  def self.make_color(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
+    d1_bits = DECISIONS.keys.index(direction_1).as(Int32) << DIRECTION_1_BITSHIFT
+    
+    d2_bits = DECISIONS.keys.index(direction_2).as(Int32) << DIRECTION_2_BITSHIFT
+    
+    d3_bits = 0
+    unless direction_3.nil?
+      d3_bits = DECISIONS.keys.index(direction_3.as(Symbol)).as(Int32) << DIRECTION_3_BITSHIFT
+      d3_bits += 1 << DIRECTION_3_BOOL_BITSHIFT
+    end
+
+    d4_bits = 0
+    unless direction_4.nil?
+      d4_bits = DECISIONS.keys.index(direction_4.as(Symbol)).as(Int32) << DIRECTION_4_BITSHIFT
+      d4_bits += 1 << DIRECTION_4_BOOL_BITSHIFT
+    end
+    
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + d1_bits + d2_bits + d3_bits + d4_bits).to_s 16
   end
 
-  def self.make(direction_1, direction_2)
-    Fork.new(C24.new(make_color(direction_1, direction_2).to_i 16))
+  def self.make(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
+    Fork.new(C24.new(make_color(direction_1, direction_2, direction_3, direction_4).to_i 16))
   end
 
   def self.run(piston, direction_1, direction_2, direction_3 = nil, direction_4 = nil)
     unless direction_4.nil?
       p = piston.clone
       DECISIONS[direction_4].call(p)
+      p.move 1
       piston.engine.merge(piston, p)
     end
 
     unless direction_3.nil?
       p = piston.clone
       DECISIONS[direction_3].call(p)
+      p.move 1
       piston.engine.merge(piston, p)
     end
 
     p = piston.clone
     DECISIONS[direction_2].call(p)
+    p.move 1
     piston.engine.merge(piston, p)
 
     DECISIONS[direction_1].call(piston)
@@ -85,29 +103,29 @@ class Fork < Instruction
     @value.add_mask(:direction_2, DIRECTION_2_BITS, DIRECTION_2_BITSHIFT)
     @value.add_mask(:direction_3_bool, DIRECTION_3_BOOL_BITS, DIRECTION_3_BOOL_BITSHIFT)
     @value.add_mask(:direction_3, DIRECTION_3_BITS, DIRECTION_3_BITSHIFT)
+    @value.add_mask(:direction_4_bool, DIRECTION_4_BOOL_BITS, DIRECTION_4_BOOL_BITSHIFT)
     @value.add_mask(:direction_4, DIRECTION_4_BITS, DIRECTION_4_BITSHIFT)
-    @value.add_mask(:direction_4_bool, DIRECTION_4_BOOL_BITS, DIRECTION_4_BOOL_BITSHIFT)    
   end
 
   def run(piston)
-    d1 = DECISIONS.keys[value[:direction1]]
-    d2 = DECISIONS.keys[value[:direction2]]
-    d3 = (value[:direction3] == 1 ? DECISIONS.keys[value[:direction3]] : nil)
-    d4 = (value[:direction4] == 1 ? DECISIONS.keys[value[:direction4]] : nil)
+    d1 = DECISIONS.keys[value[:direction_1]]
+    d2 = DECISIONS.keys[value[:direction_2]]
+    d3 = (value[:direction_3_bool] != 0 ? DECISIONS.keys[value[:direction_3]] : nil)
+    d4 = (value[:direction_4_bool] != 0 ? DECISIONS.keys[value[:direction_4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
-
+ 
   def show_info
     # Table with headings
     table = TerminalTable.new
     table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table.separate_rows = true
-    table << ["direction_1", DECISIONS[value[:direction_1]].to_s]
-    table << ["direction_2", DECISIONS[value[:direction_2]].to_s]
+    table << ["direction_1", DECISIONS.keys[value[:direction_1]].to_s]
+    table << ["direction_2", DECISIONS.keys[value[:direction_2]].to_s]
     table << ["direction_3_bool", value[:direction_3_bool]]
-    table << ["direction_3", DECISIONS[value[:direction_3]].to_s]
+    table << ["direction_3", DECISIONS.keys[value[:direction_3]].to_s]
     table << ["direction_4_bool", value[:direction_4_bool]]
-    table << ["direction_4", DECISIONS[value[:direction_24]].to_s]
+    table << ["direction_4", DECISIONS.keys[value[:direction_4]].to_s]
     table.render
   end
 end

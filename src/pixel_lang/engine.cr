@@ -89,7 +89,7 @@ abstract class Engine
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran
     @to_merge.each do |merge|
-      piston_index = (pistons.index { |piston| piston.id == merge[0] }).as(Int32)
+      piston_index = (pistons.index { |piston| piston.id == merge[0]}).as(Int32)
       pistons.insert(piston_index, merge[1])
     end
     @to_merge.clear
