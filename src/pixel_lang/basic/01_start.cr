@@ -55,4 +55,19 @@ class Start < Instruction
     table << ["direction", "#{Piston::DIRECTIONS[value[:direction]]}"]
     table.render
   end
+
+  def char : Char
+    case Piston::DIRECTIONS[value[:direction]]
+      when :up
+        '\u21E7'
+      when :down
+        '\u21E9'
+      when :left
+        '\u21E6'
+      when :right
+        '\u21E8'
+      else
+        '?'
+    end
+  end
 end

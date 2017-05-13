@@ -24,6 +24,10 @@ class Insert < Instruction
     piston.set_i number, 0
   end
 
+  def char : Char
+    '\u24BE'
+  end
+
   def run(piston)
     self.class.run(piston, C20.new(value[:value]))
   end

@@ -31,4 +31,8 @@ class Pause < Instruction
   def run(piston)
     self.class.run(piston, value[:value])
   end
+
+  def char : Char
+    'P'
+  end
 end

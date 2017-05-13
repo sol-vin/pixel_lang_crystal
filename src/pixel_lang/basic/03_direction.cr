@@ -49,4 +49,27 @@ class Direction < Instruction
     table << ["direction", "#{DIRECTIONS[value[:value] % DIRECTIONS.size]}"]
     table.render
   end
+
+  def char : Char
+    case DIRECTIONS[value[:value] % DIRECTIONS.size]
+      when :up
+        '\u2191'
+      when :down
+        '\u2193'
+      when :left
+        '\u2190'
+      when :right
+        '\u2192'
+      when :turn_left
+        '\u21b0'
+      when :turn_right
+        '\u21b1'
+      when :reverse
+        '\u21B6'
+      when :random
+        '\u2295'
+      else
+        '?'
+    end
+  end
 end

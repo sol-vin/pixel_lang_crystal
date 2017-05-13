@@ -20,11 +20,15 @@ class OutputChar < Instruction
     ((control_code <<C24::CONTROL_CODE_BITSHIFT) + char.ord).to_s 16
   end
 
-  def run(piston)
-    self.class.run(piston, C20.new(value[:value] % 0x100))
-  end
-
   def self.run(piston, char)
     piston.engine.write_output char, :char
+  end
+
+  def char : Char
+    '\u24C4'
+  end
+
+  def run(piston)
+    self.class.run(piston, C20.new(value[:value] % 0x100))
   end
 end

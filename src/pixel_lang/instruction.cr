@@ -1,6 +1,6 @@
 require "./c24"
 
-class Instruction
+abstract class Instruction
   @@instructions = [] of self.class
 
   def self.instructions
@@ -34,6 +34,8 @@ class Instruction
 
   def initialize(@value : C24)
   end
+
+  abstract def char : Char
 
   def run(piston)
     self.class.run(piston)

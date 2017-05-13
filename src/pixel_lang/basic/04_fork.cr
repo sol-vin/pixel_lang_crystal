@@ -107,6 +107,10 @@ class Fork < Instruction
     @value.add_mask(:direction_4, DIRECTION_4_BITS, DIRECTION_4_BITSHIFT)
   end
 
+  def char : Char
+    'F'
+  end
+
   def run(piston)
     d1 = DECISIONS.keys[value[:direction_1]]
     d2 = DECISIONS.keys[value[:direction_2]]

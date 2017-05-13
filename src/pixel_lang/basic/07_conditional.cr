@@ -92,6 +92,10 @@ class Conditional < Instruction
     @value.add_mask(:s2op, SOURCE_2_OPTION_BITS, SOURCE_2_OPTION_BITSHIFT)
   end
 
+  def char : Char
+    '\u2234'
+  end
+
   def run(piston : Piston)
     true_action = DECISIONS.keys[value[:true_action]]
     false_action = DECISIONS.keys[value[:false_action]]

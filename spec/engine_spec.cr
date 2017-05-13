@@ -60,7 +60,7 @@ describe AutoEngine do
   it "should run a_to_z" do
     e = AutoEngine.new("Test", "./programs/a_to_z.png")
     e.run
-    e.output.should eq(('A'..'Z').to_a.join(""))
+    e.output.should eq(('A'..'Z').to_a.join)
   end
 
   it "should run counter" do

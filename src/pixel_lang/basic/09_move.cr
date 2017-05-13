@@ -85,6 +85,10 @@ class Move < Instruction
     @value.add_mask(:reverse, REVERSE_BITS, REVERSE_BITSHIFT)        
   end
 
+  def char : Char
+    '\u2386'
+  end
+
   def run(piston)
     s = Piston::REGISTERS[value[:s]]
     d = Piston::REGISTERS[value[:d]]

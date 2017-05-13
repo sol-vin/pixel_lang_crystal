@@ -59,6 +59,10 @@ class Call < Instruction
     @value.add_mask(:y, Y_BITS, Y_BITSHIFT)
   end
 
+  def char : Char
+    '\u260E'
+  end
+
   def run(piston)
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))

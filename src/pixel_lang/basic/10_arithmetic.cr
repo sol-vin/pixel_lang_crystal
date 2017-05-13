@@ -75,6 +75,10 @@ class Arithmetic < Instruction
     @value.add_mask(:dop, DESTINATION_OPTION_BITS, DESTINATION_OPTION_BITSHIFT)
   end
 
+  def char : Char
+    '\u24B6'
+  end
+
   def run(piston)
     s1 = Piston::REGISTERS[value[:s1]]
     s1op = value[:s1op]

@@ -24,6 +24,10 @@ class Jump < Instruction
     piston.move spaces
   end
 
+  def char : Char
+    'J'
+  end
+
   def run(piston)
     self.class.run(piston, value[:value]+1)
   end

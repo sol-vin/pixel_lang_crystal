@@ -127,4 +127,16 @@ abstract class Engine
   def ended?
     pistons.empty? && @to_merge.empty?
   end
+
+  def show_memory
+    table = TerminalTable.new
+    table.headings = ["Address", "int", "hex"]
+    table.separate_rows = true
+    
+    @memory.keys.sort{|x, y| x.value <=> y.value}.each do |address|
+      table << ["#{address.to_int_hex}", "#{@memory[address].to_s}", "#{@memory[address].to_int_hex}"]
+    end
+    
+    table.render
+  end
 end

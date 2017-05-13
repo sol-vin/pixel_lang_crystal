@@ -23,4 +23,8 @@ end
   def self.run(piston)
     piston.kill
   end
+
+  def char : Char
+    '\u2620'
+  end
 end
