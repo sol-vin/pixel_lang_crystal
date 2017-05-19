@@ -71,7 +71,7 @@ abstract class Engine
 
         #move unless we called recently.
         p.move 1 unless instruction.class == Call
-        #wrap the reader around if it moves off screen.
+        #wrap the piston around if it moves off screen.
         if p.position_x < 0
           p.position_x = (instructions.width - (p.position_x.abs % instructions.width)).to_u32
         else
@@ -110,6 +110,15 @@ abstract class Engine
     #find the first piston whose priority is lower
     p = @pistons.find {|p| p.priority <= piston.priority}
     @to_merge << {p.id, piston}
+  end
+
+  def get_piston(id : UInt32) : Piston
+    p = pistons.find {|p| p.id == id}
+    if p.nil?
+      raise
+    else
+      p
+    end
   end
 
   def kill
