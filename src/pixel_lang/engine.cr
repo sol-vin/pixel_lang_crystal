@@ -151,35 +151,36 @@ abstract class Engine
   def show_instructions
     i = [] of Char
     (0...instructions.height).each do |y|
-        (0...instructions.width).each do |x|
-           i += instructions[x, y].char
-        end
+      (0...instructions.width).each do |x|
+        i << instructions[x, y].char
       end
     end
 
-    output = StringBuilder.new
+    output = String::Builder.new
     i.each_with_index do |c, i|
       x = i % instructions.width
       y = i / instructions.height
-      p = piston.select do |p|
+      p = pistons.select do |p|
         p.position_x == x && p.position_y == y
       end
 
-      output << "\n\n\n" if x == 0
+      color = {"foreground" => "white", "background" => "black"}        
+      output << "\n\n\n".colorful(color) if x == 0
 
 
       unless p.empty?
         if p.size == 1
           color = {"foreground" => Constants::COLORS[p[0].id  % Constants::COLORS.size], "background" => "black"}
-          output << (i + "     ").colorful(color)
+          output << (c + "     ").colorful(color)
         else
           color = {"background" => Constants::COLORS[p.size % Constants::COLORS.size], "foreground" => "black"}          
-          output << (i + " <#{p.size.rjust(2, " ")} ").colorful(color)
+          output << (c + " <#{p.size.to_s.rjust(2, ' ')} ").colorful(color)
         end
       else
+        color = {"foreground" => "white", "background" => "black"}        
+        output << (c + "     ").colorful(color)
       end
     end
-
-    output
+    output.to_s
   end
 end
