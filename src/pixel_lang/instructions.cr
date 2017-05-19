@@ -73,14 +73,4 @@ class Instructions
     @image.height
   end
 
-  # Uses unicode chars so it needs to be spaced
-  def show
-    (0...@image.height).each do |y|
-      (0...@image.width).each do |x|
-        print self[x, y].char
-        print ' '
-      end
-      print "\n\n"
-    end
-  end
 end

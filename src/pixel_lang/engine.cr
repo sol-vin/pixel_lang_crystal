@@ -5,7 +5,6 @@ abstract class Engine
   getter instructions : Instructions = Instructions.new(1,1)
   getter output : String = ""
   getter cycles : UInt32 = 0_u32
-  #TODO: Log?
 
   getter id : UInt32 = 0_u32
   getter name : String
@@ -147,5 +146,40 @@ abstract class Engine
     end
     
     table.render
+  end
+
+  def show_instructions
+    i = [] of Char
+    (0...instructions.height).each do |y|
+        (0...instructions.width).each do |x|
+           i += instructions[x, y].char
+        end
+      end
+    end
+
+    output = StringBuilder.new
+    i.each_with_index do |c, i|
+      x = i % instructions.width
+      y = i / instructions.height
+      p = piston.select do |p|
+        p.position_x == x && p.position_y == y
+      end
+
+      output << "\n\n\n" if x == 0
+
+
+      unless p.empty?
+        if p.size == 1
+          color = {"foreground" => Constants::COLORS[p[0].id  % Constants::COLORS.size], "background" => "black"}
+          output << (i + "     ").colorful(color)
+        else
+          color = {"background" => Constants::COLORS[p.size % Constants::COLORS.size], "foreground" => "black"}          
+          output << (i + " <#{p.size.rjust(2, " ")} ").colorful(color)
+        end
+      else
+      end
+    end
+
+    output
   end
 end

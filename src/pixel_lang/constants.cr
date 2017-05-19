@@ -3,4 +3,5 @@ module Constants
   FALSE = 0
   OPERATIONS = [:+, :-, :*, :/, :**, :&, :|, :^, :%,
               :<, :>, :<=, :>=, :==, :!=]
+  COLORS = ["white", "red", "yellow", "green", "cyan", "blue", "magenta"]
 end
