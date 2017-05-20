@@ -72,5 +72,4 @@ class Instructions
   def height
     @image.height
   end
-
 end

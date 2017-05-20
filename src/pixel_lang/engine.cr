@@ -159,7 +159,7 @@ abstract class Engine
     output = String::Builder.new
     i.each_with_index do |c, i|
       x = i % instructions.width
-      y = i / instructions.height
+      y = i / instructions.width
       p = pistons.select do |p|
         p.position_x == x && p.position_y == y
       end
@@ -171,7 +171,23 @@ abstract class Engine
       unless p.empty?
         if p.size == 1
           color = {"foreground" => Constants::COLORS[p[0].id  % Constants::COLORS.size], "background" => "black"}
-          output << (c + "     ").colorful(color)
+          if c == ' '
+            p_c = case p[0].direction
+                    when :up
+                      '\u2191'
+                    when :down
+                      '\u2193'
+                    when :left
+                      '\u2190'
+                    when :right
+                      '\u2192'
+                    else 
+                      '?'  
+                  end
+            output << (p_c + "     ").colorful(color)
+          else
+            output << (c + "     ").colorful(color)
+          end
         else
           color = {"background" => Constants::COLORS[p.size % Constants::COLORS.size], "foreground" => "black"}          
           output << (c + " <#{p.size.to_s.rjust(2, ' ')} ").colorful(color)

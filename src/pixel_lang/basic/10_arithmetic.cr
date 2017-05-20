@@ -93,7 +93,7 @@ class Arithmetic < Instruction
   def show_info
     # Table with headings
     table = TerminalTable.new
-    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table.separate_rows = true
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
     table << ["s1op", value[:s1op]]

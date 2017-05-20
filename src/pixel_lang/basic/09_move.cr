@@ -101,7 +101,7 @@ class Move < Instruction
   def show_info
     # Table with headings
     table = TerminalTable.new
-    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["s", Piston::REGISTERS[value[:s]].to_s]
     table << ["sop", value[:sop]]
     table << ["d", Piston::REGISTERS[value[:d]].to_s]

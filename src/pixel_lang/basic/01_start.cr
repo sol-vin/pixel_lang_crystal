@@ -49,7 +49,7 @@ class Start < Instruction
   def show_info
     # Table with headings
     table = TerminalTable.new
-    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table.separate_rows = true
     table << ["priority", "#{value[:priority]}"]
     table << ["direction", "#{Piston::DIRECTIONS[value[:direction]]}"]

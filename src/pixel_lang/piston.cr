@@ -343,6 +343,9 @@ class Piston
     @ended = true
   end
 
+  def show_all
+  end
+
   def show_info
     # Table with headings
     table = TerminalTable.new

@@ -44,7 +44,7 @@ abstract class Instruction
   def show_info
     # Table with headings
     table = TerminalTable.new
-    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["", ""]
     table.render
   end

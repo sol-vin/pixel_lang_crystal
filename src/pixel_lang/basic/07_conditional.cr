@@ -71,12 +71,20 @@ class Conditional < Instruction
   end
 
   def self.run(piston, true_action : Symbol, false_action : Symbol,  s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)
+    if evaluate(piston, s1, s1op, op, s2, s2op)
+      DECISIONS[true_action].call piston
+    else
+      DECISIONS[false_action].call piston
+    end
+  end
+
+  def self.evaluate(piston, s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)
     result = piston.do_math(s1, s1op, op, s2, s2op)
 
     if result.value == Constants::FALSE
-      DECISIONS[false_action].call piston
+      false
     else
-      DECISIONS[true_action].call piston
+      true
     end
   end
 
@@ -109,7 +117,7 @@ class Conditional < Instruction
   def show_info
     # Table with headings
     table = TerminalTable.new
-    table.headings = ["#{self.class}\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table.separate_rows = true
     table << ["true_action", DECISIONS.keys[value[:true_action]].to_s]
     table << ["false_action", DECISIONS.keys[value[:false_action]].to_s]
@@ -120,5 +128,18 @@ class Conditional < Instruction
     table << ["s2op", value[:s2op]] 
     
     table.render
+  end
+
+  def evaluate(piston)
+    s1 = Piston::REGISTERS[value[:s1]]
+    op = Constants::OPERATIONS[value[:op]]
+    s2 = Piston::REGISTERS[value[:s2]]
+    result = piston.do_math(s1, value[:s1op], op, s2, value[:s2op])
+
+    if result.value == Constants::FALSE
+      false
+    else
+      true
+    end
   end
 end

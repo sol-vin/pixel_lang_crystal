@@ -63,6 +63,12 @@ describe AutoEngine do
     e.output.should eq(('A'..'Z').to_a.join)
   end
 
+  it "should run a_to_z_art" do
+    e = AutoEngine.new("Test", "./programs/a_to_z_art.png")
+    e.run
+    e.output.should eq(('A'..'Z').to_a.join)
+  end
+
   it "should run counter" do
     e = AutoEngine.new("Test", "./programs/counter.png")
     e.run
