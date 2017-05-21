@@ -12,10 +12,6 @@ dependencies:
   colorful:
     github: icyleaf/colorful.cr
 
-targets:
-  pixel_lang_crystal:
-    main: src/app.cr
-
 crystal: 0.22.0
 
 license: MIT
