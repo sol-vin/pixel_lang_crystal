@@ -14,10 +14,10 @@ abstract class Engine
   getter last_output : C20 = C20.new(0)
 
   abstract def write_output(item : C20, option : Symbol)
-  abstract def grab_input_char : C20
-  abstract def grab_input_char_no_pop : C20  
-  abstract def grab_input_number : C20
-  abstract def grab_input_number_no_pop : C20  
+  abstract def pop_char : C20
+  abstract def peek_char : C20  
+  abstract def pop_int : C20
+  abstract def peek_int : C20  
 
   @to_merge = [] of Tuple(Int32, Piston)
 

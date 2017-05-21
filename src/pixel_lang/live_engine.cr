@@ -23,8 +23,8 @@ class LiveEngine < Engine
     @last_output = item
   end
 
-  def grab_input_number
-    puts "grab_input_number"
+  def pop_int
+    puts "pop_int"
     if input.size == 0
       int = ""      
       until int != "" && int.to_s =~ /^[0-9]+$/
@@ -41,7 +41,7 @@ class LiveEngine < Engine
     end
   end
 
-  def grab_input_char
+  def pop_char
     if input.size == 0
       int = self.gets("$:").chomp
       @input += int
@@ -51,18 +51,18 @@ class LiveEngine < Engine
     c
   end
 
-  def grab_input_char_no_pop
+  def peek_char
     i = C20.new 0
     if input.size == 0
-      i = grab_input_char
+      i = pop_char
     else
       i = C20.new input[0].ord
     end
     i
   end
 
-  def grab_input_number_no_pop
-    puts "grab_input_number_no_pop"
+  def peek_int
+    puts "peek_int"
   
     x = 0
     total = ""
@@ -71,7 +71,7 @@ class LiveEngine < Engine
       x += 1
     end
     if total == ""
-      total = grab_input_number.value.to_s
+      total = pop_int.value.to_s
     end  
     C20.new total.to_i
   end

@@ -50,11 +50,10 @@ class Piston
   # When O is written to (is the destination) it writes to the output buffer. You can control whether it writes as a char, int, hex int, hex char.
   # If O is the/a source it will give back the last 20-bits that was given to output, this is globally shared between all pistons
   #TODO:  WRITE ABOUT SPECIAL RANDOM REGISTER OPTIONS
-  #TODO: Replace random_int and random_char with non-pop versions
   SPECIAL_REG = REGISTERS[6..7]
   # Input options for register I
-  INPUT_S_OPTIONS = [:int, :char, :no_pop_int, :no_pop_char]
-  INPUT_D_OPTIONS = [:int, :char, :random_max, :null]
+  INPUT_S_OPTIONS = [:pop_int, :pop_char, :peek_int, :peek_char]
+  INPUT_D_OPTIONS = [:push_int, :push_char, :random_max, :null]
   OUTPUT_S_OPTIONS = [:int, :char, :random_max, :random]
   # Output options for register O
   OUTPUT_D_OPTIONS =  [:int, :char, :int_hex, :char_hex]
@@ -174,27 +173,27 @@ class Piston
     # if there is nothing on this pistons stack, lets try the engine's input'
     if @i.empty?
       return case code
-        when :int
-          engine.grab_input_number
-        when :char
-          engine.grab_input_char
-        when :no_pop_int
-          engine.grab_input_number_no_pop
-        when :no_pop_char
-          engine.grab_input_char_no_pop
+        when :pop_int
+          engine.pop_int
+        when :pop_char
+          engine.pop_char
+        when :peek_int
+          engine.peek_int
+        when :peek_char
+          engine.peek_char
         else
           raise "Option does not exist!"
       end
     end
 
     case code
-      when :int
+      when :pop_int
         @i.pop
-      when :char
+      when :pop_char
         @i.pop % 0x100
-      when :no_pop_int
+      when :peek_int
         @i.last
-      when :no_pop_char
+      when :peek_char
         @i.last % 0x100
       else
         raise "Option does not exist!"
@@ -205,9 +204,9 @@ class Piston
     code = INPUT_D_OPTIONS[options]
 
     case code
-      when :int
+      when :push_int
         @i << v
-      when :char
+      when :push_char
         @i << C20.new(v.value % 0x100)
       when :null
         # Throw the value away
@@ -269,21 +268,26 @@ class Piston
   end
 
   def change_direction(d)
-    if DIRECTIONS.includes? d
-      @direction = d
-    elsif d == :turn_right
+    turn_right = -> do
       index = DIRECTIONS.index(@direction).as(Int32) + 1
       index = 0 if index >= DIRECTIONS.size
       change_direction(DIRECTIONS[index])
-    elsif d == :turn_left  
-      index = DIRECTIONS.index(@direction).as(Int32) - 1
-      index = DIRECTIONS.size-1 if index < 0
-      change_direction(DIRECTIONS[index])
+    end
+
+    if DIRECTIONS.includes? d
+      @direction = d
+    elsif d == :turn_right
+      turn_right.call
+    elsif d == :turn_left
+      # Two wrongs don't make a right but three rights make a left
+      turn_right.call
+      turn_right.call
+      turn_right.call
     elsif d == :reverse
-      change_direction :turn_left
-      change_direction :turn_left  
+      turn_right.call
+      turn_right.call
     elsif d == :random
-      change_direction DIRECTIONS.sample
+      rand(4).times {turn_right.call}
     else         
       raise "Direction does not exist!"
     end

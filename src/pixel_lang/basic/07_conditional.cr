@@ -88,7 +88,6 @@ class Conditional < Instruction
     end
   end
 
-
   def initialize(value : C24)
     super value
     @value.add_mask(:true_action, TRUE_BITS, TRUE_BITSHIFT)

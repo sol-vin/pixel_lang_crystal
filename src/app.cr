@@ -1,6 +1,6 @@
 require "./pixel_lang"
 
-e = AutoEngine.new("Test", "./programs/i_test.png")
+e = AutoEngine.new("Test", "./programs/fizzbuzz.png", "5")
 
 until e.ended? 
   puts e.show_instructions
@@ -13,8 +13,9 @@ until e.ended?
   if e.instructions[x, y].is_a?(Conditional)
     puts "Evaluate: #{e.instructions[x, y].as(Conditional).evaluate(e.pistons[0])}"
   end
-  #sleep 1
+  sleep 5
   e.run_one_instruction
 end
 
 e.run
+puts e.output
