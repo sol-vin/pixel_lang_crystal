@@ -1,9 +1,10 @@
 require "./pixel_lang"
 
-e = AutoEngine.new("Test", "./programs/fibonacci.png", ARGV[0])
+e = AutoEngine.new("Test", "./programs/i_test.png")
 
 until e.ended? 
   puts e.show_instructions
+  puts e.show_info
   x = e.pistons[0].position_x
   y = e.pistons[0].position_y
   puts e.pistons[0].show_info  
@@ -16,4 +17,4 @@ until e.ended?
   e.run_one_instruction
 end
 
-puts e.output
+e.run

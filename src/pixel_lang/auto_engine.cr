@@ -34,4 +34,23 @@ class AutoEngine < Engine
     @input = input.chars[1...input.chars.size].join
     c
   end
+
+  def grab_input_char_no_pop
+    i = 0
+    if input.size != 0
+      i = input[0].ord
+    end
+    C20.new i
+  end
+
+  def grab_input_number_no_pop
+    x = 0
+    total = ""
+    while x < input.size && ('0'..'9').includes?(input[x])
+      total += input[x]
+      x += 1
+    end
+    total = "0" if total == ""
+    C20.new total.to_i
+  end
 end

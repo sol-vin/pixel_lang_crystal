@@ -15,7 +15,9 @@ abstract class Engine
 
   abstract def write_output(item : C20, option : Symbol)
   abstract def grab_input_char : C20
+  abstract def grab_input_char_no_pop : C20  
   abstract def grab_input_number : C20
+  abstract def grab_input_number_no_pop : C20  
 
   @to_merge = [] of Tuple(Int32, Piston)
 
@@ -134,6 +136,21 @@ abstract class Engine
 
   def ended?
     pistons.empty? && @to_merge.empty?
+  end
+
+  def show_info
+    table = TerminalTable.new
+    table.headings = ["Name", "Value"]
+    table.separate_rows = true
+    
+    table << ["Output", "#{output}"]
+    table << ["Last Output", "#{last_output}"]
+    
+    table << ["Input", "#{input}"]
+    table << ["Cycles", "#{cycles}"]
+    table << ["ID", "#{@id}"]
+    
+    table.render
   end
 
   def show_memory

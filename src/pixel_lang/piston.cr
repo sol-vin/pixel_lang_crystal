@@ -171,7 +171,7 @@ class Piston
 
   def get_i(options) : C20
     code = INPUT_S_OPTIONS[options]
-    #if we put a number on the stack
+    # if there is nothing on this pistons stack, lets try the engine's input'
     if @i.empty?
       return case code
         when :int
@@ -179,15 +179,9 @@ class Piston
         when :char
           engine.grab_input_char
         when :no_pop_int
-          x = 0
-          total = ""
-          while x < engine.input.size && ('0'..'9').includes?(engine.input[x])
-            total += engine.input[x]
-            x += 1
-          end
-          C20.new total.to_i
+          engine.grab_input_number_no_pop
         when :no_pop_char
-          C20.new engine.input[0].ord
+          engine.grab_input_char_no_pop
         else
           raise "Option does not exist!"
       end

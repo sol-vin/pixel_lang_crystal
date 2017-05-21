@@ -58,26 +58,46 @@ describe AutoEngine do
   end
 
   it "should run a_to_z" do
-    e = AutoEngine.new("Test", "./programs/a_to_z.png")
+    e = AutoEngine.new("a_to_z", "./programs/a_to_z.png")
     e.run
     e.output.should eq(('A'..'Z').to_a.join)
   end
 
   it "should run a_to_z_art" do
-    e = AutoEngine.new("Test", "./programs/a_to_z_art.png")
+    e = AutoEngine.new("a_to_z_art", "./programs/a_to_z_art.png")
     e.run
     e.output.should eq(('A'..'Z').to_a.join)
   end
 
   it "should run counter" do
-    e = AutoEngine.new("Test", "./programs/counter.png")
+    e = AutoEngine.new("counter", "./programs/counter.png")
     e.run
     e.output.should eq("12345678910")
   end
 
   it "should run fork_counter" do
-    e = AutoEngine.new("Test", "./programs/fork_counter.png")
+    e = AutoEngine.new("fork_counter", "./programs/fork_counter.png")
     e.run
     e.output.should eq("123456789")
+  end
+
+  it "should run fibonacci" do
+    a, b = 1, 0
+    31.times do |x|
+      b, a = a, b
+      e = AutoEngine.new("fibonacci", "./programs/fibonacci.png", "#{x}")
+      e.run
+      e.output.should eq("#{a}")
+      a = a+b
+    end  
+
+    a, b = 1, 0
+    31.times do |x|
+      b, a = a, b
+      e = AutoEngine.new("fibonacci_art", "./programs/fibonacci_art.png", "#{x}")
+      e.run
+      e.output.should eq("#{a}")
+      a = a+b
+    end  
   end
 end
