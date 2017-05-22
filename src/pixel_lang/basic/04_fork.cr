@@ -125,9 +125,9 @@ class Fork < Instruction
     table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["direction_1", DECISIONS.keys[value[:direction_1]].to_s]
     table << ["direction_2", DECISIONS.keys[value[:direction_2]].to_s]
-    table << ["direction_3_bool", value[:direction_3_bool]]
+    table << ["direction_3_bool", value[:direction_3_bool].to_s]
     table << ["direction_3", DECISIONS.keys[value[:direction_3]].to_s]
-    table << ["direction_4_bool", value[:direction_4_bool]]
+    table << ["direction_4_bool", value[:direction_4_bool].to_s]
     table << ["direction_4", DECISIONS.keys[value[:direction_4]].to_s]
     table
   end

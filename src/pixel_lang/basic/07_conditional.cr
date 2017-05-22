@@ -120,10 +120,10 @@ class Conditional < Instruction
     table << ["true_action", DECISIONS.keys[value[:true_action]].to_s]
     table << ["false_action", DECISIONS.keys[value[:false_action]].to_s]
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
-    table << ["s1op", value[:s1op]]
+    table << ["s1op", value[:s1op].to_s]
     table << ["op", Constants::OPERATIONS[value[:op]].to_s]
     table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
-    table << ["s2op", value[:s2op]] 
+    table << ["s2op", value[:s2op].to_s] 
     
     table
   end

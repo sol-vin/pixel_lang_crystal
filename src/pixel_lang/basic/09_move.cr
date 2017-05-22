@@ -103,9 +103,9 @@ class Move < Instruction
     table = [] of Array(String)
     table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["s", Piston::REGISTERS[value[:s]].to_s]
-    table << ["sop", value[:sop]]
+    table << ["sop", value[:sop].to_s]
     table << ["d", Piston::REGISTERS[value[:d]].to_s]
-    table << ["dop", value[:dop]] 
+    table << ["dop", value[:dop].to_s] 
     table
   end
 end  
