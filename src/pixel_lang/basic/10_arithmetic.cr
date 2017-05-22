@@ -95,12 +95,12 @@ class Arithmetic < Instruction
     table = [] of Array(String)
     table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
-    table << ["s1op", value[:s1op]]
+    table << ["s1op", value[:s1op].to_s]
     table << ["op", Constants::OPERATIONS[value[:op]].to_s]
     table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
-    table << ["s2op", value[:s2op]] 
+    table << ["s2op", value[:s2op]].to_s
     table << ["d", Piston::REGISTERS[value[:d]].to_s]
-    table << ["dop", value[:dop]] 
+    table << ["dop", value[:dop]].to_s
     table
   end
 end
