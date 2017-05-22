@@ -70,13 +70,12 @@ class Call < Instruction
     self.class.run(piston, x, y)
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["x", "#{((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))}"]
     table << ["y", "#{((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))}"]
-    table.render
+    table
   end
 end

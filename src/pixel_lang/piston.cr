@@ -344,11 +344,9 @@ class Piston
   def show_all
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["Piston", "Value"]
-    table.separate_rows = true
+    table = [] of Array(String)
     table << ["id", "#{id}"]
     table << ["priority", "#{priority}"]    
     table << ["paused?", "#{paused?}"]
@@ -356,13 +354,12 @@ class Piston
     table << ["direction", "#{direction}"]
     table << ["position_x", "#{position_x}"]
     table << ["position_y", "#{position_y}"]        
-    table.render
+    table
   end
 
-  def show_registers
-    table = TerminalTable.new
-    table.headings = ["Register", "int", "hex"]
-    table.separate_rows = true
+  def registers
+    table = [] of Array(String)
+    table << ["Register", "int", "hex"]
     table << ["ma", "#{get_ma(0).value}", "#{get_ma(0).to_int_hex}"]
     table << ["mav", "#{get_mav(0).value}", "#{get_mav(0).to_int_hex}"]
     table << ["mb", "#{get_mb(0).value}", "#{get_mb(0).to_int_hex}"]
@@ -380,19 +377,18 @@ class Piston
     table << ["i", i_ints, i_hexes]
 
     table << ["o", "#{get_o(0).value}", "#{get_o(0).to_int_hex}"]
-    table.render
+    table
   end
 
-  def show_memory
-    table = TerminalTable.new
-    table.headings = ["Address", "int", "hex"]
-    table.separate_rows = true
+  def memory_dump
+    table = [] of Array(String)
+    table << ["Address", "int", "hex"]
     
     @memory.keys.sort{|x, y| x.value <=> y.value}.each do |address|
       table << ["#{address.to_int_hex}", "#{@memory[address].to_s}", "#{@memory[address].to_int_hex}"]
     end
     
-    table.render
+    table
   end
 
   def current_instruction

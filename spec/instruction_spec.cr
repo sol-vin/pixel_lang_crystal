@@ -1,5 +1,5 @@
 require "spec"
-require "../src/pixel_lang"
+require "../src/pixel_lang_crystal"
 
 describe Instructions do
   it "should correctly identify instructions" do

@@ -113,11 +113,10 @@ class Conditional < Instruction
     self.class.run(piston, true_action, false_action, s1, value[:s1op], op, s2, value[:s2op])
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["true_action", DECISIONS.keys[value[:true_action]].to_s]
     table << ["false_action", DECISIONS.keys[value[:false_action]].to_s]
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
@@ -126,7 +125,7 @@ class Conditional < Instruction
     table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
     table << ["s2op", value[:s2op]] 
     
-    table.render
+    table
   end
 
   def evaluate(piston)

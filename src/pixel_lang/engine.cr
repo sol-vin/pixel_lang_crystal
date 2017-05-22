@@ -138,11 +138,8 @@ abstract class Engine
     pistons.empty? && @to_merge.empty?
   end
 
-  def show_info
-    table = TerminalTable.new
-    table.headings = ["Name", "Value"]
-    table.separate_rows = true
-    
+  def info
+    table = [] of Array(String)
     table << ["Output", "#{output}"]
     table << ["Last Output", "#{last_output}"]
     
@@ -150,19 +147,17 @@ abstract class Engine
     table << ["Cycles", "#{cycles}"]
     table << ["ID", "#{@id}"]
     
-    table.render
+    table
   end
 
   def show_memory
-    table = TerminalTable.new
-    table.headings = ["Address", "int", "hex"]
-    table.separate_rows = true
+    table = [] of Array(String)
     
     @memory.keys.sort{|x, y| x.value <=> y.value}.each do |address|
       table << ["#{address.to_int_hex}", "#{@memory[address].to_s}", "#{@memory[address].to_int_hex}"]
     end
     
-    table.render
+    table
   end
 
   def show_instructions

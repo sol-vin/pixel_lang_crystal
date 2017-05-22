@@ -98,14 +98,14 @@ class Move < Instruction
     self.class.run(piston, s, value[:sop], d, value[:dop], swap, reverse)
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["s", Piston::REGISTERS[value[:s]].to_s]
     table << ["sop", value[:sop]]
     table << ["d", Piston::REGISTERS[value[:d]].to_s]
     table << ["dop", value[:dop]] 
-    table.render
+    table
   end
 end  

@@ -1,5 +1,4 @@
 require "stumpy_png"
-require "terminal_table"
 require "colorful"
 
 require "./pixel_lang/constants"
@@ -14,6 +13,5 @@ require "./pixel_lang/piston"
 require "./pixel_lang/instruction"
 require "./pixel_lang/instructions"
 require "./pixel_lang/auto_engine"
-require "./pixel_lang/log_engine"
 require "./pixel_lang/live_engine"
 require "./pixel_lang/basic/*"

@@ -119,17 +119,16 @@ class Fork < Instruction
     self.class.run(piston, d1, d2, d3, d4)
   end
  
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["direction_1", DECISIONS.keys[value[:direction_1]].to_s]
     table << ["direction_2", DECISIONS.keys[value[:direction_2]].to_s]
     table << ["direction_3_bool", value[:direction_3_bool]]
     table << ["direction_3", DECISIONS.keys[value[:direction_3]].to_s]
     table << ["direction_4_bool", value[:direction_4_bool]]
     table << ["direction_4", DECISIONS.keys[value[:direction_4]].to_s]
-    table.render
+    table
   end
 end

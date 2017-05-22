@@ -90,11 +90,10 @@ class Arithmetic < Instruction
     self.class.run(piston, s1, s1op, op, s2, s2op, d, dop)
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
     table << ["s1op", value[:s1op]]
     table << ["op", Constants::OPERATIONS[value[:op]].to_s]
@@ -102,6 +101,6 @@ class Arithmetic < Instruction
     table << ["s2op", value[:s2op]] 
     table << ["d", Piston::REGISTERS[value[:d]].to_s]
     table << ["dop", value[:dop]] 
-    table.render
+    table
   end
 end

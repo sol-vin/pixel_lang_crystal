@@ -41,13 +41,12 @@ class Direction < Instruction
   end
 
   
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["direction", "#{DIRECTIONS[value[:value] % DIRECTIONS.size]}"]
-    table.render
+    table
   end
 
   def char : Char

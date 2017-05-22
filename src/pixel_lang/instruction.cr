@@ -41,11 +41,9 @@ abstract class Instruction
     self.class.run(piston)
   end
 
-  def show_info
-    # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table << ["", ""]
-    table.render
+  def info
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table
   end
 end

@@ -46,14 +46,13 @@ class Start < Instruction
     self.class.run(piston, Piston::DIRECTIONS[value[:direction]])
   end
 
-  def show_info
+  def info
     # Table with headings
-    table = TerminalTable.new
-    table.headings = ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table.separate_rows = true
+    table = [] of Array(String)
+    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
     table << ["priority", "#{value[:priority]}"]
     table << ["direction", "#{Piston::DIRECTIONS[value[:direction]]}"]
-    table.render
+    table
   end
 
   def char : Char
