@@ -98,6 +98,20 @@ describe AutoEngine do
       e.run
       e.output.should eq("#{a}")
       a = a+b
-    end  
+    end
+  end
+
+  it "should run fizzbuzz" do
+    result = (1..100).to_a.map do |x|
+       (x % 3 == 0) ? (x % 5 == 0 ? "FIZZBUZZ" : "FIZZ" ) : (x % 5 == 0 ? "BUZZ" : "#{x}" ) 
+    end.join(" ") + " "
+
+    e1 = AutoEngine.new("fizzbuzz", "./programs/fizzbuzz.png", "100")
+    e2 = AutoEngine.new("fizzbuzz_art", "./programs/fizzbuzz_art.png", "100")
+    e1.run
+    e2.run
+
+    e1.output.should eq(e2.output)
+    e2.output.should eq(result)
   end
 end
