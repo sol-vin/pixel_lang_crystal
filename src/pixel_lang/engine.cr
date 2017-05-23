@@ -22,7 +22,6 @@ abstract class Engine
   @to_merge = [] of Tuple(Int32, Piston)
 
   def initialize(@name : String, image_file : String, @original_input = "")
-    @name = image_file.split('/').last.split('.').first
     @original_instructions = Instructions.new(image_file)
     reset # start the machine
   end
