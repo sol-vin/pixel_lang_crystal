@@ -260,10 +260,10 @@ class Piston
     v2 = get(s2, s2op)
 
     #stop div by zero
-    if op == :/ && (v2 == C20.new(0)) != C20.new(0)
+    if op == :/ && (v2.value == 0)
       puts "DIV BY ZERO!"
       return C20.new(0)
-    elsif op == :% && (v2 == C20.new(0)) != C20.new(0)
+    elsif op == :% && (v2.value == 0)
       puts "MOD BY ZERO!"
       return v1
     end
