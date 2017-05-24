@@ -259,6 +259,13 @@ class Piston
     v1 = get(s1, s1op)
     v2 = get(s2, s2op)
 
+    #stop div by zero
+    if op == :/ && v2 == C20.new(0)
+      return C20.new(0)
+    elsif op == :% && v2 == C20.new(0)
+      return v1
+    end
+
     {% for o in Constants::OPERATIONS %}
       if op == {{o}} 
         return v1 {{o.id}} v2
