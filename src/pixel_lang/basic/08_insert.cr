@@ -7,7 +7,7 @@ class Insert < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     Insert Instruction
     Inserts the color value into register i
     0bCCCCVVVVVVVVVVVVVVVVVVVV
@@ -22,10 +22,6 @@ class Insert < Instruction
 
   def self.run(piston, number)
     piston.set_i number, 0
-  end
-
-  def char : Char
-    '\u24BE'
   end
 
   def run(piston)

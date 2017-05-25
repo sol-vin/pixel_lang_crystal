@@ -35,8 +35,6 @@ abstract class Instruction
   def initialize(@value : C24)
   end
 
-  abstract def char : Char
-
   def run(piston)
     self.class.run(piston)
   end

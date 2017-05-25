@@ -35,7 +35,7 @@ class Fork < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     Fork Instruction
     Forks a piston into multiple readers with different directions
     0bCCCC000000444X333Y222111
@@ -107,10 +107,6 @@ class Fork < Instruction
     @value.add_mask(:direction_4, DIRECTION_4_BITS, DIRECTION_4_BITSHIFT)
   end
 
-  def char : Char
-    'F'
-  end
-
   def run(piston)
     d1 = DECISIONS.keys[value[:direction_1]]
     d2 = DECISIONS.keys[value[:direction_2]]
@@ -118,11 +114,10 @@ class Fork < Instruction
     d4 = (value[:direction_4_bool] != 0 ? DECISIONS.keys[value[:direction_4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
- 
+  
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["direction_1", DECISIONS.keys[value[:direction_1]].to_s]
     table << ["direction_2", DECISIONS.keys[value[:direction_2]].to_s]
     table << ["direction_3_bool", value[:direction_3_bool].to_s]

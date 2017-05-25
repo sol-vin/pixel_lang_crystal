@@ -6,8 +6,8 @@ class Pause < Instruction
     0x2
   end
   
-  def self.reference_card
-    puts %q{
+  def reference_card
+    %q{
     Pause Instruction
     Tells a piston to wait for Time + 1 cycles.
     0bCCCCTTTTTTTTTTTTTTTTTTTT
@@ -30,9 +30,5 @@ class Pause < Instruction
   
   def run(piston)
     self.class.run(piston, value[:value])
-  end
-
-  def char : Char
-    'P'
   end
 end

@@ -28,7 +28,7 @@ class Arithmetic < Instruction
   DESTINATION_OPTION_BITSHIFT = 1
 
   def self.reference_card
-    puts %q{
+    %q{
     Arithmetic Instruction
     Performs an arithmatic operation and stores the output in a register
     0bCCCC111XXOOOO222YYDDDZZ0
@@ -75,10 +75,6 @@ class Arithmetic < Instruction
     @value.add_mask(:dop, DESTINATION_OPTION_BITS, DESTINATION_OPTION_BITSHIFT)
   end
 
-  def char : Char
-    '\u24B6'
-  end
-
   def run(piston)
     s1 = Piston::REGISTERS[value[:s1]]
     s1op = value[:s1op]
@@ -92,8 +88,7 @@ class Arithmetic < Instruction
 
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
     table << ["s1op", value[:s1op].to_s]
     table << ["op", Constants::OPERATIONS[value[:op]].to_s]

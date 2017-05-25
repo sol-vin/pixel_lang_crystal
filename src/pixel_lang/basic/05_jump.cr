@@ -7,7 +7,7 @@ class Jump < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     Jump Instruction
     Piston jumps spaces+1 in the direction it's facing
     0bCCCCSSSSSSSSSSSSSSSSSSSS
@@ -22,10 +22,6 @@ class Jump < Instruction
 
   def self.run(piston, spaces)
     piston.move spaces
-  end
-
-  def char : Char
-    'J'
   end
 
   def run(piston)

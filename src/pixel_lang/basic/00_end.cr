@@ -7,7 +7,7 @@ class End < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     End Instruction
     Ends the piston
     0bCCCC00000000000000000000
@@ -22,9 +22,5 @@ end
 
   def self.run(piston)
     piston.kill
-  end
-
-  def char : Char
-    '\u2620'
   end
 end

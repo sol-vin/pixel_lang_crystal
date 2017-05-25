@@ -26,7 +26,7 @@ class Move < Instruction
   REVERSE_BITSHIFT = 8
 
   def self.reference_card
-    puts %q{
+    %q{
     Move Instruction
     Moves the contents of one register into another. Can also swap values of regular registers.
     0bCCCCSSSXXDDDYYWE00000000
@@ -85,10 +85,6 @@ class Move < Instruction
     @value.add_mask(:reverse, REVERSE_BITS, REVERSE_BITSHIFT)        
   end
 
-  def char : Char
-    '\u2386'
-  end
-
   def run(piston)
     s = Piston::REGISTERS[value[:s]]
     d = Piston::REGISTERS[value[:d]]
@@ -100,8 +96,7 @@ class Move < Instruction
 
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["s", Piston::REGISTERS[value[:s]].to_s]
     table << ["sop", value[:sop].to_s]
     table << ["d", Piston::REGISTERS[value[:d]].to_s]

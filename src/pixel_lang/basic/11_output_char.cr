@@ -7,7 +7,7 @@ class OutputChar < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     OutputChar Instruction
     Sends a char straight to engine.write_output
     0bCCCCSSSSSSSSSSSSSSSSSSSS
@@ -17,18 +17,21 @@ class OutputChar < Instruction
   end
 
   def self.make_color(char)
-    ((control_code <<C24::CONTROL_CODE_BITSHIFT) + char.ord).to_s 16
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + char.ord).to_s 16
   end
 
   def self.run(piston, char)
     piston.engine.write_output char, :char
   end
 
-  def char : Char
-    '\u24C4'
-  end
-
   def run(piston)
     self.class.run(piston, C20.new(value[:value] % 0x100))
+  end
+
+  def info
+    # Table with headings
+    table = super
+    table << ["char", (value[:value] % 0x100).chr]
+    table
   end
 end

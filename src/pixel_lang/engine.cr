@@ -12,6 +12,7 @@ abstract class Engine
   getter memory : Hash(C20, C20) = Hash(C20,C20).new(C20.new(0))
   getter input : String = ""
   getter last_output : C20 = C20.new(0)
+  getter original_input : String = ""
 
   abstract def write_output(item : C20, option : Symbol)
   abstract def pop_char : C20
@@ -139,10 +140,10 @@ abstract class Engine
 
   def info
     table = [] of Array(String)
-    table << ["Output", "#{output}"]
+    table << ["Output", output]
     table << ["Last Output", "#{last_output}"]
-    
-    table << ["Input", "#{input}"]
+    table << ["Original Input", original_input] 
+    table << ["Input", input]
     table << ["Cycles", "#{cycles}"]
     table << ["ID", "#{@id}"]
     
@@ -157,57 +158,5 @@ abstract class Engine
     end
     
     table
-  end
-
-  def show_instructions
-    i = [] of Char
-    (0...instructions.height).each do |y|
-      (0...instructions.width).each do |x|
-        i << instructions[x, y].char
-      end
-    end
-
-    output = String::Builder.new
-    i.each_with_index do |c, i|
-      x = i % instructions.width
-      y = i / instructions.width
-      p = pistons.select do |p|
-        p.position_x == x && p.position_y == y
-      end
-
-      color = {"foreground" => "white", "background" => "black"}        
-      output << "\n\n\n".colorful(color) if x == 0
-
-
-      unless p.empty?
-        if p.size == 1
-          color = {"foreground" => Constants::COLORS[p[0].id  % Constants::COLORS.size], "background" => "black"}
-          if c == ' '
-            p_c = case p[0].direction
-                    when :up
-                      '\u2191'
-                    when :down
-                      '\u2193'
-                    when :left
-                      '\u2190'
-                    when :right
-                      '\u2192'
-                    else 
-                      '?'  
-                  end
-            output << (p_c + "     ").colorful(color)
-          else
-            output << (c + "     ").colorful(color)
-          end
-        else
-          color = {"background" => Constants::COLORS[p.size % Constants::COLORS.size], "foreground" => "black"}          
-          output << (c + " <#{p.size.to_s.rjust(2, ' ')} ").colorful(color)
-        end
-      else
-        color = {"foreground" => "white", "background" => "black"}        
-        output << (c + "     ").colorful(color)
-      end
-    end
-    output.to_s
   end
 end

@@ -13,7 +13,7 @@ class Start < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     Start Instruction
     Tell the engine where to place a piston, what direction it should face, and what it's priority should be.
     0bCCCCDDPPPPPPPPPPPPPPPPPP
@@ -48,25 +48,9 @@ class Start < Instruction
 
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["priority", "#{value[:priority]}"]
     table << ["direction", "#{Piston::DIRECTIONS[value[:direction]]}"]
     table
-  end
-
-  def char : Char
-    case Piston::DIRECTIONS[value[:direction]]
-      when :up
-        '\u21E7'
-      when :down
-        '\u21E9'
-      when :left
-        '\u21E6'
-      when :right
-        '\u21E8'
-      else
-        '?'
-    end
   end
 end

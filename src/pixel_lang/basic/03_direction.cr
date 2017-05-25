@@ -9,7 +9,7 @@ class Direction < Instruction
   end
 
   def self.reference_card
-    puts %q{
+    %q{
     Direction Instruction
     Tells a piston to change direction
     0bCCCC0000000000000000DDDD
@@ -43,32 +43,8 @@ class Direction < Instruction
   
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["direction", "#{DIRECTIONS[value[:value] % DIRECTIONS.size]}"]
     table
-  end
-
-  def char : Char
-    case DIRECTIONS[value[:value] % DIRECTIONS.size]
-      when :up
-        '\u2191'
-      when :down
-        '\u2193'
-      when :left
-        '\u2190'
-      when :right
-        '\u2192'
-      when :turn_left
-        '\u21b0'
-      when :turn_right
-        '\u21b1'
-      when :reverse
-        '\u21B6'
-      when :random
-        '\u2295'
-      else
-        '?'
-    end
   end
 end

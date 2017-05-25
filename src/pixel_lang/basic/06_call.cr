@@ -19,7 +19,7 @@ class Call < Instruction
   Y_BITSHIFT = 0
 
   def self.reference_card
-    puts %q{
+    %q{
     Call Instruction
     Jumps a piston to a nearby instruction by the offset coordinates.
     0bCCCCXWWWWWWWWWYZZZZZZZZZ
@@ -59,10 +59,6 @@ class Call < Instruction
     @value.add_mask(:y, Y_BITS, Y_BITSHIFT)
   end
 
-  def char : Char
-    '\u260E'
-  end
-
   def run(piston)
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
@@ -72,8 +68,7 @@ class Call < Instruction
 
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["x", "#{((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))}"]
     table << ["y", "#{((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))}"]
     table

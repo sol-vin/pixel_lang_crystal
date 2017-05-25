@@ -39,7 +39,7 @@ class Conditional < Instruction
   SOURCE_2_OPTION_BITSHIFT = 0
 
   def self.reference_card
-    puts %q{
+    %q{
     Conditional Instruction
     Evaluates an arithmetic expression. If the result is zero, the piston moves one way, else, it moves another.
      0bCCCCTTTFFF111XXAAAA222YY
@@ -99,10 +99,6 @@ class Conditional < Instruction
     @value.add_mask(:s2op, SOURCE_2_OPTION_BITS, SOURCE_2_OPTION_BITSHIFT)
   end
 
-  def char : Char
-    '\u2234'
-  end
-
   def run(piston : Piston)
     true_action = DECISIONS.keys[value[:true_action]]
     false_action = DECISIONS.keys[value[:false_action]]
@@ -115,8 +111,7 @@ class Conditional < Instruction
 
   def info
     # Table with headings
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
+    table = super
     table << ["true_action", DECISIONS.keys[value[:true_action]].to_s]
     table << ["false_action", DECISIONS.keys[value[:false_action]].to_s]
     table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
