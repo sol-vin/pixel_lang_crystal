@@ -140,7 +140,6 @@ abstract class Engine
 
   def info
     table = [] of Array(String)
-    table << ["Output", output]
     table << ["Last Output", "#{last_output}"]
     table << ["Original Input", original_input] 
     table << ["Input", input]
