@@ -31,7 +31,7 @@ class OutputChar < Instruction
   def info
     # Table with headings
     table = super
-    table << ["char", (value[:value] % 0x100).chr]
+    table << ["char", (value[:value] % 0x100).chr.to_s]
     table
   end
 end
