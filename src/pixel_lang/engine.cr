@@ -61,6 +61,9 @@ abstract class Engine
     @pistons.each do |p|
       if p.paused?
         p.pause_cycle
+        if !p.paused?
+          p.move(1)
+        end  
       else
         instruction = instructions[p.position_x, p.position_y]
 
@@ -71,7 +74,7 @@ abstract class Engine
         instruction.run(p)
 
         #move unless we called recently.
-        p.move 1 unless instruction.class == Call
+        p.move 1 unless instruction.class == Call || instruction.class == Pause
         #wrap the piston around if it moves off screen.
         if p.position_x < 0
           p.position_x = (instructions.width - (p.position_x.abs % instructions.width)).to_u32
