@@ -58,25 +58,25 @@ describe AutoEngine do
   end
 
   it "should run a_to_z" do
-    e = AutoEngine.new("a_to_z", "./programs/a_to_z.png")
+    e = AutoEngine.new("a_to_z", "./programs/basic/a_to_z.png")
     e.run
     e.output.should eq(('A'..'Z').to_a.join)
   end
 
   it "should run a_to_z_art" do
-    e = AutoEngine.new("a_to_z_art", "./programs/a_to_z_art.png")
+    e = AutoEngine.new("a_to_z_art", "./programs/basic/a_to_z_art.png")
     e.run
     e.output.should eq(('A'..'Z').to_a.join)
   end
 
   it "should run counter" do
-    e = AutoEngine.new("counter", "./programs/counter.png")
+    e = AutoEngine.new("counter", "./programs/basic/counter.png")
     e.run
     e.output.should eq("12345678910")
   end
 
   it "should run fork_counter" do
-    e = AutoEngine.new("fork_counter", "./programs/fork_counter.png")
+    e = AutoEngine.new("fork_counter", "./programs/basic/fork_counter.png")
     e.run
     e.output.should eq("123456789")
   end
@@ -85,7 +85,7 @@ describe AutoEngine do
     a, b = 1, 0
     31.times do |x|
       b, a = a, b
-      e = AutoEngine.new("fibonacci", "./programs/fibonacci.png", "#{x}")
+      e = AutoEngine.new("fibonacci", "./programs/math/fibonacci.png", "#{x}")
       e.run
       e.output.should eq("#{a}")
       a = a+b
@@ -94,7 +94,7 @@ describe AutoEngine do
     a, b = 1, 0
     31.times do |x|
       b, a = a, b
-      e = AutoEngine.new("fibonacci_art", "./programs/fibonacci_art.png", "#{x}")
+      e = AutoEngine.new("fibonacci_art", "./programs/math/fibonacci_art.png", "#{x}")
       e.run
       e.output.should eq("#{a}")
       a = a+b
@@ -106,12 +106,126 @@ describe AutoEngine do
        (x % 3 == 0) ? (x % 5 == 0 ? "FIZZBUZZ" : "FIZZ" ) : (x % 5 == 0 ? "BUZZ" : "#{x}" ) 
     end.join(" ") + " "
 
-    e1 = AutoEngine.new("fizzbuzz", "./programs/fizzbuzz.png", "100")
-    e2 = AutoEngine.new("fizzbuzz_art", "./programs/fizzbuzz_art.png", "100")
+    e1 = AutoEngine.new("fizzbuzz", "./programs/basic/fizzbuzz.png", "100")
+    e2 = AutoEngine.new("fizzbuzz_art", "./programs/basic/fizzbuzz_art.png", "100")
     e1.run
     e2.run
 
     e1.output.should eq(e2.output)
     e2.output.should eq(result)
+  end
+
+  it "should run num_bits" do
+    e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "4")
+    e.run
+    e.output.should eq("3")
+
+    e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "8")
+    e.run
+    e.output.should eq("4")
+
+    e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "32")
+    e.run
+    e.output.should eq("6")
+
+    e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "128")
+    e.run
+    e.output.should eq("8")
+
+    e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "256")
+    e.run
+    e.output.should eq("9")
+  end
+
+  it "should run sqrt" do
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "0")
+    e.run
+    e.output.should eq("0")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "1")
+    e.run
+    e.output.should eq("1")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "4")
+    e.run
+    e.output.should eq("2")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "9")
+    e.run
+    e.output.should eq("3")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "16")
+    e.run
+    e.output.should eq("4")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "64")
+    e.run
+    e.output.should eq("8")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "81")
+    e.run
+    e.output.should eq("9")
+
+    e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "#{999**2}")
+    e.run
+    e.output.should eq("999")
+  end
+
+  it "should run euler_1" do
+    e = AutoEngine.new("euler1", "./programs/euler/1.png", "10")
+    e.run
+    e.output.should eq("23")
+
+    e = AutoEngine.new("euler1", "./programs/euler/1.png", "1000")
+    e.run
+    e.output.should eq("233168")
+  end
+
+  it "should run euler_2" do
+    e = AutoEngine.new("euler2", "./programs/euler/2.png", "10")
+    e.run
+    e.output.should eq("10")
+
+    e = AutoEngine.new("euler2", "./programs/euler/2.png", "100")
+    e.run
+    e.output.should eq("44")
+
+    e = AutoEngine.new("euler2", "./programs/euler/2.png", "3000")
+    e.run
+    e.output.should eq("3382")
+  end
+
+  it "should run calculator" do
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "3000+382")
+    e.run
+    e.output.should eq("3382")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "10-4")
+    e.run
+    e.output.should eq("6")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "3*123")
+    e.run
+    e.output.should eq("369")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "200/100")
+    e.run
+    e.output.should eq("2")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "4%2")
+    e.run
+    e.output.should eq("0")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9%2")
+    e.run
+    e.output.should eq("1")
+    
+    #e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9%0")
+    #e.run
+    #e.output.should eq("NaN")
+
+    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9/0")
+    e.run
+    e.output.should eq("NaN")
   end
 end

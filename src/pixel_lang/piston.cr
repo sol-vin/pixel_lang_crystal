@@ -261,10 +261,10 @@ class Piston
 
     #stop div by zero
     if op == :/ && (v2.value == 0)
-      puts "DIV BY ZERO!"
+      #puts "DIV BY ZERO!"
       return C20.new(0)
     elsif op == :% && (v2.value == 0)
-      puts "MOD BY ZERO!"
+      #puts "MOD BY ZERO!"
       return v1
     end
 
@@ -316,12 +316,33 @@ class Piston
       else
         raise "Option does not exist!"
     end
+
+    wrap_position
+  end
+
+  private def wrap_position
+    width = engine.instructions.width
+    height = engine.instructions.height
+
+    if position_x < 0
+      @position_x = (width - (@position_x.abs % width))
+    else
+      @position_x %= width
+    end
+
+    if position_y < 0
+      @position_y = (height - (@position_y.abs % height))
+    else
+      @position_y %= height
+    end
   end
 
   # jumps to a relative position
   def call(x, y)
     @position_x += x
     @position_y += y
+
+     wrap_position
   end
 
   # pauses the piston for a certain amount of cycles
