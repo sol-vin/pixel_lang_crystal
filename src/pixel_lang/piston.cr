@@ -1,8 +1,8 @@
 class Piston
   getter engine : Engine
 
-  property position_x : UInt32
-  property position_y : UInt32
+  property position_x : Int32
+  property position_y : Int32
 
   getter direction : Symbol
   getter memory : Hash(C20, C20) = Hash(C20, C20).new(C20.new(0))

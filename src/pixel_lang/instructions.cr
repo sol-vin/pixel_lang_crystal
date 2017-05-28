@@ -3,7 +3,7 @@ require "./c24"
 require "stumpy_png"
 
 class Instructions
-  alias StartPoint = NamedTuple(x: UInt32, y: UInt32, direction: Symbol, priority: UInt32)
+  alias StartPoint = NamedTuple(x: Int32, y: Int32, direction: Symbol, priority: UInt32)
 
   def initialize(@image : StumpyCore::Canvas)
   end
@@ -36,8 +36,8 @@ class Instructions
          i = self[x, y]
          if i.value[:control_code] == 0x1
            a << {
-             x: x.to_u32,
-             y: y.to_u32,
+             x: x,
+             y: y,
              direction: Piston::DIRECTIONS[i.value[:direction]],
              priority: i.value[:priority]
            }

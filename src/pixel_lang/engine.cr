@@ -77,13 +77,13 @@ abstract class Engine
         p.move 1 unless instruction.class == Call || instruction.class == Pause
         #wrap the piston around if it moves off screen.
         if p.position_x < 0
-          p.position_x = (instructions.width - (p.position_x.abs % instructions.width)).to_u32
+          p.position_x = (instructions.width - (p.position_x.abs % instructions.width))
         else
           p.position_x %= instructions.width
         end
 
         if p.position_y < 0
-          p.position_y = (instructions.height - (p.position_y.abs % instructions.height)).to_u32
+          p.position_y = (instructions.height - (p.position_y.abs % instructions.height))
         else
           p.position_y %= instructions.height
         end
