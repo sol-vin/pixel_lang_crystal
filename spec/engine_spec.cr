@@ -228,4 +228,42 @@ describe AutoEngine do
     e.run
     e.output.should eq("NaN")
   end
+
+  it "should run prime" do
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "0")
+    e.run
+    e.output.should eq("F")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "1")
+    e.run
+    e.output.should eq("T")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "2")
+    e.run
+    e.output.should eq("T")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "3")
+    e.run
+    e.output.should eq("T")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "4")
+    e.run
+    e.output.should eq("F")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "5")
+    e.run
+    e.output.should eq("T")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "81")
+    e.run
+    e.output.should eq("F")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "229")
+    e.run
+    e.output.should eq("T")
+
+    e = AutoEngine.new("prime", "./programs/math/is_prime.png", "2323")
+    e.run
+    e.output.should eq("F")
+  end
 end
