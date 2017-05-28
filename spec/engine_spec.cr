@@ -196,35 +196,35 @@ describe AutoEngine do
   end
 
   it "should run calculator" do
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "3000+382")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "3000+382")
     e.run
     e.output.should eq("3382")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "10-4")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "10-4")
     e.run
     e.output.should eq("6")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "3*123")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "3*123")
     e.run
     e.output.should eq("369")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "200/100")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "200/100")
     e.run
     e.output.should eq("2")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "4%2")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "4%2")
     e.run
     e.output.should eq("0")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9%2")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "9%2")
     e.run
     e.output.should eq("1")
     
-    #e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9%0")
-    #e.run
-    #e.output.should eq("NaN")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "9%0")
+    e.run
+    e.output.should eq("NaN")
 
-    e = AutoEngine.new("calc", "./programs/basic/calculator.png", "9/0")
+    e = AutoEngine.new("calc", "./programs/math/calculator.png", "9/0")
     e.run
     e.output.should eq("NaN")
   end
