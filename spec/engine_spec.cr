@@ -266,4 +266,13 @@ describe AutoEngine do
     e.run
     e.output.should eq("F")
   end
+
+  it "should run prime_sieve" do
+    e = AutoEngine.new("prime", "./programs/math/prime_sieve.png", "30")
+    890.times { e.run_one_instruction }
+    e.memory[C20.new(0x00000b)].should eq(0)
+    e.pistons[0].get_sv(0).should eq(0)
+
+    #e.output.should eq("F")
+  end
 end
