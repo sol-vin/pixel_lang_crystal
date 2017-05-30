@@ -26,6 +26,120 @@ describe C20 do
     c -= 1
     c.value.should eq(C20::MAX-1)
   end
+
+  it "should be able to use +" do
+    c1, c2 = C20.new(1), C20.new(4)
+    c3 = c1 + c2
+    c3.value.should eq(5)
+
+    c1, c2 = C20.new(8), C20.new(2008)
+    c3 = c1 + c2
+    c3.value.should eq(2016)
+
+    c1, c2 = C20.new(200), C20.new(1024)
+    c3 = c1 + c2
+    c3.value.should eq(1224)
+
+    c1, c2 = C20.new(99), C20.new(1)
+    c3 = c1 + c2
+    c3.value.should eq(100)
+  end
+
+  it "should be able to use -" do
+    c1, c2 = C20.new(1), C20.new(4)
+    c3 = c1 - c2
+    c3.value.should eq(C20::MAX-3)
+
+    c1, c2 = C20.new(8), C20.new(2008)
+    c3 = c1 - c2
+    c3.value.should eq(C20::MAX-2000)
+
+    c1, c2 = C20.new(200), C20.new(1024)
+    c3 = c1 - c2
+    c3.value.should eq(C20::MAX-824)
+
+    c1, c2 = C20.new(99), C20.new(1)
+    c3 = c1 - c2
+    c3.value.should eq(98)
+
+    c1, c2 = C20.new(99), C20.new(98)
+    c3 = c1 - c2
+    c3.value.should eq(1)
+
+    c1, c2 = C20.new(1024), C20.new(200)
+    c3 = c1 - c2
+    c3.value.should eq(824)
+  end
+
+  it "should be able to use *" do
+    c1, c2 = C20.new(1), C20.new(4)
+    c3 = c1 * c2
+    c3.value.should eq(4)
+
+    c1, c2 = C20.new(8), C20.new(2008)
+    c3 = c1 * c2
+    c3.value.should eq(2008*8)
+
+    c1, c2 = C20.new(2), C20.new(1024)
+    c3 = c1 * c2
+    c3.value.should eq(2048)
+
+    c1, c2 = C20.new(5), C20.new(2)
+    c3 = c1 * c2
+    c3.value.should eq(10)
+  end
+
+  it "should be able to use /" do
+    c1, c2 = C20.new(15), C20.new(3)
+    c3 = c1 / c2
+    c3.value.should eq(5)
+
+    c1, c2 = C20.new(25), C20.new(5)
+    c3 = c1 / c2
+    c3.value.should eq(5)
+
+    c1, c2 = C20.new(20), C20.new(2)
+    c3 = c1 / c2
+    c3.value.should eq(10)
+
+    c1, c2 = C20.new(2000), C20.new(200)
+    c3 = c1 / c2
+    c3.value.should eq(10)
+  end
+
+  it "should be able to use ==" do
+    c1, c2 = C20.new(1), C20.new(4)
+    (c1 == c2).should eq(false)
+
+    c1, c2 = C20.new(4), C20.new(4)
+    (c1 == c2).should eq(true)
+
+    c1, c2 = C20.new(200), C20.new(2)
+    (c1 == c2).should eq(false)
+
+    c1, c2 = C20.new(2), C20.new(6784)
+    (c1 == c2).should eq(false)
+
+    c1, c2 = C20.new(6784), C20.new(6784)
+    (c1 == c2).should eq(true)
+  end
+
+  it "should be able to use >" do
+    c1, c2 = C20.new(1), C20.new(4)
+    (c1 > c2).should eq(false)
+
+    c1, c2 = C20.new(4), C20.new(4)
+    (c1 > c2).should eq(false)
+
+    c1, c2 = C20.new(200), C20.new(2)
+    (c1 > c2).should eq(true)
+
+    c1, c2 = C20.new(2), C20.new(6784)
+    (c1 > c2).should eq(false)
+
+    c1, c2 = C20.new(6784), C20.new(6784)
+    (c1 > c2).should eq(false)
+  end
 end
 
 describe C24 do

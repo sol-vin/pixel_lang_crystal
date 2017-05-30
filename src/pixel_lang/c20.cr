@@ -52,19 +52,29 @@ struct C20
     self.value == other
   end
 
-  {% for op in Constants::OPERATIONS %}
-    #C24 op C24
+  {% for op in Constants::ARITHMETIC_OPERATIONS %}
+    #C20 op C20
     def {{op.id}}(other : C20) : C20
       new_value = self.value {{op.id}} other.value
-      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C20.new(new_value)
     end
     
-    #C24 op Int
+    #C20 op Int
     def {{op.id}}(other : Int) : C20
       new_value = self.value {{op.id}} other
-      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C20.new(new_value.to_i)
+    end
+  {% end %}
+
+  {% for op in Constants::BOOLEAN_OPERATIONS %}
+    #C20 op C20
+    def {{op.id}}(other : C20) : Bool
+      self.value {{op.id}} other.value
+    end
+    
+    #C20 op Int
+    def {{op.id}}(other : Int) : Bool
+      self.value {{op.id}} other
     end
   {% end %}
 end

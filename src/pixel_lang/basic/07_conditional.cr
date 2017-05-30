@@ -79,7 +79,7 @@ class Conditional < Instruction
   end
 
   def self.evaluate(piston, s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int)
-    result = piston.do_math(s1, s1op, op, s2, s2op)
+    result = piston.evaluate(s1, s1op, op, s2, s2op)
 
     if result.value == Constants::FALSE
       false
@@ -127,7 +127,7 @@ class Conditional < Instruction
     s1 = Piston::REGISTERS[value[:s1]]
     op = Constants::OPERATIONS[value[:op]]
     s2 = Piston::REGISTERS[value[:s2]]
-    result = piston.do_math(s1, value[:s1op], op, s2, value[:s2op])
+    result = piston.evaluate(s1, value[:s1op], op, s2, value[:s2op])
 
     if result.value == Constants::FALSE
       false

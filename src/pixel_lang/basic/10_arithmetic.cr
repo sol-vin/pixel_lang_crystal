@@ -61,7 +61,7 @@ class Arithmetic < Instruction
   end
 
   def self.run(piston, s1, s1op, op, s2, s2op, d, dop)
-    piston.set(d, piston.do_math(s1, s1op, op, s2, s2op), dop)
+    piston.set(d, piston.evaluate(s1, s1op, op, s2, s2op), dop)
   end
 
   def initialize(value : C24)

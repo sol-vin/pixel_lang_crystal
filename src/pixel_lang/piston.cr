@@ -255,7 +255,7 @@ class Piston
     new_piston
   end
 
-  def do_math(s1, s1op, op, s2, s2op) : C20
+  def evaluate(s1, s1op, op, s2, s2op) : C20
     v1 = get(s1, s1op)
     v2 = get(s2, s2op)
 
@@ -268,9 +268,15 @@ class Piston
       return v1
     end
 
-    {% for o in Constants::OPERATIONS %}
+    {% for o in Constants::ARITHMETIC_OPERATIONS %}
       if op == {{o}} 
         return v1 {{o.id}} v2
+      end  
+    {% end %}
+
+    {% for o in Constants::BOOLEAN_OPERATIONS %}
+      if op == {{o}} 
+        return C20.new((v1 {{o.id}} v2) ? Constants::TRUE : Constants::FALSE)
       end  
     {% end %}
     raise  "BAD!"
@@ -401,8 +407,8 @@ class Piston
     i_hexes = ""
 
     @i.each do |item|
-      i_ints += item.value.to_s + "\n"
-      i_hexes += item.to_int_hex + "\n"
+      i_ints += item.value.to_s + "/n"
+      i_hexes += item.to_int_hex + "/n"
     end
     table << ["i", i_ints, i_hexes]
 

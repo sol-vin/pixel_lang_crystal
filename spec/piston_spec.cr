@@ -164,18 +164,22 @@ describe Piston do
     i[1,0] = End.new(C24.new(0x000000))
 
     e = AutoEngine.new("Test", i)
-
-    40.times do |x|
-      e.memory[C20.new(x)] = C20.new(x)
+    e.memory[C20.new(0)] = C20.new 101
+    9.times do |x|
+      e.memory[C20.new(x+1)] = C20.new(x+1)
     end
+    e.memory[C20.new(10)] = C20.new 31
 
-    e.memory[C20.new(0)].should eq(0)
-    e.memory[C20.new(1)].should eq(1)
-    e.memory[C20.new(2)].should eq(2)
-    e.memory[C20.new(3)].should eq(3)
-    e.memory[C20.new(4)].should eq(4)
-    e.memory[C20.new(40)].should eq(0)
-    e.memory[C20.new(41)].should eq(0)
+    e.memory[C20.new(0)].value.should eq(101)
+    e.memory[C20.new(1)].value.should eq(1)
+    e.memory[C20.new(2)].value.should eq(2)
+    e.memory[C20.new(3)].value.should eq(3)
+    e.memory[C20.new(4)].value.should eq(4)
+    e.memory[C20.new(9)].value.should eq(9)
+    e.memory[C20.new(0xa)].value.should eq(31)
+    e.memory[C20.new(0xb)].value.should eq(0)
+    e.memory[C20.new(0xc)].value.should eq(0)
+    e.memory[C20.new(0xd)].value.should eq(0)
   end
 
   it "should stack i" do

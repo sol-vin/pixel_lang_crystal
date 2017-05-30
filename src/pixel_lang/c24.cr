@@ -108,18 +108,16 @@ struct C24
     self.value == other
   end
 
-  {% for op in Constants::OPERATIONS %}
+  {% for op in Constants::ARITHMETIC_OPERATIONS %}
     #C24 op C24
     def {{op.id}}(other : C24) : C24
       new_value = self.value {{op.id}} other.value
-      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C24.new(new_value)
     end
     
     #C24 op Int
     def {{op.id}}(other : Int) : C24
       new_value = self.value {{op.id}} other
-      new_value = (new_value ? Constants::TRUE : Constants::FALSE) if new_value.is_a? Bool
       C24.new(new_value.to_i)
     end
   {% end %}
