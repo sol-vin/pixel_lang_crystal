@@ -5,18 +5,21 @@ class Call < Instruction
   def self.control_code
     0x6
   end
+  
+  RETURN_BITS = 1
+  RETURN_BITSHIFT = 19
 
   X_SIGN_BITS = 1
-  X_SIGN_BITSHIFT = 19
+  X_SIGN_BITSHIFT = 18
 
-  X_BITS = 9
+  X_BITS = 8
   X_BITSHIFT = 10
 
   Y_SIGN_BITS = 1
   Y_SIGN_BITSHIFT = 9
 
-  Y_BITS = 9
-  Y_BITSHIFT = 0
+  Y_BITS = 8
+  Y_BITSHIFT = 1
 
   def self.reference_card
     %q{
@@ -31,14 +34,15 @@ class Call < Instruction
     }
   end
 
-  def self.make_color(x, y)
+  def self.make_color(x = 0, y = 0, is_return = false)
     x_sign = ((x < 0) ? 1 : 0)
     y_sign = ((y < 0) ? 1 : 0)
 
     x = x.abs
     y = y.abs
 
-    ((control_code <<C24::CONTROL_CODE_BITSHIFT) +
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) +
+      ((is_return ? 1 : 0) << RETURN_BITSHIFT) + 
       (x_sign << X_SIGN_BITSHIFT) + (x << X_BITSHIFT) +
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
   end
@@ -47,12 +51,17 @@ class Call < Instruction
     Call.new(C24.new(make_color(x, y).to_i 16))
   end
 
-  def self.run(piston, x, y)
-    piston.call(x, y)
+  def self.run(piston, is_return, x, y)
+    if is_return
+      piston.return_call
+    else
+      piston.call(x, y)
+    end
   end
 
   def initialize(value : C24)
     super value
+    @value.add_mask(:return, RETURN_BITS, RETURN_BITSHIFT)    
     @value.add_mask(:x_sign, X_SIGN_BITS, X_SIGN_BITSHIFT)
     @value.add_mask(:x, X_BITS, X_BITSHIFT)
     @value.add_mask(:y_sign, Y_SIGN_BITS, Y_SIGN_BITSHIFT)
@@ -63,7 +72,7 @@ class Call < Instruction
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
     
-    self.class.run(piston, x, y)
+    self.class.run(piston, (value[:return] == 1), x, y)
   end
 
   def info

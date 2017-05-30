@@ -60,9 +60,10 @@ abstract class Engine
     # run an instruction on all pistons.
     @pistons.each do |p|
       if p.paused?
+        # Run the pause tick
         p.pause_cycle
         if !p.paused?
-          p.move(1)
+          p.move(1) # move one if we just unpaused during the tick.
         end  
       else
         instruction = instructions[p.position_x, p.position_y]
@@ -73,7 +74,8 @@ abstract class Engine
         
         instruction.run(p)
 
-        #move unless we called recently.
+        # move unless we called recently because we want to land on the right instruction.
+        # also dont move if we just paused
         p.move 1 unless instruction.class == Call || instruction.class == Pause
       end
     end

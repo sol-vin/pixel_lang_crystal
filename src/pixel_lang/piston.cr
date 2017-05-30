@@ -19,7 +19,7 @@ class Piston
   getter i : Array(C20) = [] of C20
   
   getter priority : UInt32
-
+  getter call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
    # clockwise list of instructions
   DIRECTIONS = [:up, :right, :down, :left]
   
@@ -66,7 +66,7 @@ class Piston
   def reset
     #TODO: Test reset
     @memory = Hash(C20, C20).new(C20.new(0))
-
+    @call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
     @ma = C20.new 0
     @mb = C20.new 1
     @s = C20.new 0
@@ -345,10 +345,19 @@ class Piston
 
   # jumps to a relative position
   def call(x, y)
+    @call_stack.push({x: @position_x, y: @position_y, direction: @direction})  
     @position_x += x
     @position_y += y
 
-     wrap_position
+    wrap_position
+  end
+
+  def return_call
+    call_frame = @call_stack.pop
+    @position_x = call_frame[:x]
+    @position_y = call_frame[:y]
+    change_direction call_frame[:direction]
+    move 1
   end
 
   # pauses the piston for a certain amount of cycles
