@@ -361,7 +361,6 @@ class Piston
     else
       call_frame = @call_stack.last
     end
-    puts "RETURNING TO #{call_frame[:x]} #{call_frame[:y]}"
     @position_x = call_frame[:x]
     @position_y = call_frame[:y]
     change_direction call_frame[:direction]
