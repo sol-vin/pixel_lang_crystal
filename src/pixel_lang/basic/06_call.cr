@@ -9,17 +9,20 @@ class Call < Instruction
   RETURN_BITS = 1
   RETURN_BITSHIFT = 19
 
+  ACTION_BITS = 1
+  ACTION_BITSHIFT = 18
+
   X_SIGN_BITS = 1
-  X_SIGN_BITSHIFT = 18
+  X_SIGN_BITSHIFT = 17
 
   X_BITS = 8
-  X_BITSHIFT = 10
+  X_BITSHIFT = 9
 
   Y_SIGN_BITS = 1
-  Y_SIGN_BITSHIFT = 9
+  Y_SIGN_BITSHIFT = 8
 
   Y_BITS = 8
-  Y_BITSHIFT = 1
+  Y_BITSHIFT = 0
 
   def self.reference_card
     %q{
@@ -34,7 +37,7 @@ class Call < Instruction
     }
   end
 
-  def self.make_color(x = 0, y = 0, is_return = false)
+  def self.make_color(is_return = false, action = false, x = 0, y = 0)
     x_sign = ((x < 0) ? 1 : 0)
     y_sign = ((y < 0) ? 1 : 0)
 
@@ -43,25 +46,27 @@ class Call < Instruction
 
     ((control_code << C24::CONTROL_CODE_BITSHIFT) +
       ((is_return ? 1 : 0) << RETURN_BITSHIFT) + 
+      ((action ? 1 : 0) << ACTION_BITSHIFT) + 
       (x_sign << X_SIGN_BITSHIFT) + (x << X_BITSHIFT) +
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
   end
 
-  def self.make(x, y)
-    Call.new(C24.new(make_color(x, y).to_i 16))
+  def self.make(is_return, action, x, y)
+    Call.new(C24.new(make_color(is_return, action, x, y).to_i 16))
   end
 
-  def self.run(piston, is_return, x, y)
+  def self.run(piston, is_return, action, x, y)
     if is_return
-      piston.return_call
+      piston.return_call(action)
     else
-      piston.call(x, y)
+      piston.call(x, y, action)
     end
   end
 
   def initialize(value : C24)
     super value
-    @value.add_mask(:return, RETURN_BITS, RETURN_BITSHIFT)    
+    @value.add_mask(:return, RETURN_BITS, RETURN_BITSHIFT)
+    @value.add_mask(:action, ACTION_BITS, ACTION_BITSHIFT)        
     @value.add_mask(:x_sign, X_SIGN_BITS, X_SIGN_BITSHIFT)
     @value.add_mask(:x, X_BITS, X_BITSHIFT)
     @value.add_mask(:y_sign, Y_SIGN_BITS, Y_SIGN_BITSHIFT)
@@ -72,12 +77,14 @@ class Call < Instruction
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
     
-    self.class.run(piston, (value[:return] == 1), x, y)
+    self.class.run(piston, (value[:return] == 1), (value[:action] == 1), x, y)
   end
 
   def info
     # Table with headings
     table = super
+    table << ["return", "#{value[:return] == 1}"]
+    table << ["action", "#{value[:action] == 1}"]
     table << ["x", "#{((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))}"]
     table << ["y", "#{((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))}"]
     table

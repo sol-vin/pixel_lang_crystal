@@ -344,16 +344,24 @@ class Piston
   end
 
   # jumps to a relative position
-  def call(x, y)
-    @call_stack.push({x: @position_x, y: @position_y, direction: @direction})  
+  def call(x, y, push = true)
+    if push
+      @call_stack.push({x: @position_x, y: @position_y, direction: @direction})  
+    end
+
     @position_x += x
     @position_y += y
 
     wrap_position
   end
 
-  def return_call
-    call_frame = @call_stack.pop
+  def return_call(pop = true)
+    if pop
+      call_frame = @call_stack.pop      
+    else
+      call_frame = @call_stack.last
+    end
+    puts "RETURNING TO #{call_frame[:x]} #{call_frame[:y]}"
     @position_x = call_frame[:x]
     @position_y = call_frame[:y]
     change_direction call_frame[:direction]
@@ -386,19 +394,16 @@ class Piston
     @ended = true
   end
 
-  def show_all
-  end
-
   def info
     # Table with headings
     table = [] of Array(String)
     table << ["id", "#{id}"]
-    table << ["priority", "#{priority}"]    
+    table << ["priority", "#{priority}"]
     table << ["paused?", "#{paused?}"]
-    table << ["pause_cycles", "#{paused_counter}"]    
+    table << ["pause_cycles", "#{paused_counter}"]
     table << ["direction", "#{direction}"]
     table << ["position_x", "#{position_x}"]
-    table << ["position_y", "#{position_y}"]        
+    table << ["position_y", "#{position_y}"]
     table
   end
 
