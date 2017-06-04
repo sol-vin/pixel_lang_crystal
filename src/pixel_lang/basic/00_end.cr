@@ -14,7 +14,7 @@ class End < Instruction
     C = Control Code (Instruction) [4 bits]
     0 = Free bit [20 bits]
     }
-end
+  end
 
   def self.make_color
     ((control_code << C24::CONTROL_CODE_BITSHIFT)).to_s 16

@@ -13,18 +13,18 @@ describe Piston do
 
     e = AutoEngine.new("Test", i)
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(0)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(1)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(1)
+    e.pistons[0].y.should eq(0)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(2)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(2)
+    e.pistons[0].y.should eq(0)
   end
 
   it "should move left" do
@@ -38,18 +38,18 @@ describe Piston do
 
     e = AutoEngine.new("Test", i)
 
-    e.pistons[0].position_x.should eq(2)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(2)
+    e.pistons[0].y.should eq(0)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(1)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(1)
+    e.pistons[0].y.should eq(0)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(0)
   end
 
   it "should move down" do
@@ -63,18 +63,18 @@ describe Piston do
 
     e = AutoEngine.new("Test", i)
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(0)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(1)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(1)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(2)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(2)
   end
 
   it "should move up" do
@@ -88,18 +88,18 @@ describe Piston do
 
     e = AutoEngine.new("Test", i)
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(2)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(2)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(1)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(1)
 
     e.run_one_instruction
 
-    e.pistons[0].position_x.should eq(0)
-    e.pistons[0].position_y.should eq(0)
+    e.pistons[0].x.should eq(0)
+    e.pistons[0].y.should eq(0)
   end
 
   it "should change ma" do

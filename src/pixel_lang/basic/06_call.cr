@@ -28,12 +28,14 @@ class Call < Instruction
     %q{
     Call Instruction
     Jumps a piston to a nearby instruction by the offset coordinates.
-    0bCCCCXWWWWWWWWWYZZZZZZZZZ
+    0bCCCCRAXWWWWWWWWYZZZZZZZZ
     C = Control Code (Instruction) [4 bits]
+    R = Return [1 bit] Should this call instruction return instead?
+    A = Action [1 bit] Should this instruction manipulate the call stack?
     X = X Sign [1 bit] Deterimines if X is negative or not
-    W = X [9 bits] Number of X spaces to jump
+    W = X [8 bits] Number of X spaces to jump
     Y = Y Sign [1 bit] Deterimines if Y is negative or not
-    Z = Y [9 bits] Number of Y spaces to jump
+    Z = Y [8 bits] Number of Y spaces to jump
     }
   end
 

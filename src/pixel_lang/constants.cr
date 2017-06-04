@@ -1,3 +1,4 @@
+# Basic constants used in various parts of the code.
 module Constants
   TRUE = 1
   FALSE = 0

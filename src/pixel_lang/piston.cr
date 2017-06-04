@@ -1,26 +1,46 @@
+# A single reader attached to an `Engine`
 class Piston
+  # The parent engine this `Piston` is attached to.
   getter engine : Engine
+  
+  # X position
+  property x : Int32
 
-  property position_x : Int32
-  property position_y : Int32
-
+  # Y position 
+  property y : Int32
+  
+  # Facing direction
   getter direction : Symbol
+
+  # Memory hash, values default to C20.new(0)
   getter memory : Hash(C20, C20) = Hash(C20, C20).new(C20.new(0))
 
+  # If this is paused
   getter? paused : Bool = false
+  # How much longer it's paused.'
   getter paused_counter : UInt32 = 0_u32
-
+  
+  # Have we read an `End` instruction?
   getter? ended : Bool = false
-  getter id : UInt32
 
+  # Id given by the `Engine`
+  getter id : UInt32
+  
+  # Memory Address A register
   getter ma : C20 = C20.new(0)
+  # Memory Address B register
   getter mb : C20 = C20.new(1)
+  # Static Address register
   getter s : C20 = C20.new(0)
+  # Input register
   getter i : Array(C20) = [] of C20
   
+  # Priority compared to other pistons.
   getter priority : UInt32
+  # List of call frames to return to when hitting a `Call` return.
   getter call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
-   # clockwise list of instructions
+  
+  # Clockwise list of instructions.
   DIRECTIONS = [:up, :right, :down, :left]
   
   # Total list of resisters
@@ -32,9 +52,10 @@ class Piston
   # Registers MAV and MBV refer to the value pointed to by MA and MB.
   # Registers S and SV refer to the global memory.
   # All six registers here act the same way, and allow input and output
+  REGULAR_REG = REGISTERS[0..5]
+  
   MEMORY_ADDRESS_REG = [:ma, :mb, :s]
   MEMORY_VALUE_REG = [:ma, :mb]
-  REGULAR_REG = REGISTERS[0..5]
   REGULAR_REG_S_OPTIONS = [:none, :random_max]
   REGULAR_REG_D_OPTIONS = [:none, :random_max]
 
@@ -58,11 +79,12 @@ class Piston
   # Output options for register O
   OUTPUT_D_OPTIONS =  [:int, :char, :int_hex, :char_hex]
 
-  def initialize(@engine, @position_x, @position_y, @direction, @priority)
+  def initialize(@engine, @x, @y, @direction, @priority)
     @id = engine.make_id
     reset
   end
-
+  
+  # Resets the internal state
   def reset
     #TODO: Test reset
     @memory = Hash(C20, C20).new(C20.new(0))
@@ -72,7 +94,8 @@ class Piston
     @s = C20.new 0
     @i = [] of C20
   end
-
+  
+  # Gets a register by symbol.
   def get(register : Symbol, options) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
@@ -81,7 +104,8 @@ class Piston
     {% end %}
     raise "Register #{register} DOES NOT EXIST!"    
   end
-
+  
+  # Sets a register by symbol.  
   def set(register : Symbol, value, options)
     {% for r in REGISTERS %}
       if register == {{r}}
@@ -91,8 +115,9 @@ class Piston
     {% end %}
     raise "Register #{register} DOES NOT EXIST!"    
   end
-
+  
   {% for r in MEMORY_ADDRESS_REG %}
+    # Macro created.
     def get_{{r.id}}(options) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
@@ -104,7 +129,7 @@ class Piston
           raise "Option does not exist!"
       end
     end
-
+    # Macro created.    
     def set_{{r.id}}(v : C20, options)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
@@ -119,6 +144,7 @@ class Piston
   {% end %}
 
   {% for r in MEMORY_VALUE_REG %}
+    # Macro created.  
     def get_{{r.id}}v(options) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
@@ -130,7 +156,8 @@ class Piston
           raise "Option does not exist!"
       end
     end
-
+    
+    # Macro created.    
     def set_{{r.id}}v(v : C20, options)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
@@ -143,7 +170,7 @@ class Piston
       end
     end
   {% end %}
-
+  
   def get_sv(options) : C20
     option = REGULAR_REG_S_OPTIONS[options]
     case option
@@ -240,7 +267,7 @@ class Piston
 
   #TODO: TEST CLONE!
   def clone
-    new_piston = Piston.new(engine, position_x, position_y, direction, @priority)
+    new_piston = Piston.new(engine, x, y, direction, @priority)
     @memory.each do |address, value|
       new_piston.memory[address] = value
     end
@@ -254,7 +281,8 @@ class Piston
 
     new_piston
   end
-
+  
+  # Evaluates an expression using symbols.
   def evaluate(s1, s1op, op, s2, s2op) : C20
     v1 = get(s1, s1op)
     v2 = get(s2, s2op)
@@ -281,7 +309,8 @@ class Piston
     {% end %}
     raise  "BAD!"
   end
-
+  
+  # Changes the direction to the specified direction
   def change_direction(d)
     turn_right = -> do
       index = DIRECTIONS.index(@direction).as(Int32) + 1
@@ -312,74 +341,106 @@ class Piston
   def move(amount)
     case direction
       when :up
-        @position_y -= amount
+        @y -= amount
       when :down
-        @position_y += amount
+        @y += amount
       when :left
-        @position_x -= amount
+        @x -= amount
       when :right
-        @position_x += amount      
+        @x += amount      
       else
         raise "Option does not exist!"
     end
 
     wrap_position
   end
-
+  
+  # Wrap the board position around if the piston goes off screen.
   private def wrap_position
     width = engine.instructions.width
     height = engine.instructions.height
 
-    if position_x < 0
-      @position_x = (width - (@position_x.abs % width))
+    if x < 0
+      @x = (width - (@x.abs % width))
     else
-      @position_x %= width
+      @x %= width
     end
 
-    if position_y < 0
-      @position_y = (height - (@position_y.abs % height))
+    if y < 0
+      @y = (height - (@y.abs % height))
     else
-      @position_y %= height
+      @y %= height
     end
   end
 
   # jumps to a relative position
   def call(x, y, push = true)
     if push
-      @call_stack.push({x: @position_x, y: @position_y, direction: @direction})  
+      @call_stack.push({x: @x, y: @y, direction: @direction})  
     end
 
-    @position_x += x
-    @position_y += y
+    @x += x
+    @y += y
 
     wrap_position
+    
+  end
+  
+  # Current instruction the piston is on.
+  def current_instruction
+    engine.instructions[x, y]
   end
 
+  # Returns to the last call frame
   def return_call(pop = true)
+    # If the call frame should be popped or not
     if pop
       call_frame = @call_stack.pop      
     else
       call_frame = @call_stack.last
     end
-    @position_x = call_frame[:x]
-    @position_y = call_frame[:y]
+    @x = call_frame[:x]
+    @y = call_frame[:y]
     change_direction call_frame[:direction]
     move 1
   end
+  
+  # Runs one instruction
+  def run_one
+    if paused?
+      # Run the pause tick
+      pause_cycle
+      if !paused?
+        move(1) # move one if we just unpaused during the tick.
+      end
+    else
+      instruction = current_instruction
+      unless instruction
+        raise "AT POSITION #{x}   #{y}"
+      end
 
-  # pauses the piston for a certain amount of cycles
+      instruction.run(self)
+
+      # move unless we called recently because we want to land on the right instruction.
+      # also dont move if we just paused
+      move((instruction.class == Call || instruction.class == Pause) ? 0 : 1)
+    end
+  end
+
+  # Pauses the piston for a certain amount of cycles
   def pause(cycles)
     @paused = true
     @paused_counter = cycles
   end
 
-  # unpause the piston
+  # Unpause the piston
   def unpause
     @paused = false
     @paused_counter = 0_u32
   end
-
-  def pause_cycle
+  
+  # One update tick when paused.
+  private def pause_cycle
     if paused?
       @paused_counter -= 1
       if @paused_counter <= 0
@@ -388,7 +449,7 @@ class Piston
     end
   end  
 
-  # kill the piston
+  # Kills the piston
   def kill
     @ended = true
   end
@@ -401,8 +462,8 @@ class Piston
     table << ["paused?", "#{paused?}"]
     table << ["pause_cycles", "#{paused_counter}"]
     table << ["direction", "#{direction}"]
-    table << ["position_x", "#{position_x}"]
-    table << ["position_y", "#{position_y}"]
+    table << ["x", "#{x}"]
+    table << ["y", "#{y}"]
     table
   end
 
@@ -438,9 +499,5 @@ class Piston
     end
     
     table
-  end
-
-  def current_instruction
-    engine.instructions[position_x, position_y]
   end
 end

@@ -1,23 +1,41 @@
+# Base class for an Engine. 
 abstract class Engine
+  # Options for write_output
   OUTPUT_OPTIONS = [:int, :char, :int_hex, :char_hex]
 
+  # Pistons currently running in this Engine.
   getter pistons : Array(Piston) = [] of Piston
+  # Instructions currently loaded in the Engine.
   getter instructions : Instructions = Instructions.new(1,1)
+  # Output
   getter output : String = ""
+  # How many cycles this engine has run.
   getter cycles : UInt32 = 0_u32
 
+  # Last ID given to a piston.
   getter id : UInt32 = 0_u32
+  # Name of this Engine.
   getter name : String
+  # How many times has this engine beenr un?
   getter runs : UInt32 = 0_u32
+  # Memory hash
   getter memory : Hash(C20, C20) = Hash(C20,C20).new(C20.new(0))
+  # Input
   getter input : String = ""
+  # Last output
   getter last_output : C20 = C20.new(0)
+  # Original input
   getter original_input : String = ""
 
+  # Writes to the output stream
   abstract def write_output(item : C20, option : Symbol)
+  # Takes a single char from input
   abstract def pop_char : C20
-  abstract def peek_char : C20  
+  # Peeks at a single char from input
+  abstract def peek_char : C20
+  # Takes a single int from input
   abstract def pop_int : C20
+  # Peeks at a single int from input  
   abstract def peek_int : C20  
 
   @to_merge = [] of Tuple(Int32, Piston)
@@ -31,6 +49,7 @@ abstract class Engine
     reset # start the machine
   end
 
+  # Resets the engine to initial state
   def reset
     @id = 0_u32
     @cycles = 0_u32
@@ -47,38 +66,20 @@ abstract class Engine
     end
     @runs += 1
   end
-
+  
+  # Runs this engine until completion. THIS METHOD IS DANGEROUS DUE TO INFINITE LOOPS
   def run
     until ended?
       run_one_instruction 
     end  
   end
-
+  
+  # Runs all the pistons once.
   def run_one_instruction
     # don't run if the machine has already ended.
     return if ended?
     # run an instruction on all pistons.
-    @pistons.each do |p|
-      if p.paused?
-        # Run the pause tick
-        p.pause_cycle
-        if !p.paused?
-          p.move(1) # move one if we just unpaused during the tick.
-        end  
-      else
-        instruction = instructions[p.position_x, p.position_y]
-
-        unless instruction
-          raise "AT POSITION #{p.position_x}   #{p.position_y}"
-        end
-        
-        instruction.run(p)
-
-        # move unless we called recently because we want to land on the right instruction.
-        # also dont move if we just paused
-        p.move 1 unless instruction.class == Call || instruction.class == Pause
-      end
-    end
+    @pistons.each(&.run_one)
     # merge pistons
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran
@@ -89,15 +90,16 @@ abstract class Engine
     @to_merge.clear
 
     # prune old pistons, delete the ones that no longer are active
-    @pistons.select! { |t| !t.ended? }
+    @pistons.select! { |p| !p.ended? }
     @cycles += 1
   end
 
-    # forks a piston in a specific direction
+  # Merges a new piston into an engine. Used by Fork.
   def merge(piston, new_piston)
     @to_merge << {piston.id.to_i32, new_piston}
   end
 
+  # Alert the engine to change a pistons priority for the next cycle.
   def priority_changed(piston)
     #remove the piston
     @pistons.delete(piston)
@@ -105,7 +107,8 @@ abstract class Engine
     p = @pistons.find {|p| p.priority <= piston.priority}
     @to_merge << {p.id, piston}
   end
-
+  
+  # Gets a piston with a specific id.
   def get_piston(id : UInt32) : Piston
     p = pistons.find {|p| p.id == id}
     if p.nil?
@@ -114,19 +117,21 @@ abstract class Engine
       p
     end
   end
-
+  
+  # Kills this engine
   def kill
     pistons.clear
     @to_merge.clear
   end
 
-  # gets an id number for the Piston
+  # Gets an id number for a new `Piston`
   def make_id
     new_id = @id
     @id += 1
     new_id
   end
 
+  # Has this engine ended yet?
   def ended?
     pistons.empty? && @to_merge.empty?
   end

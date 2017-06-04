@@ -12,6 +12,7 @@ class Fork < Instruction
     :reverse => ->(p : Piston){p.change_direction(:reverse)},
     :random => ->(p : Piston){p.change_direction(:random)}
   }
+
   DIRECTION_1_BITS = 3
   DIRECTION_1_BITSHIFT = 0
 
@@ -49,7 +50,7 @@ class Fork < Instruction
     4 = Direction 4 [3 bits] (See Direction::DIRECTIONS for order)
     }
   end
-  #TODO: FIX THIS!
+
   def self.make_color(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
     d1_bits = DECISIONS.keys.index(direction_1).as(Int32) << DIRECTION_1_BITSHIFT
     
