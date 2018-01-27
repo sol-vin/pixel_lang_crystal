@@ -1,18 +1,28 @@
 # pixel_lang_crystal
 
-TODO: Write a description here
+Pixel_lang is a image based programming language written in Crystal. You can read more on the wiki.
 
 ## Installation
 
-TODO: Write installation instructions here
+Add to shard.yml
+```
+dependencies:
+  pixel_lang_crystal:
+    github: redcodefinal/pixel_lang_crystal
+```
 
 ## Usage
+```
+require 'pixel_lang_crystal'
 
-TODO: Write usage instructions here
+e = AutoEngine.new("My input string", "./path/to/program.png")
+e.run # run engine
+puts e.output # print the output
+```
 
 ## Development
 
-TODO: Write development instructions here
+Github
 
 ## Contributing
 
