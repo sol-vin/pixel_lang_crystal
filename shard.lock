@@ -5,10 +5,10 @@ shards:
     version: 0.1.0
 
   stumpy_core:
-    git: https://github.com/l3kn/stumpy_core.git
-    commit: 8f9390d3476e19e2a7c0fa6622b2c1092892bfb3
+    github: stumpycr/stumpy_core
+    version: 1.8.2
 
   stumpy_png:
     github: l3kn/stumpy_png
-    version: 4.1.1
+    version: 4.2.2
 
