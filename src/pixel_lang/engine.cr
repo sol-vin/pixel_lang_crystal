@@ -79,7 +79,7 @@ abstract class Engine
     # don't run if the machine has already ended.
     return if ended?
     # run an instruction on all pistons.
-    @pistons.each(&.run_one)
+    @pistons.each(&.step)
     # merge pistons
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran

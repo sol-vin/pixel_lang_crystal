@@ -406,7 +406,7 @@ class Piston
   end
   
   # Runs one instruction
-  def run_one
+  def step
     if paused?
       # Run the pause tick
       pause_cycle
