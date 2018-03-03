@@ -70,12 +70,12 @@ abstract class Engine
   # Runs this engine until completion. THIS METHOD IS DANGEROUS DUE TO INFINITE LOOPS
   def run
     until ended?
-      run_one_instruction 
+      step 
     end  
   end
   
   # Runs all the pistons once.
-  def run_one_instruction
+  def step
     # don't run if the machine has already ended.
     return if ended?
     # run an instruction on all pistons.

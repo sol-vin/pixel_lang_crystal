@@ -16,12 +16,12 @@ describe Piston do
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(0)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(1)
     e.pistons[0].y.should eq(0)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(2)
     e.pistons[0].y.should eq(0)
@@ -41,12 +41,12 @@ describe Piston do
     e.pistons[0].x.should eq(2)
     e.pistons[0].y.should eq(0)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(1)
     e.pistons[0].y.should eq(0)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(0)
@@ -66,12 +66,12 @@ describe Piston do
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(0)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(1)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(2)
@@ -91,12 +91,12 @@ describe Piston do
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(2)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(1)
 
-    e.run_one_instruction
+    e.step
 
     e.pistons[0].x.should eq(0)
     e.pistons[0].y.should eq(0)

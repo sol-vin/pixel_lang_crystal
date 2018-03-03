@@ -1,6 +1,6 @@
-require "../../12_instruction_meta"
+require "../../instruction"
 
-class IMeta < InstructionMeta
+class IMeta < Instruction
 
   def self.reference_card
     %q{
@@ -24,7 +24,7 @@ class IMeta < InstructionMeta
     self.new(C24.new(make_color().to_i 16))
   end
 
-  def self.run()
+  def self.run(piston)
   end
 
   def initialize(value : C24)
@@ -32,7 +32,7 @@ class IMeta < InstructionMeta
   end
 
   def run(piston)
-    self.class.run()
+    self.class.run(piston)
   end
 
   def info

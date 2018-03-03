@@ -30,6 +30,38 @@ describe AutoEngine do
     e.output.should eq("D")
   end
 
+  it "should IMetaProperty" do
+    i = Instructions.new(1, 4)
+    i[0,3] = Start.make(:up, 0)
+    i[0,2] = IMetaProperty.make(:height)
+    i[0,1] = Move.make(:i, 0, :o, 0)
+    i[0,0] = End.new(C24.new(0x0))
+    e = AutoEngine.new("Test", i)
+    e.pistons.size.should eq(1)
+    e.run
+    e.output.should eq("4")
+
+    i = Instructions.new(1, 10)
+    i[0,3] = Start.make(:up, 0)
+    i[0,2] = IMetaProperty.make(:height)
+    i[0,1] = Move.make(:i, 0, :o, 0)
+    i[0,0] = End.new(C24.new(0x0))
+    e = AutoEngine.new("Test", i)
+    e.pistons.size.should eq(1)
+    e.run
+    e.output.should eq("10")
+
+    i = Instructions.new(4, 1)
+    i[3,0] = Start.make(:left, 0)
+    i[2,0] = IMetaProperty.make(:width)
+    i[1,0] = Move.make(:i, 0, :o, 0)
+    i[0,0] = End.new(C24.new(0x0))
+    e = AutoEngine.new("Test", i)
+    e.pistons.size.should eq(1)
+    e.run
+    e.output.should eq("4")
+  end
+
   it "should run a simple Arithmetic" do
     i = Instructions.new(1, 5)
     i[0, 0] = Start.make(:down, 0)
