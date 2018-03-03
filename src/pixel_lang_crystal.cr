@@ -14,4 +14,6 @@ require "./pixel_lang/instruction"
 require "./pixel_lang/instructions"
 require "./pixel_lang/auto_engine"
 #require "./pixel_lang/live_engine"
-require "./pixel_lang/basic/*"
+require "./pixel_lang/basic/**"
+
+require "./pixel_lang/dev/helpers/**"
