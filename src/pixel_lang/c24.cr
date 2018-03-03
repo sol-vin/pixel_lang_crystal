@@ -13,6 +13,9 @@ struct C24
   CONTROL_CODE_BITS = 4
   CONTROL_CODE_BITSHIFT = 20
 
+  META_CODE_BITS = 2
+  META_CODE_BITSHIFT = 18
+
   VALUE_BITS = 20
   VALUE_BITSHIFT = 0
 
@@ -30,6 +33,7 @@ struct C24
     self.value = value
     add_mask(:control_code, CONTROL_CODE_BITS, CONTROL_CODE_BITSHIFT)
     add_mask(:value, VALUE_BITS, VALUE_BITSHIFT)
+    add_mask(:meta_code, META_CODE_BITS, META_CODE_BITSHIFT)
   end
 
   def value : Int
