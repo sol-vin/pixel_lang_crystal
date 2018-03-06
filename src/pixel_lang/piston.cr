@@ -40,9 +40,6 @@ class Piston
   # List of call frames to return to when hitting a `Call` return.
   getter call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
   
-  # Clockwise list of instructions.
-  DIRECTIONS = [:up, :right, :down, :left]
-  
   # Total list of resisters
   REGISTERS = [:ma, :mav, :mb, :mbv, :s, :sv, :i, :o]
   
@@ -313,12 +310,12 @@ class Piston
   # Changes the direction to the specified direction
   def change_direction(d)
     turn_right = -> do
-      index = DIRECTIONS.index(@direction).as(Int32) + 1
-      index = 0 if index >= DIRECTIONS.size
-      change_direction(DIRECTIONS[index])
+      index = Constants::BASIC_DIRECTIONS.index(@direction).as(Int32) + 1
+      index = 0 if index >= Constants::BASIC_DIRECTIONS.size
+      change_direction(Constants::BASIC_DIRECTIONS[index])
     end
 
-    if DIRECTIONS.includes? d
+    if Constants::BASIC_DIRECTIONS.includes? d
       @direction = d
     elsif d == :turn_right
       turn_right.call
@@ -454,6 +451,7 @@ class Piston
     @ended = true
   end
 
+  # TODO: PUT INTO KEMAL!
   def info
     # Table with headings
     table = [] of Array(String)

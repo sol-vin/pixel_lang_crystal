@@ -1,6 +1,5 @@
 require "./../instruction"
 require "./../piston"
-require "./03_direction"
 
 class Fork < Instruction
   DIRECTION_1_BITS = 3
@@ -59,22 +58,22 @@ class Fork < Instruction
   end
 
   def run(piston)
-    d1 = Direction::DIRECTIONS[value[:direction_1]]
-    d2 = Direction::DIRECTIONS[value[:direction_2]]
-    d3 = (value[:direction_3_bool] != 0 ? Direction::DIRECTIONS[value[:direction_3]] : nil)
-    d4 = (value[:direction_4_bool] != 0 ? Direction::DIRECTIONS[value[:direction_4]] : nil)
+    d1 = Constants::DIRECTIONS[value[:direction_1]]
+    d2 = Constants::DIRECTIONS[value[:direction_2]]
+    d3 = (value[:direction_3_bool] != 0 ? Constants::DIRECTIONS[value[:direction_3]] : nil)
+    d4 = (value[:direction_4_bool] != 0 ? Constants::DIRECTIONS[value[:direction_4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
   
   def info
     # Table with headings
     table = super
-    table << ["direction_1", Direction::DIRECTIONS[value[:direction_1]].to_s]
-    table << ["direction_2", Direction::DIRECTIONS[value[:direction_2]].to_s]
+    table << ["direction_1", Constants::DIRECTIONS[value[:direction_1]].to_s]
+    table << ["direction_2", Constants::DIRECTIONS[value[:direction_2]].to_s]
     table << ["direction_3_bool", value[:direction_3_bool].to_s]
-    table << ["direction_3", Direction::DIRECTIONS[value[:direction_3]].to_s]
+    table << ["direction_3", Constants::DIRECTIONS[value[:direction_3]].to_s]
     table << ["direction_4_bool", value[:direction_4_bool].to_s]
-    table << ["direction_4", Direction::DIRECTIONS[value[:direction_4]].to_s]
+    table << ["direction_4", Constants::DIRECTIONS[value[:direction_4]].to_s]
     table
   end
 end

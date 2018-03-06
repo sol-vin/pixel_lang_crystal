@@ -49,7 +49,7 @@ class Instructions
            a << {
              x: x,
              y: y,
-             direction: Piston::DIRECTIONS[i.value[:direction]],
+             direction: Constants::BASIC_DIRECTIONS[i.value[:direction]],
              priority: i.value[:priority]
            }
          end  

@@ -14,7 +14,7 @@ class Start
   end
 
   def self.make_color(direction, priority = 0)
-    direction_bits = Piston::DIRECTIONS.index(direction).as(Int32) << DIRECTION_BITSHIFT
+    direction_bits = Constants::BASIC_DIRECTIONS.index(direction).as(Int32) << DIRECTION_BITSHIFT
 
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + direction_bits + priority).to_s 16
   end

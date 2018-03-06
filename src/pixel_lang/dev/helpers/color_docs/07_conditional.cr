@@ -18,8 +18,8 @@ class Conditional
   end
 
   def self.make_color(t, f, s1, s1op, op, s2, s2op)
-    true_bits = Direction::DIRECTIONS.index(t).as(Int32) << TRUE_BITSHIFT
-    false_bits = Direction::DIRECTIONS.index(f).as(Int32) << FALSE_BITSHIFT    
+    true_bits = Constants::DIRECTIONS.index(t).as(Int32) << TRUE_BITSHIFT
+    false_bits = Constants::DIRECTIONS.index(f).as(Int32) << FALSE_BITSHIFT    
     s1_bits = Piston::REGISTERS.index(s1).as(Int32) << SOURCE_1_BITSHIFT
     s1op_bits = s1op << SOURCE_1_OPTION_BITSHIFT
     op_bits = Constants::OPERATIONS.index(op).as(Int32) << OPERATION_BITSHIFT

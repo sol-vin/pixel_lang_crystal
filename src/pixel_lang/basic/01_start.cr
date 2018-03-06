@@ -22,14 +22,14 @@ class Start < Instruction
   end
 
   def run(piston)
-    self.class.run(piston, Piston::DIRECTIONS[value[:direction]])
+    self.class.run(piston, Constants::BASIC_DIRECTIONS[value[:direction]])
   end
 
   def info
     # Table with headings
     table = super
     table << ["priority", "#{value[:priority]}"]
-    table << ["direction", "#{Piston::DIRECTIONS[value[:direction]]}"]
+    table << ["direction", "#{Constants::BASIC_DIRECTIONS[value[:direction]]}"]
     table
   end
 end
