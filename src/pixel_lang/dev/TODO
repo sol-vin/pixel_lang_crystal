@@ -1,3 +1,5 @@
+0. Remove all table output functions and move to kemal app.
+0.5. Restucture Kemal app
 1. Live Engine
 2. Live Engine integration with web app
 3. Finish Meta Instructions
