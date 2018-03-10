@@ -78,18 +78,4 @@ class Conditional < Instruction
       true
     end
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["true_action",  Constants::DIRECTIONS[value[:true_action]].to_s]
-    table << ["false_action",  Constants::DIRECTIONS[value[:false_action]].to_s]
-    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
-    table << ["s1op", value[:s1op].to_s]
-    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
-    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
-    table << ["s2op", value[:s2op].to_s] 
-    
-    table
-  end
 end

@@ -1,6 +1,6 @@
 require "spec"
-require "../src/pixel_lang/c20"
-require "../src/pixel_lang/c24"
+require "../src/pixel_lang_crystal/c20"
+require "../src/pixel_lang_crystal/c24"
 
 
 describe C20 do

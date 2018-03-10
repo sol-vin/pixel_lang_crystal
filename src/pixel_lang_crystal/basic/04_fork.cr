@@ -64,16 +64,4 @@ class Fork < Instruction
     d4 = (value[:direction_4_bool] != 0 ? Constants::DIRECTIONS[value[:direction_4]] : nil)
     self.class.run(piston, d1, d2, d3, d4)
   end
-  
-  def info
-    # Table with headings
-    table = super
-    table << ["direction_1", Constants::DIRECTIONS[value[:direction_1]].to_s]
-    table << ["direction_2", Constants::DIRECTIONS[value[:direction_2]].to_s]
-    table << ["direction_3_bool", value[:direction_3_bool].to_s]
-    table << ["direction_3", Constants::DIRECTIONS[value[:direction_3]].to_s]
-    table << ["direction_4_bool", value[:direction_4_bool].to_s]
-    table << ["direction_4", Constants::DIRECTIONS[value[:direction_4]].to_s]
-    table
-  end
 end

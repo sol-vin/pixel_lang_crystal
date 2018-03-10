@@ -40,15 +40,4 @@ class IMetaGet < InstructionMeta
     
     self.class.run(piston, x, value[:xop], y, value[:xop])
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["x", Piston::REGISTERS[value[:x]].to_s]
-    table << ["xo", value[:xop].to_s]
-    table << ["y", Piston::REGISTERS[value[:y]].to_s]
-    table << ["yo", value[:yop].to_s]
-    
-    table
-  end
 end

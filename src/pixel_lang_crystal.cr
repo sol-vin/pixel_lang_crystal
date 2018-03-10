@@ -1,19 +1,18 @@
 require "stumpy_png"
 require "colorful"
 
-require "./pixel_lang/constants"
+require "./pixel_lang_crystal/constants"
 
-require "./pixel_lang/bitmask"
-require "./pixel_lang/bitmask_hash"
+require "./pixel_lang_crystal/bitmask"
+require "./pixel_lang_crystal/bitmask_hash"
 
-require "./pixel_lang/c20"
-require "./pixel_lang/c24"
+require "./pixel_lang_crystal/c20"
+require "./pixel_lang_crystal/c24"
 
-require "./pixel_lang/piston"
-require "./pixel_lang/instruction"
-require "./pixel_lang/instructions"
-require "./pixel_lang/auto_engine"
-#require "./pixel_lang/live_engine"
-require "./pixel_lang/basic/**"
+require "./pixel_lang_crystal/piston"
+require "./pixel_lang_crystal/instruction"
+require "./pixel_lang_crystal/instructions"
+require "./pixel_lang_crystal/auto_engine"
+require "./pixel_lang_crystal/basic/**"
 
-require "./pixel_lang/dev/helpers/**"
+#require "./pixel_lang_crystal/dev/helpers/**"

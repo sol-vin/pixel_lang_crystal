@@ -52,14 +52,4 @@ class Call < Instruction
   def is_return?
     (value[:return] == 1)
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["return", "#{value[:return] == 1}"]
-    table << ["action", "#{value[:action] == 1}"]
-    table << ["x", "#{((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))}"]
-    table << ["y", "#{((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))}"]
-    table
-  end
 end

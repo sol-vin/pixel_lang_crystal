@@ -1,5 +1,6 @@
 require "spec"
 require "../src/pixel_lang_crystal"
+require "../src/pixel_lang_crystal/dev/helpers/**"
 
 describe Piston do
   it "should move right" do

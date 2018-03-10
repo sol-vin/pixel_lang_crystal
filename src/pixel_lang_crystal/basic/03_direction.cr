@@ -17,12 +17,4 @@ class Direction < Instruction
   def run(piston)
     self.class.run(piston, Constants::DIRECTIONS[value[:value] % Constants::DIRECTIONS.size])
   end
-
-  
-  def info
-    # Table with headings
-    table = super
-    table << ["direction", "#{Constants::DIRECTIONS[value[:value] % Constants::DIRECTIONS.size]}"]
-    table
-  end
 end

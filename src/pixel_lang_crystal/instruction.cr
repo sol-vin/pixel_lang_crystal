@@ -49,10 +49,4 @@ abstract class Instruction
   def run(piston)
     self.class.run(piston)
   end
-
-  def info
-    table = [] of Array(String)
-    table << ["#{self.class}(#{self.class.control_code})\n------\nName", "#{value[:value].to_s(16)}\n------\nValue"]
-    table
-  end
 end

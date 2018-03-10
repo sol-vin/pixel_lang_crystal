@@ -13,11 +13,4 @@ class OutputChar < Instruction
   def run(piston)
     self.class.run(piston, C20.new(value[:value] % 0x100))
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["char", (value[:value] % 0x100).chr.to_s]
-    table
-  end
 end

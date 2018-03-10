@@ -61,18 +61,4 @@ class Arithmetic < Instruction
     invert = (value[:invert] != 0)
     self.class.run(piston, s1, s1op, op, s2, s2op, d, dop, invert)
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
-    table << ["s1op", value[:s1op].to_s]
-    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
-    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
-    table << ["s2op", value[:s2op].to_s]
-    table << ["d", Piston::REGISTERS[value[:d]].to_s]
-    table << ["dop", value[:dop].to_s]
-    table << ["invert", (value[:invert] != 0).to_s]
-    table
-  end
 end

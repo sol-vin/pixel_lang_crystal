@@ -56,17 +56,4 @@ class Move < Instruction
     
     self.class.run(piston, s, value[:sop], d, value[:dop], swap, reverse)
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["s", Piston::REGISTERS[value[:s]].to_s]
-    table << ["sop", value[:sop].to_s]
-    table << ["d", Piston::REGISTERS[value[:d]].to_s]
-    table << ["dop", value[:dop].to_s]
-    table << ["swap", value[:swap].to_s]
-    table << ["reverse", value[:reverse].to_s]
-    
-    table
-  end
-end  
+end

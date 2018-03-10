@@ -24,12 +24,4 @@ class Start < Instruction
   def run(piston)
     self.class.run(piston, Constants::BASIC_DIRECTIONS[value[:direction]])
   end
-
-  def info
-    # Table with headings
-    table = super
-    table << ["priority", "#{value[:priority]}"]
-    table << ["direction", "#{Constants::BASIC_DIRECTIONS[value[:direction]]}"]
-    table
-  end
 end
