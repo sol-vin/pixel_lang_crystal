@@ -49,6 +49,10 @@ class Call < Instruction
     self.class.run(piston, (value[:return] == 1), (value[:action] == 1), x, y)
   end
 
+  def is_return?
+    (value[:return] == 1)
+  end
+
   def info
     # Table with headings
     table = super

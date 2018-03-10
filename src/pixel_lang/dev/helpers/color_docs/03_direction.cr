@@ -13,7 +13,7 @@ class Direction
   end
 
   def self.make_color(direction : Symbol)
-    direction_bits = DIRECTIONS.index(direction).as(Int32)
+    direction_bits = Constants::DIRECTIONS.index(direction).as(Int32)
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + direction_bits).to_s 16
   end
 

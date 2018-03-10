@@ -5,3 +5,21 @@
 3. Finish Meta Instructions
 4. Debugging
   - Breakpoints
+    - instructional
+    - conditional
+5. When get_instruction or set_instruction is used, draw a line from the caller and glow the table cell
+6. Call frame should also track piston registers and memory, changes them back after return.
+    - Remove return bit from Call, Change to modifier bit.
+    - Move return to it's own instruction
+      - Return instruction will now house it's own action bits and modifiers.
+      - Action bit will control if return pops from call stack.
+      - Modifier will change how piston reacts to call frame.
+        - One will move all piston registers into the calling piston.
+        - One will move all piston memory into the calling piston.
+        - One will change the x,y position of the calling piston.
+          - If not changed the piston will be manually moved to the next space.
+        - Control of what values go into piston on return.
+        - Different combonations for different siituations.
+8. Proper behaviour testing
+9. Full documentation
+10. 

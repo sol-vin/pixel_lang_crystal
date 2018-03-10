@@ -60,9 +60,8 @@ class Piston
   # Register I is the input register. It allows access to the input buffer in the engine.
   # Register O is the output register. In allows access to the output buffer in the engine.
   # I and O work differently from each other and should be treated differently.
-  # I grabs a char from the input buffer if gotten from (I is the/a source). For example using a AR IV + MAV -> OV instruction
-  # IV grabs a value from memory, IC grabs only a char
-  # Simply using the I register changes the input buffer.
+  # I grabs a char from the input buffer if gotten from (I is the/a source). For example using a AR I + MAV -> O instruction
+  # Simply reading from the I register can change the input buffer.
   # The I register can also be written to, to be used as a stack. The stack is piston local and does not append the input.
   # The O register kind of works the opposite. 
   # When O is written to (is the destination) it writes to the output buffer. You can control whether it writes as a char, int, hex int, hex char.
@@ -74,7 +73,7 @@ class Piston
   INPUT_D_OPTIONS = [:push_int, :push_char, :random_max, :null]
   OUTPUT_S_OPTIONS = [:int, :char, :random_max, :random]
   # Output options for register O
-  OUTPUT_D_OPTIONS =  [:int, :char, :int_hex, :char_hex]
+  OUTPUT_D_OPTIONS = [:int, :char, :int_hex, :char_hex]
 
   def initialize(@engine, @x, @y, @direction, @priority)
     @id = engine.make_id
@@ -99,10 +98,10 @@ class Piston
         return get_{{r.id}}(options)
       end
     {% end %}
-    raise "Register #{register} DOES NOT EXIST!"    
+    raise "Register #{register} DOES NOT EXIST!"
   end
   
-  # Sets a register by symbol.  
+  # Sets a register by symbol.
   def set(register : Symbol, value, options)
     {% for r in REGISTERS %}
       if register == {{r}}
@@ -110,7 +109,7 @@ class Piston
         return
       end
     {% end %}
-    raise "Register #{register} DOES NOT EXIST!"    
+    raise "Register #{register} DOES NOT EXIST!"
   end
   
   {% for r in MEMORY_ADDRESS_REG %}
@@ -126,7 +125,7 @@ class Piston
           raise "Option does not exist!"
       end
     end
-    # Macro created.    
+    # Macro created.
     def set_{{r.id}}(v : C20, options)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
@@ -327,8 +326,8 @@ class Piston
     elsif d == :reverse
       turn_right.call
       turn_right.call
-    elsif d == :random
-      rand(4).times {turn_right.call}
+    elsif d == :straight
+      #do nothing
     else         
       raise "Direction does not exist!"
     end
@@ -383,23 +382,24 @@ class Piston
     
   end
   
-  # Current instruction the piston is on.
-  def current_instruction
-    engine.instructions[x, y]
-  end
-
   # Returns to the last call frame
   def return_call(pop = true)
     # If the call frame should be popped or not
-    if pop
-      call_frame = @call_stack.pop      
-    else
-      call_frame = @call_stack.last
+    if !@call_stack.empty?
+      if pop
+        call_frame = @call_stack.pop      
+      else
+        call_frame = @call_stack.last
+      end
+      @x = call_frame[:x]
+      @y = call_frame[:y]
+      change_direction call_frame[:direction]
     end
-    @x = call_frame[:x]
-    @y = call_frame[:y]
-    change_direction call_frame[:direction]
-    move 1
+  end
+  
+  # Current instruction the piston is on.
+  def current_instruction
+    engine.instructions[x, y]
   end
   
   # Runs one instruction
@@ -419,8 +419,9 @@ class Piston
       instruction.run(self)
 
       # move unless we called recently because we want to land on the right instruction.
+      # TODO: REMOVE !instruction.as(Call).is_return? WHEN FIXING Call and Return
       # also dont move if we just paused
-      move((instruction.class == Call || instruction.class == Pause) ? 0 : 1)
+      move(((instruction.class == Call && !instruction.as(Call).is_return?) || instruction.class == Pause) ? 0 : 1)
     end
   end
 
