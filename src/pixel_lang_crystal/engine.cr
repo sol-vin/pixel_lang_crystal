@@ -16,7 +16,7 @@ abstract class Engine
   getter id : UInt32 = 0_u32
   # Name of this Engine.
   getter name : String
-  # How many times has this engine beenr un?
+  # How many times has this engine been run?
   getter runs : UInt32 = 0_u32
   # Memory hash
   getter memory : Hash(C20, C20) = Hash(C20,C20).new(C20.new(0))
@@ -38,7 +38,8 @@ abstract class Engine
   # Peeks at a single int from input  
   abstract def peek_int : C20  
 
-  @to_merge = [] of Tuple(Int32, Piston)
+  #Guarantee to the compiler that this is a tuple!
+  @to_merge = [] of Tuple(Piston, Piston)
 
   def initialize(@name : String, image_file : String, @original_input = "")
     @original_instructions = Instructions.new(image_file)
@@ -54,7 +55,7 @@ abstract class Engine
     @id = 0_u32
     @cycles = 0_u32
     @output = ""
-    @to_merge = [] of Tuple(Int32, Piston)
+    @to_merge = [] of Tuple(Piston, Piston)
     @pistons = [] of Piston
     @memory = Hash(C20, C20).new(C20.new(0))
     @input = @original_input.clone
@@ -69,22 +70,21 @@ abstract class Engine
   
   # Runs this engine until completion. THIS METHOD IS DANGEROUS DUE TO INFINITE LOOPS
   def run
-    until ended?
-      step 
-    end  
+    while step
+    end
   end
   
-  # Runs all the pistons once.
+  # Runs all the pistons once. Returns whether or not the cycle was run
   def step
     # don't run if the machine has already ended.
-    return if ended?
+    return false if ended?
     # run an instruction on all pistons.
     @pistons.each(&.step)
     # merge pistons
     # pistons end up in @to_merge from fork_piston and are added
     # after instructions are ran
     @to_merge.each do |merge|
-      piston_index = (pistons.index { |piston| piston.id == merge[0]}).as(Int32)
+      piston_index = (pistons.index { |piston| piston.id == merge[0].id}).as(Int32)
       pistons.insert(piston_index, merge[1])
     end
     @to_merge.clear
@@ -92,20 +92,13 @@ abstract class Engine
     # prune old pistons, delete the ones that no longer are active
     @pistons.select! { |p| !p.ended? }
     @cycles += 1
+
+    return true
   end
 
   # Merges a new piston into an engine. Used by Fork.
   def merge(piston, new_piston)
-    @to_merge << {piston.id.to_i32, new_piston}
-  end
-
-  # Alert the engine to change a pistons priority for the next cycle.
-  def priority_changed(piston)
-    #remove the piston
-    @pistons.delete(piston)
-    #find the first piston whose priority is lower
-    p = @pistons.find {|p| p.priority <= piston.priority}
-    @to_merge << {p.id, piston}
+    @to_merge << {piston, new_piston}
   end
   
   # Gets a piston with a specific id.

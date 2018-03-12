@@ -7,5 +7,4 @@ module Constants
   BASIC_DIRECTIONS = [:up, :right, :down, :left]
   DIRECTIONS = BASIC_DIRECTIONS + [:turn_left, :turn_right, :reverse, :straight]
   OPERATIONS = ARITHMETIC_OPERATIONS + BOOLEAN_OPERATIONS
-  COLORS = ["red", "yellow", "green", "cyan", "blue", "magenta"]
 end

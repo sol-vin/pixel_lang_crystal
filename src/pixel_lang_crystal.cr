@@ -15,4 +15,4 @@ require "./pixel_lang_crystal/instructions"
 require "./pixel_lang_crystal/auto_engine"
 require "./pixel_lang_crystal/basic/**"
 
-#require "./pixel_lang_crystal/dev/helpers/**"
+require "./pixel_lang_crystal/dev/helpers/**"

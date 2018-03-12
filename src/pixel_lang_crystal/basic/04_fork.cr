@@ -26,20 +26,20 @@ class Fork < Instruction
 
   def self.run(piston, direction_1, direction_2, direction_3 = nil, direction_4 = nil)
     unless direction_4.nil?
-      p = piston.clone
+      p = piston.clone_new
       p.change_direction(direction_4)
       p.move 1
       piston.engine.merge(piston, p)
     end
 
     unless direction_3.nil?
-      p = piston.clone
+      p = piston.clone_new
       p.change_direction(direction_3)
       p.move 1
       piston.engine.merge(piston, p)
     end
 
-    p = piston.clone
+    p = piston.clone_new
     p.change_direction(direction_2)
     p.move 1
     piston.engine.merge(piston, p)

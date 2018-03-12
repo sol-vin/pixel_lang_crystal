@@ -38,7 +38,7 @@ class Piston
   # Priority compared to other pistons.
   getter priority : UInt32
   # List of call frames to return to when hitting a `Call` return.
-  getter call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
+  getter call_stack = [] of Piston
   
   # Total list of resisters
   REGISTERS = [:ma, :mav, :mb, :mbv, :s, :sv, :i, :o]
@@ -75,8 +75,12 @@ class Piston
   # Output options for register O
   OUTPUT_D_OPTIONS = [:int, :char, :int_hex, :char_hex]
 
-  def initialize(@engine, @x, @y, @direction, @priority)
-    @id = engine.make_id
+  def initialize(@engine, @x, @y, @direction, @priority, id = nil)
+    if id.nil?
+      @id = engine.make_id
+    else
+      @id = id
+    end
     reset
   end
   
@@ -84,7 +88,7 @@ class Piston
   def reset
     #TODO: Test reset
     @memory = Hash(C20, C20).new(C20.new(0))
-    @call_stack = [] of NamedTuple(x: Int32, y: Int32, direction: Symbol)
+    @call_stack = [] of Piston
     @ma = C20.new 0
     @mb = C20.new 1
     @s = C20.new 0
@@ -262,8 +266,26 @@ class Piston
   end
 
   #TODO: TEST CLONE!
+  # Clones this piston except for the ID, this can be put into Engine#pistons directly.
+  def clone_new
+    new_piston = Piston.new(engine, x, y, direction, @priority, id = nil)
+    @memory.each do |address, value|
+      new_piston.memory[address] = value
+    end
+
+    new_piston.set_ma(@ma, 0)
+    new_piston.set_mb(@mb, 0)
+    new_piston.set_s(@s, 0)
+    @i.reverse.each do |c|
+      new_piston.set_i(c, 0)
+    end
+
+    new_piston
+  end
+
+  # Clones this piston with the same ID. DO NOT INJECT THIS INTO Engine#pistons without first deleting the old one.
   def clone
-    new_piston = Piston.new(engine, x, y, direction, @priority)
+    new_piston = Piston.new(engine, x, y, direction, @priority, @id)
     @memory.each do |address, value|
       new_piston.memory[address] = value
     end
@@ -371,29 +393,46 @@ class Piston
 
   # jumps to a relative position
   def call(x, y, push = true)
+    # If we push to call stack, push an exact copy of this piston onto the call stack.
     if push
-      @call_stack.push({x: @x, y: @y, direction: @direction})  
+      @call_stack.push(self.clone)  
     end
 
     @x += x
     @y += y
 
     wrap_position
-    
   end
   
   # Returns to the last call frame
-  def return_call(pop = true)
+  def return_call(pop = true, 
+                  copy_direction = true,
+                  copy_x = true,
+                  copy_y = true,
+                  copy_ma = false,
+                  copy_mb = false,
+                  copy_s = false,
+                  copy_i = false,
+                  copy_memory = false)
     # If the call frame should be popped or not
-    if !@call_stack.empty?
+    unless @call_stack.empty?
       if pop
-        call_frame = @call_stack.pop      
+        frame = @call_stack.pop
       else
-        call_frame = @call_stack.last
+        frame = @call_stack.last
       end
-      @x = call_frame[:x]
-      @y = call_frame[:y]
-      change_direction call_frame[:direction]
+      set_ma(frame.ma, 0) if copy_ma
+      set_ma(frame.mb, 0) if copy_mb
+      set_ma(frame.s, 0) if copy_s
+      if copy_i
+        frame.i.reverse.each do |c|
+          set_i(c, 0)
+        end
+      end
+
+      @x = frame.x if copy_x
+      @y = frame.y if copy_y
+      change_direction(frame.direction) if copy_direction
     end
   end
   

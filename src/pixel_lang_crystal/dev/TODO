@@ -1,6 +1,5 @@
-0. Remove all table output functions and move to kemal app.
-3. Finish Meta Instructions
-1. Call frame should also track piston registers and memory, changes them back after return.
+1. Fix call stack to store pistons instead.
+2 Call frame should also track piston registers and memory, changes them back after return.
     - Remove return bit from Call, Change to modifier bit.
     - Move return to it's own instruction
       - Return instruction will now house it's own action bits and modifiers.
@@ -12,12 +11,19 @@
           - If not changed the piston will be manually moved to the next space.
         - Control of what values go into piston on return.
         - Different combonations for different siituations.
-        
-2. Proper behaviour testing
-3. Full documentation
+3. Color corrector (see tools/corrector.cr)
+4. Move meta instructions around (HUGE CHANGE!)
+     - Conditional moves from 7 to C(12)
+     - Return moves from E(14) to 7
+     - IMeta moves from C(12) to D(13)
+     - EMeta moves from D(13) to E(14)
+5. Finish Meta Instructions
+6. Proper behaviour testing
+7. Translate static png programs into crystal code that can be translated back into a png.
+8. Full documentation
 
 
-0.5. Restucture Kemal app
+0. Restucture Kemal app
 1. Live Engine
 2. Live Engine integration with web app
 4. Debugging

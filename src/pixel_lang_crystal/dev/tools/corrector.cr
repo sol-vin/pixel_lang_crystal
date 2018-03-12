@@ -1,0 +1,1 @@
+# Corrects colors using regex, (for example, gsub(/C?????/) {|color| color[:control_code] = ox7})
