@@ -96,7 +96,7 @@ class Piston
   end
   
   # Gets a register by symbol.
-  def get(register : Symbol, options) : C20
+  def get(register : Symbol, options : Int) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
         return get_{{r.id}}(options)
@@ -106,7 +106,7 @@ class Piston
   end
   
   # Sets a register by symbol.
-  def set(register : Symbol, value, options)
+  def set(register : Symbol, value : C20, options : Int)
     {% for r in REGISTERS %}
       if register == {{r}}
         set_{{r.id}}(value, options)
@@ -118,7 +118,7 @@ class Piston
   
   {% for r in MEMORY_ADDRESS_REG %}
     # Macro created.
-    def get_{{r.id}}(options) : C20
+    def get_{{r.id}}(options : Int) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -130,7 +130,7 @@ class Piston
       end
     end
     # Macro created.
-    def set_{{r.id}}(v : C20, options)
+    def set_{{r.id}}(v : C20, options : Int)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
         when :none
@@ -145,7 +145,7 @@ class Piston
 
   {% for r in MEMORY_VALUE_REG %}
     # Macro created.  
-    def get_{{r.id}}v(options) : C20
+    def get_{{r.id}}v(options : Int) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -158,7 +158,7 @@ class Piston
     end
     
     # Macro created.    
-    def set_{{r.id}}v(v : C20, options)
+    def set_{{r.id}}v(v : C20, options : Int)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
         when :none
@@ -171,7 +171,7 @@ class Piston
     end
   {% end %}
   
-  def get_sv(options) : C20
+  def get_sv(options : Int) : C20
     option = REGULAR_REG_S_OPTIONS[options]
     case option
       when :none
@@ -183,7 +183,7 @@ class Piston
     end
   end
 
-  def set_sv(v : C20, options)
+  def set_sv(v : C20, options : Int)
     option = REGULAR_REG_D_OPTIONS[options]
     case option
       when :none
@@ -195,7 +195,7 @@ class Piston
     end
   end
 
-  def get_i(options) : C20
+  def get_i(options : Int) : C20
     code = INPUT_S_OPTIONS[options]
     # if there is nothing on this pistons stack, lets try the engine's input'
     if @i.empty?
@@ -227,7 +227,7 @@ class Piston
     end
   end
 
-  def set_i(v : C20, options)
+  def set_i(v : C20, options : Int)
     code = INPUT_D_OPTIONS[options]
 
     case code
@@ -244,7 +244,7 @@ class Piston
     end
   end
 
-  def get_o(options) : C20
+  def get_o(options : Int) : C20
     code = OUTPUT_S_OPTIONS[options]
     case code
       when :int
@@ -301,7 +301,7 @@ class Piston
   end
   
   # Evaluates an expression using symbols.
-  def evaluate(s1, s1op, op, s2, s2op) : C20
+  def evaluate(s1 : Symbol, s1op : Int, op : Symbol, s2 : Symbol, s2op : Int) : C20
     v1 = get(s1, s1op)
     v2 = get(s2, s2op)
 
@@ -329,7 +329,7 @@ class Piston
   end
   
   # Changes the direction to the specified direction
-  def change_direction(d)
+  def change_direction(d : Symbol)
     turn_right = -> do
       index = Constants::BASIC_DIRECTIONS.index(@direction).as(Int32) + 1
       index = 0 if index >= Constants::BASIC_DIRECTIONS.size
@@ -350,13 +350,13 @@ class Piston
       turn_right.call
     elsif d == :straight
       #do nothing
-    else         
+    else
       raise "Direction does not exist!"
     end
   end
 
   # moves the instruction cursor amount units in a direction
-  def move(amount)
+  def move(amount : Int)
     case direction
       when :up
         @y -= amount
@@ -365,7 +365,7 @@ class Piston
       when :left
         @x -= amount
       when :right
-        @x += amount      
+        @x += amount
       else
         raise "Option does not exist!"
     end
@@ -392,7 +392,7 @@ class Piston
   end
 
   # jumps to a relative position
-  def call(x, y, push = true)
+  def call(x : Int, y : Int, push = true)
     # If we push to call stack, push an exact copy of this piston onto the call stack.
     if push
       @call_stack.push(self.clone)  
@@ -405,29 +405,58 @@ class Piston
   end
   
   # Returns to the last call frame
-  def return_call(pop = true, 
-                  copy_direction = true,
-                  copy_x = true,
-                  copy_y = true,
-                  copy_ma = false,
-                  copy_mb = false,
-                  copy_s = false,
-                  copy_i = false,
-                  copy_memory = false)
+  def return_call(action : Symbol, 
+                  copy_ma : Bool,
+                  copy_mb : Bool,
+                  copy_s : Bool,
+                  copy_i : Symbol,
+                  copy_memory : Symbol,
+                  copy_x : Bool,
+                  copy_y : Bool,
+                  copy_direction : Bool
+                  )
     # If the call frame should be popped or not
     unless @call_stack.empty?
-      if pop
+      if action == :pop
         frame = @call_stack.pop
-      else
+      elsif action == :peek
         frame = @call_stack.last
+      elsif action == :pop_push
+        frame = @call_stack.pop
+        @call_stack.push(self.clone)
+      elsif action == :peek_push
+        frame = @call_stack.last
+        @call_stack.push(self.clone)
+      else
+        raise "Action invalid!"
       end
+      # Set the registers if they nee d to be copied
       set_ma(frame.ma, 0) if copy_ma
-      set_ma(frame.mb, 0) if copy_mb
-      set_ma(frame.s, 0) if copy_s
-      if copy_i
-        frame.i.reverse.each do |c|
-          set_i(c, 0)
+      set_mb(frame.mb, 0) if copy_mb
+      set_s(frame.s, 0) if copy_s
+
+      # copy I by reversing it and pushing the items back on.
+      if copy_i == :restore
+        @i.clear
+        frame.i.reverse.each do |value|
+          set_i(value, 0)
         end
+      elsif copy_i == :keep
+        # do nothing
+      elsif copy_i == :clear
+        @i.clear
+      end
+      
+      # copy the memory if needed
+      if copy_memory == :restore
+        @memory.clear
+        frame.memory.each do |address, value|
+          @memory[address] = value
+        end
+      elsif copy_memory == :keep
+        # do nothing
+      elsif copy_memory == :clear
+        @memory.clear
       end
 
       @x = frame.x if copy_x
@@ -446,21 +475,16 @@ class Piston
     if paused?
       # Run the pause tick
       pause_cycle
-      if !paused?
-        move(1) # move one if we just unpaused during the tick.
-      end
+      # move one if we just unpaused during the tick.
+      move(1) unless paused?
     else
       instruction = current_instruction
-      unless instruction
-        raise "AT POSITION #{x}   #{y}"
-      end
-
       instruction.run(self)
 
       # move unless we called recently because we want to land on the right instruction.
-      # TODO: REMOVE !instruction.as(Call).is_return? WHEN FIXING Call and Return
+      # We do this because the instruction it lands on will be skipped immeadiately.
       # also dont move if we just paused
-      move(((instruction.class == Call && !instruction.as(Call).is_return?) || instruction.class == Pause) ? 0 : 1)
+      move((instruction.class == Call || instruction.class == Pause) ? 0 : 1)
     end
   end
 

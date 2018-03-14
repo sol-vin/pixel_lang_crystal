@@ -150,165 +150,165 @@ describe AutoEngine do
 
   it "should run num_bits" do
     e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "4")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("3")
 
     e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "8")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("4")
 
     e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "32")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("6")
 
     e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "128")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("8")
 
     e = AutoEngine.new("num_bits", "./programs/math/num_bits.png", "256")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("9")
   end
 
   it "should run sqrt" do
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "0")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("0")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "1")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("1")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "4")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("2")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "9")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("3")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "16")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("4")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "64")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("8")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "81")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("9")
 
     e = AutoEngine.new("sqrt", "./programs/math/sqrt.png", "#{999**2}")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("999")
   end
 
   it "should run euler_1" do
     e = AutoEngine.new("euler1", "./programs/euler/1.png", "10")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("23")
 
     e = AutoEngine.new("euler1", "./programs/euler/1.png", "1000")
-    e.run
+    100_000.times {e.step}
     e.output.should eq("233168")
   end
 
   it "should run euler_2" do
     e = AutoEngine.new("euler2", "./programs/euler/2.png", "10")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("10")
 
     e = AutoEngine.new("euler2", "./programs/euler/2.png", "100")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("44")
 
     e = AutoEngine.new("euler2", "./programs/euler/2.png", "3000")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("3382")
   end
 
   it "should run calculator" do
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "3000+382")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("3382")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "10-4")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("6")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "3*123")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("369")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "200/100")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("2")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "4%2")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("0")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "9%2")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("1")
     
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "9%0")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("NaN")
 
     e = AutoEngine.new("calc", "./programs/math/calculator.png", "9/0")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("NaN")
   end
 
   it "should run prime" do
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "0")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("F")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "1")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("T")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "2")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("T")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "3")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("T")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "4")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("F")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "5")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("T")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "81")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("F")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "229")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("T")
 
     e = AutoEngine.new("prime", "./programs/math/is_prime.png", "2323")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("F")
   end
 
   it "should run prime_sieve" do
     e = AutoEngine.new("prime", "./programs/math/prime_sieve.png", "100")
-    e.run
+    100_000.times {e.step}
     e.output.should eq("2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97")
   end
 
   it "should run imetaget" do
     e = AutoEngine.new("imetaget", "./programs/test/imetaget.png")
-    e.run
+    10_000.times {e.step}
     e.output.should eq("bcdef")
   end
 end

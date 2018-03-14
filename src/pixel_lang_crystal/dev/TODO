@@ -1,4 +1,4 @@
-1. Fix call stack to store pistons instead.
+1. prime_sieve and euler_1 both fail due to return change
 2 Call frame should also track piston registers and memory, changes them back after return.
     - Remove return bit from Call, Change to modifier bit.
     - Move return to it's own instruction
@@ -19,14 +19,14 @@
      - EMeta moves from D(13) to E(14)
 5. Finish Meta Instructions
 6. Proper behaviour testing
-7. Translate static png programs into crystal code that can be translated back into a png.
+7. Translate static png programs into crystal code that can be translated back into a png. (tools/translate.cr)
 8. Full documentation
 
 
 0. Restucture Kemal app
 1. Live Engine
 2. Live Engine integration with web app
-4. Debugging
+4. Debugging (tools/debugger.cr)
   - Breakpoints
     - instructional
     - conditional

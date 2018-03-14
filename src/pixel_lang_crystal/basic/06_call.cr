@@ -5,11 +5,8 @@ class Call < Instruction
   def self.control_code
     0x6
   end
-  
-  RETURN_BITS = 1
-  RETURN_BITSHIFT = 19
 
-  ACTION_BITS = 1
+  ACTION_BITS = 2
   ACTION_BITSHIFT = 18
 
   X_SIGN_BITS = 1
@@ -24,17 +21,12 @@ class Call < Instruction
   Y_BITS = 8
   Y_BITSHIFT = 0
 
-  def self.run(piston, is_return, action, x, y)
-    if is_return
-      piston.return_call(action)
-    else
-      piston.call(x, y, action)
-    end
+  def self.run(piston, action, x, y)
+    piston.call(x, y, action)
   end
 
   def initialize(value : C24)
-    super value
-    @value.add_mask(:return, RETURN_BITS, RETURN_BITSHIFT)
+    super
     @value.add_mask(:action, ACTION_BITS, ACTION_BITSHIFT)        
     @value.add_mask(:x_sign, X_SIGN_BITS, X_SIGN_BITSHIFT)
     @value.add_mask(:x, X_BITS, X_BITSHIFT)
@@ -46,10 +38,6 @@ class Call < Instruction
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
     
-    self.class.run(piston, (value[:return] == 1), (value[:action] == 1), x, y)
-  end
-
-  def is_return?
-    (value[:return] == 1)
+    self.class.run(piston, (value[:action] == 1), x, y)
   end
 end

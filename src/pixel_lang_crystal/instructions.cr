@@ -55,7 +55,7 @@ class Instructions
          end  
       end
     end
-    a
+    a.sort {|a,b| a[:priority] <=> b[:priority]}
   end
 
   def each
@@ -64,6 +64,14 @@ class Instructions
         yield x, y, self[x, y]
       end
     end
+  end
+
+  def map
+    (0...@image.width).each do |x|
+      (0...@image.height).each do |y|
+        self[x, y] = yield x, y, self[x, y]
+      end
+    end 
   end
 
   def all?

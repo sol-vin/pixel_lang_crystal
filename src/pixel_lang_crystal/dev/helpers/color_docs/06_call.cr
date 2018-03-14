@@ -7,7 +7,6 @@ class Call
     Jumps a piston to a nearby instruction by the offset coordinates.
     0bCCCCRAXWWWWWWWWYZZZZZZZZ
     C = Control Code (Instruction) [4 bits]
-    R = Return [1 bit] Should this call instruction return instead?
     A = Action [1 bit] Should this instruction manipulate the call stack?
     X = X Sign [1 bit] Deterimines if X is negative or not
     W = X [8 bits] Number of X spaces to jump
@@ -24,13 +23,12 @@ class Call
     y = y.abs
 
     ((control_code << C24::CONTROL_CODE_BITSHIFT) +
-      ((is_return ? 1 : 0) << RETURN_BITSHIFT) + 
       ((action ? 1 : 0) << ACTION_BITSHIFT) + 
       (x_sign << X_SIGN_BITSHIFT) + (x << X_BITSHIFT) +
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
   end
 
   def self.make(is_return, action, x, y)
-    self.new(C24.new(make_color(is_return, action, x, y).to_i 16))
+    self.new(C24.new(make_color(action, x, y).to_i 16))
   end
 end

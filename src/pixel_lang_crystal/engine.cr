@@ -80,14 +80,8 @@ abstract class Engine
     return false if ended?
     # run an instruction on all pistons.
     @pistons.each(&.step)
-    # merge pistons
-    # pistons end up in @to_merge from fork_piston and are added
-    # after instructions are ran
-    @to_merge.each do |merge|
-      piston_index = (pistons.index { |piston| piston.id == merge[0].id}).as(Int32)
-      pistons.insert(piston_index, merge[1])
-    end
-    @to_merge.clear
+    
+    merge_all
 
     # prune old pistons, delete the ones that no longer are active
     @pistons.select! { |p| !p.ended? }
@@ -99,6 +93,17 @@ abstract class Engine
   # Merges a new piston into an engine. Used by Fork.
   def merge(piston, new_piston)
     @to_merge << {piston, new_piston}
+  end
+
+    # merge pistons
+    # pistons end up in @to_merge from fork_piston and are added
+    # after instructions are ran
+  def merge_all
+    @to_merge.each do |merge|
+      piston_index = (pistons.index { |piston| piston.id == merge[0].id}).as(Int32)
+      pistons.insert(piston_index, merge[1])
+    end
+    @to_merge.clear
   end
   
   # Gets a piston with a specific id.
