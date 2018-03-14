@@ -1,4 +1,4 @@
-require "./../../../../basic/12_instruction_meta/00_get"
+require "./../../../../basic/13_instruction_meta/00_get"
 
 class IMetaGet
   def self.reference_card

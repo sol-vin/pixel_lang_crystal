@@ -1,6 +1,6 @@
 class Return < Instruction
   def self.control_code
-    0xD
+    0x7
   end
   # pop, pop the call frame
   # peek, don't pop the call frame

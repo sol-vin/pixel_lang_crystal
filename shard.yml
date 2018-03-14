@@ -1,15 +1,16 @@
 name: pixel_lang_crystal
 version: 0.1.0
 
+crystal: 0.22.0
+license: MIT
+
 authors:
   - Ian Rash <redcodefinal@gmail.com>
+
+targets:
+  corrector:
+    main: src/pixel_lang_crystal/dev/tools/corrector.cr
 
 dependencies:
   stumpy_png:
     github: l3kn/stumpy_png
-  colorful:
-    github: icyleaf/colorful.cr
-
-crystal: 0.22.0
-
-license: MIT

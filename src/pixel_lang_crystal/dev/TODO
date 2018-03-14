@@ -1,22 +1,3 @@
-1. prime_sieve and euler_1 both fail due to return change
-2 Call frame should also track piston registers and memory, changes them back after return.
-    - Remove return bit from Call, Change to modifier bit.
-    - Move return to it's own instruction
-      - Return instruction will now house it's own action bits and modifiers.
-      - Action bit will control if return pops from call stack.
-      - Modifier will change how piston reacts to call frame.
-        - One will restore all piston registers into the calling piston.
-        - One will restore all piston memory into the calling piston.
-        - One will restore the x,y position of the calling piston.
-          - If not changed the piston will be manually moved to the next space.
-        - Control of what values go into piston on return.
-        - Different combonations for different siituations.
-3. Color corrector (see tools/corrector.cr)
-4. Move meta instructions around (HUGE CHANGE!)
-     - Conditional moves from 7 to C(12)
-     - Return moves from E(14) to 7
-     - IMeta moves from C(12) to D(13)
-     - EMeta moves from D(13) to E(14)
 5. Finish Meta Instructions
 6. Proper behaviour testing
 7. Translate static png programs into crystal code that can be translated back into a png. (tools/translate.cr)

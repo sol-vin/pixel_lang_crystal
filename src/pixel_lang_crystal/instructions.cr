@@ -22,6 +22,10 @@ class Instructions
     @image = StumpyCore::Canvas.new(width, height, StumpyCore::RGBA.from_rgb8(255,255,255))
     @original_image = @image.dup    
   end
+  
+  def save(path)
+    StumpyPNG.write(@image, path)
+  end
 
   # Returns an instruction from position x, y
   def [](x, y) : Instruction

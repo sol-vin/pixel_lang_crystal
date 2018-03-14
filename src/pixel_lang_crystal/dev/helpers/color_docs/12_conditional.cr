@@ -1,4 +1,4 @@
-require "./../../../basic/07_conditional"
+require "./../../../basic/12_conditional"
 
 class Conditional
   def self.reference_card

@@ -114,7 +114,7 @@ describe Piston do
     i[3,0] = End.new(C24.new(0x000000))
 
     e = AutoEngine.new("Test", i)
-    e.run
+    10.times {e.step}
     e.output.should eq("2")
   end
 
@@ -131,7 +131,7 @@ describe Piston do
     i[5,0] = End.new(C24.new(0x000000))
 
     e = AutoEngine.new("Test", i)
-    e.run
+    10.times {e.step}
     e.output.should eq("12")
   end
 
@@ -150,7 +150,7 @@ describe Piston do
     i[6,0] = End.new(C24.new(0x000000))
 
     e = AutoEngine.new("Test", i)
-    e.run
+    10.times {e.step}
     e.output.should eq("12")
   end
 
@@ -202,7 +202,7 @@ describe Piston do
     i[11,0] = End.new(C24.new(0x000000))
 
     e = AutoEngine.new("Test", i)
-    e.run
+    15.times {e.step}
     e.output.should eq("443211")
   end
 end

@@ -1,5 +1,4 @@
 require "stumpy_png"
-require "colorful"
 
 require "./pixel_lang_crystal/constants"
 

@@ -11,11 +11,13 @@ describe Instructions do
     Instruction.find_instruction(C24.new(0x400000)).should eq(Fork)
     Instruction.find_instruction(C24.new(0x500000)).should eq(Jump)
     Instruction.find_instruction(C24.new(0x600000)).should eq(Call)
-    Instruction.find_instruction(C24.new(0x700000)).should eq(Conditional)
+    Instruction.find_instruction(C24.new(0x700000)).should eq(Return)
     Instruction.find_instruction(C24.new(0x800000)).should eq(Insert)
     Instruction.find_instruction(C24.new(0x900000)).should eq(Move)
     Instruction.find_instruction(C24.new(0xA00000)).should eq(Arithmetic)
     Instruction.find_instruction(C24.new(0xB00000)).should eq(OutputChar)
+    Instruction.find_instruction(C24.new(0xC00000)).should eq(Conditional)
+    
     Instruction.find_instruction(C24.new(0xF00000)).should eq(Blank)
   end
 

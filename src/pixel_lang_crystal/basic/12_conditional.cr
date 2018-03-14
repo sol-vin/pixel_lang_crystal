@@ -3,7 +3,7 @@ require "./../piston"
 
 class Conditional < Instruction
   def self.control_code
-    0x7
+    0xC
   end
 
   TRUE_BITS = 3
