@@ -35,26 +35,26 @@ class Call
   def info
     # Table with headings
     table = super
-    table << ["return", "#{value[:return] == 1}"]
-    table << ["action", "#{value[:action] == 1}"]
+    table << ["action", "#{Call::ACTIONS[value[:action]]}"]
     table << ["x", "#{((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))}"]
     table << ["y", "#{((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))}"]
     table
   end
 end
 
-class Conditional
+class Return
   def info
     # Table with headings
     table = super
-    table << ["true_action",  Constants::DIRECTIONS[value[:true_action]].to_s]
-    table << ["false_action",  Constants::DIRECTIONS[value[:false_action]].to_s]
-    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
-    table << ["s1op", value[:s1op].to_s]
-    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
-    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
-    table << ["s2op", value[:s2op].to_s] 
-    
+    table << ["action",  Return::ACTIONS[value[:action]].to_s]
+    table << ["ma",  value[:ma] == Constants::TRUE]
+    table << ["mb",  value[:mb] == Constants::TRUE]
+    table << ["s",  value[:s] == Constants::TRUE]
+    table << ["i",  Return::I_ACTIONS[value[:i]].to_s]
+    table << ["memory",  Return::MEMORY_ACTIONS[value[:memory]].to_s]
+    table << ["x",  value[:x] == Constants::TRUE]
+    table << ["y",  value[:y] == Constants::TRUE]
+    table << ["direction",  value[:direction] == Constants::TRUE]
     table
   end
 end
@@ -107,6 +107,22 @@ class IMetaGet
     table << ["xo", value[:xop].to_s]
     table << ["y", Piston::REGISTERS[value[:y]].to_s]
     table << ["yo", value[:yop].to_s]
+    
+    table
+  end
+end
+
+class Conditional
+  def info
+    # Table with headings
+    table = super
+    table << ["true_action",  Constants::DIRECTIONS[value[:true_action]].to_s]
+    table << ["false_action",  Constants::DIRECTIONS[value[:false_action]].to_s]
+    table << ["s1", Piston::REGISTERS[value[:s1]].to_s]
+    table << ["s1op", value[:s1op].to_s]
+    table << ["op", Constants::OPERATIONS[value[:op]].to_s]
+    table << ["s2", Piston::REGISTERS[value[:s2]].to_s]
+    table << ["s2op", value[:s2op].to_s] 
     
     table
   end
