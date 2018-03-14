@@ -392,9 +392,9 @@ class Piston
   end
 
   # jumps to a relative position
-  def call(x : Int, y : Int, push = true)
+  def call(action : Symbol, x : Int, y : Int)
     # If we push to call stack, push an exact copy of this piston onto the call stack.
-    if push
+    if action == :push
       @call_stack.push(self.clone)  
     end
 

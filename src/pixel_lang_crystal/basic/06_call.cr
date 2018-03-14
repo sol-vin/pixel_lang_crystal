@@ -6,6 +6,7 @@ class Call < Instruction
     0x6
   end
 
+  ACTIONS = [:none, :push, :none, :none]
   ACTION_BITS = 2
   ACTION_BITSHIFT = 18
 
@@ -22,7 +23,7 @@ class Call < Instruction
   Y_BITSHIFT = 0
 
   def self.run(piston, action, x, y)
-    piston.call(x, y, action)
+    piston.call(action, x, y)
   end
 
   def initialize(value : C24)
@@ -38,6 +39,6 @@ class Call < Instruction
     x = ((value[:x_sign] == 0) ? value[:x] : -(value[:x].to_i32))
     y = ((value[:y_sign] == 0) ? value[:y] : -(value[:y].to_i32))
     
-    self.class.run(piston, (value[:action] == 1), x, y)
+    self.class.run(piston, Call::ACTIONS[value[:action]], x, y)
   end
 end

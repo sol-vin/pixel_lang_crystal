@@ -46,15 +46,15 @@ class Return
   def info
     # Table with headings
     table = super
-    table << ["action",  Return::ACTIONS[value[:action]].to_s]
-    table << ["ma",  value[:ma] == Constants::TRUE]
-    table << ["mb",  value[:mb] == Constants::TRUE]
-    table << ["s",  value[:s] == Constants::TRUE]
-    table << ["i",  Return::I_ACTIONS[value[:i]].to_s]
-    table << ["memory",  Return::MEMORY_ACTIONS[value[:memory]].to_s]
-    table << ["x",  value[:x] == Constants::TRUE]
-    table << ["y",  value[:y] == Constants::TRUE]
-    table << ["direction",  value[:direction] == Constants::TRUE]
+    table << ["action", Return::ACTIONS[value[:action]].to_s]
+    table << ["ma", (value[:ma] == Constants::TRUE).to_s]
+    table << ["mb", (value[:mb] == Constants::TRUE).to_s]
+    table << ["s", (value[:s] == Constants::TRUE).to_s]
+    table << ["i", Return::I_ACTIONS[value[:i]].to_s]
+    table << ["memory", Return::MEMORY_ACTIONS[value[:memory]].to_s]
+    table << ["x", (value[:x] == Constants::TRUE).to_s]
+    table << ["y", (value[:y] == Constants::TRUE).to_s]
+    table << ["direction", (value[:direction] == Constants::TRUE).to_s]
     table
   end
 end
