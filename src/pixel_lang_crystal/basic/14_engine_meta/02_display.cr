@@ -1,1 +1,0 @@
-# clear, tab, bell, live terminal stuff

@@ -95,7 +95,7 @@ class Piston
     @i = [] of C20
   end
   
-  # Gets a register by symbol.
+  # Gets a register by symbol. Routes the get_* methods 
   def get(register : Symbol, options : Int) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
@@ -105,7 +105,7 @@ class Piston
     raise "Register #{register} DOES NOT EXIST!"
   end
   
-  # Sets a register by symbol.
+  # Sets a register by symbol. Routes the set_* methods
   def set(register : Symbol, value : C20, options : Int)
     {% for r in REGISTERS %}
       if register == {{r}}

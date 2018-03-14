@@ -1,7 +1,8 @@
 require "./bitmask"
 require "./bitmask_hash"
 require "./constants"
-# Custom color class that will roll over 24-bit ints.
+
+# Unsigned 24-bit integer. Custom color class that will roll over 24-bit ints.
 struct C24
   include Comparable(C24)
   include BitmaskHash

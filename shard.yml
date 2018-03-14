@@ -10,6 +10,12 @@ authors:
 targets:
   corrector:
     main: src/pixel_lang_crystal/dev/tools/corrector.cr
+  runner:
+    main: src/pixel_lang_crystal/dev/tools/runner.cr
+  translator:
+    main: src/pixel_lang_crystal/dev/tools/translator.cr
+  debugger:
+    main: src/pixel_lang_crystal/dev/tools/debugger.cr
 
 dependencies:
   stumpy_png:

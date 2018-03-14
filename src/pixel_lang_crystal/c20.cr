@@ -1,6 +1,8 @@
 require "./bitmask"
 require "./bitmask_hash"
 require "./constants"
+
+# A 20-bit unsigned integer
 struct C20
   # min byte
   MIN = 0_u32
