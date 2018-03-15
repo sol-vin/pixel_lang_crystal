@@ -18,4 +18,8 @@ class Insert
   def self.make(value)
     self.new(C24.new(make_color(value).to_i 16))
   end
+
+  def arguments
+    ["#{value[:value]}"]
+  end
 end

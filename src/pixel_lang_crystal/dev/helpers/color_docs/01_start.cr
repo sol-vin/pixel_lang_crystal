@@ -22,4 +22,8 @@ class Start
   def self.make(direction, priority = 0)
     self.new(C24.new(make_color(direction, priority).to_i 16))
   end
+
+  def arguments
+    [":#{Constants::BASIC_DIRECTIONS[value[:direction]]}", "#{value[:priority]}"]
+  end
 end

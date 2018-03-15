@@ -18,4 +18,8 @@ class Jump
   def self.make(spaces)
     self.new(C24.new(make_color(spaces).to_i 16))
   end
+
+  def arguments
+    ["#{value}"]
+  end
 end

@@ -20,4 +20,8 @@ class Direction
   def self.make(direction : Symbol)
     self.new(C24.new(make_color(direction).to_i 16))
   end
+
+  def arguments
+    [":#{Constants::DIRECTIONS[value[:value] % Constants::DIRECTIONS.size]}"]
+  end
 end

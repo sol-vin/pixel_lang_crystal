@@ -40,4 +40,11 @@ class Fork
   def self.make(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
     self.new(C24.new(make_color(direction_1, direction_2, direction_3, direction_4).to_i 16))
   end
+
+  def arguments
+    a = [":#{Constants::DIRECTIONS[value[:direction_1]]}", ":#{Constants::DIRECTIONS[value[:direction_2]]}"]
+    a << ":#{Constants::DIRECTIONS[value[:direction_3]]}" if value[:direction_3_bool] == Constants::TRUE
+    a << ":#{Constants::DIRECTIONS[value[:direction_4]]}" if value[:direction_4_bool] == Constants::TRUE
+    a
+  end
 end

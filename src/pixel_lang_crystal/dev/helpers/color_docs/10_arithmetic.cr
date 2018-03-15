@@ -31,6 +31,22 @@ class Arithmetic
   end
 
   def self.make(s1, s1op, op, s2, s2op, d, dop, invert = false)
-    self.new(C24.new(make_color(s1, s1op, op, s2, s2op, d, dop, invert).to_i 16))
+    self.new(C20.new(make_color(s1, s1op, op, s2, s2op, d, dop, invert).to_i 16))
+  end
+
+  def arguments
+    s1 = ":#{Piston::REGISTERS[value[:s1]]}"
+    s1op = "#{value[:s1op]}"
+
+    op = ":#{Constants::OPERATIONS[value[:op]]}"
+
+    s2 = ":#{Piston::REGISTERS[value[:s2]]}"
+    s2op = "#{value[:s2op]}"
+
+    d = ":#{Piston::REGISTERS[value[:d]]}"
+    dop = "#{value[:dop]}"
+
+    invert = "#{value[:invert] == Constants::TRUE}"
+    [s1, s1op, op, s2, s2op, d, dop, invert]
   end
 end

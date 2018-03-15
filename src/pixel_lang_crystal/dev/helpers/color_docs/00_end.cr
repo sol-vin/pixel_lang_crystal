@@ -18,4 +18,8 @@ class End < Instruction
   def self.make(value = 0x0)
     self.new(C20.new(make_color(value).to_i 16))
   end
+
+  def arguments
+    ["#{value[:value]}"]
+  end
 end

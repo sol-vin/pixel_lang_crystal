@@ -15,7 +15,7 @@ class Call
     }
   end
 
-  def self.make_color(is_return = false, action = false, x = 0, y = 0)
+  def self.make_color(action : Symbol, x : Int, y : Int)
     x_sign = ((x < 0) ? 1 : 0)
     y_sign = ((y < 0) ? 1 : 0)
 
@@ -23,12 +23,15 @@ class Call
     y = y.abs
 
     ((control_code << C24::CONTROL_CODE_BITSHIFT) +
-      ((action ? 1 : 0) << ACTION_BITSHIFT) + 
+      ((ACTIONS.index(action).as(Int32)) << ACTION_BITSHIFT) + 
       (x_sign << X_SIGN_BITSHIFT) + (x << X_BITSHIFT) +
       (y_sign << Y_SIGN_BITSHIFT) + (y << Y_BITSHIFT)).to_s 16
   end
 
-  def self.make(is_return, action, x, y)
+  def self.make(action : Symbol, x : Int, y : Int)
     self.new(C24.new(make_color(action, x, y).to_i 16))
+  end
+  def arguments
+    [":#{ACTIONS[value[:action]]}", "#{value[:x]}", "#{value[:y]}"]
   end
 end

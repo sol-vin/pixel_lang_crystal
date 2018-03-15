@@ -45,4 +45,17 @@ class Return
   def self.make(action, ma, mb, s, i, memory, x, y, direction)
     self.new(C24.new(make_color(action, ma, mb, s, i, memory, x, y, direction).to_i 16))
   end
+
+  def arguments
+    action = ":#{ACTIONS[value[:action]]}"
+    ma = "#{value[:ma] == Constants::TRUE}"
+    mb = "#{value[:mb] == Constants::TRUE}"
+    s = "#{value[:s] == Constants::TRUE}"
+    i = ":#{I_ACTIONS[value[:i]]}"
+    memory = "#{MEMORY_ACTIONS[value[:memory]]}"
+    x = "#{value[:x] == Constants::TRUE}"
+    y = "#{value[:y] == Constants::TRUE}"
+    direction = ":#{value[:direction] == Constants::TRUE}"
+    [action, ma, mb, s, i, memory, x, y, direction]
+  end
 end

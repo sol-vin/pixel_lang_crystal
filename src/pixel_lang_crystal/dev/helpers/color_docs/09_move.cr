@@ -34,7 +34,18 @@ class Move
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + s + sop + d + dop + swap + reverse).to_s 16
   end
 
-  def self.make(s, sop, d, dop, swap = false, reverse = false)
+  def self.make(s : Symbol, sop : Int, d : Symbol, dop : Int, swap = false, reverse = false)
     self.new(C24.new(make_color(s, sop, d, dop, swap, reverse).to_i 16))
+  end
+
+  def arguments
+    s = ":#{Piston::REGISTERS[value[:s]]}"
+    sop = "#{value[:sop]}"
+    d = ":#{Piston::REGISTERS[value[:d]]}"
+    dop = "#{value[:dop]}"
+    swap = "#{value[:swap] == Constants::TRUE}"
+    reverse = "#{value[:reverse] == Constants::TRUE}"
+    
+    [s, sop, d, dop, swap, reverse]
   end
 end

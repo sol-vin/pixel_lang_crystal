@@ -65,7 +65,8 @@ class Conditional < Instruction
     
     self.class.run(piston, true_action, false_action, s1, value[:s1op], op, s2, value[:s2op])
   end
-
+  
+  # Evaluates the conditional expression and returns if it was true or not.
   def evaluate(piston)
     s1 = Piston::REGISTERS[value[:s1]]
     op = Constants::OPERATIONS[value[:op]]

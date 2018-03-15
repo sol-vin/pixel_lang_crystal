@@ -22,4 +22,8 @@ class Pause
   def self.make(cycles = 0x0)
     self.new(C20.new(make_color(cycles).to_i 16))
   end
+
+  def arguments
+    ["#{value}"]
+  end
 end

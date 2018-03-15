@@ -18,4 +18,8 @@ class OutputChar
   def self.make(char)
     self.new(C24.new(make_color(char).to_i 16))
   end
+
+  def arguments
+    ["\'#{(value[:value] % 255).chr}\'"]
+  end
 end

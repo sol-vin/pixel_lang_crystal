@@ -59,7 +59,7 @@ class Return < Instruction
     mb = (value[:mb] == Constants::TRUE)
     s = (value[:s] == Constants::TRUE)
     i = I_ACTIONS[value[:i]]
-    memory = MEMORY_ACTIONS[value[:s]]
+    memory = MEMORY_ACTIONS[value[:memory]]
     x = (value[:x] == Constants::TRUE)
     y = (value[:y] == Constants::TRUE)
     direction = (value[:direction] == Constants::TRUE)

@@ -1,6 +1,6 @@
+7. Translate static png programs into crystal code that can be translated back into a png. (tools/translate.cr)
 5. Finish Meta Instructions
 6. Proper behaviour testing
-7. Translate static png programs into crystal code that can be translated back into a png. (tools/translate.cr)
 8. Full documentation
 
 

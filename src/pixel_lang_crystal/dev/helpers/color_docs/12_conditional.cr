@@ -4,7 +4,7 @@ class Conditional
   def self.reference_card
     %q{
     Conditional Instruction
-    Evaluates an arithmetic expression. If the result is zero, the piston moves one way, else, it moves another.
+    Evaluates an arithmetic expression. If the result is zero, the piston uses the false action, if not it uses true action.
      0bCCCCTTTFFF111XXAAAA222YY
      C = Control Code (Instruction) [4 bits]
      T = True Action [3 bit]
@@ -31,5 +31,18 @@ class Conditional
 
   def self.make(t, f, s1, s1op, op, s2, s2op)
     self.new(C24.new(make_color(t, f, s1, s1op, op, s2, s2op).to_i 16))
+  end
+
+  def arguments
+    t = ":#{Constants::DIRECTIONS[value[:true_action]]}"
+    f = ":#{Constants::DIRECTIONS[value[:false_action]]}"
+    s1 = ":#{Piston::REGISTERS[value[:s1]]}"
+    s1op = "#{value[:s1op]}"
+
+    op = ":#{Constants::OPERATIONS[value[:op]]}"
+
+    s2 = ":#{Piston::REGISTERS[value[:s2]]}"
+    s2op = "#{value[:s2op]}"
+    [t, f, s1, s1op, op, s2, s2op]
   end
 end
