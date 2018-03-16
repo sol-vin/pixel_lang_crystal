@@ -53,8 +53,8 @@ class Piston
   
   MEMORY_ADDRESS_REG = [:ma, :mb, :s]
   MEMORY_VALUE_REG = [:ma, :mb]
-  REGULAR_REG_S_OPTIONS = [:none, :random_max]
-  REGULAR_REG_D_OPTIONS = [:none, :random_max]
+  REGULAR_REG_S_OPTIONS = [:none, :random_max, :r1, :r2]
+  REGULAR_REG_D_OPTIONS = [:none, :random_max, :r1, :r2]
 
   # List of the special registers, which have special meaning.
   # Register I is the input register. It allows access to the input buffer in the engine.
@@ -93,6 +93,7 @@ class Piston
     @mb = C20.new 1
     @s = C20.new 0
     @i = [] of C20
+    unpause
   end
   
   # Gets a register by symbol. Routes the get_* methods 
@@ -125,6 +126,10 @@ class Piston
           @{{r.id}}
         when :random_max
           C20.new rand(@{{r.id}}.value)
+        when :r1
+          @{{r.id}}
+        when :r2
+          @{{r.id}}
         else
           raise "Option does not exist!"
       end
@@ -137,6 +142,10 @@ class Piston
           @{{r.id}} = v
         when :random_max
           @{{r.id}} = C20.new(rand(v.value))
+        when :r1
+          @{{r.id}} = v
+        when :r2
+          @{{r.id}} = v
         else
           raise "Option does not exist!"
       end
@@ -152,6 +161,10 @@ class Piston
           memory[@{{r.id}}]
         when :random_max
           C20.new rand(memory[@{{r.id}}].value)
+        when :r1
+          @{{r.id}}
+        when :r2
+          @{{r.id}}
         else
           raise "Option does not exist!"
       end
@@ -165,6 +178,10 @@ class Piston
           @memory[@{{r.id}}] = v
         when :random_max
           @memory[@{{r.id}}] = C20.new rand(v.value)
+        when :r1
+          @memory[@{{r.id}}] = v
+        when :r2
+          @memory[@{{r.id}}] = v
         else
           raise "Option does not exist!"
       end
@@ -178,6 +195,10 @@ class Piston
         engine.memory[@s]
       when :random_max
         C20.new rand(engine.memory[@s].value)
+      when :r1
+        engine.memory[@s]
+      when :r2
+        engine.memory[@s]
       else
         raise "Option does not exist!"
     end
@@ -190,6 +211,10 @@ class Piston
         engine.memory[@s] = v
       when :random_max
         engine.memory[@s] = C20.new rand(v.value)
+      when :r1
+        engine.memory[@s] = v
+      when :r2
+        engine.memory[@s] = v
       else
         raise "Option does not exist!"
     end
@@ -491,7 +516,7 @@ class Piston
   # Pauses the piston for a certain amount of cycles
   def pause(cycles)
     @paused = true
-    @paused_counter = cycles
+    @paused_counter = cycles + 1
   end
 
   # Unpause the piston

@@ -6,7 +6,7 @@ class Call < Instruction
     0x6
   end
 
-  ACTIONS = [:none, :push, :none, :none]
+  ACTIONS = [:none, :push, :reserved1, :reserved2]
   ACTION_BITS = 2
   ACTION_BITSHIFT = 18
 

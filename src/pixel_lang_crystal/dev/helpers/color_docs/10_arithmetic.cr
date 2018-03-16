@@ -31,7 +31,7 @@ class Arithmetic
   end
 
   def self.make(s1, s1op, op, s2, s2op, d, dop, invert = false)
-    self.new(C20.new(make_color(s1, s1op, op, s2, s2op, d, dop, invert).to_i 16))
+    self.new(C24.new(make_color(s1, s1op, op, s2, s2op, d, dop, invert).to_i 16))
   end
 
   def arguments

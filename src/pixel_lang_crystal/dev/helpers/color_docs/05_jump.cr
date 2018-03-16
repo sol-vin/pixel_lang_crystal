@@ -11,11 +11,11 @@ class Jump
     }
   end
 
-  def self.make_color(spaces)
+  def self.make_color(spaces = 0)
     ((control_code << C24::CONTROL_CODE_BITSHIFT) + spaces).to_s 16
   end
 
-  def self.make(spaces)
+  def self.make(spaces = 0)
     self.new(C24.new(make_color(spaces).to_i 16))
   end
 

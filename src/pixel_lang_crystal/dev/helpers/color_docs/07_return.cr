@@ -55,7 +55,7 @@ class Return
     memory = "#{MEMORY_ACTIONS[value[:memory]]}"
     x = "#{value[:x] == Constants::TRUE}"
     y = "#{value[:y] == Constants::TRUE}"
-    direction = ":#{value[:direction] == Constants::TRUE}"
+    direction = "#{value[:direction] == Constants::TRUE}"
     [action, ma, mb, s, i, memory, x, y, direction]
   end
 end
