@@ -27,12 +27,13 @@ class Move < Instruction
 
   def self.run(piston : Piston, s : Symbol, sop : Int, d : Symbol, dop : Int, swap = false, reverse = false)
     s, d = d, s if reverse
-
+    
     if swap
+      # Gets the source then destination, then sets the destination and then the source
       cs = piston.get(s, sop)
       cd = piston.get(d, dop)
-      piston.set(s, cd, sop)
       piston.set(d, cs, dop)
+      piston.set(s, cd, sop)
     else
       piston.set(d, piston.get(s, sop), dop)
     end

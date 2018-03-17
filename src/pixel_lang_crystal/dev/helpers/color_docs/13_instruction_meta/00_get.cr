@@ -4,7 +4,7 @@ class IMetaGet
   def self.reference_card
     %q{
     IMGet Instruction
-    Gets the color of the location at X, Y, and puts it into i stack, CC then CV.
+    Gets the color of the location at X, Y, and puts it onto i stack, CC then CV.
     0bCCCCMMXXX11YYY1100000000
     C = Control Code (Instruction) [4 bits]
     M = Meta Instruction           [2 bits]

@@ -97,7 +97,7 @@ class Piston
   end
   
   # Gets a register by symbol. Routes the get_* methods 
-  def get(register : Symbol, options : Int) : C20
+  def get(register : Symbol, options = 0) : C20
     {% for r in REGISTERS %}
       if register == {{r}}
         return get_{{r.id}}(options)
@@ -107,7 +107,7 @@ class Piston
   end
   
   # Sets a register by symbol. Routes the set_* methods
-  def set(register : Symbol, value : C20, options : Int)
+  def set(register : Symbol, value : C20, options = 0)
     {% for r in REGISTERS %}
       if register == {{r}}
         set_{{r.id}}(value, options)
@@ -119,7 +119,7 @@ class Piston
   
   {% for r in MEMORY_ADDRESS_REG %}
     # Macro created.
-    def get_{{r.id}}(options : Int) : C20
+    def get_{{r.id}}(options = 0) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -135,7 +135,7 @@ class Piston
       end
     end
     # Macro created.
-    def set_{{r.id}}(v : C20, options : Int)
+    def set_{{r.id}}(v : C20, options = 0)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
         when :none
@@ -154,7 +154,7 @@ class Piston
 
   {% for r in MEMORY_VALUE_REG %}
     # Macro created.  
-    def get_{{r.id}}v(options : Int) : C20
+    def get_{{r.id}}v(options = 0) : C20
       option = REGULAR_REG_S_OPTIONS[options]
       case option
         when :none
@@ -171,7 +171,7 @@ class Piston
     end
     
     # Macro created.    
-    def set_{{r.id}}v(v : C20, options : Int)
+    def set_{{r.id}}v(v : C20, options = 0)
       option = REGULAR_REG_D_OPTIONS[options]
       case option
         when :none
@@ -188,7 +188,7 @@ class Piston
     end
   {% end %}
   
-  def get_sv(options : Int) : C20
+  def get_sv(options = 0) : C20
     option = REGULAR_REG_S_OPTIONS[options]
     case option
       when :none
@@ -204,7 +204,7 @@ class Piston
     end
   end
 
-  def set_sv(v : C20, options : Int)
+  def set_sv(v : C20, options = 0)
     option = REGULAR_REG_D_OPTIONS[options]
     case option
       when :none
@@ -220,7 +220,7 @@ class Piston
     end
   end
 
-  def get_i(options : Int) : C20
+  def get_i(options = 0) : C20
     code = INPUT_S_OPTIONS[options]
     # if there is nothing on this pistons stack, lets try the engine's input'
     if @i.empty?
@@ -252,7 +252,7 @@ class Piston
     end
   end
 
-  def set_i(v : C20, options : Int)
+  def set_i(v : C20, options = 0)
     code = INPUT_D_OPTIONS[options]
 
     case code
@@ -269,23 +269,23 @@ class Piston
     end
   end
 
-  def get_o(options : Int) : C20
+  def get_o(options = 0) : C20
     code = OUTPUT_S_OPTIONS[options]
     case code
       when :int
         engine.last_output
       when :char
         C20.new engine.last_output.value % 0x100
-      when :random_max
-        C20.new rand(engine.last_output.value)
       when :random
+        C20.new rand(engine.last_output.value)
+      when :random_max
         C20.new rand(C20::MAX)
       else
         raise "Option does not exist!"
     end
   end
 
-  def set_o(v : C20, options)
+  def set_o(v : C20, options = 0)
     code = OUTPUT_D_OPTIONS[options]
     engine.write_output(v, code)
   end
@@ -419,14 +419,21 @@ class Piston
   # jumps to a relative position
   def call(action : Symbol, x : Int, y : Int)
     # If we push to call stack, push an exact copy of this piston onto the call stack.
-    if action == :push
-      @call_stack.push(self.clone)  
+    if action == :push || action == :push_run
+      @call_stack.push(self.clone)
     end
 
-    @x += x
-    @y += y
+    if x.zero? && y.zero?
+      move(1) #Move if the instruction is a 0, 0 call, since it will stick the piston forever      
+    else
+      @x += x
+      @y += y
+      wrap_position
+    end
 
-    wrap_position
+    if action == :push_run || action == :none_run
+      step
+    end
   end
   
   # Returns to the last call frame

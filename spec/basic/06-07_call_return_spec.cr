@@ -193,4 +193,93 @@ describe Call do
     3.times {e.step}
     e.output.should eq "12345678"
   end
+
+  it "should respect run action" do
+    i = Instructions.new(3, 1)
+    i[0,0] = Start.make(:right)
+    i[1,0] = Call.make(:push_run, 0, 0)
+    i[2,0] = End.make()
+    
+    # Should end in only two cycles
+    e = AutoEngine.new("Test", i)
+    p = e.pistons.first
+    e.step
+    e.step
+    e.ended?.should eq true
+
+    i = Instructions.new(3, 1)
+    i[0,0] = Start.make(:right)
+    i[1,0] = Call.make(:none_run, 0, 0)
+    i[2,0] = End.make()
+
+    e = AutoEngine.new("Test", i)
+    p = e.pistons.first
+    e.step
+    e.step
+    e.ended?.should eq true
+
+    i = Instructions.new(6, 1)
+    i[0,0] = Start.make(:right)
+    i[1,0] = Call.make(:none_run, 0, 0)
+    i[2,0] = Call.make(:none_run, 0, 0)
+    i[3,0] = Call.make(:none_run, 0, 0)
+    i[4,0] = Call.make(:none_run, 0, 0)
+    i[5,0] = End.make()
+
+    e = AutoEngine.new("Test", i)
+    p = e.pistons.first
+    e.step
+    e.step
+    e.ended?.should eq true
+  end
+
+  it "should run generic call test 1" do
+    i = Instructions.new(12, 1)
+    i[0,0] = Start.make(:right)
+    i[1,0] = Call.make(:push_run, 3, 0)
+    i[2,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
+    i[3,0] = End.make()
+    i[4,0] = Call.make(:push_run, 2, 0)
+    i[5,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
+    i[6,0] = Call.make(:push_run, 2, 0)
+    i[7,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
+    i[8,0] = Call.make(:push_run, 2, 0)
+    i[9,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
+    i[10,0] = Call.make(:push, 1, 0)
+    i[11,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
+
+    e = AutoEngine.new("Test", i)
+    p = e.pistons.first
+    e.step
+    p.current_instruction.class.should eq Call
+    e.step
+    p.call_stack.size.should eq 5
+    p.current_instruction.class.should eq Return
+    p.x.should eq 11
+    e.step
+    p.call_stack.size.should eq 4
+    p.current_instruction.class.should eq Return
+    p.x.should eq 11
+    e.step
+    p.call_stack.size.should eq 3
+    p.current_instruction.class.should eq Return
+    p.x.should eq 9
+    e.step
+    p.call_stack.size.should eq 2
+    p.current_instruction.class.should eq Return
+    p.x.should eq 7
+    e.step
+    p.call_stack.size.should eq 1
+    p.current_instruction.class.should eq Return
+    p.x.should eq 5
+    e.step
+    p.call_stack.size.should eq 0
+    p.current_instruction.class.should eq Return
+    p.x.should eq 2
+    e.step
+    p.current_instruction.class.should eq End
+    p.x.should eq 3
+    e.step
+    e.ended?.should eq true
+  end
 end

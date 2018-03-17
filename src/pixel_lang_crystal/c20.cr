@@ -30,7 +30,7 @@ struct C20
 
   # outputs a hexadecimal value prefixed with 0x (0xffffff)
   def to_int_hex : String
-    to_u32.to_s(16).rjust(5, '0')
+    to_u32.to_s(16).upcase.rjust(5, '0')
   end
 
   def to_c : Char
@@ -39,7 +39,7 @@ struct C20
   
   # outputs a hexadecimal value prefixed with 0x (0xffffff)
   def to_char_hex : String
-    (to_u32 % 0x100).to_s(16).rjust(2, '0')
+    (to_u32 % 0x100).to_s(16).upcase.rjust(2, '0')
   end
 
   def to_s : String

@@ -4,7 +4,9 @@ class Call
   def self.reference_card
     %q{
     Call Instruction
-    Jumps a piston to a nearby instruction by the offset coordinates.
+    Jumps a piston to a nearby instruction by the offset coordinates.    
+    If x is 0 and y is 0, the frame will be added to the call stack, and
+    then moved one space to prevent infinite looping.
     0bCCCCRAXWWWWWWWWYZZZZZZZZ
     C = Control Code (Instruction) [4 bits]
     A = Action [1 bit] Should this instruction manipulate the call stack?
