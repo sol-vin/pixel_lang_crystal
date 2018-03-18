@@ -1,8 +1,9 @@
 name: pixel_lang_crystal
 version: 0.1.0
 
-crystal: 0.22.0
+crystal: 0.24.1
 license: MIT
+name: pixel_lang_crystal
 
 authors:
   - Ian Rash <redcodefinal@gmail.com>

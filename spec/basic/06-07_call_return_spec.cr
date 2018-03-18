@@ -245,7 +245,7 @@ describe Call do
     i[7,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
     i[8,0] = Call.make(:push_run, 2, 0)
     i[9,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
-    i[10,0] = Call.make(:push, 1, 0)
+    i[10,0] = Call.make(:push, 0, 0)
     i[11,0] = Return.make(:pop, false, false, false, :keep, :keep, true, true, false)
 
     e = AutoEngine.new("Test", i)

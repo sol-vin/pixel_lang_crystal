@@ -24,7 +24,7 @@ class IMetaSet < InstructionMeta
     x_value = piston.get(x, xop).value
     y_value = piston.get(y, yop).value
     color = C24.new(0)
-    color[:value] = piston.get_i.value.to_u32
+    color[:value] = piston.get_i(iop).value.to_u32
     color[:control_code] = piston.get_i(iop).value.to_u32
     i = Instruction.find_instruction(color).new(color)
     piston.engine.instructions[x_value, y_value] = i

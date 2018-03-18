@@ -81,23 +81,6 @@ describe Move do
     e.output.should eq "1234567890"
   end
 
-  it "should swap i stack items" do
-    i = Instructions.new(7, 1)
-    i[0,0] = Start.make(:right)
-    i[1,0] = Insert.make(0x12345)
-    i[2,0] = Insert.make(0x67890)
-    i[3,0] = Move.make(:i, 0, :i, 0, true)
-    i[4,0] = Move.make(:i, 0, :o, 2)
-    i[5,0] = Move.make(:i, 0, :o, 2)    
-    i[6,0] = End.make()
-
-    e = AutoEngine.new("Test", i)
-    p = e.pistons.first
-    7.times {e.step}
-    e.ended?.should eq true
-    e.output.should eq "1234567890"
-  end
-
   it "should output last output" do
     i = Instructions.new(7, 2)
     i[0,0] = Start.make(:right)

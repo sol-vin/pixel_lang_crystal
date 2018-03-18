@@ -448,7 +448,7 @@ class Piston
                   copy_direction : Bool
                   )
     # If the call frame should be popped or not
-    unless @call_stack.empty?
+    if !@call_stack.empty?
       if action == :pop
         frame = @call_stack.pop
       elsif action == :peek
@@ -494,6 +494,8 @@ class Piston
       @x = frame.x if copy_x
       @y = frame.y if copy_y
       change_direction(frame.direction) if copy_direction
+    elsif action == :pop_push || action == :peek_push
+      @call_stack.push(self.clone)
     end
   end
   
