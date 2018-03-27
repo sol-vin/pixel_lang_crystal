@@ -257,9 +257,14 @@ describe AutoEngine do
     e.output.should eq("2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97")
   end
 
-  it "should run imetaget" do
-    e = AutoEngine.new("imetaget", "./programs/test/imetaget.png")
-    10.times {e.step}
-    e.output.should eq("BCDEF")
-  end
+  # it "should run sort" do
+  #   e = AutoEngine.new("sort", "./programs/test/sort.png", "<1,2,3,4")
+  #   10.times {e.step}
+  #   e.output.should eq("1 2 3 4")
+
+  #   e = AutoEngine.new("sort", "./programs/test/sort.png", "<4,3,2,1")
+  #   10.times {e.step}
+  #   e.output.should eq("4 3 2 1")
+  # end
+  
 end
