@@ -1,0 +1,38 @@
+<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+  <% (0...engine.instructions.height).each do |y| %>
+    <tr>
+      <% (0...engine.instructions.width).each do |x| %>
+        <% color = "##{engine.instructions[x, y].value.value.to_s 16}" %>
+          <td id="cell" bgcolor="<%= color %>">
+            <% #Render a marker if there are pistons on this instruction %>
+            <% if !(pistons = engine.pistons.select {|p| p.x == x && p.y == y}).empty? %>
+              <% if color[1..2].to_i(16) > 0x77 %> 
+                <% color = "#000000" %> 
+              <% else %> 
+                <% color = "#FFFFFF" %> 
+              <% end %>
+            <% if pistons.size == 1 %>
+              <% p_c = "?" %>
+              <% if pistons[0].direction == :up %>
+                <% p_c = "^" %>
+              <% elsif pistons[0].direction == :down %>
+                <% p_c = "v" %>
+              <% elsif pistons[0].direction == :left %>
+                <% p_c = "<" %>
+              <% elsif pistons[0].direction == :right %>
+                <% p_c = ">" %>
+              <% end %>
+              <center><a id="cell_link" style="color:<%= color %>;text-decoration:none;" href="/engines/<%= e_id %>/instructions/<%= x %>/<%= y %>"><%= p_c %></a></center>
+            <% elsif pistons.size < 10 %>
+              <center><a id="cell_link" style="color:<%= color %>;text-decoration:none;" href="/engines/<%= e_id %>/instructions/<%= x %>/<%= y %>"><%= pistons.size %></a></center>
+            <% else %>
+              <center><a id="cell_link" style="color:<%= color %>;text-decoration:none;" href="/engines/<%= e_id %>/instructions/<%= x %>/<%= y %>">+</a></center>
+            <% end %>  
+          <% else %>
+            <center><a id="cell_link" style="color:<%= color %>;text-decoration:none;" href="/engines/<%= e_id %>/instructions/<%= x %>/<%= y %>">&nbsp&nbsp&nbsp&nbsp</a></center>
+          <% end %>  
+        </td> 
+      <% end %>
+    </tr>
+  <% end %>
+</table>

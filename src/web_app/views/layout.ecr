@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>pixel_lang engine</title>
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <script src="/js/jquery.js"></script> 
+    <!-- Enables zooming -->
+    <style>
+      <% cell_size = "30px" %>
+      #celllink {
+        display: block;
+        height: <%= cell_size %>;        
+        width: <%= cell_size %>;
+      }
+
+      #cell {
+        height: <%= cell_size %>;
+        width: <%= cell_size %>;
+        white-space: nowrap;
+      }
+
+      #wrap { width: 800px; height: 500px; padding: 0; overflow: auto; }
+      #zoom {
+          -ms-zoom: <%= zoom %>;
+          -moz-transform: scale(<%= zoom %>);
+          -moz-transform-origin: 0 0;
+          -o-transform: scale(<%= zoom %>);
+          -o-transform-origin: 0 0;
+          -webkit-transform: scale(<%= zoom %>);
+          -webkit-transform-origin: 0 0;
+      }
+
+      td {
+        width: auto;
+      }
+    </style>
+  </head>
+  <body class="w3-light-grey">
+    <center>
+      <div style="width:75%" class="w3-container">
+        <p align="left">
+          <form action="/" method="get"><input class="w3-button w3-xlarge" type="submit" value="Home"></button></form>
+        </p>
+      </div>
+    </center>
+    <br>
+    <%= content %>
+  </body>
+</html>

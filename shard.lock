@@ -1,14 +1,26 @@
 version: 1.0
 shards:
-  colorful:
-    github: icyleaf/colorful.cr
-    version: 0.1.0
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.2
+
+  kemal:
+    github: kemalcr/kemal
+    version: 0.25.2
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
 
   stumpy_core:
     github: stumpycr/stumpy_core
-    version: 1.8.2
+    version: 1.8.3
 
   stumpy_png:
     github: l3kn/stumpy_png
-    version: 4.2.2
+    version: 4.4.1
 

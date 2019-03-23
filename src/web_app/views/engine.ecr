@@ -1,0 +1,66 @@
+<!-- Draws the board in a scrollable, zoomable div -->
+
+<!-- If this engine is playing (the user clicked the PLAY button) begin refreshing the page -->
+<% if playing %>
+  <% refresh_time = "350" %>
+<script>
+  var ended = "false";
+  f = function(){
+    $('#instructions').load('/engines/<%= e_id %>/instructions');
+    $('#output').load('/engines/<%= e_id %>/output');
+  };
+
+  s = function() {
+    $.ajax({
+      url:'/engines/<%= e_id %>/ended',
+      type:'GET',
+      success: function(data){ended = data}
+    });
+    if (ended == "true") {
+      window.location.reload();
+    }
+  }
+  i = function() { 
+    setInterval(f, <%= refresh_time %>);
+    setInterval(s, <%= refresh_time %>); 
+  };
+  setTimeout(i, 100);
+</script>  
+<% end %>
+<center>
+  <div style="width:75%" class="w3-container">
+    <table>
+      <tr>
+        <td class="w3-white">
+          <div id="wrap">
+            <div id="zoom">
+              <!-- draw instructions -->
+              <% if playing %>
+                <div id="instructions">
+                </div>
+              <% else %>
+                <%= render "src/web_app/views/reuse/instructions.ecr" %>
+              <% end %>  
+            </div>
+          </div>
+        </td>
+        <td>
+          <table border="1">
+            <% engine.info.each do |info| %>
+              <tr>
+                <td><%= info[0] %></td>
+                <td><%= info[1] %></td>
+              </tr>
+            <% end %>
+          </table>          
+        </td>
+      </tr>
+    </table>
+    <p><%= render "src/web_app/views/reuse/engine_control_panel.ecr" %></p>
+    <div align="left"><code id="output" class="w3-code">
+      <% if !playing %>
+        <%= engine.output %>
+      <% end %>
+    </code></div>
+  </div>
+</center>

@@ -17,7 +17,11 @@ targets:
     main: src/pixel_lang_crystal/dev/tools/translator.cr
   debugger:
     main: src/pixel_lang_crystal/dev/tools/debugger.cr
+  web_app:
+    main: src/web_app/web_app.cr
 
 dependencies:
   stumpy_png:
     github: l3kn/stumpy_png
+  kemal:
+    github: kemalcr/kemal
