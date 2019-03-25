@@ -27,11 +27,4 @@ class IMetaProperty < InstructionMeta
   def run(piston)
     self.class.run(piston, PROPERTIES[value[:property]])
   end
-
-  def info
-    # Table with headings
-    table = super
-    # table << ["row1", "row2"]
-    table
-  end
 end

@@ -28,7 +28,13 @@
 </script>  
 <% end %>
 <center>
-  <div style="width:75%" class="w3-container">
+  <div style="width:75%;" class="w3-container">
+    <div align="left"><code id="output" class="w3-code">
+      <% if !playing %>
+        <%= engine.output %>
+      <% end %>
+    </code></div>
+
     <table>
       <tr>
         <td class="w3-white">
@@ -57,10 +63,5 @@
       </tr>
     </table>
     <p><%= render "src/web_app/views/reuse/engine_control_panel.ecr" %></p>
-    <div align="left"><code id="output" class="w3-code">
-      <% if !playing %>
-        <%= engine.output %>
-      <% end %>
-    </code></div>
   </div>
 </center>

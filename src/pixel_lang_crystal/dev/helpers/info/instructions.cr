@@ -128,6 +128,21 @@ class Conditional
   end
 end
 
+class IMetaSet
+  def info
+    # Table with headings
+    table = super
+    table << ["x",  Piston::REGISTERS[value[:x]].to_s]
+    table << ["xop", value[:xop].to_s]
+    table << ["y",  Piston::REGISTERS[value[:y]].to_s]
+    table << ["yop", value[:yop].to_s]
+    table << ["iop", value[:iop].to_s]
+    table << ["cc",  Piston::REGISTERS[value[:cc]].to_s]
+    table << ["ccop", value[:ccop].to_s]
+    table
+  end
+end
+
 
 
 

@@ -5,19 +5,21 @@ class Fork
     %q{
     Fork Instruction
     Forks a piston into multiple readers with different directions
-    0bCCCC000000444X333Y222111
+    0bCCCC00555Z444Y333X222111
     C = Control Code (Instruction) [4 bits]
     0 = Free bit [14 bits]
     1 = Direction 1 [3 bits] (See Constants::DIRECTIONS for order)
     2 = Direction 2 [3 bits] (See Constants::DIRECTIONS for order)
-    Y = Toggle 3rd direction [1 bits]
+    X = Toggle 3rd direction [1 bits]
     3 = Direction 3 [3 bits] (See Constants::DIRECTIONS for order)
-    X = Toggle 4th direction [1 bits]    
+    Y = Toggle 4th direction [1 bits]    
     4 = Direction 4 [3 bits] (See Constants::DIRECTIONS for order)
+    Z = Toggle 5th direction [1 bits]    
+    5 = Direction 5 [3 bits] (See Constants::DIRECTIONS for order)
     }
   end
 
-  def self.make_color(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
+  def self.make_color(direction_1, direction_2, direction_3 = nil, direction_4 = nil, direction_5 = nil)
     d1_bits = Constants::DIRECTIONS.index(direction_1).as(Int32) << DIRECTION_1_BITSHIFT
     
     d2_bits = Constants::DIRECTIONS.index(direction_2).as(Int32) << DIRECTION_2_BITSHIFT
@@ -33,12 +35,18 @@ class Fork
       d4_bits = Constants::DIRECTIONS.index(direction_4.as(Symbol)).as(Int32) << DIRECTION_4_BITSHIFT
       d4_bits += 1 << DIRECTION_4_BOOL_BITSHIFT
     end
+
+    d5_bits = 0
+    unless direction_5.nil?
+      d5_bits = Constants::DIRECTIONS.index(direction_5.as(Symbol)).as(Int32) << DIRECTION_5_BITSHIFT
+      d5_bits += 1 << DIRECTION_5_BOOL_BITSHIFT
+    end
     
-    ((control_code << C24::CONTROL_CODE_BITSHIFT) + d1_bits + d2_bits + d3_bits + d4_bits).to_s 16
+    ((control_code << C24::CONTROL_CODE_BITSHIFT) + d1_bits + d2_bits + d3_bits + d4_bits + d5_bits).to_s 16
   end
 
-  def self.make(direction_1, direction_2, direction_3 = nil, direction_4 = nil)
-    self.new(C24.new(make_color(direction_1, direction_2, direction_3, direction_4).to_i 16))
+  def self.make(direction_1, direction_2, direction_3 = nil, direction_4 = nil, direction_5 = nil)
+    self.new(C24.new(make_color(direction_1, direction_2, direction_3, direction_4, direction_5).to_i 16))
   end
 
   def arguments

@@ -455,10 +455,8 @@ class Piston
         frame = @call_stack.last
       elsif action == :pop_push
         frame = @call_stack.pop
-        @call_stack.push(self.clone)
       elsif action == :peek_push
         frame = @call_stack.last
-        @call_stack.push(self.clone)
       else
         raise "Action invalid!"
       end
@@ -475,8 +473,6 @@ class Piston
         end
       elsif copy_i == :keep
         # do nothing
-      elsif copy_i == :clear
-        @i.clear
       end
       
       # copy the memory if needed
@@ -487,15 +483,23 @@ class Piston
         end
       elsif copy_memory == :keep
         # do nothing
-      elsif copy_memory == :clear
-        @memory.clear
       end
 
       @x = frame.x if copy_x
       @y = frame.y if copy_y
       change_direction(frame.direction) if copy_direction
-    elsif action == :pop_push || action == :peek_push
+    end
+    
+    if action == :pop_push || action == :peek_push
       @call_stack.push(self.clone)
+    end
+
+    if copy_i == :clear
+      @i.clear
+    end
+
+    if copy_memory == :clear
+      @memory.clear
     end
   end
   

@@ -5,22 +5,19 @@ require "stumpy_png"
 # Holds the 2d array of instructions. Provides a C24 to Instruction interface. 
 class Instructions
   alias StartPoint = NamedTuple(x: Int32, y: Int32, direction: Symbol, priority: UInt32)
-  
+  getter image_file : String = ""
   getter image : StumpyCore::Canvas  
-  getter original_image : StumpyCore::Canvas
 
   def initialize(@image : StumpyCore::Canvas)
-    @original_image = @image.dup  
   end
 
   def initialize(image_file)
+    @image_file = image_file
     @image = StumpyPNG.read image_file
-    @original_image = @image.dup
   end
 
   def initialize(width, height)
     @image = StumpyCore::Canvas.new(width, height, StumpyCore::RGBA.from_rgb8(255,255,255))
-    @original_image = @image.dup    
   end
   
   def save(path)
@@ -98,5 +95,9 @@ class Instructions
 
   def height
     @image.height
+  end
+
+  def reset
+    @image = StumpyPNG.read @image_file unless @image_file.empty?
   end
 end

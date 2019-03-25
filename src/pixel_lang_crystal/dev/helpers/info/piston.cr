@@ -11,6 +11,7 @@ class Piston
     table << ["direction", "#{direction}"]
     table << ["x", "#{x}"]
     table << ["y", "#{y}"]
+    table << ["call stack size", "#{call_stack.size}"]    
     table
   end
 

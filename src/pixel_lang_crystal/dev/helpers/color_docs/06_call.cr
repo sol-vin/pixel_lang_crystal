@@ -7,9 +7,9 @@ class Call
     Jumps a piston to a nearby instruction by the offset coordinates.    
     If x is 0 and y is 0, the frame will be added to the call stack, and
     then moved one space to prevent infinite looping.
-    0bCCCCRAXWWWWWWWWYZZZZZZZZ
+    0bCCCCAAXWWWWWWWWYZZZZZZZZ
     C = Control Code (Instruction) [4 bits]
-    A = Action [1 bit] Should this instruction manipulate the call stack?
+    A = Action [2 bit] Should this instruction manipulate the call stack?
     X = X Sign [1 bit] Deterimines if X is negative or not
     W = X [8 bits] Number of X spaces to jump
     Y = Y Sign [1 bit] Deterimines if Y is negative or not

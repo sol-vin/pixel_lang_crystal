@@ -42,11 +42,11 @@ abstract class Engine
   @to_merge = [] of Tuple(Piston, Piston)
 
   def initialize(@name : String, image_file : String, @original_input = "")
-    @original_instructions = Instructions.new(image_file)
+    @instructions = Instructions.new(image_file)
     reset # start the machine
   end
 
-  def initialize(@name : String, @original_instructions : Instructions, @original_input = "")
+  def initialize(@name : String, @instructions : Instructions, @original_input = "")
     reset # start the machine
   end
 
@@ -61,7 +61,7 @@ abstract class Engine
     @input = @original_input.clone
     @last_output = C20.new(0)
 
-    @instructions = @original_instructions.dup  
+    @instructions.reset
     @instructions.start_points.each do |sp|
       @pistons << Piston.new(self, sp[:x], sp[:y], sp[:direction], sp[:priority])
     end
