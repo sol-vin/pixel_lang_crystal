@@ -20,6 +20,9 @@ e.run # run engine
 puts e.output # print the output
 ```
 
+## Tutorials
+Can be found at http://0x42424242.in/pixellang
+
 ## Development
 
 Github
