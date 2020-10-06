@@ -1,0 +1,8850 @@
+500px:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: 500px
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f26e
+  voted: false
+abacus:
+  changes:
+    - 5.3.0
+  label: Abacus
+  search:
+    terms:
+      - addition
+      - ancient
+      - arithmetic
+      - calculator
+      - counting
+      - hexadecimal
+      - math
+      - subtraction
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f640
+  voted: false
+accessible-icon:
+  changes:
+    - 5.0.0
+  label: Accessible Icon
+  search:
+    terms:
+      - accessibility
+      - handicap
+      - person
+      - wheelchair
+      - wheelchair-alt
+  styles:
+    - brands
+  unicode: f368
+  voted: false
+accusoft:
+  changes:
+    - 5.0.0
+  label: Accusoft
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f369
+  voted: false
+acorn:
+  changes:
+    - 5.4.0
+  label: Acorn
+  search:
+    terms:
+      - fall
+      - nature
+      - nut
+      - oak
+      - seasonal
+      - seed
+      - squirrel
+      - tree
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6ae
+  voted: false
+acquisitions-incorporated:
+  changes:
+    - 5.4.0
+    - 5.8.0
+  label: Acquisitions Incorporated
+  search:
+    terms:
+      - Dungeons & Dragons
+      - d&d
+      - dnd
+      - fantasy
+      - game
+      - gaming
+      - tabletop
+  styles:
+    - brands
+  unicode: f6af
+  voted: false
+ad:
+  changes:
+    - 5.3.0
+    - 5.10.2
+  label: Ad
+  search:
+    terms:
+      - advertisement
+      - media
+      - newspaper
+      - promotion
+      - publicity
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f641
+  voted: false
+address-book:
+  changes:
+    - '4.7'
+    - 5.0.0
+    - 5.0.3
+  label: Address Book
+  search:
+    terms:
+      - contact
+      - directory
+      - index
+      - little black book
+      - rolodex
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2b9
+  voted: false
+address-card:
+  changes:
+    - '4.7'
+    - 5.0.0
+    - 5.0.3
+  label: Address Card
+  search:
+    terms:
+      - about
+      - contact
+      - id
+      - identification
+      - postcard
+      - profile
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2bb
+  voted: false
+adjust:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.10.2
+    - 5.11.0
+  label: adjust
+  search:
+    terms:
+      - contrast
+      - dark
+      - light
+      - saturation
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f042
+  voted: false
+adn:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: App.net
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f170
+  voted: false
+adobe:
+  changes:
+    - 5.6.0
+    - 5.8.0
+  label: Adobe
+  search:
+    terms:
+      - acrobat
+      - app
+      - design
+      - illustrator
+      - indesign
+      - photoshop
+  styles:
+    - brands
+  unicode: f778
+  voted: false
+adversal:
+  changes:
+    - 5.0.0
+  label: Adversal
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36a
+  voted: false
+affiliatetheme:
+  changes:
+    - 5.0.0
+  label: affiliatetheme
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36b
+  voted: false
+air-conditioner:
+  changes:
+    - 5.12.0
+  label: Air Conditioner
+  search:
+    terms:
+      - ac
+      - cool
+      - heat
+      - heat pump
+      - hvac
+      - mini-split
+      - temperature
+      - unit
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f4
+  voted: false
+air-freshener:
+  changes:
+    - 5.2.0
+  label: Air Freshener
+  search:
+    terms:
+      - car
+      - deodorize
+      - fresh
+      - pine
+      - scent
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d0
+  voted: false
+airbnb:
+  changes:
+    - 5.8.0
+  label: Airbnb
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f834
+alarm-clock:
+  changes:
+    - 5.0.0
+    - 5.9.0
+  label: Alarm Clock
+  search:
+    terms:
+      - date
+      - late
+      - reminder
+      - sleep
+      - snooze
+      - timer
+      - timestamp
+      - watch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f34e
+  voted: false
+alarm-exclamation:
+  changes:
+    - 5.9.0
+  label: Alarm Exclamation
+  search:
+    terms:
+      - alert
+      - date
+      - late
+      - reminder
+      - sleep
+      - snooze
+      - timer
+      - timestamp
+      - watch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f843
+  voted: false
+alarm-plus:
+  changes:
+    - 5.9.0
+  label: Alarm Plus
+  search:
+    terms:
+      - alert
+      - date
+      - late
+      - reminder
+      - sleep
+      - snooze
+      - timer
+      - timestamp
+      - watch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f844
+  voted: false
+alarm-snooze:
+  changes:
+    - 5.9.0
+  label: Alarm Snooze
+  search:
+    terms:
+      - alert
+      - date
+      - late
+      - reminder
+      - sleep
+      - snooze
+      - timer
+      - timestamp
+      - watch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f845
+  voted: true
+album:
+  changes:
+    - 5.11.0
+  label: Album
+  search:
+    terms:
+      - library
+      - music
+      - record
+      - song
+      - vinyl
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f89f
+  voted: true
+album-collection:
+  changes:
+    - 5.11.0
+  label: Album Collection
+  search:
+    terms:
+      - catalog
+      - library
+      - music
+      - record
+      - song
+      - vinyl
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a0
+  voted: false
+algolia:
+  changes:
+    - 5.0.0
+  label: Algolia
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36c
+  voted: false
+alicorn:
+  changes:
+    - 5.4.0
+  label: Alicorn
+  search:
+    terms:
+      - animal
+      - fantasy
+      - fauna
+      - horse
+      - mammal
+      - pegasus
+      - unicorn
+      - wing
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b0
+  voted: false
+alien:
+  changes:
+    - 5.12.0
+  label: Alien
+  search:
+    terms:
+      - ET
+      - extraterrestrial
+      - humanoid
+      - monster
+      - space
+      - strange
+      - ufo
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f5
+  voted: false
+alien-monster:
+  changes:
+    - 5.12.0
+  label: Alien Monster
+  search:
+    terms:
+      - ET
+      - extraterrestrial
+      - humanoid
+      - monster
+      - space
+      - space invader
+      - strange
+      - ufo
+      - video game
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f6
+  voted: false
+align-center:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.9.0
+  label: align-center
+  search:
+    terms:
+      - format
+      - middle
+      - paragraph
+      - text
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f037
+  voted: false
+align-justify:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.9.0
+  label: align-justify
+  search:
+    terms:
+      - format
+      - paragraph
+      - text
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f039
+  voted: false
+align-left:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.9.0
+  label: align-left
+  search:
+    terms:
+      - format
+      - paragraph
+      - text
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f036
+  voted: false
+align-right:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.9.0
+  label: align-right
+  search:
+    terms:
+      - format
+      - paragraph
+      - text
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f038
+  voted: false
+align-slash:
+  changes:
+    - 5.9.0
+  label: Align Slash
+  search:
+    terms:
+      - cancel
+      - format
+      - paragraph
+      - remove
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f846
+  voted: false
+alipay:
+  changes:
+    - 5.3.0
+  label: Alipay
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f642
+  voted: false
+allergies:
+  changes:
+    - 5.0.7
+  label: Allergies
+  search:
+    terms:
+      - allergy
+      - freckles
+      - hand
+      - hives
+      - pox
+      - skin
+      - spots
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f461
+  voted: false
+amazon:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Amazon
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f270
+  voted: false
+amazon-pay:
+  changes:
+    - 5.0.2
+    - 5.8.0
+  label: Amazon Pay
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f42c
+  voted: false
+ambulance:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.0.7
+  label: ambulance
+  search:
+    terms:
+      - covid-19
+      - emergency
+      - emt
+      - er
+      - help
+      - hospital
+      - support
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0f9
+  voted: false
+american-sign-language-interpreting:
+  changes:
+    - '4.6'
+    - 5.0.0
+  label: American Sign Language Interpreting
+  search:
+    terms:
+      - asl
+      - deaf
+      - finger
+      - hand
+      - interpret
+      - speak
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2a3
+  voted: false
+amilia:
+  changes:
+    - 5.0.0
+  label: Amilia
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36d
+  voted: false
+amp-guitar:
+  changes:
+    - 5.11.0
+  label: Guitar Amplifier
+  search:
+    terms:
+      - audio
+      - guitar
+      - loudspeaker
+      - music
+      - pa
+      - volume
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: f8a1
+  voted: false
+analytics:
+  changes:
+    - 5.3.0
+  label: Analytics
+  search:
+    terms:
+      - chart
+      - measure
+      - roi
+      - tracking
+      - trend
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f643
+  voted: false
+anchor:
+  changes:
+    - '3.1'
+    - 5.0.0
+    - 5.11.0
+  label: Anchor
+  search:
+    terms:
+      - berth
+      - boat
+      - dock
+      - embed
+      - link
+      - maritime
+      - moor
+      - secure
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f13d
+  voted: false
+android:
+  changes:
+    - '3.2'
+    - 5.0.0
+    - 5.12.0
+  label: Android
+  search:
+    terms:
+      - robot
+  styles:
+    - brands
+  unicode: f17b
+  voted: false
+angel:
+  changes:
+    - 5.6.0
+    - 5.10.1
+  label: Angel
+  search:
+    terms:
+      - christmas
+      - decoration
+      - halo
+      - holiday
+      - holy
+      - michael landon
+      - wings
+      - xmas
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f779
+angellist:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: AngelList
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f209
+  voted: false
+angle-double-down:
+  changes:
+    - '3'
+    - 5.0.0
+  label: Angle Double Down
+  search:
+    terms:
+      - arrows
+      - caret
+      - download
+      - expand
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f103
+  voted: false
+angle-double-left:
+  changes:
+    - '3'
+    - 5.0.0
+  label: Angle Double Left
+  search:
+    terms:
+      - arrows
+      - back
+      - caret
+      - laquo
+      - previous
+      - quote
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f100
+  voted: false
+angle-double-right:
+  changes:
+    - '3'
+    - 5.0.0
+  label: Angle Double Right
+  search:
+    terms:
+      - arrows
+      - caret
+      - forward
+      - more
+      - next
+      - quote
+      - raquo
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f101
+  voted: false
+angle-double-up:
+  changes:
+    - '3'
+    - 5.0.0
+  label: Angle Double Up
+  search:
+    terms:
+      - arrows
+      - caret
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f102
+  voted: false
+angle-down:
+  changes:
+    - '3'
+    - 5.0.0
+  label: angle-down
+  search:
+    terms:
+      - arrow
+      - caret
+      - download
+      - expand
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f107
+  voted: false
+angle-left:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.11.0
+  label: angle-left
+  search:
+    terms:
+      - arrow
+      - back
+      - caret
+      - less
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f104
+  voted: false
+angle-right:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.11.0
+  label: angle-right
+  search:
+    terms:
+      - arrow
+      - care
+      - forward
+      - more
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f105
+  voted: false
+angle-up:
+  changes:
+    - '3'
+    - 5.0.0
+  label: angle-up
+  search:
+    terms:
+      - arrow
+      - caret
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f106
+  voted: false
+angry:
+  changes:
+    - 5.1.0
+    - 5.11.0
+    - 5.11.1
+  label: Angry Face
+  search:
+    terms:
+      - disapprove
+      - emoticon
+      - face
+      - mad
+      - upset
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f556
+  voted: false
+angrycreative:
+  changes:
+    - 5.0.0
+  label: Angry Creative
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36e
+  voted: false
+angular:
+  changes:
+    - 5.0.0
+    - 5.8.0
+  label: Angular
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f420
+  voted: false
+ankh:
+  changes:
+    - 5.3.0
+  label: Ankh
+  search:
+    terms:
+      - amulet
+      - copper
+      - coptic christianity
+      - copts
+      - crux ansata
+      - egypt
+      - venus
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f644
+  voted: false
+app-store:
+  changes:
+    - 5.0.0
+  label: App Store
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f36f
+  voted: false
+app-store-ios:
+  changes:
+    - 5.0.0
+  label: iOS App Store
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f370
+  voted: false
+apper:
+  changes:
+    - 5.0.0
+  label: Apper Systems AB
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f371
+  voted: false
+apple:
+  changes:
+    - '3.2'
+    - 5.0.0
+    - 5.0.7
+    - 5.8.0
+  label: Apple
+  search:
+    terms:
+      - fruit
+      - ios
+      - mac
+      - operating system
+      - os
+      - osx
+  styles:
+    - brands
+  unicode: f179
+  voted: false
+apple-alt:
+  changes:
+    - 5.2.0
+  label: Fruit Apple
+  search:
+    terms:
+      - fall
+      - fruit
+      - fuji
+      - macintosh
+      - orchard
+      - seasonal
+      - vegan
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d1
+  voted: false
+apple-crate:
+  changes:
+    - 5.4.0
+  label: Apple Crate
+  search:
+    terms:
+      - bushel
+      - container
+      - fall
+      - fruit
+      - fuji
+      - macintosh
+      - orchard
+      - peck
+      - seasonal
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b1
+  voted: false
+apple-pay:
+  changes:
+    - 5.0.0
+  label: Apple Pay
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f415
+  voted: true
+archive:
+  changes:
+    - '3.2'
+    - 5.0.0
+    - 5.0.9
+  label: Archive
+  search:
+    terms:
+      - box
+      - package
+      - save
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f187
+  voted: false
+archway:
+  changes:
+    - 5.1.0
+  label: Archway
+  search:
+    terms:
+      - arc
+      - monument
+      - road
+      - street
+      - tunnel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f557
+  voted: false
+arrow-alt-circle-down:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Circle Down
+  search:
+    terms:
+      - arrow-circle-o-down
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f358
+  voted: false
+arrow-alt-circle-left:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Circle Left
+  search:
+    terms:
+      - arrow-circle-o-left
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f359
+  voted: false
+arrow-alt-circle-right:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Circle Right
+  search:
+    terms:
+      - arrow-circle-o-right
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f35a
+  voted: false
+arrow-alt-circle-up:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Circle Up
+  search:
+    terms:
+      - arrow-circle-o-up
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f35b
+  voted: false
+arrow-alt-down:
+  changes:
+    - 5.0.0
+    - 5.10.1
+    - 5.11.0
+    - 5.11.1
+  label: Alternate Arrow Down
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f354
+  voted: false
+arrow-alt-from-bottom:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow from Bottom
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f346
+  voted: false
+arrow-alt-from-left:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow from Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f347
+  voted: false
+arrow-alt-from-right:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow from Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f348
+  voted: false
+arrow-alt-from-top:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow from Top
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f349
+  voted: false
+arrow-alt-left:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f355
+  voted: false
+arrow-alt-right:
+  changes:
+    - 5.0.0
+    - 5.8.0
+  label: Alternate Arrow Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f356
+  voted: false
+arrow-alt-square-down:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Square Down
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f350
+  voted: false
+arrow-alt-square-left:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Square Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f351
+  voted: false
+arrow-alt-square-right:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Square Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f352
+  voted: false
+arrow-alt-square-up:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow Square Up
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f353
+  voted: false
+arrow-alt-to-bottom:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow to Bottom
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f34a
+  voted: false
+arrow-alt-to-left:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow to Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f34b
+  voted: false
+arrow-alt-to-right:
+  changes:
+    - 5.0.0
+  label: Alternate Arrow to Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f34c
+  voted: false
+arrow-alt-to-top:
+  changes:
+    - 5.0.0
+    - 5.10.1
+  label: Alternate Arrow to Top
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f34d
+  voted: false
+arrow-alt-up:
+  changes:
+    - 5.0.0
+    - 5.10.1
+    - 5.11.0
+    - 5.11.1
+  label: Alternate Arrow Up
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f357
+  voted: false
+arrow-circle-down:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Arrow Circle Down
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0ab
+  voted: false
+arrow-circle-left:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Arrow Circle Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0a8
+  voted: false
+arrow-circle-right:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Arrow Circle Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0a9
+  voted: false
+arrow-circle-up:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Arrow Circle Up
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0aa
+  voted: false
+arrow-down:
+  changes:
+    - '1'
+    - 5.0.0
+  label: arrow-down
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f063
+  voted: false
+arrow-from-bottom:
+  changes:
+    - 5.0.0
+  label: Arrow from Bottom
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f342
+  voted: false
+arrow-from-left:
+  changes:
+    - 5.0.0
+  label: Arrow from Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f343
+  voted: false
+arrow-from-right:
+  changes:
+    - 5.0.0
+  label: Arrow from Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f344
+  voted: false
+arrow-from-top:
+  changes:
+    - 5.0.0
+  label: Arrow from Top
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f345
+  voted: false
+arrow-left:
+  changes:
+    - '1'
+    - 5.0.0
+  label: arrow-left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f060
+  voted: false
+arrow-right:
+  changes:
+    - '1'
+    - 5.0.0
+  label: arrow-right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f061
+  voted: false
+arrow-square-down:
+  changes:
+    - 5.0.0
+  label: Arrow Square Down
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f339
+  voted: false
+arrow-square-left:
+  changes:
+    - 5.0.0
+  label: Arrow Square Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f33a
+  voted: false
+arrow-square-right:
+  changes:
+    - 5.0.0
+  label: Arrow Square Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f33b
+  voted: false
+arrow-square-up:
+  changes:
+    - 5.0.0
+  label: Arrow Square Up
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f33c
+  voted: false
+arrow-to-bottom:
+  changes:
+    - 5.0.0
+    - 5.11.0
+  label: Arrow to Bottom
+  search:
+    terms:
+      - download
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f33d
+  voted: false
+arrow-to-left:
+  changes:
+    - 5.0.0
+  label: Arrow to Left
+  search:
+    terms:
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f33e
+  voted: false
+arrow-to-right:
+  changes:
+    - 5.0.0
+  label: Arrow to Right
+  search:
+    terms:
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f340
+  voted: false
+arrow-to-top:
+  changes:
+    - 5.0.0
+  label: Arrow to Top
+  search:
+    terms:
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f341
+  voted: false
+arrow-up:
+  changes:
+    - '1'
+    - 5.0.0
+  label: arrow-up
+  search:
+    terms:
+      - forward
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f062
+  voted: false
+arrows:
+  changes:
+    - '1'
+    - 5.0.0
+  label: Arrows
+  search:
+    terms:
+      - arrow
+      - arrows
+      - bigger
+      - enlarge
+      - expand
+      - fullscreen
+      - move
+      - position
+      - reorder
+      - resize
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f047
+  voted: false
+arrows-alt:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Alternate Arrows
+  search:
+    terms:
+      - arrow
+      - arrows
+      - bigger
+      - enlarge
+      - expand
+      - fullscreen
+      - move
+      - position
+      - reorder
+      - resize
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0b2
+  voted: false
+arrows-alt-h:
+  changes:
+    - 5.0.0
+  label: Alternate Arrows Horizontal
+  search:
+    terms:
+      - arrows-h
+      - expand
+      - horizontal
+      - landscape
+      - resize
+      - wide
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f337
+  voted: false
+arrows-alt-v:
+  changes:
+    - 5.0.0
+    - 5.11.0
+  label: Alternate Arrows Vertical
+  search:
+    terms:
+      - arrows-v
+      - expand
+      - portrait
+      - resize
+      - tall
+      - vertical
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f338
+  voted: false
+arrows-h:
+  changes:
+    - '1'
+    - 5.0.0
+  label: Arrows Horizontal
+  search:
+    terms:
+      - expand
+      - horizontal
+      - landscape
+      - resize
+      - wide
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f07e
+  voted: false
+arrows-v:
+  changes:
+    - '1'
+    - 5.0.0
+  label: Arrows Vertical
+  search:
+    terms:
+      - expand
+      - portrait
+      - resize
+      - tall
+      - vertical
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f07d
+  voted: false
+artstation:
+  changes:
+    - 5.6.0
+    - 5.8.0
+  label: Artstation
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f77a
+  voted: true
+assistive-listening-systems:
+  changes:
+    - '4.6'
+    - 5.0.0
+  label: Assistive Listening Systems
+  search:
+    terms:
+      - amplify
+      - audio
+      - deaf
+      - ear
+      - headset
+      - hearing
+      - sound
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2a2
+  voted: false
+asterisk:
+  changes:
+    - '1'
+    - 5.0.0
+  label: asterisk
+  search:
+    terms:
+      - annotation
+      - details
+      - reference
+      - star
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f069
+  voted: false
+asymmetrik:
+  changes:
+    - 5.0.0
+  label: 'Asymmetrik, Ltd.'
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f372
+  voted: false
+at:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: At
+  search:
+    terms:
+      - address
+      - author
+      - e-mail
+      - email
+      - handle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1fa
+  voted: false
+atlas:
+  changes:
+    - 5.1.0
+  label: Atlas
+  search:
+    terms:
+      - book
+      - directions
+      - geography
+      - globe
+      - map
+      - travel
+      - wayfinding
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f558
+  voted: false
+atlassian:
+  changes:
+    - 5.6.0
+  label: Atlassian
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f77b
+  voted: true
+atom:
+  changes:
+    - 5.2.0
+    - 5.12.0
+  label: Atom
+  search:
+    terms:
+      - atheism
+      - chemistry
+      - electron
+      - ion
+      - isotope
+      - neutron
+      - nuclear
+      - proton
+      - science
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d2
+  voted: false
+atom-alt:
+  changes:
+    - 5.2.0
+    - 5.12.0
+  label: Atom Alt
+  search:
+    terms:
+      - atheism
+      - chemistry
+      - electron
+      - ion
+      - isotope
+      - neutron
+      - nuclear
+      - proton
+      - science
+      - space
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d3
+  voted: false
+audible:
+  changes:
+    - 5.0.0
+  label: Audible
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f373
+  voted: false
+audio-description:
+  changes:
+    - '4.6'
+    - 5.0.0
+    - 5.10.2
+  label: Audio Description
+  search:
+    terms:
+      - blind
+      - narration
+      - video
+      - visual
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f29e
+  voted: false
+autoprefixer:
+  changes:
+    - 5.0.0
+  label: Autoprefixer
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f41c
+  voted: false
+avianex:
+  changes:
+    - 5.0.0
+  label: avianex
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f374
+  voted: false
+aviato:
+  changes:
+    - 5.0.0
+  label: Aviato
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f421
+  voted: false
+award:
+  changes:
+    - 5.1.0
+    - 5.2.0
+    - 5.10.2
+  label: Award
+  search:
+    terms:
+      - honor
+      - praise
+      - prize
+      - recognition
+      - ribbon
+      - trophy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f559
+  voted: true
+aws:
+  changes:
+    - 5.0.0
+    - 5.1.0
+  label: Amazon Web Services (AWS)
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f375
+  voted: false
+axe:
+  changes:
+    - 5.4.0
+  label: Axe
+  search:
+    terms:
+      - blade
+      - cut
+      - fall
+      - lumberjack
+      - outdoors
+      - sharp
+      - swing
+      - tool
+      - weapon
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b2
+  voted: false
+axe-battle:
+  changes:
+    - 5.4.0
+  label: Axe Battle
+  search:
+    terms:
+      - Dungeons & Dragons
+      - barbarian
+      - d&d
+      - dnd
+      - fantasy
+      - gimli
+      - lumberjack
+      - melee attack
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b3
+  voted: false
+baby:
+  changes:
+    - 5.6.0
+    - 5.10.1
+  label: Baby
+  search:
+    terms:
+      - child
+      - diaper
+      - doll
+      - human
+      - infant
+      - kid
+      - offspring
+      - person
+      - sprout
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f77c
+  voted: true
+baby-carriage:
+  changes:
+    - 5.6.0
+  label: Baby Carriage
+  search:
+    terms:
+      - buggy
+      - carrier
+      - infant
+      - push
+      - stroller
+      - transportation
+      - walk
+      - wheels
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f77d
+  voted: true
+backpack:
+  changes:
+    - 5.2.0
+  label: Backpack
+  search:
+    terms:
+      - bag
+      - book
+      - carry
+      - hiking
+      - school
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d4
+  voted: false
+backspace:
+  changes:
+    - 5.1.0
+  label: Backspace
+  search:
+    terms:
+      - command
+      - delete
+      - erase
+      - keyboard
+      - undo
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55a
+  voted: true
+backward:
+  changes:
+    - '1'
+    - 5.0.0
+  label: backward
+  search:
+    terms:
+      - previous
+      - rewind
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f04a
+  voted: false
+bacon:
+  changes:
+    - 5.7.0
+  label: Bacon
+  search:
+    terms:
+      - blt
+      - breakfast
+      - ham
+      - lard
+      - meat
+      - pancetta
+      - pork
+      - rasher
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7e5
+  voted: false
+bacteria:
+  changes:
+    - 5.13.0
+    - 5.13.1
+    - 5.14.0
+  label: Bacteria
+  search:
+    terms:
+      - antibiotic
+      - antibody
+      - covid-19
+      - health
+      - organism
+      - sick
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: e059
+  voted: false
+bacterium:
+  changes:
+    - 5.13.0
+    - 5.13.1
+    - 5.14.0
+  label: Bacterium
+  search:
+    terms:
+      - antibiotic
+      - antibody
+      - covid-19
+      - health
+      - organism
+      - sick
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: e05a
+  voted: false
+badge:
+  changes:
+    - 5.0.0
+    - 5.10.2
+  label: Badge
+  search:
+    terms:
+      - discount
+      - meatball
+      - verified
+      - verify
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f335
+  voted: false
+badge-check:
+  changes:
+    - 5.0.0
+  label: Check Badge
+  search:
+    terms:
+      - accept
+      - achievement
+      - agree
+      - award
+      - confirm
+      - correct
+      - done
+      - ok
+      - security
+      - select
+      - success
+      - verified
+      - verify
+      - winner
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f336
+  voted: false
+badge-dollar:
+  changes:
+    - 5.3.0
+  label: Badge Dollar
+  search:
+    terms:
+      - deal
+      - discount
+      - money
+      - save
+      - usd
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f645
+  voted: false
+badge-percent:
+  changes:
+    - 5.3.0
+  label: Badge Percent
+  search:
+    terms:
+      - deal
+      - discount
+      - money
+      - save
+      - usd
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f646
+  voted: false
+badge-sheriff:
+  changes:
+    - 5.11.0
+  label: Sheriff Badge
+  search:
+    terms:
+      - cowboy
+      - justice
+      - law
+      - old west
+      - western
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: f8a2
+  voted: false
+badger-honey:
+  changes:
+    - 5.4.0
+    - 5.10.2
+  label: Honey Badger
+  search:
+    terms:
+      - animal
+      - care
+      - dont
+      - ewww
+      - fauna
+      - mammal
+      - nasty
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b4
+  voted: false
+bags-shopping:
+  changes:
+    - 5.9.0
+  label: Shopping Bags
+  search:
+    terms:
+      - buy
+      - checkout
+      - order
+      - shopping
+      - store
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f847
+  voted: false
+bahai:
+  changes:
+    - 5.3.0
+    - 5.12.0
+  label: Bahá'í
+  search:
+    terms:
+      - bahai
+      - bahá'í
+      - star
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f666
+  voted: false
+balance-scale:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.0.13
+  label: Balance Scale
+  search:
+    terms:
+      - balanced
+      - justice
+      - legal
+      - measure
+      - weight
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f24e
+  voted: false
+balance-scale-left:
+  changes:
+    - 5.0.13
+    - 5.9.0
+    - 5.12.0
+  label: Balance Scale (Left-Weighted)
+  search:
+    terms:
+      - justice
+      - legal
+      - measure
+      - unbalanced
+      - weight
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f515
+  voted: true
+balance-scale-right:
+  changes:
+    - 5.0.13
+    - 5.9.0
+    - 5.12.0
+  label: Balance Scale (Right-Weighted)
+  search:
+    terms:
+      - justice
+      - legal
+      - measure
+      - unbalanced
+      - weight
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f516
+  voted: true
+ball-pile:
+  changes:
+    - 5.6.0
+    - 5.7.0
+  label: Ball Pile
+  search:
+    terms:
+      - balance
+      - cannon
+      - group
+      - pyramid
+      - snowball
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f77e
+ballot:
+  changes:
+    - 5.5.0
+  label: Ballot
+  search:
+    terms:
+      - checklist
+      - choice
+      - election
+      - vote
+      - voting
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f732
+  voted: false
+ballot-check:
+  changes:
+    - 5.5.0
+  label: Ballot Check
+  search:
+    terms:
+      - checklist
+      - choice
+      - completed
+      - done
+      - election
+      - finished
+      - select
+      - success
+      - tick
+      - vote
+      - voting
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f733
+  voted: false
+ban:
+  changes:
+    - '1'
+    - 5.0.0
+  label: ban
+  search:
+    terms:
+      - abort
+      - ban
+      - block
+      - cancel
+      - delete
+      - hide
+      - prohibit
+      - remove
+      - stop
+      - trash
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f05e
+  voted: false
+band-aid:
+  changes:
+    - 5.0.7
+    - 5.10.2
+  label: Band-Aid
+  search:
+    terms:
+      - bandage
+      - boo boo
+      - first aid
+      - ouch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f462
+  voted: false
+bandcamp:
+  changes:
+    - '4.7'
+    - 5.0.0
+    - 5.13.1
+  label: Bandcamp
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f2d5
+  voted: false
+banjo:
+  changes:
+    - 5.11.0
+  label: Banjo
+  search:
+    terms:
+      - bluegrass
+      - folk
+      - guitar
+      - instrument
+      - jazz
+      - music
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a3
+  voted: false
+barcode:
+  changes:
+    - '1'
+    - 5.0.0
+  label: barcode
+  search:
+    terms:
+      - info
+      - laser
+      - price
+      - scan
+      - upc
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f02a
+  voted: false
+barcode-alt:
+  changes:
+    - 5.0.7
+  label: Alternate Barcode
+  search:
+    terms:
+      - info
+      - laser
+      - price
+      - scan
+      - upc
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f463
+  voted: false
+barcode-read:
+  changes:
+    - 5.0.7
+  label: Barcode Read
+  search:
+    terms:
+      - info
+      - laser
+      - price
+      - scan
+      - upc
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f464
+  voted: false
+barcode-scan:
+  changes:
+    - 5.0.7
+  label: Barcode Scan
+  search:
+    terms:
+      - info
+      - laser
+      - price
+      - scan
+      - upc
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f465
+  voted: false
+bars:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Bars
+  search:
+    terms:
+      - checklist
+      - drag
+      - hamburger
+      - list
+      - menu
+      - nav
+      - navigation
+      - ol
+      - reorder
+      - settings
+      - todo
+      - ul
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0c9
+  voted: false
+baseball:
+  changes:
+    - 5.0.5
+  label: Baseball
+  search:
+    terms:
+      - bat
+      - league
+      - mlb
+      - slugger
+      - softball
+      - sport
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f432
+  voted: false
+baseball-ball:
+  changes:
+    - 5.0.5
+    - 5.11.0
+    - 5.11.1
+  label: Baseball Ball
+  search:
+    terms:
+      - foul
+      - hardball
+      - league
+      - leather
+      - mlb
+      - softball
+      - sport
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f433
+  voted: false
+basketball-ball:
+  changes:
+    - 5.0.5
+    - 5.11.0
+    - 5.11.1
+  label: Basketball Ball
+  search:
+    terms:
+      - dribble
+      - dunk
+      - hoop
+      - nba
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f434
+  voted: false
+basketball-hoop:
+  changes:
+    - 5.0.5
+    - 5.10.1
+  label: Basketball Hoop
+  search:
+    terms:
+      - backboard
+      - dunk
+      - hoop
+      - nba
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f435
+  voted: false
+bat:
+  changes:
+    - 5.4.0
+  label: Bat
+  search:
+    terms:
+      - animal
+      - batman
+      - bruce wayne
+      - flying
+      - gotham
+      - halloween
+      - mammal
+      - vampire
+      - wings
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b5
+  voted: false
+bath:
+  changes:
+    - '4.7'
+    - 5.0.0
+    - 5.12.0
+  label: Bath
+  search:
+    terms:
+      - clean
+      - shower
+      - tub
+      - wash
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2cd
+  voted: false
+battery-bolt:
+  changes:
+    - 5.0.0
+  label: Battery Bolt
+  search:
+    terms:
+      - charge
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f376
+  voted: false
+battery-empty:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Battery Empty
+  search:
+    terms:
+      - charge
+      - dead
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f244
+  voted: false
+battery-full:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Battery Full
+  search:
+    terms:
+      - charge
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f240
+  voted: false
+battery-half:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Battery 1/2 Full
+  search:
+    terms:
+      - charge
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f242
+  voted: false
+battery-quarter:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Battery 1/4 Full
+  search:
+    terms:
+      - charge
+      - low
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f243
+  voted: false
+battery-slash:
+  changes:
+    - 5.0.0
+    - 5.7.0
+  label: Battery Slash
+  search:
+    terms:
+      - charge
+      - dead
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f377
+  voted: false
+battery-three-quarters:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Battery 3/4 Full
+  search:
+    terms:
+      - charge
+      - power
+      - status
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f241
+  voted: false
+battle-net:
+  changes:
+    - 5.8.0
+  label: Battle.net
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f835
+bed:
+  changes:
+    - '4.3'
+    - 5.0.0
+    - 5.1.0
+  label: Bed
+  search:
+    terms:
+      - lodging
+      - mattress
+      - rest
+      - sleep
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f236
+  voted: false
+bed-alt:
+  changes:
+    - 5.12.0
+  label: Alternate Bed
+  search:
+    terms:
+      - double
+      - king
+      - lodging
+      - mattress
+      - pillows
+      - queen
+      - rest
+      - sleep
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f7
+  voted: false
+bed-bunk:
+  changes:
+    - 5.12.0
+  label: Bunkbed
+  search:
+    terms:
+      - lodging
+      - mattress
+      - rest
+      - siblings
+      - sleep
+      - sleepover
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f8
+  voted: false
+bed-empty:
+  changes:
+    - 5.12.0
+  label: Bed Empty
+  search:
+    terms:
+      - lodging
+      - mattress
+      - rest
+      - sleep
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8f9
+  voted: false
+beer:
+  changes:
+    - '3'
+    - 5.0.0
+  label: beer
+  search:
+    terms:
+      - alcohol
+      - ale
+      - bar
+      - beverage
+      - brewery
+      - drink
+      - lager
+      - liquor
+      - mug
+      - stein
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0fc
+  voted: false
+behance:
+  changes:
+    - '4.1'
+    - 5.0.0
+  label: Behance
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1b4
+  voted: false
+behance-square:
+  changes:
+    - '4.1'
+    - 5.0.0
+    - 5.0.3
+  label: Behance Square
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1b5
+  voted: false
+bell:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.2.0
+    - 5.11.0
+  label: bell
+  search:
+    terms:
+      - alarm
+      - alert
+      - chime
+      - notification
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0f3
+  voted: false
+bell-exclamation:
+  changes:
+    - 5.9.0
+  label: Bell Exclamation
+  search:
+    terms:
+      - alarm
+      - alert
+      - chime
+      - notification
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f848
+  voted: false
+bell-on:
+  changes:
+    - 5.12.0
+  label: Bell On
+  search:
+    terms:
+      - alarm
+      - alert
+      - chime
+      - notification
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8fa
+  voted: false
+bell-plus:
+  changes:
+    - 5.9.0
+  label: Bell Plus
+  search:
+    terms:
+      - alarm
+      - alert
+      - chime
+      - notification
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f849
+  voted: false
+bell-school:
+  changes:
+    - 5.2.0
+  label: Bell School
+  search:
+    terms:
+      - alert
+      - chime
+      - class
+      - notification
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d5
+  voted: false
+bell-school-slash:
+  changes:
+    - 5.2.0
+  label: Bell School Slash
+  search:
+    terms:
+      - alert
+      - cancel
+      - class
+      - disabled
+      - notification
+      - 'off'
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d6
+  voted: false
+bell-slash:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.2.0
+  label: Bell Slash
+  search:
+    terms:
+      - alert
+      - cancel
+      - disabled
+      - notification
+      - 'off'
+      - reminder
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1f6
+  voted: false
+bells:
+  changes:
+    - 5.6.0
+  label: Bells
+  search:
+    terms:
+      - alert
+      - christmas
+      - holiday
+      - notification
+      - reminder
+      - xmas
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f77f
+betamax:
+  changes:
+    - 5.11.0
+  label: Betamax
+  search:
+    terms:
+      - cassette
+      - rental
+      - retro
+      - tape
+      - vhs
+      - video
+      - vintage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a4
+  voted: false
+bezier-curve:
+  changes:
+    - 5.1.0
+  label: Bezier Curve
+  search:
+    terms:
+      - curves
+      - illustrator
+      - lines
+      - path
+      - vector
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55b
+  voted: false
+bible:
+  changes:
+    - 5.3.0
+  label: Bible
+  search:
+    terms:
+      - book
+      - catholicism
+      - christianity
+      - god
+      - holy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f647
+  voted: false
+bicycle:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Bicycle
+  search:
+    terms:
+      - bike
+      - gears
+      - pedal
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f206
+  voted: false
+biking:
+  changes:
+    - 5.9.0
+  label: Biking
+  search:
+    terms:
+      - bicycle
+      - bike
+      - cycle
+      - cycling
+      - ride
+      - wheel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84a
+  voted: false
+biking-mountain:
+  changes:
+    - 5.9.0
+  label: Biking Mountain
+  search:
+    terms:
+      - bicycle
+      - bike
+      - cycle
+      - cycling
+      - offroad
+      - ride
+      - trail
+      - wheel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84b
+  voted: false
+bimobject:
+  changes:
+    - 5.0.0
+  label: BIMobject
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f378
+  voted: false
+binoculars:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.2.0
+  label: Binoculars
+  search:
+    terms:
+      - glasses
+      - magnify
+      - scenic
+      - spyglass
+      - view
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1e5
+  voted: false
+biohazard:
+  changes:
+    - 5.6.0
+    - 5.7.0
+  label: Biohazard
+  search:
+    terms:
+      - covid-19
+      - danger
+      - dangerous
+      - hazmat
+      - medical
+      - radioactive
+      - toxic
+      - waste
+      - zombie
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f780
+  voted: true
+birthday-cake:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Birthday Cake
+  search:
+    terms:
+      - anniversary
+      - bakery
+      - candles
+      - celebration
+      - dessert
+      - frosting
+      - holiday
+      - party
+      - pastry
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1fd
+  voted: false
+bitbucket:
+  changes:
+    - '3.2'
+    - 5.0.0
+    - 5.6.0
+    - 5.8.0
+  label: Bitbucket
+  search:
+    terms:
+      - atlassian
+      - bitbucket-square
+      - git
+  styles:
+    - brands
+  unicode: f171
+  voted: false
+bitcoin:
+  changes:
+    - 5.0.0
+  label: Bitcoin
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f379
+  voted: false
+bity:
+  changes:
+    - 5.0.0
+  label: Bity
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f37a
+  voted: false
+black-tie:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Font Awesome Black Tie
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f27e
+  voted: false
+blackberry:
+  changes:
+    - 5.0.0
+  label: BlackBerry
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f37b
+  voted: false
+blanket:
+  changes:
+    - 5.0.9
+  label: Blanket
+  search:
+    terms:
+      - bed
+      - cover
+      - cozy
+      - sleep
+      - warm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f498
+  voted: false
+blender:
+  changes:
+    - 5.0.13
+  label: Blender
+  search:
+    terms:
+      - cocktail
+      - milkshake
+      - mixer
+      - puree
+      - smoothie
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f517
+  voted: false
+blender-phone:
+  changes:
+    - 5.4.0
+  label: Blender Phone
+  search:
+    terms:
+      - appliance
+      - cocktail
+      - communication
+      - fantasy
+      - milkshake
+      - mixer
+      - puree
+      - silly
+      - smoothie
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b6
+  voted: false
+blind:
+  changes:
+    - '4.6'
+    - 5.0.0
+    - 5.11.0
+  label: Blind
+  search:
+    terms:
+      - cane
+      - disability
+      - person
+      - sight
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f29d
+  voted: false
+blinds:
+  changes:
+    - 5.12.0
+  label: Blinds
+  search:
+    terms:
+      - privacy
+      - shutter
+      - window
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8fb
+  voted: false
+blinds-open:
+  changes:
+    - 5.12.0
+  label: Blinds Open
+  search:
+    terms:
+      - privacy
+      - shutter
+      - window
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8fc
+  voted: false
+blinds-raised:
+  changes:
+    - 5.12.0
+  label: Blinds Raised
+  search:
+    terms:
+      - privacy
+      - shutter
+      - window
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8fd
+  voted: false
+blog:
+  changes:
+    - 5.6.0
+  label: Blog
+  search:
+    terms:
+      - journal
+      - log
+      - online
+      - personal
+      - post
+      - web 2.0
+      - wordpress
+      - writing
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f781
+  voted: true
+blogger:
+  changes:
+    - 5.0.0
+  label: Blogger
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f37c
+  voted: false
+blogger-b:
+  changes:
+    - 5.0.0
+  label: Blogger B
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f37d
+  voted: false
+bluetooth:
+  changes:
+    - '4.5'
+    - 5.0.0
+  label: Bluetooth
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f293
+  voted: false
+bluetooth-b:
+  changes:
+    - '4.5'
+    - 5.0.0
+  label: Bluetooth
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f294
+  voted: false
+bold:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.9.0
+    - 5.10.2
+  label: bold
+  search:
+    terms:
+      - emphasis
+      - format
+      - text
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f032
+  voted: false
+bolt:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.5.0
+  label: Lightning Bolt
+  search:
+    terms:
+      - electricity
+      - lightning
+      - weather
+      - zap
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0e7
+  voted: false
+bomb:
+  changes:
+    - '4.1'
+    - 5.0.0
+  label: Bomb
+  search:
+    terms:
+      - error
+      - explode
+      - fuse
+      - grenade
+      - warning
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1e2
+  voted: false
+bone:
+  changes:
+    - 5.2.0
+  label: Bone
+  search:
+    terms:
+      - calcium
+      - dog
+      - skeletal
+      - skeleton
+      - tibia
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d7
+  voted: false
+bone-break:
+  changes:
+    - 5.2.0
+  label: Bone Break
+  search:
+    terms:
+      - broken
+      - calcium
+      - dog
+      - fracture
+      - skeletal
+      - skeleton
+      - tibia
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d8
+  voted: false
+bong:
+  changes:
+    - 5.1.0
+  label: Bong
+  search:
+    terms:
+      - aparatus
+      - cannabis
+      - marijuana
+      - pipe
+      - smoke
+      - smoking
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55c
+  voted: false
+book:
+  changes:
+    - '1'
+    - 5.0.0
+  label: book
+  search:
+    terms:
+      - diary
+      - documentation
+      - journal
+      - library
+      - read
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f02d
+  voted: false
+book-alt:
+  changes:
+    - 5.2.0
+  label: Alternate Book
+  search:
+    terms:
+      - diary
+      - documentation
+      - journal
+      - library
+      - read
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5d9
+  voted: false
+book-dead:
+  changes:
+    - 5.4.0
+  label: Book of the Dead
+  search:
+    terms:
+      - Dungeons & Dragons
+      - crossbones
+      - d&d
+      - dark arts
+      - death
+      - dnd
+      - documentation
+      - evil
+      - fantasy
+      - halloween
+      - holiday
+      - necronomicon
+      - read
+      - skull
+      - spell
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b7
+  voted: false
+book-heart:
+  changes:
+    - 5.0.9
+    - 5.4.0
+  label: Book with Heart
+  search:
+    terms:
+      - charity
+      - diary
+      - documentation
+      - donation
+      - health
+      - history
+      - journal
+      - library
+      - read
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f499
+  voted: false
+book-medical:
+  changes:
+    - 5.7.0
+  label: Medical Book
+  search:
+    terms:
+      - diary
+      - documentation
+      - health
+      - history
+      - journal
+      - library
+      - read
+      - record
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7e6
+  voted: false
+book-open:
+  changes:
+    - 5.0.13
+    - 5.1.0
+    - 5.2.0
+  label: Book Open
+  search:
+    terms:
+      - flyer
+      - library
+      - notebook
+      - open book
+      - pamphlet
+      - reading
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f518
+  voted: true
+book-reader:
+  changes:
+    - 5.2.0
+  label: Book Reader
+  search:
+    terms:
+      - flyer
+      - library
+      - notebook
+      - open book
+      - pamphlet
+      - reading
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5da
+  voted: false
+book-spells:
+  changes:
+    - 5.4.0
+  label: Book of Spells
+  search:
+    terms:
+      - Dungeons & Dragons
+      - d&d
+      - dark arts
+      - dnd
+      - documentation
+      - evil
+      - fantasy
+      - halloween
+      - holiday
+      - mage
+      - magic
+      - read
+      - sorcery
+      - voodoo
+      - witch
+      - wizard
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b8
+  voted: false
+book-user:
+  changes:
+    - 5.7.0
+  label: Book with User
+  search:
+    terms:
+      - address
+      - biography
+      - diary
+      - documentation
+      - journal
+      - library
+      - read
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7e7
+  voted: false
+bookmark:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.10.2
+  label: bookmark
+  search:
+    terms:
+      - favorite
+      - marker
+      - read
+      - remember
+      - save
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f02e
+  voted: false
+books:
+  changes:
+    - 5.2.0
+    - 5.10.1
+  label: Books
+  search:
+    terms:
+      - diary
+      - documentation
+      - journal
+      - library
+      - read
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5db
+  voted: false
+books-medical:
+  changes:
+    - 5.7.0
+    - 5.10.1
+  label: Medical Books
+  search:
+    terms:
+      - add
+      - diary
+      - documentation
+      - health
+      - journal
+      - library
+      - read
+      - records
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7e8
+  voted: false
+boombox:
+  changes:
+    - 5.11.0
+  label: Boombox
+  search:
+    terms:
+      - cassette
+      - jambox
+      - john cusack
+      - music
+      - radio
+      - say anything
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a5
+  voted: false
+boot:
+  changes:
+    - 5.6.0
+  label: Boot
+  search:
+    terms:
+      - clothing
+      - foot
+      - hiking
+      - shoe
+      - sturdy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f782
+booth-curtain:
+  changes:
+    - 5.5.0
+  label: Booth with Curtain
+  search:
+    terms:
+      - changing room
+      - election
+      - vote
+      - voting
+      - voting booth
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f734
+  voted: false
+bootstrap:
+  changes:
+    - 5.8.0
+  label: Bootstrap
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f836
+border-all:
+  changes:
+    - 5.9.0
+  label: Border All
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84c
+  voted: false
+border-bottom:
+  changes:
+    - 5.9.0
+  label: Border Bottom
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84d
+  voted: false
+border-center-h:
+  changes:
+    - 5.10.0
+    - 5.10.1
+  label: Border Center - Horizontal
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f89c
+  voted: false
+border-center-v:
+  changes:
+    - 5.10.0
+    - 5.10.1
+  label: Border Center - Vertical
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f89d
+  voted: false
+border-inner:
+  changes:
+    - 5.9.0
+  label: Border Inner
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84e
+  voted: false
+border-left:
+  changes:
+    - 5.9.0
+  label: Border Left
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f84f
+  voted: false
+border-none:
+  changes:
+    - 5.9.0
+  label: Border None
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f850
+  voted: false
+border-outer:
+  changes:
+    - 5.9.0
+  label: Border Outer
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f851
+  voted: false
+border-right:
+  changes:
+    - 5.9.0
+  label: Border Right
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f852
+  voted: false
+border-style:
+  changes:
+    - 5.9.0
+  label: Border Style
+  search:
+    terms: []
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f853
+  voted: false
+border-style-alt:
+  changes:
+    - 5.9.0
+  label: Border Style-alt
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f854
+  voted: false
+border-top:
+  changes:
+    - 5.9.0
+  label: Border Top
+  search:
+    terms:
+      - cell
+      - grid
+      - outline
+      - stroke
+      - table
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f855
+  voted: false
+bow-arrow:
+  changes:
+    - 5.4.0
+  label: Bow Arrow
+  search:
+    terms:
+      - Dungeons & Dragons
+      - archery
+      - d&d
+      - dnd
+      - fantasy
+      - legolas
+      - ranged attack
+      - ranger
+      - weapon
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6b9
+  voted: false
+bowling-ball:
+  changes:
+    - 5.0.5
+    - 5.11.0
+    - 5.11.1
+  label: Bowling Ball
+  search:
+    terms:
+      - alley
+      - candlepin
+      - gutter
+      - lane
+      - strike
+      - tenpin
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f436
+  voted: false
+bowling-pins:
+  changes:
+    - 5.0.5
+  label: Bowling Pins
+  search:
+    terms:
+      - alley
+      - candlepin
+      - gutter
+      - lane
+      - strike
+      - tenpin
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f437
+  voted: false
+box:
+  changes:
+    - 5.0.7
+  label: Box
+  search:
+    terms:
+      - archive
+      - container
+      - package
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f466
+  voted: false
+box-alt:
+  changes:
+    - 5.0.9
+  label: Alternate Box
+  search:
+    terms:
+      - archive
+      - container
+      - package
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49a
+  voted: false
+box-ballot:
+  changes:
+    - 5.5.0
+  label: Box Ballot
+  search:
+    terms:
+      - election
+      - politics
+      - vote
+      - voting
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f735
+  voted: false
+box-check:
+  changes:
+    - 5.0.7
+  label: Box Check
+  search:
+    terms:
+      - accept
+      - agree
+      - confirm
+      - correct
+      - done
+      - ok
+      - package
+      - select
+      - success
+      - tick
+      - todo
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f467
+  voted: false
+box-fragile:
+  changes:
+    - 5.0.9
+  label: Box Fragile
+  search:
+    terms:
+      - broken
+      - careful
+      - glass
+      - package
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49b
+  voted: false
+box-full:
+  changes:
+    - 5.0.9
+    - 5.7.0
+  label: Box Full
+  search:
+    terms:
+      - attic
+      - package
+      - packed
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49c
+  voted: false
+box-heart:
+  changes:
+    - 5.0.9
+  label: Box with Heart
+  search:
+    terms:
+      - care
+      - donation
+      - package
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49d
+  voted: false
+box-open:
+  changes:
+    - 5.0.9
+    - 5.7.0
+  label: Box Open
+  search:
+    terms:
+      - archive
+      - container
+      - package
+      - storage
+      - unpack
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49e
+  voted: false
+box-tissue:
+  changes:
+    - 5.13.0
+    - 5.14.0
+  label: Tissue Box
+  search:
+    terms:
+      - cough
+      - covid-19
+      - kleenex
+      - mucus
+      - nose
+      - sneeze
+      - snot
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: e05b
+  voted: false
+box-up:
+  changes:
+    - 5.0.9
+  label: Box Up
+  search:
+    terms:
+      - archive
+      - container
+      - package
+      - shipping
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f49f
+  voted: false
+box-usd:
+  changes:
+    - 5.0.9
+  label: Box with US Dollar
+  search:
+    terms:
+      - $
+      - dollar-sign
+      - donation
+      - money
+      - usd
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f4a0
+  voted: false
+boxes:
+  changes:
+    - 5.0.7
+  label: Boxes
+  search:
+    terms:
+      - archives
+      - inventory
+      - storage
+      - warehouse
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f468
+  voted: false
+boxes-alt:
+  changes:
+    - 5.0.9
+  label: Alternate Boxes
+  search:
+    terms:
+      - archives
+      - inventory
+      - storage
+      - warehouse
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f4a1
+  voted: false
+boxing-glove:
+  changes:
+    - 5.0.5
+  label: Boxing Glove
+  search:
+    terms:
+      - boxer
+      - fight
+      - heavyweight
+      - spar
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f438
+  voted: false
+brackets:
+  changes:
+    - 5.7.0
+  label: Brackets
+  search:
+    terms:
+      - code
+      - developer
+      - development
+      - parentheses
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7e9
+  voted: false
+brackets-curly:
+  changes:
+    - 5.7.0
+  label: Curly Brackets
+  search:
+    terms:
+      - code
+      - developer
+      - development
+      - parentheses
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7ea
+  voted: true
+braille:
+  changes:
+    - '4.6'
+    - 5.0.0
+  label: Braille
+  search:
+    terms:
+      - alphabet
+      - blind
+      - dots
+      - raised
+      - vision
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f2a1
+  voted: false
+brain:
+  changes:
+    - 5.2.0
+    - 5.9.0
+    - 5.11.0
+  label: Brain
+  search:
+    terms:
+      - cerebellum
+      - gray matter
+      - intellect
+      - medulla oblongata
+      - mind
+      - noodle
+      - wit
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5dc
+  voted: false
+bread-loaf:
+  changes:
+    - 5.7.0
+  label: Loaf of Bread
+  search:
+    terms:
+      - bake
+      - bakery
+      - baking
+      - dough
+      - flour
+      - gluten
+      - grain
+      - sandwich
+      - sourdough
+      - toast
+      - wheat
+      - yeast
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7eb
+  voted: false
+bread-slice:
+  changes:
+    - 5.7.0
+  label: Bread Slice
+  search:
+    terms:
+      - bake
+      - bakery
+      - baking
+      - dough
+      - flour
+      - gluten
+      - grain
+      - sandwich
+      - sourdough
+      - toast
+      - wheat
+      - yeast
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7ec
+  voted: false
+briefcase:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.3.0
+  label: Briefcase
+  search:
+    terms:
+      - bag
+      - business
+      - luggage
+      - office
+      - work
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0b1
+  voted: false
+briefcase-medical:
+  changes:
+    - 5.0.7
+  label: Medical Briefcase
+  search:
+    terms:
+      - doctor
+      - emt
+      - first aid
+      - health
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f469
+  voted: false
+bring-forward:
+  changes:
+    - 5.9.0
+    - 5.10.2
+  label: Bring Forward
+  search:
+    terms:
+      - arrange
+      - front
+      - layer
+      - order
+      - stack
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f856
+  voted: true
+bring-front:
+  changes:
+    - 5.9.0
+    - 5.10.2
+  label: Bring Front
+  search:
+    terms:
+      - arrange
+      - forward
+      - layer
+      - order
+      - stack
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f857
+  voted: true
+broadcast-tower:
+  changes:
+    - 5.0.13
+  label: Broadcast Tower
+  search:
+    terms:
+      - airwaves
+      - antenna
+      - radio
+      - reception
+      - waves
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f519
+  voted: true
+broom:
+  changes:
+    - 5.0.13
+  label: Broom
+  search:
+    terms:
+      - clean
+      - firebolt
+      - fly
+      - halloween
+      - nimbus 2000
+      - quidditch
+      - sweep
+      - witch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f51a
+  voted: true
+browser:
+  changes:
+    - 5.0.0
+  label: Browser
+  search:
+    terms:
+      - app
+      - application
+      - desktop
+      - explorer
+      - internet
+      - web
+      - website
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f37e
+  voted: false
+brush:
+  changes:
+    - 5.1.0
+  label: Brush
+  search:
+    terms:
+      - art
+      - bristles
+      - color
+      - handle
+      - paint
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55d
+  voted: false
+btc:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: BTC
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f15a
+  voted: false
+buffer:
+  changes:
+    - 5.8.0
+  label: Buffer
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f837
+bug:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: Bug
+  search:
+    terms:
+      - beetle
+      - error
+      - insect
+      - report
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f188
+  voted: false
+building:
+  changes:
+    - '4.1'
+    - 5.0.0
+  label: Building
+  search:
+    terms:
+      - apartment
+      - business
+      - city
+      - company
+      - office
+      - work
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1ad
+  voted: false
+bullhorn:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.3.0
+  label: bullhorn
+  search:
+    terms:
+      - announcement
+      - broadcast
+      - louder
+      - megaphone
+      - share
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0a1
+  voted: false
+bullseye:
+  changes:
+    - '3.1'
+    - 5.0.0
+    - 5.3.0
+    - 5.10.1
+  label: Bullseye
+  search:
+    terms:
+      - archery
+      - goal
+      - objective
+      - target
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f140
+  voted: false
+bullseye-arrow:
+  changes:
+    - 5.3.0
+    - 5.11.0
+    - 5.11.1
+  label: Bullseye Arrow
+  search:
+    terms:
+      - archery
+      - arrow
+      - goal
+      - objective
+      - robin hood
+      - target
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f648
+  voted: false
+bullseye-pointer:
+  changes:
+    - 5.3.0
+    - 5.11.0
+    - 5.11.1
+  label: Bullseye Pointer
+  search:
+    terms:
+      - archery
+      - goal
+      - objective
+      - target
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f649
+  voted: false
+burger-soda:
+  changes:
+    - 5.9.0
+  label: Burger and Soda
+  search:
+    terms:
+      - bacon
+      - beef
+      - cheeseburger
+      - fast food
+      - grill
+      - ground beef
+      - hamburger
+      - junk food
+      - pop
+      - sandwich
+      - slider
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f858
+  voted: false
+burn:
+  changes:
+    - 5.0.7
+  label: Burn
+  search:
+    terms:
+      - caliente
+      - energy
+      - fire
+      - flame
+      - gas
+      - heat
+      - hot
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f46a
+  voted: false
+buromobelexperte:
+  changes:
+    - 5.0.0
+  label: Büromöbel-Experte GmbH & Co. KG.
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f37f
+  voted: false
+burrito:
+  changes:
+    - 5.7.0
+  label: Burrito
+  search:
+    terms:
+      - beans
+      - breakfast
+      - chimichanga
+      - mexican
+      - salsa
+      - taco
+      - tortilla
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7ed
+  voted: false
+bus:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.1.0
+  label: Bus
+  search:
+    terms:
+      - public transportation
+      - transportation
+      - travel
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f207
+  voted: false
+bus-alt:
+  changes:
+    - 5.1.0
+  label: Bus Alt
+  search:
+    terms:
+      - mta
+      - public transportation
+      - transportation
+      - travel
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55e
+  voted: false
+bus-school:
+  changes:
+    - 5.2.0
+  label: Bus School
+  search:
+    terms:
+      - education
+      - school
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5dd
+  voted: false
+business-time:
+  changes:
+    - 5.3.0
+  label: Business Time
+  search:
+    terms:
+      - alarm
+      - briefcase
+      - business socks
+      - clock
+      - flight of the conchords
+      - reminder
+      - wednesday
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64a
+  voted: false
+buy-n-large:
+  changes:
+    - 5.11.0
+  label: Buy n Large
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f8a6
+buysellads:
+  changes:
+    - '4.3'
+    - 5.0.0
+  label: BuySellAds
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f20d
+  voted: false
+cabinet-filing:
+  changes:
+    - 5.3.0
+  label: Filing Cabinet
+  search:
+    terms:
+      - archive
+      - files
+      - records
+      - register
+      - storage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64b
+  voted: false
+cactus:
+  changes:
+    - 5.11.0
+  label: Cactus
+  search:
+    terms:
+      - cowboy
+      - desert
+      - flora
+      - old west
+      - plant
+      - succulent
+      - western
+  styles:
+    - light
+    - regular
+    - solid
+    - duotone
+  unicode: f8a7
+  voted: false
+calculator:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.3.0
+    - 5.11.0
+  label: Calculator
+  search:
+    terms:
+      - abacus
+      - addition
+      - arithmetic
+      - counting
+      - math
+      - multiplication
+      - subtraction
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1ec
+  voted: false
+calculator-alt:
+  changes:
+    - 5.3.0
+    - 5.11.0
+  label: Alternate Calculator
+  search:
+    terms:
+      - abacus
+      - addition
+      - arithmetic
+      - counting
+      - math
+      - multiplication
+      - subtraction
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64c
+  voted: false
+calendar:
+  changes:
+    - '3.1'
+    - 5.0.0
+    - 5.10.2
+  label: Calendar
+  search:
+    terms:
+      - calendar-o
+      - date
+      - event
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f133
+  voted: false
+calendar-alt:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.6.0
+    - 5.7.0
+    - 5.10.2
+  label: Alternate Calendar
+  search:
+    terms:
+      - calendar
+      - date
+      - event
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f073
+  voted: false
+calendar-check:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Check
+  search:
+    terms:
+      - accept
+      - agree
+      - appointment
+      - confirm
+      - correct
+      - date
+      - done
+      - event
+      - ok
+      - schedule
+      - select
+      - success
+      - tick
+      - time
+      - todo
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f274
+  voted: false
+calendar-day:
+  changes:
+    - 5.6.0
+    - 5.10.2
+  label: Calendar with Day Focus
+  search:
+    terms:
+      - date
+      - detail
+      - event
+      - focus
+      - schedule
+      - single day
+      - time
+      - today
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f783
+  voted: true
+calendar-edit:
+  changes:
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Edit
+  search:
+    terms:
+      - date
+      - edit
+      - event
+      - pen
+      - pencil
+      - schedule
+      - time
+      - update
+      - when
+      - write
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f333
+  voted: false
+calendar-exclamation:
+  changes:
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Exclamation
+  search:
+    terms:
+      - calendar
+      - date
+      - event
+      - important
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f334
+  voted: false
+calendar-minus:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Minus
+  search:
+    terms:
+      - calendar
+      - date
+      - delete
+      - event
+      - negative
+      - remove
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f272
+  voted: false
+calendar-plus:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Plus
+  search:
+    terms:
+      - add
+      - calendar
+      - create
+      - date
+      - event
+      - new
+      - positive
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f271
+  voted: false
+calendar-star:
+  changes:
+    - 5.5.0
+    - 5.10.2
+  label: Calendar Star
+  search:
+    terms:
+      - calendar
+      - date
+      - event
+      - favorite
+      - important
+      - schedule
+      - time
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f736
+  voted: false
+calendar-times:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.10.2
+  label: Calendar Times
+  search:
+    terms:
+      - archive
+      - calendar
+      - date
+      - delete
+      - event
+      - remove
+      - schedule
+      - time
+      - when
+      - x
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f273
+  voted: false
+calendar-week:
+  changes:
+    - 5.6.0
+    - 5.10.2
+  label: Calendar with Week Focus
+  search:
+    terms:
+      - date
+      - detail
+      - event
+      - focus
+      - schedule
+      - single week
+      - time
+      - today
+      - when
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f784
+  voted: true
+camcorder:
+  changes:
+    - 5.11.0
+  label: Camcorder
+  search:
+    terms:
+      - cinema
+      - director
+      - film
+      - handheld
+      - movie
+      - retro
+      - theater
+      - video
+      - vintage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a8
+  voted: false
+camera:
+  changes:
+    - '1'
+    - 5.0.0
+  label: camera
+  search:
+    terms:
+      - image
+      - lens
+      - photo
+      - picture
+      - record
+      - shutter
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f030
+  voted: false
+camera-alt:
+  changes:
+    - 5.0.0
+  label: Alternate Camera
+  search:
+    terms:
+      - image
+      - lens
+      - photo
+      - picture
+      - record
+      - shutter
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f332
+  voted: false
+camera-home:
+  changes:
+    - 5.12.0
+  label: Camera Home
+  search:
+    terms:
+      - chat
+      - conference call
+      - facetime
+      - podcast
+      - security
+      - video
+      - videoconferencing
+      - youtube
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8fe
+  voted: false
+camera-movie:
+  changes:
+    - 5.11.0
+  label: Movie Camera
+  search:
+    terms:
+      - cinema
+      - director
+      - film
+      - movie
+      - theater
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8a9
+  voted: false
+camera-polaroid:
+  changes:
+    - 5.11.0
+  label: Polaroid Camera
+  search:
+    terms:
+      - capture
+      - film
+      - instant camera
+      - lens
+      - photo
+      - photography
+      - retro
+      - snapshot
+      - vintage
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8aa
+  voted: false
+camera-retro:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.10.1
+  label: Retro Camera
+  search:
+    terms:
+      - image
+      - lens
+      - photo
+      - picture
+      - record
+      - shutter
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f083
+  voted: false
+campfire:
+  changes:
+    - 5.4.0
+  label: Campfire
+  search:
+    terms:
+      - Dungeons & Dragons
+      - caliente
+      - campaign
+      - camping
+      - d&d
+      - dnd
+      - fall
+      - fire
+      - flame
+      - gathering
+      - heat
+      - hot
+      - meeting
+      - outdoors
+      - seasonal
+      - tent
+      - wilderness
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6ba
+  voted: false
+campground:
+  changes:
+    - 5.4.0
+  label: Campground
+  search:
+    terms:
+      - camping
+      - fall
+      - outdoors
+      - teepee
+      - tent
+      - tipi
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6bb
+  voted: false
+canadian-maple-leaf:
+  changes:
+    - 5.6.0
+    - 5.8.0
+  label: Canadian Maple Leaf
+  search:
+    terms:
+      - canada
+      - flag
+      - flora
+      - nature
+      - plant
+  styles:
+    - brands
+  unicode: f785
+candle-holder:
+  changes:
+    - 5.4.0
+  label: Candle Holder
+  search:
+    terms:
+      - fire
+      - flame
+      - halloween
+      - holiday
+      - hot
+      - light
+      - lit
+      - wick
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6bc
+  voted: false
+candy-cane:
+  changes:
+    - 5.6.0
+    - 5.10.1
+  label: Candy Cane
+  search:
+    terms:
+      - candy
+      - christmas
+      - holiday
+      - mint
+      - peppermint
+      - striped
+      - xmas
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f786
+candy-corn:
+  changes:
+    - 5.4.0
+    - 5.10.1
+    - 5.10.2
+  label: Candy Corn
+  search:
+    terms:
+      - halloween
+      - holiday
+      - sugar
+      - triangles
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6bd
+  voted: false
+cannabis:
+  changes:
+    - 5.1.0
+  label: Cannabis
+  search:
+    terms:
+      - bud
+      - chronic
+      - drugs
+      - endica
+      - endo
+      - ganja
+      - marijuana
+      - mary jane
+      - pot
+      - reefer
+      - sativa
+      - spliff
+      - weed
+      - whacky-tabacky
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f55f
+  voted: false
+capsules:
+  changes:
+    - 5.0.7
+  label: Capsules
+  search:
+    terms:
+      - drugs
+      - medicine
+      - pills
+      - prescription
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f46b
+  voted: false
+car:
+  changes:
+    - '4.1'
+    - 5.0.0
+    - 5.2.0
+  label: Car
+  search:
+    terms:
+      - auto
+      - automobile
+      - sedan
+      - transportation
+      - travel
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1b9
+  voted: false
+car-alt:
+  changes:
+    - 5.2.0
+    - 5.11.0
+    - 5.11.1
+  label: Alternate Car
+  search:
+    terms:
+      - auto
+      - automobile
+      - sedan
+      - transportation
+      - travel
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5de
+  voted: false
+car-battery:
+  changes:
+    - 5.2.0
+  label: Car Battery
+  search:
+    terms:
+      - auto
+      - electric
+      - mechanic
+      - power
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5df
+  voted: false
+car-building:
+  changes:
+    - 5.9.0
+  label: Car and Building
+  search:
+    terms:
+      - city
+      - office
+      - transportation
+      - travel
+      - work
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f859
+  voted: false
+car-bump:
+  changes:
+    - 5.2.0
+  label: Car Bump
+  search:
+    terms:
+      - auto
+      - automobile
+      - off-road
+      - sedan
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e0
+  voted: false
+car-bus:
+  changes:
+    - 5.9.0
+  label: Car and Bus
+  search:
+    terms:
+      - directions
+      - ground transportation
+      - map
+      - transportation
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f85a
+  voted: false
+car-crash:
+  changes:
+    - 5.2.0
+  label: Car Crash
+  search:
+    terms:
+      - accident
+      - auto
+      - automobile
+      - insurance
+      - sedan
+      - transportation
+      - vehicle
+      - wreck
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e1
+  voted: false
+car-garage:
+  changes:
+    - 5.2.0
+  label: Car Garage
+  search:
+    terms:
+      - auto
+      - automobile
+      - mechanic
+      - sedan
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e2
+  voted: false
+car-mechanic:
+  changes:
+    - 5.2.0
+  label: Car Mechanic
+  search:
+    terms:
+      - auto
+      - automobile
+      - mechanic
+      - repair
+      - sedan
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e3
+  voted: false
+car-side:
+  changes:
+    - 5.2.0
+  label: Car Side
+  search:
+    terms:
+      - auto
+      - automobile
+      - sedan
+      - transportation
+      - travel
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e4
+  voted: false
+car-tilt:
+  changes:
+    - 5.2.0
+  label: Car Tilt
+  search:
+    terms:
+      - accident
+      - auto
+      - automobile
+      - insurance
+      - sedan
+      - transportation
+      - vehicle
+      - wreck
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e5
+  voted: false
+car-wash:
+  changes:
+    - 5.2.0
+    - 5.11.0
+    - 5.11.1
+  label: Car Wash
+  search:
+    terms:
+      - auto
+      - automobile
+      - clean
+      - sedan
+      - transportation
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e6
+  voted: false
+caravan:
+  changes:
+    - 5.12.0
+  label: Caravan
+  search:
+    terms:
+      - camper
+      - motor home
+      - rv
+      - trailer
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8ff
+  voted: true
+caravan-alt:
+  changes:
+    - 5.12.0
+    - 5.14.0
+  label: Caravan Alternate
+  search:
+    terms:
+      - camper
+      - motor home
+      - rv
+      - trailer
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: e000
+  voted: false
+caret-circle-down:
+  changes:
+    - 5.0.0
+  label: Caret Circle Down
+  search:
+    terms:
+      - arrow
+      - dropdown
+      - expand
+      - menu
+      - more
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f32d
+  voted: false
+caret-circle-left:
+  changes:
+    - 5.0.0
+  label: Caret Circle Left
+  search:
+    terms:
+      - arrow
+      - back
+      - previous
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f32e
+  voted: false
+caret-circle-right:
+  changes:
+    - 5.0.0
+  label: Caret Circle Right
+  search:
+    terms:
+      - arrow
+      - forward
+      - next
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f330
+  voted: false
+caret-circle-up:
+  changes:
+    - 5.0.0
+  label: Caret Circle Up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - triangle
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f331
+  voted: false
+caret-down:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Caret Down
+  search:
+    terms:
+      - arrow
+      - dropdown
+      - expand
+      - menu
+      - more
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0d7
+  voted: false
+caret-left:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Caret Left
+  search:
+    terms:
+      - arrow
+      - back
+      - previous
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0d9
+  voted: false
+caret-right:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Caret Right
+  search:
+    terms:
+      - arrow
+      - forward
+      - next
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0da
+  voted: false
+caret-square-down:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: Caret Square Down
+  search:
+    terms:
+      - arrow
+      - caret-square-o-down
+      - dropdown
+      - expand
+      - menu
+      - more
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f150
+  voted: false
+caret-square-left:
+  changes:
+    - '4'
+    - 5.0.0
+  label: Caret Square Left
+  search:
+    terms:
+      - arrow
+      - back
+      - caret-square-o-left
+      - previous
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f191
+  voted: false
+caret-square-right:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: Caret Square Right
+  search:
+    terms:
+      - arrow
+      - caret-square-o-right
+      - forward
+      - next
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f152
+  voted: false
+caret-square-up:
+  changes:
+    - '3.2'
+    - 5.0.0
+  label: Caret Square Up
+  search:
+    terms:
+      - arrow
+      - caret-square-o-up
+      - collapse
+      - triangle
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f151
+  voted: false
+caret-up:
+  changes:
+    - '2'
+    - 5.0.0
+  label: Caret Up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - triangle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0d8
+  voted: false
+carrot:
+  changes:
+    - 5.6.0
+    - 5.10.1
+  label: Carrot
+  search:
+    terms:
+      - bugs bunny
+      - orange
+      - vegan
+      - vegetable
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f787
+cars:
+  changes:
+    - 5.9.0
+  label: Cars
+  search:
+    terms:
+      - automobiles
+      - autos
+      - transportation
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f85b
+  voted: false
+cart-arrow-down:
+  changes:
+    - '4.3'
+    - 5.0.0
+  label: Shopping Cart Arrow Down
+  search:
+    terms:
+      - download
+      - save
+      - shopping
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f218
+  voted: false
+cart-plus:
+  changes:
+    - '4.3'
+    - 5.0.0
+  label: Add to Shopping Cart
+  search:
+    terms:
+      - add
+      - create
+      - new
+      - positive
+      - shopping
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f217
+  voted: false
+cash-register:
+  changes:
+    - 5.6.0
+  label: Cash Register
+  search:
+    terms:
+      - buy
+      - cha-ching
+      - change
+      - checkout
+      - commerce
+      - leaerboard
+      - machine
+      - pay
+      - payment
+      - purchase
+      - store
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f788
+  voted: true
+cassette-tape:
+  changes:
+    - 5.11.0
+  label: Cassette Tape
+  search:
+    terms:
+      - mixtape
+      - music
+      - play
+      - recording
+      - walkman
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8ab
+  voted: false
+cat:
+  changes:
+    - 5.4.0
+    - 5.10.1
+  label: Cat
+  search:
+    terms:
+      - feline
+      - halloween
+      - holiday
+      - kitten
+      - kitty
+      - meow
+      - pet
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6be
+  voted: true
+cat-space:
+  changes:
+    - 5.12.0
+    - 5.14.0
+  label: Space Cat
+  search:
+    terms:
+      - animal
+      - astronaut
+      - cosmonaut
+      - fauna
+      - meow
+      - space
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: e001
+  voted: false
+cauldron:
+  changes:
+    - 5.4.0
+  label: Cauldron
+  search:
+    terms:
+      - boil
+      - bubble
+      - cooking
+      - halloween
+      - holiday
+      - magic
+      - pot
+      - sorcery
+      - toil
+      - trouble
+      - witch
+      - wizard
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6bf
+  voted: false
+cc-amazon-pay:
+  changes:
+    - 5.0.2
+  label: Amazon Pay Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f42d
+  voted: false
+cc-amex:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.7.0
+  label: American Express Credit Card
+  search:
+    terms:
+      - amex
+  styles:
+    - brands
+  unicode: f1f3
+  voted: false
+cc-apple-pay:
+  changes:
+    - 5.0.0
+  label: Apple Pay Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f416
+  voted: false
+cc-diners-club:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Diner's Club Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f24c
+  voted: false
+cc-discover:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Discover Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1f2
+  voted: false
+cc-jcb:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: JCB Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f24b
+  voted: false
+cc-mastercard:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: MasterCard Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1f1
+  voted: false
+cc-paypal:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Paypal Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1f4
+  voted: false
+cc-stripe:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Stripe Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1f5
+  voted: false
+cc-visa:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Visa Credit Card
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1f0
+  voted: false
+cctv:
+  changes:
+    - 5.11.0
+  label: CCTV
+  search:
+    terms:
+      - 1984
+      - Big Brother
+      - George Orwell
+      - camera
+      - security
+      - surveillance
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8ac
+  voted: false
+centercode:
+  changes:
+    - 5.0.0
+  label: Centercode
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f380
+  voted: false
+centos:
+  changes:
+    - 5.6.0
+    - 5.8.0
+  label: Centos
+  search:
+    terms:
+      - linux
+      - operating system
+      - os
+  styles:
+    - brands
+  unicode: f789
+  voted: true
+certificate:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.10.1
+    - 5.10.2
+  label: certificate
+  search:
+    terms:
+      - badge
+      - star
+      - verified
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0a3
+  voted: false
+chair:
+  changes:
+    - 5.4.0
+    - 5.11.0
+  label: Chair
+  search:
+    terms:
+      - furniture
+      - seat
+      - sit
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c0
+  voted: true
+chair-office:
+  changes:
+    - 5.4.0
+    - 5.11.0
+  label: Office Chair
+  search:
+    terms:
+      - ergonomic
+      - furniture
+      - seat
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c1
+  voted: true
+chalkboard:
+  changes:
+    - 5.0.13
+  label: Chalkboard
+  search:
+    terms:
+      - blackboard
+      - learning
+      - school
+      - teaching
+      - whiteboard
+      - writing
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f51b
+  voted: false
+chalkboard-teacher:
+  changes:
+    - 5.0.13
+  label: Chalkboard Teacher
+  search:
+    terms:
+      - blackboard
+      - instructor
+      - learning
+      - professor
+      - school
+      - whiteboard
+      - writing
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f51c
+  voted: false
+charging-station:
+  changes:
+    - 5.2.0
+    - 5.10.1
+  label: Charging Station
+  search:
+    terms:
+      - electric
+      - ev
+      - tesla
+      - vehicle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e7
+  voted: false
+chart-area:
+  changes:
+    - '4.2'
+    - 5.0.0
+  label: Area Chart
+  search:
+    terms:
+      - analytics
+      - area
+      - chart
+      - graph
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1fe
+  voted: false
+chart-bar:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.3.0
+  label: Bar Chart
+  search:
+    terms:
+      - analytics
+      - bar
+      - chart
+      - graph
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f080
+  voted: false
+chart-line:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.3.0
+  label: Line Chart
+  search:
+    terms:
+      - activity
+      - analytics
+      - chart
+      - dashboard
+      - gain
+      - graph
+      - increase
+      - line
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f201
+  voted: false
+chart-line-down:
+  changes:
+    - 5.3.0
+  label: Line Chart in Down Direction
+  search:
+    terms:
+      - analytics
+      - chart
+      - dashboard
+      - decline
+      - graph
+      - line
+      - loss
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64d
+  voted: false
+chart-network:
+  changes:
+    - 5.6.0
+  label: Network Chart
+  search:
+    terms:
+      - activity
+      - analytics
+      - association
+      - dashboard
+      - diagram
+      - distribution
+      - map
+      - network
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f78a
+  voted: true
+chart-pie:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.3.0
+  label: Pie Chart
+  search:
+    terms:
+      - analytics
+      - chart
+      - diagram
+      - graph
+      - pie
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f200
+  voted: false
+chart-pie-alt:
+  changes:
+    - 5.3.0
+  label: Alternate Pie Chart
+  search:
+    terms:
+      - analytics
+      - chart
+      - diagram
+      - graph
+      - pie
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64e
+  voted: false
+chart-scatter:
+  changes:
+    - 5.7.0
+  label: Scatter Chart
+  search:
+    terms:
+      - analytics
+      - chart
+      - diagram
+      - graph
+      - plot
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7ee
+  voted: true
+check:
+  changes:
+    - '1'
+    - 5.0.0
+  label: Check
+  search:
+    terms:
+      - accept
+      - agree
+      - checkmark
+      - confirm
+      - correct
+      - done
+      - notice
+      - notification
+      - notify
+      - ok
+      - select
+      - success
+      - tick
+      - todo
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f00c
+  voted: false
+check-circle:
+  changes:
+    - '1'
+    - 5.0.0
+  label: Check Circle
+  search:
+    terms:
+      - accept
+      - agree
+      - confirm
+      - correct
+      - done
+      - ok
+      - select
+      - success
+      - tick
+      - todo
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f058
+  voted: false
+check-double:
+  changes:
+    - 5.1.0
+    - 5.8.2
+  label: Double Check
+  search:
+    terms:
+      - accept
+      - agree
+      - checkmark
+      - confirm
+      - correct
+      - done
+      - notice
+      - notification
+      - notify
+      - ok
+      - select
+      - success
+      - tick
+      - todo
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f560
+  voted: true
+check-square:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Check Square
+  search:
+    terms:
+      - accept
+      - agree
+      - checkmark
+      - confirm
+      - correct
+      - done
+      - ok
+      - select
+      - success
+      - tick
+      - todo
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f14a
+  voted: false
+cheese:
+  changes:
+    - 5.7.0
+  label: Cheese
+  search:
+    terms:
+      - cheddar
+      - curd
+      - gouda
+      - melt
+      - parmesan
+      - sandwich
+      - swiss
+      - wedge
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7ef
+  voted: false
+cheese-swiss:
+  changes:
+    - 5.7.0
+  label: Swiss Cheese
+  search:
+    terms:
+      - cheddar
+      - curd
+      - gouda
+      - melt
+      - parmesan
+      - sandwich
+      - swiss
+      - wedge
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7f0
+  voted: false
+cheeseburger:
+  changes:
+    - 5.7.0
+    - 5.7.1
+  label: Cheeseburger
+  search:
+    terms:
+      - bacon
+      - beef
+      - burger
+      - burger king
+      - fast food
+      - grill
+      - ground beef
+      - hamburger
+      - mcdonalds
+      - sandwich
+      - slider
+      - wendys
+      - white castle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7f1
+  voted: false
+chess:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess
+  search:
+    terms:
+      - board
+      - castle
+      - checkmate
+      - game
+      - king
+      - rook
+      - strategy
+      - tournament
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f439
+  voted: false
+chess-bishop:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Bishop
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43a
+  voted: false
+chess-bishop-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Bishop
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43b
+  voted: false
+chess-board:
+  changes:
+    - 5.0.5
+    - 5.7.0
+    - 5.9.0
+  label: Chess Board
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43c
+  voted: false
+chess-clock:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Clock
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+      - timer
+      - tournament
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43d
+  voted: false
+chess-clock-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Clock
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+      - timer
+      - tournament
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43e
+  voted: false
+chess-king:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess King
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f43f
+  voted: false
+chess-king-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess King
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f440
+  voted: false
+chess-knight:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Knight
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - horse
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f441
+  voted: false
+chess-knight-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Knight
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - horse
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f442
+  voted: false
+chess-pawn:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Pawn
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f443
+  voted: false
+chess-pawn-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Pawn
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f444
+  voted: false
+chess-queen:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Queen
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f445
+  voted: false
+chess-queen-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Queen
+  search:
+    terms:
+      - board
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f446
+  voted: false
+chess-rook:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Chess Rook
+  search:
+    terms:
+      - board
+      - castle
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f447
+  voted: false
+chess-rook-alt:
+  changes:
+    - 5.0.5
+    - 5.9.0
+  label: Alternate Chess Rook
+  search:
+    terms:
+      - board
+      - castle
+      - checkmate
+      - game
+      - strategy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f448
+  voted: false
+chevron-circle-down:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Chevron Circle Down
+  search:
+    terms:
+      - arrow
+      - download
+      - dropdown
+      - menu
+      - more
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f13a
+  voted: false
+chevron-circle-left:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Chevron Circle Left
+  search:
+    terms:
+      - arrow
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f137
+  voted: false
+chevron-circle-right:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Chevron Circle Right
+  search:
+    terms:
+      - arrow
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f138
+  voted: false
+chevron-circle-up:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Chevron Circle Up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f139
+  voted: false
+chevron-double-down:
+  changes:
+    - 5.0.0
+  label: Chevron Double Down
+  search:
+    terms:
+      - arrow
+      - download
+      - expand
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f322
+  voted: false
+chevron-double-left:
+  changes:
+    - 5.0.0
+    - 5.11.0
+  label: Chevron Double Left
+  search:
+    terms:
+      - arrow
+      - back
+      - bracket
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f323
+  voted: false
+chevron-double-right:
+  changes:
+    - 5.0.0
+    - 5.11.0
+  label: Chevron Double Right
+  search:
+    terms:
+      - arrow
+      - bracket
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f324
+  voted: false
+chevron-double-up:
+  changes:
+    - 5.0.0
+  label: Chevron Double Up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f325
+  voted: false
+chevron-down:
+  changes:
+    - '1'
+    - 5.0.0
+  label: chevron-down
+  search:
+    terms:
+      - arrow
+      - download
+      - expand
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f078
+  voted: false
+chevron-left:
+  changes:
+    - '1'
+    - 5.0.0
+  label: chevron-left
+  search:
+    terms:
+      - arrow
+      - back
+      - bracket
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f053
+  voted: false
+chevron-right:
+  changes:
+    - '1'
+    - 5.0.0
+  label: chevron-right
+  search:
+    terms:
+      - arrow
+      - bracket
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f054
+  voted: false
+chevron-square-down:
+  changes:
+    - 5.0.0
+  label: Chevron Square Down
+  search:
+    terms:
+      - arrow
+      - download
+      - dropdown
+      - expand
+      - menu
+      - more
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f329
+  voted: false
+chevron-square-left:
+  changes:
+    - 5.0.0
+  label: Chevron Square Left
+  search:
+    terms:
+      - arrow
+      - back
+      - previous
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f32a
+  voted: false
+chevron-square-right:
+  changes:
+    - 5.0.0
+  label: Chevron Square Right
+  search:
+    terms:
+      - arrow
+      - forward
+      - next
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f32b
+  voted: false
+chevron-square-up:
+  changes:
+    - 5.0.0
+  label: Chevron Square Up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f32c
+  voted: false
+chevron-up:
+  changes:
+    - '1'
+    - 5.0.0
+  label: chevron-up
+  search:
+    terms:
+      - arrow
+      - collapse
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f077
+  voted: false
+child:
+  changes:
+    - '4.1'
+    - 5.0.0
+  label: Child
+  search:
+    terms:
+      - boy
+      - girl
+      - kid
+      - toddler
+      - young
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1ae
+  voted: false
+chimney:
+  changes:
+    - 5.6.0
+  label: Chimney
+  search:
+    terms:
+      - brick
+      - exhaust
+      - fireplace
+      - house
+      - roof
+      - vent
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f78b
+chrome:
+  changes:
+    - '4.4'
+    - 5.0.0
+  label: Chrome
+  search:
+    terms:
+      - browser
+  styles:
+    - brands
+  unicode: f268
+  voted: false
+chromecast:
+  changes:
+    - 5.8.0
+  label: Chromecast
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f838
+church:
+  changes:
+    - 5.0.13
+  label: Church
+  search:
+    terms:
+      - building
+      - cathedral
+      - chapel
+      - community
+      - religion
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f51d
+  voted: true
+circle:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.10.1
+    - 5.10.2
+  label: Circle
+  search:
+    terms:
+      - circle-thin
+      - diameter
+      - dot
+      - ellipse
+      - notification
+      - round
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f111
+  voted: false
+circle-notch:
+  changes:
+    - '4.1'
+    - 5.0.0
+    - 5.10.2
+  label: Circle Notched
+  search:
+    terms:
+      - circle-o-notch
+      - diameter
+      - dot
+      - ellipse
+      - round
+      - spinner
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f1ce
+  voted: false
+city:
+  changes:
+    - 5.3.0
+  label: City
+  search:
+    terms:
+      - buildings
+      - busy
+      - skyscrapers
+      - urban
+      - windows
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f64f
+  voted: false
+clarinet:
+  changes:
+    - 5.11.0
+  label: Clarinet
+  search:
+    terms:
+      - instrument
+      - jazz
+      - music
+      - woodwind
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8ad
+  voted: false
+claw-marks:
+  changes:
+    - 5.4.0
+  label: Claw Marks
+  search:
+    terms:
+      - attack
+      - damage
+      - halloween
+      - rip
+      - scratch
+      - snikt
+      - tear
+      - torn
+      - wolverine
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c2
+  voted: false
+clinic-medical:
+  changes:
+    - 5.7.0
+  label: Medical Clinic
+  search:
+    terms:
+      - covid-19
+      - doctor
+      - general practitioner
+      - hospital
+      - infirmary
+      - medicine
+      - office
+      - outpatient
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7f2
+  voted: false
+clipboard:
+  changes:
+    - 5.0.0
+  label: Clipboard
+  search:
+    terms:
+      - copy
+      - notes
+      - paste
+      - record
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f328
+  voted: false
+clipboard-check:
+  changes:
+    - 5.0.7
+  label: Clipboard with Check
+  search:
+    terms:
+      - accept
+      - agree
+      - confirm
+      - done
+      - ok
+      - select
+      - success
+      - tick
+      - todo
+      - 'yes'
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f46c
+  voted: false
+clipboard-list:
+  changes:
+    - 5.0.7
+  label: Clipboard List
+  search:
+    terms:
+      - checklist
+      - completed
+      - done
+      - finished
+      - intinerary
+      - ol
+      - schedule
+      - tick
+      - todo
+      - ul
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f46d
+  voted: false
+clipboard-list-check:
+  changes:
+    - 5.5.0
+  label: Clipboard List with Check
+  search:
+    terms:
+      - checklist
+      - completed
+      - done
+      - election
+      - finished
+      - intinerary
+      - ol
+      - schedule
+      - tick
+      - todo
+      - ul
+      - vote
+      - voting
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f737
+  voted: false
+clipboard-prescription:
+  changes:
+    - 5.2.0
+  label: Clipboard Prescription
+  search:
+    terms:
+      - copy
+      - history
+      - medical
+      - notes
+      - paste
+      - record
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f5e8
+  voted: false
+clipboard-user:
+  changes:
+    - 5.7.0
+  label: Clipboard with User
+  search:
+    terms:
+      - attendance
+      - record
+      - roster
+      - staff
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f7f3
+  voted: false
+clock:
+  changes:
+    - '1'
+    - 5.0.0
+    - 5.12.1
+  label: Clock
+  search:
+    terms:
+      - date
+      - late
+      - schedule
+      - time
+      - timer
+      - timestamp
+      - watch
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f017
+  voted: false
+clone:
+  changes:
+    - '4.4'
+    - 5.0.0
+    - 5.11.0
+  label: Clone
+  search:
+    terms:
+      - arrange
+      - copy
+      - duplicate
+      - paste
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f24d
+  voted: false
+closed-captioning:
+  changes:
+    - '4.2'
+    - 5.0.0
+    - 5.10.1
+  label: Closed Captioning
+  search:
+    terms:
+      - cc
+      - deaf
+      - hearing
+      - subtitle
+      - subtitling
+      - text
+      - video
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f20a
+  voted: false
+cloud:
+  changes:
+    - '2'
+    - 5.0.0
+    - 5.0.11
+  label: Cloud
+  search:
+    terms:
+      - atmosphere
+      - fog
+      - overcast
+      - save
+      - upload
+      - weather
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0c2
+  voted: false
+cloud-download:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.0.11
+  label: Cloud Download
+  search:
+    terms:
+      - download
+      - export
+      - save
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0ed
+  voted: false
+cloud-download-alt:
+  changes:
+    - 5.0.0
+    - 5.0.11
+  label: Alternate Cloud Download
+  search:
+    terms:
+      - download
+      - export
+      - save
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f381
+  voted: false
+cloud-drizzle:
+  changes:
+    - 5.5.0
+  label: Cloud with Drizzle
+  search:
+    terms:
+      - precipitation
+      - rain
+      - sprinkle
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f738
+  voted: false
+cloud-hail:
+  changes:
+    - 5.5.0
+  label: Cloud with Hail
+  search:
+    terms:
+      - golf balls
+      - ice
+      - precipitation
+      - sleet
+      - snow
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f739
+  voted: false
+cloud-hail-mixed:
+  changes:
+    - 5.5.0
+  label: Cloud with Mixed Hail
+  search:
+    terms:
+      - freezing
+      - ice
+      - precipitation
+      - rain
+      - sleet
+      - snow
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73a
+  voted: false
+cloud-meatball:
+  changes:
+    - 5.5.0
+  label: Cloud with (a chance of) Meatball
+  search:
+    terms:
+      - FLDSMDFR
+      - food
+      - spaghetti
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73b
+  voted: false
+cloud-moon:
+  changes:
+    - 5.4.0
+    - 5.5.0
+  label: Cloud with Moon
+  search:
+    terms:
+      - crescent
+      - evening
+      - lunar
+      - night
+      - partly cloudy
+      - sky
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c3
+  voted: false
+cloud-moon-rain:
+  changes:
+    - 5.5.0
+  label: Cloud with Moon and Rain
+  search:
+    terms:
+      - crescent
+      - evening
+      - lunar
+      - night
+      - partly cloudy
+      - precipitation
+      - rain
+      - sky
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73c
+  voted: false
+cloud-music:
+  changes:
+    - 5.11.0
+  label: Cloud Music
+  search:
+    terms:
+      - download
+      - music
+      - spotify
+      - streaming
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f8ae
+  voted: false
+cloud-rain:
+  changes:
+    - 5.5.0
+  label: Cloud with Rain
+  search:
+    terms:
+      - precipitation
+      - rain
+      - sky
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73d
+  voted: false
+cloud-rainbow:
+  changes:
+    - 5.5.0
+  label: Cloud with Rainbow
+  search:
+    terms:
+      - gold
+      - leprechaun
+      - prism
+      - rain
+      - sky
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73e
+  voted: false
+cloud-showers:
+  changes:
+    - 5.5.0
+  label: Cloud with Showers
+  search:
+    terms:
+      - precipitation
+      - rain
+      - sky
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f73f
+  voted: false
+cloud-showers-heavy:
+  changes:
+    - 5.5.0
+  label: Cloud with Heavy Showers
+  search:
+    terms:
+      - precipitation
+      - rain
+      - sky
+      - storm
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f740
+  voted: false
+cloud-sleet:
+  changes:
+    - 5.5.0
+  label: Cloud with Sleet
+  search:
+    terms:
+      - freezing
+      - hail
+      - precipitation
+      - rain
+      - winter
+      - wintry mix
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f741
+  voted: false
+cloud-snow:
+  changes:
+    - 5.5.0
+  label: Cloud with Snow
+  search:
+    terms:
+      - blizzard
+      - noreaster
+      - precipitation
+      - winter
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f742
+  voted: false
+cloud-sun:
+  changes:
+    - 5.4.0
+    - 5.5.0
+  label: Cloud with Sun
+  search:
+    terms:
+      - clear
+      - day
+      - daytime
+      - fall
+      - outdoors
+      - overcast
+      - partly cloudy
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c4
+  voted: false
+cloud-sun-rain:
+  changes:
+    - 5.5.0
+  label: Cloud with Sun and Rain
+  search:
+    terms:
+      - day
+      - overcast
+      - precipitation
+      - storm
+      - summer
+      - sunshower
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f743
+  voted: false
+cloud-upload:
+  changes:
+    - '3'
+    - 5.0.0
+    - 5.0.11
+  label: Cloud Upload
+  search:
+    terms:
+      - import
+      - save
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0ee
+  voted: false
+cloud-upload-alt:
+  changes:
+    - 5.0.0
+    - 5.0.11
+  label: Alternate Cloud Upload
+  search:
+    terms:
+      - cloud-upload
+      - import
+      - save
+      - upload
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f382
+  voted: false
+clouds:
+  changes:
+    - 5.5.0
+  label: Clouds
+  search:
+    terms:
+      - cloudy
+      - fog
+      - haze
+      - overcast
+      - smoke
+      - storm
+      - weather
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f744
+  voted: false
+clouds-moon:
+  changes:
+    - 5.5.0
+  label: Clouds with Moon
+  search:
+    terms:
+      - cloudy
+      - moonlight
+      - night
+      - overcast
+      - sky
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f745
+  voted: false
+clouds-sun:
+  changes:
+    - 5.5.0
+  label: Clouds with Sun
+  search:
+    terms:
+      - cloudy
+      - day
+      - moonlight
+      - overcast
+      - sky
+      - summer
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f746
+  voted: false
+cloudscale:
+  changes:
+    - 5.0.0
+  label: cloudscale.ch
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f383
+  voted: false
+cloudsmith:
+  changes:
+    - 5.0.0
+  label: Cloudsmith
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f384
+  voted: false
+cloudversify:
+  changes:
+    - 5.0.0
+  label: cloudversify
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f385
+  voted: false
+club:
+  changes:
+    - 5.0.0
+    - 5.10.1
+    - 5.10.2
+  label: Club
+  search:
+    terms:
+      - card
+      - game
+      - poker
+      - suit
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f327
+  voted: false
+cocktail:
+  changes:
+    - 5.1.0
+    - 5.10.1
+  label: Cocktail
+  search:
+    terms:
+      - alcohol
+      - beverage
+      - drink
+      - gin
+      - glass
+      - margarita
+      - martini
+      - vodka
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f561
+  voted: false
+code:
+  changes:
+    - '3.1'
+    - 5.0.0
+  label: Code
+  search:
+    terms:
+      - brackets
+      - code
+      - development
+      - html
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f121
+  voted: false
+code-branch:
+  changes:
+    - 5.0.0
+  label: Code Branch
+  search:
+    terms:
+      - branch
+      - code-fork
+      - fork
+      - git
+      - github
+      - rebase
+      - svn
+      - vcs
+      - version
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f126
+  voted: false
+code-commit:
+  changes:
+    - 5.0.0
+    - 5.1.1
+  label: Code Commit
+  search:
+    terms:
+      - commit
+      - git
+      - github
+      - hash
+      - rebase
+      - svn
+      - vcs
+      - version
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f386
+  voted: false
+code-merge:
+  changes:
+    - 5.0.0
+  label: Code Merge
+  search:
+    terms:
+      - git
+      - github
+      - merge
+      - pr
+      - rebase
+      - svn
+      - vcs
+      - version
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f387
+  voted: false
+codepen:
+  changes:
+    - '4.1'
+    - 5.0.0
+  label: Codepen
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f1cb
+  voted: false
+codiepie:
+  changes:
+    - '4.5'
+    - 5.0.0
+  label: Codie Pie
+  search:
+    terms: []
+  styles:
+    - brands
+  unicode: f284
+  voted: false
+coffee:
+  changes:
+    - '3'
+    - 5.0.0
+  label: Coffee
+  search:
+    terms:
+      - beverage
+      - breakfast
+      - cafe
+      - drink
+      - fall
+      - morning
+      - mug
+      - seasonal
+      - tea
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f0f4
+  voted: false
+coffee-pot:
+  changes:
+    - 5.12.0
+    - 5.14.0
+  label: Coffee Pot
+  search:
+    terms:
+      - beverage
+      - breakfast
+      - brew
+      - cafe
+      - carafe
+      - drink
+      - morning
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: e002
+  voted: false
+coffee-togo:
+  changes:
+    - 5.4.0
+  label: To-Go Coffee
+  search:
+    terms:
+      - beverage
+      - breakfast
+      - cafe
+      - drink
+      - latte
+      - morning
+      - mug
+      - starbucks
+      - takeout
+      - tea
+      - travel
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c5
+  voted: false
+coffin:
+  changes:
+    - 5.4.0
+    - 5.12.1
+  label: Coffin
+  search:
+    terms:
+      - box
+      - burial
+      - casket
+      - cemetery
+      - death
+      - eulogy
+      - funeral
+      - halloween
+      - vampire
+  styles:
+    - solid
+    - regular
+    - light
+    - duotone
+  unicode: f6c6
+  voted: false
+coffin-cross:
+  changes:
+    - 5.12.1
+    - 5.14.0
+  label: Coffin with Cross
+  search:
+    terms:
+      - box
+      - burial
+      - casket

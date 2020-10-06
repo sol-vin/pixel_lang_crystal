@@ -1,49 +1,58 @@
-<html>
+<!DOCTYPE html>
+<!-- Website by Ian Rash @ sol.vin -->
+<html lang="en">
   <head>
-    <title>pixel_lang engine</title>
-    <link rel="stylesheet" href="/css/w3.css">
-    <link rel="stylesheet" href="/css/font-awesome.css">
-    <script src="/js/jquery.js"></script> 
-    <!-- Enables zooming -->
-    <style>
-      <% cell_size = "30px" %>
-      #celllink {
-        display: block;
-        height: <%= cell_size %>;        
-        width: <%= cell_size %>;
-      }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      #cell {
-        height: <%= cell_size %>;
-        width: <%= cell_size %>;
-        white-space: nowrap;
-      }
+    <title>Risa Gilmore | Bread Please! | Looking to help food banks during Covid-19</title>
 
-      #wrap { width: 800px; height: 500px; padding: 0; overflow: auto; }
-      #zoom {
-          -ms-zoom: <%= zoom %>;
-          -moz-transform: scale(<%= zoom %>);
-          -moz-transform-origin: 0 0;
-          -o-transform: scale(<%= zoom %>);
-          -o-transform-origin: 0 0;
-          -webkit-transform: scale(<%= zoom %>);
-          -webkit-transform-origin: 0 0;
-      }
+    <link href="/fonts/css/all.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/slick/slick.css" rel="stylesheet">
+    <link href="/breadplease/main.css" rel="stylesheet">
 
-      td {
-        width: auto;
-      }
-    </style>
+    <script src="/jquery/jquery.js"></script>
+    <script src="/popper/popper-utils.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/slick/slick.min.js"></script>
+
+
+
+    <!-- <meta http-equiv="refresh" content="2"> -->
+    <%= yield_content "head" %>
   </head>
-  <body class="w3-light-grey">
-    <center>
-      <div style="width:75%" class="w3-container">
-        <p align="left">
-          <form action="/" method="get"><input class="w3-button w3-xlarge" type="submit" value="Home"></button></form>
-        </p>
-      </div>
-    </center>
-    <br>
-    <%= content %>
+  <body>
+    <div class="bgcolor1">
+      <%= render_file "navbar/main" %>
+
+      <%= content %>
+
+    </div>
+
+    <script type="text/javascript">
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.single-item').slick({
+            infinite: true,
+            speed: 200,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            prevArrow: false,
+            nextArrow: false,
+            lazyLoad: 'anticipated'
+        });
+    })
+    </script>
+
+    <%= yield_content "footer" %>
   </body>
 </html>
