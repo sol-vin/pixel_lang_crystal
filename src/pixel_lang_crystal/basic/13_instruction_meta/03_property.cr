@@ -1,4 +1,4 @@
-require "../../13_instruction_meta"
+require "../13_instruction_meta"
 
 class IMetaProperty < InstructionMeta
   PROPERTIES = [:width, :height]

@@ -1,0 +1,18 @@
+<p> Welcome! </p>
+
+<%=
+Celestine.draw do |ctx|
+  ctx.view_box = {x: 0, y: 0, w: 1000, h:1000}
+  Engines["ack"].instructions.each do |x, y, instruction|
+    size = 20
+    ctx.rectangle do |r|
+      r.x = x * size
+      r.y = y * size
+      r.width = size
+      r.height = size
+      r.fill = "##{instruction.value.to_u32.to_s(16).rjust(6, '0')}"
+      r
+    end
+  end
+end
+%>

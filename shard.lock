@@ -1,26 +1,34 @@
-version: 1.0
+version: 2.0
 shards:
+  celestine:
+    git: https://github.com/redcodefinal/celestine.git
+    version: 0.1.0+git.commit.cefe295a6589ec05aebb2ccf10cd11ffe3a4b316
+
   exception_page:
-    github: crystal-loot/exception_page
-    version: 0.1.2
+    git: https://github.com/crystal-loot/exception_page.git
+    version: 0.1.4
 
   kemal:
-    github: kemalcr/kemal
-    version: 0.25.2
+    git: https://github.com/kemalcr/kemal.git
+    version: 0.26.1+git.commit.a819d4792bbc63d993d6dd2b15f9af5efb0c2d8c
 
   kilt:
-    github: jeromegn/kilt
+    git: https://github.com/jeromegn/kilt.git
     version: 0.4.0
 
   radix:
-    github: luislavena/radix
+    git: https://github.com/luislavena/radix.git
     version: 0.3.9
 
   stumpy_core:
-    github: stumpycr/stumpy_core
-    version: 1.8.3
+    git: https://github.com/stumpycr/stumpy_core.git
+    version: 1.9.1
 
   stumpy_png:
-    github: l3kn/stumpy_png
-    version: 4.4.1
+    git: https://github.com/l3kn/stumpy_png.git
+    version: 5.0.0+git.commit.9a7399a27f0e3b710cb7c2be699649c6c276b27e
+
+  vectormath:
+    git: https://github.com/mathalaxy/vectormath.git
+    version: 0.1.5
 

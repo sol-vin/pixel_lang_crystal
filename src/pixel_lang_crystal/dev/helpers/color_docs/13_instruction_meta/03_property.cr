@@ -1,4 +1,4 @@
-require "../../13_instruction_meta/03_property"
+require "../13_instruction_meta/03_property"
 class IMetaProperty
   def self.reference_card
     %q{

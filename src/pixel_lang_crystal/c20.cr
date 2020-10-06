@@ -55,17 +55,30 @@ struct C20
   end
 
   {% for op in Constants::ARITHMETIC_OPERATIONS %}
-    #C20 op C20
-    def {{op.id}}(other : C20) : C20
-      new_value = self.value {{op.id}} other.value
-      C20.new(new_value)
-    end
-    
-    #C20 op Int
-    def {{op.id}}(other : Int) : C20
-      new_value = self.value {{op.id}} other
-      C20.new(new_value.to_i)
-    end
+    {% if op == :+ || op == :- %}
+      def {{op.id}}(other : C20) : C20
+        new_value = (self.value &{{op.id}} other.value).to_u32
+        C20.new(new_value)
+      end
+      
+      #C20 op Int
+      def {{op.id}}(other : Int) : C20
+        new_value = (self.value &{{op.id}} other).to_u32
+        C20.new(new_value)
+      end
+    {% else %}
+      #C20 op C20
+      def {{op.id}}(other : C20) : C20
+        new_value = (self.value {{op.id}} other.value).to_u32
+        C20.new(new_value)
+      end
+      
+      #C20 op Int
+      def {{op.id}}(other : Int) : C20
+        new_value = (self.value {{op.id}} other).to_u32
+        C20.new(new_value)
+      end
+    {% end %}
   {% end %}
 
   {% for op in Constants::BOOLEAN_OPERATIONS %}

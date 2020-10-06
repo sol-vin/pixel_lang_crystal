@@ -6,7 +6,7 @@
 #   Goal: Translate all programs into this format, have crystal generate the examples dynamically.
 require "../../../pixel_lang_crystal"
 
-def make_i(i)
+def make_instruction(i)
   "#{i.class}.make(#{i.arguments.join(", ")})"
 end
 
@@ -15,7 +15,7 @@ def translate(file)
   output = "instructions = Instructions.new(#{instructions.width}, #{instructions.height})\n"
   instructions.each do |x, y, i|
     if i.class != Blank
-      output += "instructions[#{x}, #{y}] = #{make_i(i)}\n"
+      output += "instructions[#{x}, #{y}] = #{make_instruction(i)}\n"
     end
   end
   output

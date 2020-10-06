@@ -1,9 +1,8 @@
 name: pixel_lang_crystal
 version: 0.1.0
 
-crystal: 0.24.1
+crystal: 0.35.1
 license: MIT
-name: pixel_lang_crystal
 
 authors:
   - Ian Rash <redcodefinal@gmail.com>
@@ -23,5 +22,10 @@ targets:
 dependencies:
   stumpy_png:
     github: l3kn/stumpy_png
+    branch: master
+  celestine:
+    github: redcodefinal/celestine
+    branch: master
   kemal:
     github: kemalcr/kemal
+    branch: master

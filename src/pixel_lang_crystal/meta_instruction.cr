@@ -1,5 +1,5 @@
-require "./../instruction"
-require "./../piston"
+require "./instruction"
+require "./piston"
 
 abstract class MetaInstruction < Instruction
   def self.meta_code

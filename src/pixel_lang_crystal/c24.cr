@@ -113,18 +113,40 @@ struct C24
     self.value == other
   end
 
+  
+  def <=> (other : C24)
+    self.value <=> other.value
+  end
+
+  def <=> (other : Int)
+    self.value <=> other
+  end
+
   {% for op in Constants::ARITHMETIC_OPERATIONS %}
     #C24 op C24
-    def {{op.id}}(other : C24) : C24
-      new_value = self.value {{op.id}} other.value
-      C24.new(new_value)
-    end
-    
-    #C24 op Int
-    def {{op.id}}(other : Int) : C24
-      new_value = self.value {{op.id}} other
-      C24.new(new_value.to_i)
-    end
+    {% if op == :+ || op == :- %}
+      def {{op.id}}(other : C24) : C24
+        new_value = (self.value &{{op.id}} other.value).to_u32
+        C24.new(new_value)
+      end
+      
+      #C24 op Int
+      def {{op.id}}(other : Int) : C24
+        new_value = (self.value &{{op.id}} other).to_u32
+        C24.new(new_value)
+      end
+    {% else %}
+      def {{op.id}}(other : C24) : C24
+        new_value = (self.value {{op.id}} other.value).to_u32
+        C24.new(new_value)
+      end
+      
+      #C24 op Int
+      def {{op.id}}(other : Int) : C24
+        new_value = (self.value {{op.id}} other).to_u32
+        C24.new(new_value)
+      end
+    {% end %}
   {% end %}
 end
 

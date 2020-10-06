@@ -18,7 +18,7 @@ class AutoEngine < Engine
   end
 
   # gets a number from input until it hits the end or a non-number char
-  def pop_int
+  def pop_int : C20
     # ''.to_i is equal to 0
     i = "0"
     while input.size != 0 && ('0'..'9').includes?(input[0])
@@ -29,13 +29,13 @@ class AutoEngine < Engine
   end
 
     # gets the next input char
-  def pop_char
+  def pop_char : C20
     c = C20.new((input.size == 0) ? 0 : input[0].ord)
     @input = input.chars[1...input.chars.size].join
     c
   end
 
-  def peek_char
+  def peek_char : C20
     i = 0
     if input.size != 0
       i = input[0].ord
@@ -43,7 +43,7 @@ class AutoEngine < Engine
     C20.new i
   end
 
-  def peek_int
+  def peek_int : C20
     x = 0
     total = ""
     while x < input.size && ('0'..'9').includes?(input[x])
